@@ -11,13 +11,13 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "com.github.bbugsco.substancecraft.datagen.SubstanceCraftDatagen"
+      "com.github.ringlocker.substancecraft.datagen.SubstanceCraftDatagen"
     ],
     "client": [
-      "com.github.bbugsco.substancecraft.client.SubstanceCraftClient"
+      "com.github.ringlocker.substancecraft.client.SubstanceCraftClient"
     ],
     "main": [
-      "com.github.bbugsco.substancecraft.SubstanceCraft"
+      "com.github.ringlocker.substancecraft.SubstanceCraft"
     ]
   },
   "depends": {
