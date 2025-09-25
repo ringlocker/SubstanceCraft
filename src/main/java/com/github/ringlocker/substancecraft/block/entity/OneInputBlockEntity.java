@@ -27,8 +27,7 @@ public abstract class OneInputBlockEntity<T extends OneInputRecipe> extends Inpu
     private final boolean hasRepeatInputRecipes;
 
     public OneInputBlockEntity(BlockPos pos, BlockState state, String displayName, RecipeType<T> type, BlockEntityType<?> blockEntityType, boolean hasRepeatInputRecipes) {
-        //super(blockEntityType, pos, state, displayName, 5);
-        super(blockEntityType, pos, state, displayName, 8);
+        super(blockEntityType, pos, state, displayName, 5);
         this.matchGetter = RecipeManager.createCheck(type);
         this.hasRepeatInputRecipes = hasRepeatInputRecipes;
         this.type = type;
