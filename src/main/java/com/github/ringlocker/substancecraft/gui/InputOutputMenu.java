@@ -34,6 +34,7 @@ public class InputOutputMenu<T extends InputOutputBlockEntity> extends AbstractC
     @SuppressWarnings("unchecked")
     protected InputOutputMenu(MenuType<? extends InputOutputMenu> menu, int syncId, Inventory playerInventory, InputOutputBlockEntity entity, SimpleContainerData blockEntityData) {
         super(menu, syncId);
+        entity.setupRecipeList(entity.getLevel());
         checkContainerSize(entity, entity.getContainerSize());
         this.blockEntity = (T) entity;
         this.blockEntityInventory = entity;
@@ -53,7 +54,6 @@ public class InputOutputMenu<T extends InputOutputBlockEntity> extends AbstractC
             this.addSlot(createByproductSlot(blockEntity, i));
         }
         addDataSlots(blockEntityData);
-
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
     }

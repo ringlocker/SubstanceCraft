@@ -70,6 +70,8 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
         this.inventory = NonNullList.withSize(inventorySize, ItemStack.EMPTY);
     }
 
+    public abstract void setupRecipeList(Level level);
+
     public abstract int getMaxByproducts();
 
     public abstract int getNumRecipes();

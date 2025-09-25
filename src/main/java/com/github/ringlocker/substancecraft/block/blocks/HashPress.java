@@ -1,12 +1,9 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
-import com.github.ringlocker.substancecraft.block.entity.InputOutputBlockEntity;
 import com.github.ringlocker.substancecraft.block.entity.entities.HashPressBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -72,22 +69,6 @@ public class HashPress extends BaseEntityBlock implements EntityBlock {
     @Override
     protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
-    }
-
-    @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean moved) {
-        if (!state.is(newState.getBlock())) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof InputOutputBlockEntity) {
-                if (level instanceof ServerLevel) {
-                    Containers.dropContents(level, pos, (InputOutputBlockEntity) blockEntity);
-                }
-                super.onRemove(state, level, pos, newState, moved);
-                level.updateNeighbourForOutputSignal(pos, this);
-            } else {
-                super.onRemove(state, level, pos, newState, moved);
-            }
-        }
     }
 
     @Override
