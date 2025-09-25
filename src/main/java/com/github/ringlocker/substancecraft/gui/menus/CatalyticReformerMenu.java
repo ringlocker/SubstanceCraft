@@ -15,8 +15,8 @@ public class CatalyticReformerMenu extends OneInputMenu<CatalyticReformerRecipe,
         this(syncId, playerInventory, playerInventory.player.level().getBlockEntity(pos), new SimpleContainerData(3));
     }
 
-    public CatalyticReformerMenu(int syncId, Inventory inventory, BlockEntity entity, SimpleContainerData arrayPropertyDelegate) {
-        super(SubstanceCraftMenus.CATALYTIC_REFORMER, syncId, inventory, entity, arrayPropertyDelegate);
+    public CatalyticReformerMenu(int syncId, Inventory playerInventory, BlockEntity entity, SimpleContainerData arrayPropertyDelegate) {
+        super(SubstanceCraftMenus.CATALYTIC_REFORMER, syncId, playerInventory, entity, arrayPropertyDelegate);
     }
 
 }

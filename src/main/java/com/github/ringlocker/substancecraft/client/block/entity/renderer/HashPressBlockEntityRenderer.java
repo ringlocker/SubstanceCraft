@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ import java.util.Objects;
 public class HashPressBlockEntityRenderer implements BlockEntityRenderer<HashPressBlockEntity> {
 
     @Override
-    public void render(HashPressBlockEntity entity, float tickDelta, PoseStack matrices, MultiBufferSource vertexConsumers, int light, int overlay) {
+    public void render(HashPressBlockEntity entity, float partialTick, PoseStack matrices, MultiBufferSource vertexConsumers, int packedLight, int packedOverlay, Vec3 cameraPos) {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
         ItemStack itemStack = entity.getRenderStack();
         matrices.pushPose();

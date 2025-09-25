@@ -20,7 +20,7 @@ public class SimpleDrugs {
         @Override
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
-            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 360, 0));
+            player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 360, 0));
             player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 360, 0));
             player.addEffect(new MobEffectInstance(MobEffects.POISON, 360, 0));
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 360, 0));

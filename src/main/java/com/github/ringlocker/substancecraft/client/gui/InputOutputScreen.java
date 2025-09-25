@@ -2,12 +2,11 @@ package com.github.ringlocker.substancecraft.client.gui;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.gui.InputOutputMenu;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -42,7 +41,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
     protected static final int PROGRESS_ARROW_X = 103;
     protected static final int PROGRESS_ARROW_Y = 30;
 
-    protected ResourceLocation BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/one_input_output.png");
+    protected ResourceLocation BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/one_input_output_0_byproduct.png");
 
     protected float scrollOffset;
     protected boolean scrolling;
@@ -55,6 +54,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
     @Override
     protected void init() {
         super.init();
+        setBackgroundTexture(menu.getBlockEntity().getMaxByproducts(), menu.getBlockEntity().multipleInput());
         titleLabelY = 5;
         titleLabelX = 10;
     }
@@ -67,15 +67,12 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
-        setBackgroundTexture(menu.getBlockEntity().getMaxByproducts(), menu.getBlockEntity().multipleInput());
-        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
-        RenderSystem.setShaderTexture(0, BACKGROUND_TEXTURE);
-        guiGraphics.blit(RenderType::guiTextured, BACKGROUND_TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
+        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
 
         ResourceLocation scrollerTexture = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
-        guiGraphics.blitSprite(RenderType::guiTextured, scrollerTexture, leftPos + SCROLLER_X, topPos + SCROLLER_Y + (int) (41.0F * this.scrollOffset), SCROLLER_WIDTH, SCROLLER_HEIGHT);
+        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, scrollerTexture, leftPos + SCROLLER_X, topPos + SCROLLER_Y + (int) (41.0F * this.scrollOffset), SCROLLER_WIDTH, SCROLLER_HEIGHT);
 
-        renderProgressArrow(guiGraphics, leftPos, topPos);
+        this.renderProgressArrow(guiGraphics, leftPos, topPos);
         this.renderButtons(guiGraphics, mouseX, mouseY, leftPos + RECIPES_X, topPos + RECIPES_Y, firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS));
         this.renderRecipes(guiGraphics, leftPos + RECIPES_X, topPos + RECIPES_Y, firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS));
     }
@@ -91,7 +88,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
             int buttonX = recipeX + (relativeIndex % RECIPES_COLUMNS) * RECIPES_IMAGE_SIZE_WIDTH;
             int buttonY = recipeY + (relativeIndex / RECIPES_COLUMNS) * RECIPES_IMAGE_SIZE_HEIGHT + 2;
             if (isMouseInBox(mouseX, mouseY, buttonX, buttonX + RECIPES_IMAGE_SIZE_WIDTH, buttonY, buttonY + RECIPES_IMAGE_SIZE_HEIGHT)) {
-                guiGraphics.renderTooltip(this.font, tooltip(index), Optional.empty(), mouseX, mouseY);
+                guiGraphics.setTooltipForNextFrame(this.font, tooltip(index), Optional.empty(), mouseX, mouseY);
             }
         }
     }
@@ -103,7 +100,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
             int renderX = recipesX + relativeIndex % RECIPES_COLUMNS * RECIPES_IMAGE_SIZE_WIDTH;
             int renderY = recipesY + row * RECIPES_IMAGE_SIZE_HEIGHT + 2;
             ResourceLocation buttonStateTexture = getButtonStateTexture(index, mouseX, mouseY, renderX, renderY);
-            guiGraphics.blitSprite(RenderType::guiTextured, buttonStateTexture, renderX, renderY - 1, RECIPES_IMAGE_SIZE_WIDTH, RECIPES_IMAGE_SIZE_HEIGHT);
+            guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, buttonStateTexture, renderX, renderY - 1, RECIPES_IMAGE_SIZE_WIDTH, RECIPES_IMAGE_SIZE_HEIGHT);
         }
     }
 
@@ -186,7 +183,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
 
     private void renderProgressArrow(GuiGraphics context, int x, int y) {
         if (menu.isCrafting()) {
-            context.blit(RenderType::guiTextured, BACKGROUND_TEXTURE, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, 176, 0, 8, menu.getScaledProgress(), 256, 256);
+            context.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, 176, 0, 8, menu.getScaledProgress(), 256, 256);
         }
     }
 
@@ -211,23 +208,11 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
     }
 
     private void setBackgroundTexture(int numberOfByproductSlots, boolean multipleInput) {
-        if (!multipleInput) {
-            if (numberOfByproductSlots == 1)
-                BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/one_input_output_1_byproduct.png");
-            else if (numberOfByproductSlots == 2)
-                BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/one_input_output_2_byproduct.png");
-            else if (numberOfByproductSlots == 3)
-                BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/one_input_output_3_byproduct.png");
-            else BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/one_input_output.png");
-        } else {
-            if (numberOfByproductSlots == 1)
-                BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/multiple_input_output_1_byproduct.png");
-            else if (numberOfByproductSlots == 2)
-                BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/multiple_input_output_2_byproduct.png");
-            else if (numberOfByproductSlots == 3)
-                BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/multiple_input_output_3_byproduct.png");
-            else BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/multiple_input_output.png");
-        }
+        String texture = multipleInput
+                ? String.format("textures/gui/multiple_input_output_%s_byproduct.png", numberOfByproductSlots)
+                : String.format("textures/gui/one_input_output_%s_byproduct.png", numberOfByproductSlots);
+
+        BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, texture);
     }
 
 }

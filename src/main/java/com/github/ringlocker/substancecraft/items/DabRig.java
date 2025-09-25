@@ -97,12 +97,12 @@ public class DabRig {
                 }
                 if (previousAmplifier > 3) {
                     int secondaryEffectLevel = Math.min(9, previousAmplifier + 1);
-                    player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, duration, secondaryEffectLevel, true, false));
+                    player.addEffect(new MobEffectInstance(MobEffects.NAUSEA, duration, secondaryEffectLevel, true, false));
                     player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, duration, Math.min(secondaryEffectLevel, 4), true, false));
-                    player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, duration, Math.min(secondaryEffectLevel, 4), true, false));
+                    player.addEffect(new MobEffectInstance(MobEffects.MINING_FATIGUE, duration, Math.min(secondaryEffectLevel, 4), true, false));
                 }
                 player.addEffect(new MobEffectInstance(MobEffects.HUNGER, duration, Math.min(previousAmplifier + 1, 9), true, false));
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, duration, Math.min((previousAmplifier < 4 ? previousAmplifier : 3) + 1, 9), true, false));
+                player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, duration, Math.min((previousAmplifier < 4 ? previousAmplifier : 3) + 1, 9), true, false));
             }
             return itemStack;
         }

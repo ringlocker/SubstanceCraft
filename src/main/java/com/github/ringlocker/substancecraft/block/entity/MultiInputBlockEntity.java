@@ -53,7 +53,8 @@ public abstract class MultiInputBlockEntity<T extends MultipleInputRecipe> exten
             if (holder.value().getByproducts().size() > max)
                 max = holder.value().getByproducts().size();
         }
-        return max;
+        //return max;
+        return 3;
     }
 
     @Override
@@ -83,11 +84,6 @@ public abstract class MultiInputBlockEntity<T extends MultipleInputRecipe> exten
     @Override
     public boolean hasRepeatInputRecipes() {
         return hasRepeatInputRecipes;
-    }
-
-    @Override
-    public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return null;
     }
 
     @Override

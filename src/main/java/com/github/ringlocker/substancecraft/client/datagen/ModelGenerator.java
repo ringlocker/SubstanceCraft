@@ -10,19 +10,27 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.client.data.models.blockstates.Variant;
-import net.minecraft.client.data.models.blockstates.VariantProperties;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.renderer.block.model.Variant;
+import net.minecraft.client.renderer.block.model.VariantMutator;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 @Environment(EnvType.CLIENT)
 public class ModelGenerator extends FabricModelProvider {
+
+    private static final PropertyDispatch<VariantMutator> ROTATION_HORIZONTAL_FACING = PropertyDispatch.modify(BlockStateProperties.HORIZONTAL_FACING)
+            .select(Direction.EAST, BlockModelGenerators.Y_ROT_90).select(Direction.SOUTH, BlockModelGenerators.Y_ROT_180).select(Direction.WEST, BlockModelGenerators.Y_ROT_270).select(Direction.NORTH, BlockModelGenerators.NOP);
 
     public ModelGenerator(FabricDataOutput output) {
         super(output);
@@ -100,18 +108,23 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.TETRAHYDROFURAN, ModelTemplates.FLAT_ITEM);
     }
 
-    private void createTopBottomSideFrontAndFrontOnTexture(Block block, BlockModelGenerators blockModelGenerators) {
+
+
+    public static PropertyDispatch<MultiVariant> createBooleanModelDispatch(BooleanProperty property, MultiVariant onTrue, MultiVariant onFalse) {
+        return PropertyDispatch.initial(property).select(true, onTrue).select(false, onFalse);
+    }
+
+    private static void createTopBottomSideFrontAndFrontOnTexture(Block block, BlockModelGenerators blockModelGenerators) {
         ResourceLocation texture = TexturedModel.ORIENTABLE.create(block, blockModelGenerators.modelOutput);
         ResourceLocation frontOn = TexturedModel.ORIENTABLE.get(block)
                 .updateTextures(textureMapping -> textureMapping.put(TextureSlot.FRONT, TextureMapping.getBlockTexture(block, "_front_on")))
                 .createWithSuffix(block, "_on", blockModelGenerators.modelOutput);
 
+        MultiVariant offVariant = new MultiVariant(WeightedList.of(new Variant(texture)));
+        MultiVariant onVariant = new MultiVariant(WeightedList.of(new Variant(frontOn)));
         blockModelGenerators.blockStateOutput.accept(
-                MultiVariantGenerator.multiVariant(block, Variant.variant().with(VariantProperties.MODEL, texture))
-                        .with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.LIT, frontOn, texture))
-                        .with(BlockModelGenerators.createHorizontalFacingDispatch())
+                MultiVariantGenerator.dispatch(block).with(createBooleanModelDispatch(BlockStateProperties.LIT, onVariant, offVariant)).with(ROTATION_HORIZONTAL_FACING)
         );
-
     }
 
 }

@@ -10,6 +10,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.inventory.SimpleContainerData;
@@ -22,6 +23,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -100,6 +103,7 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
 
     public void setSelectedRecipeIndex(int selectedRecipeIndex) {
         this.selectedRecipeIndex = selectedRecipeIndex;
+        setChanged();
     }
 
     @Override
@@ -129,7 +133,7 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
         return this.getItem(slot).isEmpty() || getItem(slot).getCount() < getItem(slot).getMaxStackSize();
     }
 
-    protected  void byproduct(ByproductRecipe recipe, int firstByproductSlot) {
+    protected void byproduct(ByproductRecipe recipe, int firstByproductSlot) {
         List<ItemStack> byproducts = recipe.getByproducts();
         if (byproducts.isEmpty()) { return; }
         int index = 0;
@@ -154,6 +158,16 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
     }
 
     @Override
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        return this.saveWithFullMetadata(registries);
+    }
+
+    @Override
     public void setChanged() {
         if (level != null) {
             level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
@@ -162,21 +176,21 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        ContainerHelper.loadAllItems(tag, this.inventory, registries);
-        progress = tag.getInt("Progress");
-        maxProgress = tag.getInt("MaxProgress");
-        selectedRecipeIndex = tag.getInt("SelectedRecipeIndex");
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        ContainerHelper.loadAllItems(input, this.inventory);
+        progress = input.getIntOr("Progress", 0);
+        maxProgress = input.getIntOr("MaxProgress", 0);
+        selectedRecipeIndex = input.getIntOr("SelectedRecipeIndex", 0);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        ContainerHelper.saveAllItems(tag, this.inventory, registries);
-        tag.putInt("Progress", progress);
-        tag.putInt("MaxProgress", maxProgress);
-        tag.putInt("SelectedRecipeIndex", selectedRecipeIndex);
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        ContainerHelper.saveAllItems(output, this.inventory);
+        output.putInt("Progress", progress);
+        output.putInt("MaxProgress", maxProgress);
+        output.putInt("SelectedRecipeIndex", selectedRecipeIndex);
     }
 
 }

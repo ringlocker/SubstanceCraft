@@ -9,11 +9,11 @@ import com.github.ringlocker.substancecraft.client.network.SubstanceCraftClientN
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 
 @Environment(EnvType.CLIENT)
 public class SubstanceCraftClient implements ClientModInitializer, DataGeneratorEntrypoint {
@@ -28,8 +28,8 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
     }
 
     private void registerRenderLayers() {
-        BlockRenderLayerMap.INSTANCE.putBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(SubstanceCraftBlocks.CORN_CROP, RenderType.cutout());
+        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.CORN_CROP, ChunkSectionLayer.CUTOUT);
     }
 
     private void registerBlockEntityRenderers() {
