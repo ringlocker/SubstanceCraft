@@ -22,7 +22,7 @@ public class SimpleDrugs {
             if (!(livingEntity instanceof Player player)) return stack;
             player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 360, 0));
             player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 360, 0));
-            player.addEffect(new MobEffectInstance(MobEffects.POISON, 360, 0));
+            player.addEffect(new MobEffectInstance(MobEffects.POISON, 180, 0));
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 360, 0));
             stack.setCount(stack.getCount() - 1);
             return stack;
@@ -38,7 +38,7 @@ public class SimpleDrugs {
         @Override
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
-            player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 360, 0));
+            player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 20*60, 0));
             stack.setCount(stack.getCount() - 1);
             return stack;
         }
