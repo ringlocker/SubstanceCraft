@@ -47,8 +47,7 @@ public abstract class OneInputBlockEntity<T extends OneInputRecipe> extends Inpu
             if (holder.value().getByproducts().size() > max)
                 max = holder.value().getByproducts().size();
         }
-        //return max;
-        return 3;
+        return max;
     }
 
     @Override
