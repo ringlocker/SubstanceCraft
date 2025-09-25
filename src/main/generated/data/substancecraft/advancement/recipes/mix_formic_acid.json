@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:mix_hcl"
+        "recipe": "substancecraft:mix_formic_acid"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "substancecraft:mix_hcl"
+      "substancecraft:mix_formic_acid"
     ]
   }
 }

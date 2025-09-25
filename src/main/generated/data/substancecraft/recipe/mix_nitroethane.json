@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:nitric_acid",
+    "substancecraft:ethane"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:nitroethane"
+  },
+  "time": 800
+}

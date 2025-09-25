@@ -74,6 +74,12 @@ public class SubstanceCraftItems {
     public static final Item BROMIDE = registerItem("bromide", properties -> new SubstanceItem(properties, SubstanceTintColor.LIGHT_FOGGY_ORANGE_LIQUID), new Item.Properties());
     public static final Item TWO_C_B = registerItem("2c_b", Item::new, new Item.Properties());
     public static final Item DISTILLED_WATER = registerItem("distilled_water", properties -> new SubstanceItem(properties, SubstanceTintColor.DARK_BLUE_LIQUID), new Item.Properties());
+    public static final Item P2P = registerItem("p2p", properties -> new SubstanceItem(properties, SubstanceTintColor.VERY_LIGHT_YELLOW_LIQUID), new Item.Properties());
+    public static final Item P2NP = registerItem("p2np", Item::new, new Item.Properties());
+    public static final Item NITROETHANE = registerItem("nitroethane", properties -> new SubstanceItem(properties, SubstanceTintColor.CLEAR_LIQUID), new Item.Properties());
+    public static final Item FORMIC_ACID = registerItem("formic_acid", properties -> new SubstanceItem(properties, SubstanceTintColor.CLEAR_LIQUID), new Item.Properties());
+    public static final Item METHYL_FORMATE = registerItem("methyl_formate", properties -> new SubstanceItem(properties, SubstanceTintColor.CLEAR_LIQUID), new Item.Properties());
+    public static final Item AMPHETAMINE = registerItem("amphetamine", SimpleDrugs.Amphetamine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
@@ -120,6 +126,8 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftItems.COKE);
                             entries.accept(SubstanceCraftItems.AMMONIUM_ACETATE);
                             entries.accept(SubstanceCraftItems.MALEIC_ANHYDRIDE);
+                            entries.accept(SubstanceCraftItems.P2NP);
+                            entries.accept(SubstanceCraftItems.AMPHETAMINE);
                             entries.accept(SubstanceCraftItems.OIL);
                             entries.accept(SubstanceCraftItems.PETROLEUM_NAPHTHA);
                             entries.accept(SubstanceCraftItems.KEROSENE);
@@ -156,6 +164,11 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftItems.BROMINE);
                             entries.accept(SubstanceCraftItems.BROMIDE);
                             entries.accept(SubstanceCraftItems.DISTILLED_WATER);
+                            entries.accept(SubstanceCraftItems.P2P);
+                            entries.accept(SubstanceCraftItems.NITROETHANE);
+                            entries.accept(SubstanceCraftItems.METHYL_FORMATE);
+                            entries.accept(SubstanceCraftItems.FORMIC_ACID
+                            );
                         }).build());
 
     }

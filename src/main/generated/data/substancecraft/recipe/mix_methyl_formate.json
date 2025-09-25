@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:carbon_monoxide",
+    "substancecraft:methanol"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:methyl_formate"
+  },
+  "time": 800
+}

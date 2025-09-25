@@ -379,7 +379,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "electrolysis_brine")));
 
                 ElectrolysisRecipeBuilder.electrolysis(
-                                Ingredient.of(Items.POTION),
+                                Ingredient.of(SubstanceCraftItems.DISTILLED_WATER),
                                 SubstanceCraftItems.HYDROGEN,
                                 List.of(new ItemStack(SubstanceCraftItems.OXYGEN, 50 >> 1)),
                                 1000,
@@ -414,6 +414,24 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.BRINE))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "extract_bromide")));
+
+                ExtractorRecipeBuilder.extract(
+                                Ingredient.of(Items.POTION),
+                                SubstanceCraftItems.DISTILLED_WATER,
+                                1200,
+                                ExtractorRecipe::new
+                        )
+                        .unlockedBy("has_item", has(Items.POTION))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "extract_distilled_water")));
+
+                ExtractorRecipeBuilder.extract(
+                                Ingredient.of(SubstanceCraftItems.P2NP),
+                                SubstanceCraftItems.P2P,
+                                1200,
+                                ExtractorRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.P2NP))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "extract_p2p")));
 
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SALT), Ingredient.of(Items.POTION)),
@@ -468,6 +486,16 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.BROMINE))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_2c_b")));
 
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.METHYL_FORMATE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
+                                SubstanceCraftItems.FORMIC_ACID,
+                                800,
+                                MixerRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.METHYL_FORMATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_formic_acid")));
+
 
                 HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.AMMONIA), Ingredient.of(SubstanceCraftItems.METHANOL)),
@@ -490,14 +518,14 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_chloroform")));
 
                 HeatedMixerRecipeBuilder.mix(
-                                List.of(Ingredient.of(SubstanceCraftItems.CHLORINE), Ingredient.of(SubstanceCraftItems.HYDROGEN), Ingredient.of(Items.POTION)),
+                                List.of(Ingredient.of(SubstanceCraftItems.CHLORINE), Ingredient.of(SubstanceCraftItems.HYDROGEN), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
                                 SubstanceCraftItems.HYDROCHLORIC_ACID,
                                 800,
                                 HeatedMixerRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.CHLORINE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.HYDROCHLORIC_ACID))
-                        .unlockedBy("has_item", has(Items.POTION))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_hcl")));
 
                 HeatedMixerRecipeBuilder.mix(
@@ -539,6 +567,51 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.PROPANE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.NITRIC_ACID))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_beta_nitrostyrene")));
+
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.CARBON_MONOXIDE), Ingredient.of(SubstanceCraftItems.METHANOL)),
+                                SubstanceCraftItems.METHYL_FORMATE,
+                                800,
+                                HeatedMixerRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CARBON_MONOXIDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.METHANOL))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_methyl_formate")));
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.BENZALDEHYDE), Ingredient.of(SubstanceCraftItems.NITROETHANE)),
+                                SubstanceCraftItems.P2NP,
+                                800,
+                                HeatedMixerRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.BENZALDEHYDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.NITROETHANE))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_p2np")));
+
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.NITRIC_ACID), Ingredient.of(SubstanceCraftItems.ETHANE)),
+                                SubstanceCraftItems.NITROETHANE,
+                                800,
+                                HeatedMixerRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.NITRIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ETHANE))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_nitroethane")));
+
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.P2P), Ingredient.of(SubstanceCraftItems.FORMIC_ACID),  Ingredient.of(SubstanceCraftItems.AMMONIA)),
+                                SubstanceCraftItems.AMPHETAMINE,
+                                800,
+                                HeatedMixerRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.P2P))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.FORMIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIA))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_amphetamine")));
+
 
                 FermentationTankRecipeBuilder.ferment(
                                 List.of(Ingredient.of(SubstanceCraftItems.YEAST), Ingredient.of(SubstanceCraftItems.CORN)),

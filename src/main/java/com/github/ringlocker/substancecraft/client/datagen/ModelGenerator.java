@@ -110,6 +110,12 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.BETA_NITROSTYRENE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.TETRAHYDROFURAN, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.DISTILLED_WATER, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.P2P, itemModelGenerator);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.P2NP, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.NITROETHANE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.FORMIC_ACID, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.METHYL_FORMATE, itemModelGenerator);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.AMPHETAMINE, ModelTemplates.FLAT_ITEM);
     }
 
     public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {

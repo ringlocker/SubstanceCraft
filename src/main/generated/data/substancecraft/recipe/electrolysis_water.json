@@ -6,7 +6,7 @@
       "id": "substancecraft:oxygen"
     }
   ],
-  "ingredient": "minecraft:potion",
+  "ingredient": "substancecraft:distilled_water",
   "result": {
     "count": 1,
     "id": "substancecraft:hydrogen"

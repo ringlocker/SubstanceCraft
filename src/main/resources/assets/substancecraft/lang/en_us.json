@@ -70,5 +70,11 @@
   "item.substancecraft.bromine": "Bromine",
   "item.substancecraft.bromide": "Bromide",
   "item.substancecraft.2c_b": "2C-B",
-  "item.substancecraft.distilled_water": "Distilled Water"
+  "item.substancecraft.distilled_water": "Distilled Water",
+  "item.substancecraft.p2p": "P2P",
+  "item.substancecraft.p2np": "P2NP",
+  "item.substancecraft.nitroethane": "Nitroethane",
+  "item.substancecraft.formic_acid": "Formic Acid",
+  "item.substancecraft.methyl_formate": "Methyl Formate",
+  "item.substancecraft.amphetamine": "Amphetamine"
 }
