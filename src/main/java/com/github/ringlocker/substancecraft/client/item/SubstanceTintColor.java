@@ -1,5 +1,6 @@
-package com.github.ringlocker.substancecraft.items;
+package com.github.ringlocker.substancecraft.client.item;
 
+import com.github.ringlocker.substancecraft.items.SubstanceItem;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.fabricmc.api.EnvType;

@@ -7,7 +7,7 @@ import com.github.ringlocker.substancecraft.client.block.entity.renderer.HashPre
 import com.github.ringlocker.substancecraft.client.datagen.ModelGenerator;
 import com.github.ringlocker.substancecraft.client.gui.SubstanceCraftScreens;
 import com.github.ringlocker.substancecraft.client.network.SubstanceCraftClientNetworking;
-import com.github.ringlocker.substancecraft.items.SubstanceTintColor;
+import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

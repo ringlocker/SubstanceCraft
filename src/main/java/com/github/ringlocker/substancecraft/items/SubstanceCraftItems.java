@@ -2,6 +2,7 @@ package com.github.ringlocker.substancecraft.items;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
+import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
