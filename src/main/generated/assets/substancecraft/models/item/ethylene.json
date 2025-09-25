@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "substancecraft:item/ethylene"
+    "layer0": "substancecraft:item/substance_overlay",
+    "layer1": "substancecraft:item/substance"
   }
 }

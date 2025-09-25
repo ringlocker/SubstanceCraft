@@ -1,9 +1,11 @@
 package com.github.ringlocker.substancecraft.client.datagen;
 
+import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
 import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
+import com.github.ringlocker.substancecraft.items.SubstanceTintColor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
@@ -13,6 +15,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
+import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
@@ -22,9 +25,9 @@ import net.minecraft.client.renderer.block.model.VariantMutator;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.WeightedList;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 @Environment(EnvType.CLIENT)
 public class ModelGenerator extends FabricModelProvider {
@@ -61,57 +64,59 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.EMPTY_DAB_RIG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.DIPHENHYDRAMINE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.KETAMINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.OIL, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.PETROLEUM_NAPHTHA, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.KEROSENE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.GASOLINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.METHANOL, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.FORMALDEHYDE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.CHLOROFORM, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BENZENE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.TOLUENE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.OIL, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.PETROLEUM_NAPHTHA, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.KEROSENE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.GASOLINE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.METHANOL, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.FORMALDEHYDE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.CHLOROFORM, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.BENZENE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.TOLUENE, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.SALT, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BRINE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.BRINE, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.SODIUM_HYDROXIDE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.METHANE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.CHLORINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.HYDROGEN, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.NITROGEN, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.OXYGEN, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.NATURAL_GAS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.PROPANE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.ETHANE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BUTANE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.METHYLAMINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.ETHYLENE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.PROPYLENE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.DIESEL, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.AMMONIA, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.METHANE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.CHLORINE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.HYDROGEN, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.NITROGEN, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.OXYGEN, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.NATURAL_GAS, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.PROPANE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.ETHANE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.BUTANE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.METHYLAMINE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.ETHYLENE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.PROPYLENE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.DIESEL, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.CORN, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.ETHANOL, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.AMMONIA, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.ETHANOL, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.YEAST, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.HYDROCHLORIC_ACID, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.HYDROCHLORIC_ACID, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.ERGOT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.TWO_C_B, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.TWO_C_H, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BROMINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BROMIDE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.BROMIDE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.BROMINE, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.COKE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BENZALDEHYDE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.NITRIC_ACID, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.NITROMETHANE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.ACETIC_ACID, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.BENZALDEHYDE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.NITRIC_ACID, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.NITROMETHANE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.ACETIC_ACID, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.AMMONIUM_ACETATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.CARBON_MONOXIDE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BETA_NITROSTYRENE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.MALEIC_ANHYDRIDE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.TETRAHYDROFURAN, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.CARBON_MONOXIDE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.BETA_NITROSTYRENE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.TETRAHYDROFURAN, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.DISTILLED_WATER, itemModelGenerator);
     }
 
-
-
-    public static PropertyDispatch<MultiVariant> createBooleanModelDispatch(BooleanProperty property, MultiVariant onTrue, MultiVariant onFalse) {
-        return PropertyDispatch.initial(property).select(true, onTrue).select(false, onFalse);
+    public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {
+        ResourceLocation overlay = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "item/substance_overlay");
+        ResourceLocation base = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "item/substance");
+        ResourceLocation resourceLocation = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
+        itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(resourceLocation, new SubstanceTintColor()));
     }
 
     private static void createTopBottomSideFrontAndFrontOnTexture(Block block, BlockModelGenerators blockModelGenerators) {
@@ -123,7 +128,7 @@ public class ModelGenerator extends FabricModelProvider {
         MultiVariant offVariant = new MultiVariant(WeightedList.of(new Variant(texture)));
         MultiVariant onVariant = new MultiVariant(WeightedList.of(new Variant(frontOn)));
         blockModelGenerators.blockStateOutput.accept(
-                MultiVariantGenerator.dispatch(block).with(createBooleanModelDispatch(BlockStateProperties.LIT, onVariant, offVariant)).with(ROTATION_HORIZONTAL_FACING)
+                MultiVariantGenerator.dispatch(block).with(PropertyDispatch.initial(BlockStateProperties.LIT).select(true, onVariant).select(false, offVariant)).with(ROTATION_HORIZONTAL_FACING)
         );
     }
 

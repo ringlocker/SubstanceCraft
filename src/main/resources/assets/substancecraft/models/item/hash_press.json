@@ -1,3 +1,6 @@
 {
-  "parent": "substancecraft:block/hash_press"
+  "model": {
+    "type": "minecraft:model",
+    "model": "substancecraft:block/hash_press"
+  }
 }

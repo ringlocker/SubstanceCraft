@@ -1,7 +1,7 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "substancecraft:item/toluene",
+    "model": "substancecraft:item/distilled_water",
     "tints": [
       {
         "type": "substancecraft:substance_item_tint",
