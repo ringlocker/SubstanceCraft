@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "substancecraft:block/oil_shale"
+    "model": "substancecraft:item/oil_shale"
   }
 }

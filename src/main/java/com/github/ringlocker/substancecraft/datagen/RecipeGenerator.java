@@ -178,7 +178,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "press_hash")));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE)),
+                                Ingredient.of(SubstanceCraftItems.OIL_SHALE),
                                 SubstanceCraftItems.OIL,
                                 List.of(new ItemStack(SubstanceCraftItems.NATURAL_GAS, 40 >> 1)),
                                 1000,

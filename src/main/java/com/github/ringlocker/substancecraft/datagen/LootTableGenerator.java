@@ -31,7 +31,12 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         add(SubstanceCraftBlocks.HASH_PRESS, createNameableBlockEntityTable(SubstanceCraftBlocks.HASH_PRESS));
         add(SubstanceCraftBlocks.REFINERY, createNameableBlockEntityTable(SubstanceCraftBlocks.REFINERY));
-        dropSelf(SubstanceCraftBlocks.OIL_SHALE);
+        add(SubstanceCraftBlocks.OIL_SHALE, block -> this.createSilkTouchDispatchTable(
+                block,
+                this.applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.OIL_SHALE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
         add(SubstanceCraftBlocks.OXIDATION_MACHINE, createNameableBlockEntityTable(SubstanceCraftBlocks.OXIDATION_MACHINE));
         add(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE, createNameableBlockEntityTable(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE));
         add(SubstanceCraftBlocks.EXTRACTOR, createNameableBlockEntityTable(SubstanceCraftBlocks.EXTRACTOR));
@@ -42,7 +47,6 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
-
         add(SubstanceCraftBlocks.FERMENTATION_TANK, createNameableBlockEntityTable(SubstanceCraftBlocks.FERMENTATION_TANK));
         add(SubstanceCraftBlocks.MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.MIXER));
         dropSelf(SubstanceCraftBlocks.HEATED_MIXER);

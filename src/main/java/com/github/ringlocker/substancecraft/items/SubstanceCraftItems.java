@@ -30,6 +30,7 @@ public class SubstanceCraftItems {
     public static final Item DIPHENHYDRAMINE = registerItem("diphenhydramine", SimpleDrugs.Diphenhydramine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
     public static final Item KETAMINE = registerItem("ketamine", SimpleDrugs.Ketamine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
     public static final Item OIL = registerItem("oil", properties -> new SubstanceItem(properties, SubstanceTintColor.THICK_BLACK_LIQUID), new Item.Properties());
+    public static final Item OIL_SHALE = registerItem("oil_shale", Item::new, new Item.Properties());
     public static final Item PETROLEUM_NAPHTHA = registerItem("petroleum_naphtha", properties -> new SubstanceItem(properties, SubstanceTintColor.PISS_YELLOW_LIQUID), new Item.Properties());
     public static final Item KEROSENE = registerItem("kerosene", properties -> new SubstanceItem(properties, SubstanceTintColor.LIGHT_BLUE_LIQUID), new Item.Properties());
     public static final Item GASOLINE = registerItem("gasoline",  properties -> new SubstanceItem(properties, SubstanceTintColor.YELLOW_LIQUID), new Item.Properties());
@@ -130,6 +131,7 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftItems.P2NP);
                             entries.accept(SubstanceCraftItems.AMPHETAMINE);
                             entries.accept(SubstanceCraftItems.OIL);
+                            entries.accept(SubstanceCraftItems.OIL_SHALE);
                             entries.accept(SubstanceCraftItems.PETROLEUM_NAPHTHA);
                             entries.accept(SubstanceCraftItems.KEROSENE);
                             entries.accept(SubstanceCraftItems.GASOLINE);

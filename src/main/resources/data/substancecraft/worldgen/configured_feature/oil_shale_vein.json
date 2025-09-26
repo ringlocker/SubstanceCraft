@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "substancecraft:oil_shale"
+          "Name": "substancecraft:oil_shale_block"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "substancecraft:oil_shale"
+            "items": "substancecraft:oil_shale_block"
           }
         ]
       },

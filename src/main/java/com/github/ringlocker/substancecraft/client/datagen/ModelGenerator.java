@@ -64,6 +64,7 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.EMPTY_DAB_RIG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.DIPHENHYDRAMINE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.KETAMINE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.OIL_SHALE, ModelTemplates.FLAT_ITEM);
         generateSubstanceItem(SubstanceCraftItems.OIL, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.PETROLEUM_NAPHTHA, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.KEROSENE, itemModelGenerator);
