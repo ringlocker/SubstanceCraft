@@ -171,7 +171,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
 
     private ResourceLocation getButtonStateTexture(int index, int mouseX, int mouseY, int renderX, int renderY) {
         ResourceLocation buttonStateTexture;
-        if (menu.getBlockEntity().hasRepeatInputRecipes() && index == this.menu.getBlockEntity().getSelectedRecipeIndex()) {
+        if (index == this.menu.getBlockEntity().getSelectedRecipeIndex()) {
             buttonStateTexture = RECIPE_SELECTED_SPRITE;
         } else if (mouseX >= renderX && mouseY >= renderY && mouseX < renderX + RECIPES_IMAGE_SIZE_WIDTH && mouseY < renderY + RECIPES_IMAGE_SIZE_HEIGHT) {
             buttonStateTexture = RECIPE_HIGHLIGHTED_SPRITE;

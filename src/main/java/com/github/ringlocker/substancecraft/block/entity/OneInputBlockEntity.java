@@ -24,12 +24,10 @@ public abstract class OneInputBlockEntity<T extends OneInputRecipe> extends Inpu
     public final RecipeManager.CachedCheck<SingleRecipeInput, T> matchGetter;
     private final RecipeType<T> type;
     private final List<RecipeHolder<T>> recipes;
-    private final boolean hasRepeatInputRecipes;
 
-    public OneInputBlockEntity(BlockPos pos, BlockState state, String displayName, RecipeType<T> type, BlockEntityType<?> blockEntityType, boolean hasRepeatInputRecipes) {
+    public OneInputBlockEntity(BlockPos pos, BlockState state, String displayName, RecipeType<T> type, BlockEntityType<?> blockEntityType) {
         super(blockEntityType, pos, state, displayName, 5);
         this.matchGetter = RecipeManager.createCheck(type);
-        this.hasRepeatInputRecipes = hasRepeatInputRecipes;
         this.type = type;
         this.recipes = new ArrayList<>();
     }
@@ -72,11 +70,6 @@ public abstract class OneInputBlockEntity<T extends OneInputRecipe> extends Inpu
         for (RecipeHolder<?> recipeHolder : allRecipes) {
             recipes.add((RecipeHolder<T>) recipeHolder);
         }
-    }
-
-    @Override
-    public boolean hasRepeatInputRecipes() {
-        return hasRepeatInputRecipes;
     }
 
     public ItemStack getRenderStack() {

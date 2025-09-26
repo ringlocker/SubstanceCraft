@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class ExtractorBlockEntity extends OneInputBlockEntity<ExtractorRecipe> {
 
     public ExtractorBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Extractor", ExtractorRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.EXTRACTOR, true);
+        super(pos, state, "Extractor", ExtractorRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.EXTRACTOR);
     }
 
     @Override

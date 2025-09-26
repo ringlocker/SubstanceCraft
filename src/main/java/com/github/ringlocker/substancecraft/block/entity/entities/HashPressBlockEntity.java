@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class HashPressBlockEntity extends OneInputBlockEntity<HashPressRecipe> {
 
     public HashPressBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Hash Press", HashPressRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.HASH_PRESS, false);
+        super(pos, state, "Hash Press", HashPressRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.HASH_PRESS);
     }
 
     @Override

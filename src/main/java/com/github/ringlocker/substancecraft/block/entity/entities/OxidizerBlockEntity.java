@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class OxidizerBlockEntity extends OneInputBlockEntity<OxidizerRecipe> {
 
     public OxidizerBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Oxidizer", OxidizerRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.OXIDIZER, false);
+        super(pos, state, "Oxidizer", OxidizerRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.OXIDIZER);
     }
 
     @Override

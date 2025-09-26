@@ -26,12 +26,10 @@ public abstract class MultiInputBlockEntity<T extends MultipleInputRecipe> exten
     public final RecipeManager.CachedCheck<MultipleItemInput, T> matchGetter;
     private final RecipeType<T> type;
     private final List<RecipeHolder<T>> recipes;
-    private final boolean hasRepeatInputRecipes;
 
-    public MultiInputBlockEntity(BlockPos pos, BlockState state, String displayName, RecipeType<T> type, BlockEntityType<?> blockEntityType, boolean hasRepeatInputRecipes) {
+    public MultiInputBlockEntity(BlockPos pos, BlockState state, String displayName, RecipeType<T> type, BlockEntityType<?> blockEntityType) {
         super(blockEntityType, pos, state, displayName, 8);
         this.matchGetter = RecipeManager.createCheck(type);
-        this.hasRepeatInputRecipes = hasRepeatInputRecipes;
         this.type = type;
         this.recipes = new ArrayList<>();
     }
@@ -74,11 +72,6 @@ public abstract class MultiInputBlockEntity<T extends MultipleInputRecipe> exten
         for (RecipeHolder<?> recipeHolder : allRecipes) {
             recipes.add((RecipeHolder<T>) recipeHolder);
         }
-    }
-
-    @Override
-    public boolean hasRepeatInputRecipes() {
-        return hasRepeatInputRecipes;
     }
 
     @Override

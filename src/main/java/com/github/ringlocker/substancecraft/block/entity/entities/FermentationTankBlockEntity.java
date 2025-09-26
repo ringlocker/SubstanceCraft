@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class FermentationTankBlockEntity extends MultiInputBlockEntity<FermentationTankRecipe> {
 
     public FermentationTankBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Fermentation", FermentationTankRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.FERMENTATION_TANK, false);
+        super(pos, state, "Fermentation", FermentationTankRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.FERMENTATION_TANK);
     }
 
     @Override

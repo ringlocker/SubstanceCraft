@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class MixerBlockEntity extends MultiInputBlockEntity<MixerRecipe> {
 
     public MixerBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Mixer", MixerRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.MIXER, false);
+        super(pos, state, "Mixer", MixerRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.MIXER);
     }
 
     @Override

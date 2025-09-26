@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class RefineryBlockEntity extends OneInputBlockEntity<RefineryRecipe> {
 
     public RefineryBlockEntity(BlockPos pos, BlockState blockState) {
-        super(pos, blockState, "Refinery", RefineryRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.REFINERY, true);
+        super(pos, blockState, "Refinery", RefineryRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.REFINERY);
     }
 
     @Override

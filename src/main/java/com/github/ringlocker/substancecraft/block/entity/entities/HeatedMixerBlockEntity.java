@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class HeatedMixerBlockEntity extends MultiInputBlockEntity<HeatedMixerRecipe> {
 
     public HeatedMixerBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Heated Mixer", HeatedMixerRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.HEATED_MIXER, false);
+        super(pos, state, "Heated Mixer", HeatedMixerRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.HEATED_MIXER);
     }
 
     @Override

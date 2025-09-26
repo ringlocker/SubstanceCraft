@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class ElectrolysisMachineBlockEntity extends OneInputBlockEntity<ElectrolysisRecipe> {
 
     public ElectrolysisMachineBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Electrolysis", ElectrolysisRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.ELECTROLYSIS_MACHINE, false);
+        super(pos, state, "Electrolysis", ElectrolysisRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.ELECTROLYSIS_MACHINE);
     }
 
     @Override

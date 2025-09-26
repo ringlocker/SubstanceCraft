@@ -76,8 +76,6 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
 
     public abstract int getNumRecipes();
 
-    public abstract boolean hasRepeatInputRecipes();
-
     public abstract boolean multipleInput();
 
     @NotNull
