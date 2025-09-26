@@ -48,7 +48,7 @@ public class ModelGenerator extends FabricModelProvider {
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.OXIDATION_MACHINE, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.CATALYTIC_REFORMER, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.EXTRACTOR, blockStateModelGenerator);
-        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SALT);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.HALITE);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.MIXER, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.HEATED_MIXER, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.FERMENTATION_TANK, blockStateModelGenerator);
@@ -74,6 +74,7 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.CHLOROFORM, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BENZENE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.TOLUENE, itemModelGenerator);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.HALITE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.SALT, ModelTemplates.FLAT_ITEM);
         generateSubstanceItem(SubstanceCraftItems.BRINE, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.SODIUM_HYDROXIDE, ModelTemplates.FLAT_ITEM);

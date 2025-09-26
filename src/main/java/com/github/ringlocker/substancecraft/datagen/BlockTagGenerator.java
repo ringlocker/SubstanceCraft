@@ -22,7 +22,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(SubstanceCraftBlocks.OXIDATION_MACHINE).add(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE)
                 .add(SubstanceCraftBlocks.MIXER).add(SubstanceCraftBlocks.HEATED_MIXER)
                 .add(SubstanceCraftBlocks.FERMENTATION_TANK)
-                .add(SubstanceCraftBlocks.SALT);
+                .add(SubstanceCraftBlocks.HALITE);
         valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL).add(SubstanceCraftBlocks.OIL_SHALE);
     }
 

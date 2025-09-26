@@ -26,12 +26,12 @@ public class SubstanceCraftFeatures {
         BiomeModifications.addFeature(
                 BiomeSelectors.tag(BiomeTags.IS_OCEAN),
                 GenerationStep.Decoration.UNDERGROUND_ORES,
-                ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "salt_vein_ocean"))
+                ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "halite_vein_ocean"))
         );
         BiomeModifications.addFeature(
                 BiomeSelectors.includeByKey(Biomes.DRIPSTONE_CAVES),
                 GenerationStep.Decoration.UNDERGROUND_ORES,
-                ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "salt_vein_dripstone_cave"))
+                ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "halite_vein_dripstone_cave"))
         );
     }
 

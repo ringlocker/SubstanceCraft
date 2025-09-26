@@ -41,9 +41,9 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         add(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE, createNameableBlockEntityTable(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE));
         add(SubstanceCraftBlocks.EXTRACTOR, createNameableBlockEntityTable(SubstanceCraftBlocks.EXTRACTOR));
         add(SubstanceCraftBlocks.CATALYTIC_REFORMER, createNameableBlockEntityTable(SubstanceCraftBlocks.CATALYTIC_REFORMER));
-        add(SubstanceCraftBlocks.SALT, block -> this.createSilkTouchDispatchTable(
+        add(SubstanceCraftBlocks.HALITE, block -> this.createSilkTouchDispatchTable(
                 block,
-                this.applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.SALT)
+                this.applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.HALITE)
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));

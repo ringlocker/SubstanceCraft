@@ -38,6 +38,7 @@ public class SubstanceCraftItems {
     public static final Item CHLOROFORM = registerItem("chloroform", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID), new Item.Properties());
     public static final Item FORMALDEHYDE = registerItem("formaldehyde", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID), new Item.Properties());
     public static final Item TOLUENE = registerItem("toluene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID), new Item.Properties());
+    public static final Item HALITE = registerItem("halite", Item::new, new Item.Properties());
     public static final Item SALT = registerItem("salt", Item::new, new Item.Properties());
     public static final Item BRINE = registerItem("brine", properties -> new SubstanceItem(properties, SubstanceTintColors.LIGHT_TEAL_LIQUID), new Item.Properties());
     public static final Item SODIUM_HYDROXIDE = registerItem("sodium_hydroxide", Item::new, new Item.Properties());
@@ -117,11 +118,12 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HEATED_MIXER));
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK));
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SALT));
+                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HALITE));
                             entries.accept(SubstanceCraftItems.DIPHENHYDRAMINE);
                             entries.accept(SubstanceCraftItems.KETAMINE);
                             entries.accept(SubstanceCraftItems.TWO_C_H);
                             entries.accept(SubstanceCraftItems.TWO_C_B);
+                            entries.accept(SubstanceCraftItems.HALITE);
                             entries.accept(SubstanceCraftItems.SALT);
                             entries.accept(SubstanceCraftItems.SODIUM_HYDROXIDE);
                             entries.accept(SubstanceCraftItems.COKE);

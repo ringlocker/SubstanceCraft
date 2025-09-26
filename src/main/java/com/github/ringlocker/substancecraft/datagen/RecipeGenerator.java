@@ -181,7 +181,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                                 Ingredient.of(SubstanceCraftItems.OIL_SHALE),
                                 SubstanceCraftItems.OIL,
                                 List.of(new ItemStack(SubstanceCraftItems.NATURAL_GAS, 40 >> 1)),
-                                1000,
+                                800,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE)))
@@ -398,6 +398,15 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "extract_nitrogen")));
 
                 ExtractorRecipeBuilder.extract(
+                                Ingredient.of(SubstanceCraftItems.HALITE),
+                                SubstanceCraftItems.SALT,
+                                600,
+                                ExtractorRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.HALITE))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "extract_salt")));
+
+                ExtractorRecipeBuilder.extract(
                                 Ingredient.of(Items.GLASS_BOTTLE),
                                 SubstanceCraftItems.OXYGEN,
                                 1200,
@@ -418,7 +427,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 ExtractorRecipeBuilder.extract(
                                 Ingredient.of(Items.POTION),
                                 SubstanceCraftItems.DISTILLED_WATER,
-                                1200,
+                                800,
                                 ExtractorRecipe::new
                         )
                         .unlockedBy("has_item", has(Items.POTION))
