@@ -12,6 +12,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.Item;
@@ -37,6 +38,8 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
     protected int progress;
     protected int maxProgress;
     protected int selectedRecipeIndex;
+
+    protected int OUTPUT_SLOT = 1;
 
     protected final SimpleContainerData data = new SimpleContainerData(3) {
         @Override
@@ -114,6 +117,16 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
     @Override
     public @NotNull Component getDisplayName() {
         return Component.literal(displayName);
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return slot == 0;
+    }
+
+    @Override
+    public boolean canTakeItem(Container target, int slot, ItemStack stack) {
+        return slot >= OUTPUT_SLOT;
     }
 
     @Override

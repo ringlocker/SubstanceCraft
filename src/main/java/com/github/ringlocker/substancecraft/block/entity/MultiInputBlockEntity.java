@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 public abstract class MultiInputBlockEntity<T extends MultipleInputRecipe> extends InputOutputBlockEntity implements RecipeList<T> {
 
     public static final int FIRST_INPUT_SLOT = 0;
-    public static final int OUTPUT_SLOT = 4;
     public static final int FIRST_BYPRODUCT_SLOT = 5;
 
     public final RecipeManager.CachedCheck<MultipleItemInput, T> matchGetter;
@@ -32,6 +31,7 @@ public abstract class MultiInputBlockEntity<T extends MultipleInputRecipe> exten
         this.matchGetter = RecipeManager.createCheck(type);
         this.type = type;
         this.recipes = new ArrayList<>();
+        OUTPUT_SLOT = 4;
     }
 
     @Override

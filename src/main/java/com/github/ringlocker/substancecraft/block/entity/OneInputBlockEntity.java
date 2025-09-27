@@ -18,7 +18,6 @@ import java.util.Optional;
 public abstract class OneInputBlockEntity<T extends OneInputRecipe> extends InputOutputBlockEntity implements RecipeList<T> {
 
     public static final int INPUT_SLOT = 0;
-    public static final int OUTPUT_SLOT = 1;
     public static final int BYPRODUCT_START_SLOT = 2;
 
     public final RecipeManager.CachedCheck<SingleRecipeInput, T> matchGetter;
@@ -30,6 +29,7 @@ public abstract class OneInputBlockEntity<T extends OneInputRecipe> extends Inpu
         this.matchGetter = RecipeManager.createCheck(type);
         this.type = type;
         this.recipes = new ArrayList<>();
+        OUTPUT_SLOT = 1;
     }
 
     @Override
