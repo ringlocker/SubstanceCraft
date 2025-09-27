@@ -4,6 +4,8 @@ import com.github.ringlocker.substancecraft.items.SubstanceItem;
 import com.github.ringlocker.substancecraft.items.SubstanceTintColors;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.util.ExtraCodecs;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+@Environment(EnvType.CLIENT)
 public record SubstanceTintColor(int defaultColor) implements ItemTintSource {
 
     public static final MapCodec<SubstanceTintColor> MAP_CODEC = RecordCodecBuilder.mapCodec((instance) -> instance

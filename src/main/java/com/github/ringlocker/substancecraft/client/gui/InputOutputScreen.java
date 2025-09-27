@@ -2,6 +2,8 @@ package com.github.ringlocker.substancecraft.client.gui;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.gui.InputOutputMenu;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -19,6 +21,7 @@ import net.minecraft.world.item.Items;
 import java.util.List;
 import java.util.Optional;
 
+@Environment(EnvType.CLIENT)
 public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends AbstractContainerScreen<T> {
 
     protected static final ResourceLocation SCROLLER_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/scroller");

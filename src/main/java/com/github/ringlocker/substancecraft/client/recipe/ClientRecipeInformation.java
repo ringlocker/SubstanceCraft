@@ -2,6 +2,8 @@ package com.github.ringlocker.substancecraft.client.recipe;
 
 import com.github.ringlocker.substancecraft.network.payloads.RecipeCountPayload;
 import com.github.ringlocker.substancecraft.network.payloads.RecipePayload;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Environment(EnvType.CLIENT)
 public class ClientRecipeInformation {
 
     public static boolean recipesLoaded = false;
