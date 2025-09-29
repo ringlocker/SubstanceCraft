@@ -82,6 +82,7 @@ public class SubstanceCraftItems {
     public static final Item FORMIC_ACID = registerItem("formic_acid", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID), new Item.Properties());
     public static final Item METHYL_FORMATE = registerItem("methyl_formate", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID), new Item.Properties());
     public static final Item AMPHETAMINE = registerItem("amphetamine", SimpleDrugs.Amphetamine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
+    public static final Item COCA_LEAVES = registerItem("coca_leaves", Item::new, new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
@@ -106,6 +107,8 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftItems.DAB_RIG);
                             entries.accept(SubstanceCraftItems.CORN);
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP));
+                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.COCA_CROP));
+                            entries.accept(SubstanceCraftItems.COCA_LEAVES);
                             entries.accept(SubstanceCraftItems.YEAST);
                             entries.accept(SubstanceCraftItems.ERGOT);
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HASH_PRESS));

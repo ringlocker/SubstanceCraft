@@ -49,12 +49,11 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
         add(SubstanceCraftBlocks.FERMENTATION_TANK, createNameableBlockEntityTable(SubstanceCraftBlocks.FERMENTATION_TANK));
         add(SubstanceCraftBlocks.MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.MIXER));
-        dropSelf(SubstanceCraftBlocks.HEATED_MIXER);
         add(SubstanceCraftBlocks.HEATED_MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.HEATED_MIXER));
         add(SubstanceCraftBlocks.CORN_CROP, this.createCropDrops(
                 SubstanceCraftBlocks.CORN_CROP, SubstanceCraftItems.CORN, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP),
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.CORN_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
-
+        dropSelf(SubstanceCraftBlocks.COCA_CROP);
     }
 
 }
