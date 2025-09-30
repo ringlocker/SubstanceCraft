@@ -32,5 +32,7 @@ public class SubstanceCraft implements ModInitializer {
     // TODO: Texture more green coca
     // loot table drops coca
     // new texture for oil shale
+    // lang
+    //
 
 }

@@ -28,32 +28,52 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        HolderLookup.RegistryLookup<Enchantment> registryLookup = registries.lookupOrThrow(Registries.ENCHANTMENT);
+        
         add(SubstanceCraftBlocks.HASH_PRESS, createNameableBlockEntityTable(SubstanceCraftBlocks.HASH_PRESS));
         add(SubstanceCraftBlocks.REFINERY, createNameableBlockEntityTable(SubstanceCraftBlocks.REFINERY));
-        add(SubstanceCraftBlocks.OIL_SHALE, block -> this.createSilkTouchDispatchTable(
-                block,
-                this.applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.OIL_SHALE)
-                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
-                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
-                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
         add(SubstanceCraftBlocks.OXIDATION_MACHINE, createNameableBlockEntityTable(SubstanceCraftBlocks.OXIDATION_MACHINE));
         add(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE, createNameableBlockEntityTable(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE));
         add(SubstanceCraftBlocks.EXTRACTOR, createNameableBlockEntityTable(SubstanceCraftBlocks.EXTRACTOR));
         add(SubstanceCraftBlocks.CATALYTIC_REFORMER, createNameableBlockEntityTable(SubstanceCraftBlocks.CATALYTIC_REFORMER));
-        add(SubstanceCraftBlocks.HALITE, block -> this.createSilkTouchDispatchTable(
-                block,
-                this.applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.HALITE)
-                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
-                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
-                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
         add(SubstanceCraftBlocks.FERMENTATION_TANK, createNameableBlockEntityTable(SubstanceCraftBlocks.FERMENTATION_TANK));
         add(SubstanceCraftBlocks.MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.MIXER));
         add(SubstanceCraftBlocks.HEATED_MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.HEATED_MIXER));
-        add(SubstanceCraftBlocks.CORN_CROP, this.createCropDrops(
+
+        add(SubstanceCraftBlocks.CORN_CROP, createCropDrops(
                 SubstanceCraftBlocks.CORN_CROP, SubstanceCraftItems.CORN, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP),
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.CORN_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
+
         dropSelf(SubstanceCraftBlocks.COCA_CROP);
+        
+        add(SubstanceCraftBlocks.OIL_SHALE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.OIL_SHALE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+        
+        add(SubstanceCraftBlocks.HALITE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.HALITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+        
+        
+        add(SubstanceCraftBlocks.SULFUR_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.RAW_SULFUR)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+        
+        add(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.RAW_SULFUR)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
     }
 
 }

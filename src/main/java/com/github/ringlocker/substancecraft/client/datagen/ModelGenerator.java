@@ -119,6 +119,8 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.FORMIC_ACID, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.METHYL_FORMATE, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.AMPHETAMINE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.COCA_LEAVES, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.RAW_SULFUR, ModelTemplates.FLAT_ITEM);
     }
 
     public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {
