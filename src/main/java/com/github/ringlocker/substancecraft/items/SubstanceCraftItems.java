@@ -122,6 +122,7 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK));
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE));
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HALITE));
+                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SYLVITE));
                             entries.accept(SubstanceCraftItems.DIPHENHYDRAMINE);
                             entries.accept(SubstanceCraftItems.KETAMINE);
                             entries.accept(SubstanceCraftItems.TWO_C_H);

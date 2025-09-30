@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
+import com.github.ringlocker.substancecraft.block.blocks.generic.BushLikeCrop;
 import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -10,9 +11,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -22,9 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LevelEvent;
-import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -34,16 +30,14 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class MarijuanaPlant extends VegetationBlock implements BonemealableBlock {
+public class MarijuanaPlant extends BushLikeCrop {
 
     public static final MapCodec<MarijuanaPlant> CODEC = simpleCodec(MarijuanaPlant::new);
-    public static final int MAX_AGE = 7;
     public static final IntegerProperty AGE = BlockStateProperties.AGE_7;
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     public static final int oneBlockMaxAge = 4;
@@ -60,8 +54,8 @@ public class MarijuanaPlant extends VegetationBlock implements BonemealableBlock
     };
 
     public MarijuanaPlant(Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(AGE, 0).setValue(HALF, DoubleBlockHalf.LOWER));
+        super(properties, 7, AGE);
+        this.registerDefaultState(this.defaultBlockState().setValue(age, 0).setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
     @Override
@@ -77,26 +71,12 @@ public class MarijuanaPlant extends VegetationBlock implements BonemealableBlock
 
     @Override
     protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return AGE_TO_SHAPE[state.getValue(AGE)];
+        return AGE_TO_SHAPE[state.getValue(age)];
     }
 
     @Override
     protected @NotNull ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean bl) {
         return new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT));
-    }
-
-    @Override
-    protected boolean isRandomlyTicking(BlockState state) {
-        return state.getValue(AGE) < MAX_AGE;
-    }
-
-    @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (random.nextInt(5) == 0) {
-            if (state.getValue(AGE) < MAX_AGE) {
-                this.performBonemeal(level, level.random, pos, state);
-            }
-        }
     }
 
     @Override
@@ -136,33 +116,16 @@ public class MarijuanaPlant extends VegetationBlock implements BonemealableBlock
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
                 level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                level.setBlock(pos, state.setValue(AGE, oneBlockMaxAge), Block.UPDATE_CLIENTS);
+                level.setBlock(pos, state.setValue(age, oneBlockMaxAge), Block.UPDATE_CLIENTS);
             } else {
                 level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                level.setBlock(pos.below(), state.setValue(AGE, oneBlockMaxAge).setValue(HALF, DoubleBlockHalf.LOWER), Block.UPDATE_CLIENTS);
+                level.setBlock(pos.below(), state.setValue(age, oneBlockMaxAge).setValue(HALF, DoubleBlockHalf.LOWER), Block.UPDATE_CLIENTS);
             }
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
             return InteractionResult.SUCCESS_SERVER;
         } else {
             return super.useWithoutItem(state, level, pos, player, hitResult);
         }
-    }
-
-    @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
-        if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
-            entity.makeStuckInBlock(state, new Vec3(0.800000011920929, 0.75, 0.800000011920929));
-        }
-    }
-
-    @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
-        return state.getValue(AGE) < MAX_AGE;
-    }
-
-    @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
-        return true;
     }
 
     @Override

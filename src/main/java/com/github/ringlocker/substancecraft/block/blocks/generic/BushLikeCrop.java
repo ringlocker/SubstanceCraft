@@ -1,0 +1,67 @@
+package com.github.ringlocker.substancecraft.block.blocks.generic;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.VegetationBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.Vec3;
+
+public abstract class BushLikeCrop extends VegetationBlock implements BonemealableBlock {
+
+    public final int MAX_AGE;
+    public IntegerProperty age;
+
+    protected BushLikeCrop(Properties properties, int maxAge, IntegerProperty age) {
+        super(properties);
+        this.MAX_AGE = maxAge;
+        this.age = age;
+    }
+
+    @Override
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
+        if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
+            entity.makeStuckInBlock(state, new Vec3(1 - ((double) state.getValue(age) / (double) MAX_AGE) * 0.4, 0.75, 1 - ((double) state.getValue(age) / (double) MAX_AGE) * 0.4));
+        }
+    }
+
+    @Override
+    protected boolean isRandomlyTicking(BlockState state) {
+        return state.getValue(age) < MAX_AGE;
+    }
+
+    @Override
+    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        int rand = (level.getBlockState(pos.below()).is(Blocks.FARMLAND)) ? random.nextInt(5) : random.nextInt(10);
+        if (rand == 0) {
+            if (state.getValue(age) < MAX_AGE) {
+                this.performBonemeal(level, level.random, pos, state);
+            }
+        }
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+        return state.getValue(age) < MAX_AGE;
+    }
+
+    @Override
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+        return true;
+    }
+
+    @Override
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+        level.setBlock(pos, state.setValue(age, Math.min(state.getValue(age) + 1, MAX_AGE)), Block.UPDATE_CLIENTS);
+    }
+}

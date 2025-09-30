@@ -8,9 +8,9 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "substancecraft:marijuana_plant",
+              "Name": "substancecraft:coca_plant",
               "Properties": {
-                "age": "3"
+                "age": "2"
               }
             }
           }

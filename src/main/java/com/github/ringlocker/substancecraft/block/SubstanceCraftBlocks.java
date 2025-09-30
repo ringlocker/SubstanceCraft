@@ -48,6 +48,7 @@ public class SubstanceCraftBlocks {
     public static final Block FERMENTATION_TANK = registerBlock("fermentation_tank", FermentationTank::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
     public static final Block CORN_CROP = registerBlock("corn_crop", CornCrop::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
     public static final Block COCA_CROP = registerBlock("coca_plant", CocaCrop::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH));
+    public static final Block SYLVITE = registerBlock("sylvite_block", Block::new, BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.CALCITE));
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);
