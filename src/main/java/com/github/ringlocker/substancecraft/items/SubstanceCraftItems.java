@@ -83,6 +83,8 @@ public class SubstanceCraftItems {
     public static final Item METHYL_FORMATE = registerItem("methyl_formate", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID), new Item.Properties());
     public static final Item AMPHETAMINE = registerItem("amphetamine", SimpleDrugs.Amphetamine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
     public static final Item COCA_LEAVES = registerItem("coca_leaves", Item::new, new Item.Properties());
+    public static final Item RAW_SULFUR = registerItem("raw_sulfur", Item::new, new Item.Properties());
+    public static final Item SULFUR = registerItem("sulfur", Item::new, new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
@@ -123,6 +125,9 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE));
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HALITE));
                             entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SYLVITE));
+                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SULFUR_ORE));
+                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE));
+                            entries.accept(SubstanceCraftItems.RAW_SULFUR);
                             entries.accept(SubstanceCraftItems.DIPHENHYDRAMINE);
                             entries.accept(SubstanceCraftItems.KETAMINE);
                             entries.accept(SubstanceCraftItems.TWO_C_H);
@@ -175,8 +180,8 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftItems.P2P);
                             entries.accept(SubstanceCraftItems.NITROETHANE);
                             entries.accept(SubstanceCraftItems.METHYL_FORMATE);
-                            entries.accept(SubstanceCraftItems.FORMIC_ACID
-                            );
+                            entries.accept(SubstanceCraftItems.FORMIC_ACID);
+                            entries.accept(SubstanceCraftItems.SULFUR);
                         }).build());
 
     }

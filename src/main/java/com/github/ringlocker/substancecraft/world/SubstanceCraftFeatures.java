@@ -43,6 +43,11 @@ public class SubstanceCraftFeatures {
                 GenerationStep.Decoration.VEGETAL_DECORATION,
                 ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "patch_coca"))
         );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(BiomeTags.IS_OVERWORLD),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "ore_sulfur"))
+        );
     }
 
 }
