@@ -1,15 +1,17 @@
 # SubstanceCraft
-1.21.8 Fabric mod with chemistry features and substances.
+1.21.8 Fabric mod with fun substances
 Requires fabric API
 
 Compiling from source: Requires java 21 and gradle 8.12
 
-Disclaimer: for funsies only, I do not promote the selling, distribution, or consumption of substances outside of this mod.
+Disclaimer: for funsies only, I do not promote the selling, distribution, or consumption of drugs outside of this mod.
 
 ## Features
 ### Chemistry
 Features several block entity workstations used for crafting different substances. 
 Each workstation has a recipe menu (like a stonecutter) that shows the recipes for the workstation.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/refinery_workstation.png?raw=true" alt="screenshot of workstations" width="282" height="260">
 
 List of workstations:
 - Refinery
@@ -22,7 +24,18 @@ List of workstations:
 - Fermentation Tank
 - Hash Press
 
-### Substances
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/workstations.png?raw=true" alt="screenshot of workstations" width="480" height="270">
+
+## Substances
+- Oil
+- Petroleum Naphtha
+- Kerosene
+- Gasoline
+- Methanol
+- Benzene
+- Chloroform
+
+## Drugs
 ### Marijuana
 Marijuana plants can occasionally be found in jungle biomes, and marijuana seeds can be found in jungle temples. 
 Harvesting weed drops marijuana trim, marijuana, marijuana seeds. Marijuana can be pressed into hash using a hash press.
