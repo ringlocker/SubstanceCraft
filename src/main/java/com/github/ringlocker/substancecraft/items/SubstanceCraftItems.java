@@ -71,7 +71,7 @@ public class SubstanceCraftItems {
     public static final Item BETA_NITROSTYRENE = registerItem("beta_nitrostyrene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.SOLID), new Item.Properties());
     public static final Item MALEIC_ANHYDRIDE = registerItem("maleic_anhydride", properties -> new SubstanceItem(properties, SubstanceTintColors.LIGHT_FOGGY_ORANGE_LIQUID, MatterState.SOLID), new Item.Properties());
     public static final Item TETRAHYDROFURAN = registerItem("tetrahydrofuran", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
-    public static final Item TWO_C_H = registerItem("2c_h", Item::new, new Item.Properties());
+    public static final Item TWO_C_H = registerItem("2c_h", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.SOLID), new Item.Properties());
     public static final Item BROMINE = registerItem("bromine", properties -> new SubstanceItem(properties, SubstanceTintColors.FOGGY_ORANGE_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item BROMIDE = registerItem("bromide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.SOLID), new Item.Properties());
     public static final Item TWO_C_B = registerItem("2c_b", Item::new, new Item.Properties());
