@@ -82,6 +82,7 @@ public class SubstanceCraftItems {
     public static final Item FORMIC_ACID = registerItem("formic_acid", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID), new Item.Properties());
     public static final Item METHYL_FORMATE = registerItem("methyl_formate", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID), new Item.Properties());
     public static final Item AMPHETAMINE = registerItem("amphetamine", SimpleDrugs.Amphetamine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
+    public static final Item SULFUR = registerItem("sulfur", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_LIQUID, MatterState.SOLID), new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
@@ -171,8 +172,8 @@ public class SubstanceCraftItems {
                             entries.accept(SubstanceCraftItems.P2P);
                             entries.accept(SubstanceCraftItems.NITROETHANE);
                             entries.accept(SubstanceCraftItems.METHYL_FORMATE);
-                            entries.accept(SubstanceCraftItems.FORMIC_ACID
-                            );
+                            entries.accept(SubstanceCraftItems.FORMIC_ACID);
+                            entries.accept(SubstanceCraftItems.SULFUR);
                         }).build());
 
     }

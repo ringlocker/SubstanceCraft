@@ -27,13 +27,31 @@ List of workstations:
 <img src="https://github.com/ringlocker/images/blob/main/substancecraft/workstations.png?raw=true" alt="screenshot of workstations" width="480" height="270">
 
 ## Substances
-- Oil
-- Petroleum Naphtha
-- Kerosene
-- Gasoline
-- Methanol
-- Benzene
-- Chloroform
+| Gasses          | Liquids           | Solids           |
+|-----------------|-------------------|------------------|
+| Formaldehyde    | Oil               | Salt             |
+| Hydrogen        | Petroleum Naphtha | Sodium Hydroxide |
+| Chlorine        | Kerosene          | Ammonium Acetate |
+| Methane         | Gasoline          | Petroleum Coke   |
+| Nitrogen        | Methanol          | β-Nitrostyrene   |
+| Oxygen          | Benzene           | Maleic Anhydride |
+| Natural Gas     | Chloroform        | Bromide          |
+| Ethane          | Toluene           | P2NP             |
+| Propane         | Brine             |                  |
+| Butane          | Diesel            |                  |
+| Methylamine     | Ethanol           |                  |
+| Ethylene        | Hydrochloric Acid |                  |
+| Propylene       | Benzaldehyde      |                  |
+| Ammonia         | Nitric Acid       |                  |
+| Carbon Monoxide | Nitromethane      |                  |
+|                 | Acetic Acid       |                  |
+|                 | Tetrahydrofuran   |                  |
+|                 | Bromine           |                  |
+|                 | Distilled Water   |                  |
+|                 | P2P               |                  |
+|                 | Nitroethane       |                  |
+|                 | Formic Acid       |                  |
+|                 | Methyl Formate    |                  |
 
 ## Drugs
 ### Marijuana

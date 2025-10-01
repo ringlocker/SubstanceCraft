@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "substancecraft:item/p2np"
+    "layer0": "substancecraft:item/solid_overlay",
+    "layer1": "substancecraft:item/solid"
   }
 }

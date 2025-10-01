@@ -1,11 +1,11 @@
 package com.github.ringlocker.substancecraft.client.datagen;
 
-import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
 import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
+import com.github.ringlocker.substancecraft.items.SubstanceItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
@@ -75,9 +75,9 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.BENZENE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.TOLUENE, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.HALITE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.SALT, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.SALT, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BRINE, itemModelGenerator);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.SODIUM_HYDROXIDE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.SODIUM_HYDROXIDE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.METHANE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.CHLORINE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.HYDROGEN, itemModelGenerator);
@@ -106,14 +106,14 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.NITRIC_ACID, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.NITROMETHANE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.ACETIC_ACID, itemModelGenerator);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.AMMONIUM_ACETATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.MALEIC_ANHYDRIDE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.AMMONIUM_ACETATE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.MALEIC_ANHYDRIDE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.CARBON_MONOXIDE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BETA_NITROSTYRENE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.TETRAHYDROFURAN, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.DISTILLED_WATER, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.P2P, itemModelGenerator);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.P2NP, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.P2NP, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.NITROETHANE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.FORMIC_ACID, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.METHYL_FORMATE, itemModelGenerator);
@@ -121,8 +121,9 @@ public class ModelGenerator extends FabricModelProvider {
     }
 
     public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {
-        ResourceLocation overlay = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "item/substance_overlay");
-        ResourceLocation base = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "item/substance");
+        SubstanceItem item = (SubstanceItem) substance;
+        ResourceLocation overlay = item.getState().getOverlayTexture();
+        ResourceLocation base = item.getState().getBaseTexture();
         ResourceLocation resourceLocation = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
         itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(resourceLocation, new SubstanceTintColor()));
     }
