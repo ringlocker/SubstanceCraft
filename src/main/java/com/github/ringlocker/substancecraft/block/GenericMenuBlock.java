@@ -89,7 +89,7 @@ public class GenericMenuBlock<T extends MenuProvider> extends BaseEntityBlock im
     @Override
     @SuppressWarnings("unchecked")
     public @NotNull InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player entity, BlockHitResult hit) {
-        if (!world.isClientSide) {
+        if (!world.isClientSide()) {
             MenuProvider menuProvider = (T) world.getBlockEntity(pos);
             if (menuProvider != null) {
                 entity.openMenu(menuProvider);

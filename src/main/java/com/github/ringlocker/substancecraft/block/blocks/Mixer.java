@@ -26,7 +26,7 @@ public class Mixer extends GenericMenuBlock<MixerBlockEntity> {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
-        return level.isClientSide ? null : createTickerHelper(blockEntityType, SubstanceCraftBlockEntities.MIXER, (world1, pos, blockState, blockEntity) -> blockEntity.tick(world1, pos, blockState));
+        return level.isClientSide() ? null : createTickerHelper(blockEntityType, SubstanceCraftBlockEntities.MIXER, (world1, pos, blockState, blockEntity) -> blockEntity.tick(world1, pos, blockState));
     }
 
 }

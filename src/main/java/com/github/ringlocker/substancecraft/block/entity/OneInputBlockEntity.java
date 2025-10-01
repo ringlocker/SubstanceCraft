@@ -105,7 +105,7 @@ public abstract class OneInputBlockEntity<T extends OneInputRecipe> extends Inpu
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
-        if(level.isClientSide) return;
+        if(level.isClientSide()) return;
         super.updateState(state, level, pos);
         if (isSlotEmptyOrReceivable(OUTPUT_SLOT)) {
             if (hasRecipe()) {

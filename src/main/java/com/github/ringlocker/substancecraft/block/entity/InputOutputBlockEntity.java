@@ -84,7 +84,7 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
     @NotNull
     protected List<RecipeHolder<?>> getRecipeList(RecipeType<?> type, Level level) {
         List<RecipeHolder<?>> allRecipes;
-        if (level.isClientSide) {
+        if (level.isClientSide()) {
             allRecipes = ClientRecipeInformation.getAllRecipesFor(type);
         } else {
             allRecipes = SubstanceCraftRecipes.getAllRecipesFor(type);

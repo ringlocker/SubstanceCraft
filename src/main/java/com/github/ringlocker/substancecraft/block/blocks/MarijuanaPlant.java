@@ -209,7 +209,7 @@ public class MarijuanaPlant extends VegetationBlock implements BonemealableBlock
 
     @Override
     public @NotNull BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             if (player.isCreative()) {
                 MarijuanaPlant.onBreakInCreative(level, pos, state, player);
             } else {
