@@ -19,7 +19,12 @@ import java.util.function.Function;
 
 public class SubstanceCraftItems {
 
+    public static CreativeModeTab DRUGS_ITEM_GROUP;
     public static CreativeModeTab SUBSTANCES_ITEM_GROUP;
+    public static CreativeModeTab MATERIALS_ITEM_GROUP;
+    public static CreativeModeTab BLOCKS_ITEM_GROUP;
+    public static CreativeModeTab AGRICULTURE_ITEM_GROUP;
+    public static CreativeModeTab ALL_ITEM_GROUP;
 
     public static final Item MARIJUANA = registerItem("marijuana", Item::new, new Item.Properties());
     public static final Item MARIJUANA_TRIM = registerItem("marijuana_trim", Item::new, new Item.Properties());
@@ -32,7 +37,7 @@ public class SubstanceCraftItems {
     public static final Item OIL_SHALE = registerItem("oil_shale", Item::new, new Item.Properties());
     public static final Item PETROLEUM_NAPHTHA = registerItem("petroleum_naphtha", properties -> new SubstanceItem(properties, SubstanceTintColors.PISS_YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item KEROSENE = registerItem("kerosene", properties -> new SubstanceItem(properties, SubstanceTintColors.LIGHT_BLUE_LIQUID, MatterState.LIQUID), new Item.Properties());
-    public static final Item GASOLINE = registerItem("gasoline",  properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item GASOLINE = registerItem("gasoline", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item METHANOL = registerItem("methanol", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item BENZENE = registerItem("benzene", properties -> new SubstanceItem(properties, SubstanceTintColors.VERY_LIGHT_YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item CHLOROFORM = registerItem("chloroform", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
@@ -94,86 +99,140 @@ public class SubstanceCraftItems {
     }
 
     private static void registerItemGroups() {
+        DRUGS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "drugs"),
+                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.drugs"))
+                        .icon(() -> new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM)).displayItems((displayContext, entries) -> {
+                            addDrugItems(entries);
+                        }).build());
+
+        BLOCKS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "blocks"),
+                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.blocks"))
+                        .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY))).displayItems((displayContext, entries) -> {
+                            addBlockItems(entries);
+                        }).build());
+
+        MATERIALS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "materials"),
+                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.materials"))
+                        .icon(() -> new ItemStack(SubstanceCraftItems.HALITE)).displayItems((displayContext, entries) -> {
+                            addMaterialItems(entries);
+                        }).build());
+
+        AGRICULTURE_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "agriculture"),
+                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.agriculture"))
+                        .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT))).displayItems((displayContext, entries) -> {
+                            addAgricultureItems(entries);
+                        }).build());
+
         SUBSTANCES_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substances"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.substances"))
-                        .icon(() -> new ItemStack(Items.OMINOUS_BOTTLE)).displayItems((displayContext, entries) -> {
-                            entries.accept(SubstanceCraftItems.MARIJUANA);
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT));
-                            entries.accept(SubstanceCraftItems.MARIJUANA_TRIM);
-                            entries.accept(SubstanceCraftItems.HASH);
-                            entries.accept(SubstanceCraftItems.EMPTY_DAB_RIG);
-                            entries.accept(SubstanceCraftItems.DAB_RIG);
-                            entries.accept(SubstanceCraftItems.CORN);
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP));
-                            entries.accept(SubstanceCraftItems.YEAST);
-                            entries.accept(SubstanceCraftItems.ERGOT);
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HASH_PRESS));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CATALYTIC_REFORMER));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIXER));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HEATED_MIXER));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE));
-                            entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HALITE));
-                            entries.accept(SubstanceCraftItems.DIPHENHYDRAMINE);
-                            entries.accept(SubstanceCraftItems.KETAMINE);
-                            entries.accept(SubstanceCraftItems.TWO_C_H);
-                            entries.accept(SubstanceCraftItems.TWO_C_B);
-                            entries.accept(SubstanceCraftItems.HALITE);
-                            entries.accept(SubstanceCraftItems.COKE);
-                            entries.accept(SubstanceCraftItems.AMMONIUM_ACETATE);
-                            entries.accept(SubstanceCraftItems.MALEIC_ANHYDRIDE);
-                            entries.accept(SubstanceCraftItems.SALT);
-                            entries.accept(SubstanceCraftItems.SODIUM_HYDROXIDE);
-                            entries.accept(SubstanceCraftItems.P2NP);
-                            entries.accept(SubstanceCraftItems.AMPHETAMINE);
-                            entries.accept(SubstanceCraftItems.OIL);
-                            entries.accept(SubstanceCraftItems.OIL_SHALE);
-                            entries.accept(SubstanceCraftItems.PETROLEUM_NAPHTHA);
-                            entries.accept(SubstanceCraftItems.KEROSENE);
-                            entries.accept(SubstanceCraftItems.GASOLINE);
-                            entries.accept(SubstanceCraftItems.METHANOL);
-                            entries.accept(SubstanceCraftItems.FORMALDEHYDE);
-                            entries.accept(SubstanceCraftItems.CHLOROFORM);
-                            entries.accept(SubstanceCraftItems.TOLUENE);
-                            entries.accept(SubstanceCraftItems.BENZENE);
-                            entries.accept(SubstanceCraftItems.BRINE);
-                            entries.accept(SubstanceCraftItems.CHLORINE);
-                            entries.accept(SubstanceCraftItems.HYDROGEN);
-                            entries.accept(SubstanceCraftItems.METHANE);
-                            entries.accept(SubstanceCraftItems.NITROGEN);
-                            entries.accept(SubstanceCraftItems.OXYGEN);
-                            entries.accept(SubstanceCraftItems.NATURAL_GAS);
-                            entries.accept(SubstanceCraftItems.PROPANE);
-                            entries.accept(SubstanceCraftItems.ETHANE);
-                            entries.accept(SubstanceCraftItems.BUTANE);
-                            entries.accept(SubstanceCraftItems.METHYLAMINE);
-                            entries.accept(SubstanceCraftItems.ETHYLENE);
-                            entries.accept(SubstanceCraftItems.PROPYLENE);
-                            entries.accept(SubstanceCraftItems.DIESEL);
-                            entries.accept(SubstanceCraftItems.ETHANOL);
-                            entries.accept(SubstanceCraftItems.AMMONIA);
-                            entries.accept(SubstanceCraftItems.HYDROCHLORIC_ACID);
-                            entries.accept(SubstanceCraftItems.BENZALDEHYDE);
-                            entries.accept(SubstanceCraftItems.NITRIC_ACID);
-                            entries.accept(SubstanceCraftItems.NITROMETHANE);
-                            entries.accept(SubstanceCraftItems.ACETIC_ACID);
-                            entries.accept(SubstanceCraftItems.CARBON_MONOXIDE);
-                            entries.accept(SubstanceCraftItems.BETA_NITROSTYRENE);
-                            entries.accept(SubstanceCraftItems.TETRAHYDROFURAN);
-                            entries.accept(SubstanceCraftItems.BROMINE);
-                            entries.accept(SubstanceCraftItems.BROMIDE);
-                            entries.accept(SubstanceCraftItems.DISTILLED_WATER);
-                            entries.accept(SubstanceCraftItems.P2P);
-                            entries.accept(SubstanceCraftItems.NITROETHANE);
-                            entries.accept(SubstanceCraftItems.METHYL_FORMATE);
-                            entries.accept(SubstanceCraftItems.FORMIC_ACID);
+                        .icon(() -> new ItemStack(SubstanceCraftItems.SALT)).displayItems((displayContext, entries) -> {
+                            addSubstanceItems(entries);
                         }).build());
 
+        ALL_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "all"),
+                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.all"))
+                        .icon(() -> new ItemStack(Items.OMINOUS_BOTTLE)).displayItems((displayContext, entries) -> {
+                            addDrugItems(entries);
+                            addBlockItems(entries);
+                            addMaterialItems(entries);
+                            addAgricultureItems(entries);
+                            addSubstanceItems(entries);
+                        }).build());
+    }
+
+    private static void addDrugItems(CreativeModeTab.Output entries) {
+        entries.accept(MARIJUANA);
+        entries.accept(MARIJUANA_TRIM);
+        entries.accept(HASH);
+        entries.accept(EMPTY_DAB_RIG);
+        entries.accept(DAB_RIG);
+        entries.accept(SubstanceCraftItems.DIPHENHYDRAMINE);
+        entries.accept(SubstanceCraftItems.KETAMINE);
+        entries.accept(SubstanceCraftItems.TWO_C_B);
+        entries.accept(SubstanceCraftItems.AMPHETAMINE);
+    }
+
+    private static void addBlockItems(CreativeModeTab.Output entries) {
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CATALYTIC_REFORMER));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIXER));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HEATED_MIXER));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HASH_PRESS));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HALITE));
+    }
+
+    private static void addMaterialItems(CreativeModeTab.Output entries) {
+        entries.accept(SubstanceCraftItems.HALITE);
+        entries.accept(SubstanceCraftItems.OIL_SHALE);
+        entries.accept(SubstanceCraftItems.COKE);
+    }
+
+    private static void addAgricultureItems(CreativeModeTab.Output entries) {
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT));
+        entries.accept(SubstanceCraftItems.CORN);
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP));
+        entries.accept(SubstanceCraftItems.YEAST);
+        entries.accept(SubstanceCraftItems.ERGOT);
+    }
+
+    private static void addSubstanceItems(CreativeModeTab.Output entries) {
+        entries.accept(SubstanceCraftItems.DISTILLED_WATER);
+        entries.accept(SubstanceCraftItems.OIL);
+        entries.accept(SubstanceCraftItems.DIESEL);
+        entries.accept(SubstanceCraftItems.GASOLINE);
+        entries.accept(SubstanceCraftItems.KEROSENE);
+        entries.accept(SubstanceCraftItems.PETROLEUM_NAPHTHA);
+        entries.accept(SubstanceCraftItems.ETHANOL);
+        entries.accept(SubstanceCraftItems.METHANOL);
+        entries.accept(SubstanceCraftItems.CHLOROFORM);
+        entries.accept(SubstanceCraftItems.TOLUENE);
+        entries.accept(SubstanceCraftItems.BENZENE);
+        entries.accept(SubstanceCraftItems.BRINE);
+        entries.accept(SubstanceCraftItems.CHLORINE);
+        entries.accept(SubstanceCraftItems.HYDROGEN);
+        entries.accept(SubstanceCraftItems.METHANE);
+        entries.accept(SubstanceCraftItems.NITROGEN);
+        entries.accept(SubstanceCraftItems.OXYGEN);
+        entries.accept(SubstanceCraftItems.NATURAL_GAS);
+        entries.accept(SubstanceCraftItems.PROPANE);
+        entries.accept(SubstanceCraftItems.ETHANE);
+        entries.accept(SubstanceCraftItems.BUTANE);
+        entries.accept(SubstanceCraftItems.METHYLAMINE);
+        entries.accept(SubstanceCraftItems.PROPYLENE);
+        entries.accept(SubstanceCraftItems.ETHYLENE);
+        entries.accept(SubstanceCraftItems.FORMALDEHYDE);
+        entries.accept(SubstanceCraftItems.AMMONIA);
+        entries.accept(SubstanceCraftItems.BENZALDEHYDE);
+        entries.accept(SubstanceCraftItems.HYDROCHLORIC_ACID);
+        entries.accept(SubstanceCraftItems.AMMONIUM_ACETATE);
+        entries.accept(SubstanceCraftItems.MALEIC_ANHYDRIDE);
+        entries.accept(SubstanceCraftItems.SALT);
+        entries.accept(SubstanceCraftItems.ACETIC_ACID);
+        entries.accept(SubstanceCraftItems.NITRIC_ACID);
+        entries.accept(SubstanceCraftItems.NITROMETHANE);
+        entries.accept(SubstanceCraftItems.NITROETHANE);
+        entries.accept(SubstanceCraftItems.SODIUM_HYDROXIDE);
+        entries.accept(SubstanceCraftItems.BROMIDE);
+        entries.accept(SubstanceCraftItems.BROMINE);
+        entries.accept(SubstanceCraftItems.CARBON_MONOXIDE);
+        entries.accept(SubstanceCraftItems.METHYL_FORMATE);
+        entries.accept(SubstanceCraftItems.FORMIC_ACID);
+        entries.accept(SubstanceCraftItems.TETRAHYDROFURAN);
+        entries.accept(SubstanceCraftItems.BETA_NITROSTYRENE);
+        entries.accept(SubstanceCraftItems.TWO_C_H);
+        entries.accept(SubstanceCraftItems.P2P);
+        entries.accept(SubstanceCraftItems.P2NP);
     }
 
 }
