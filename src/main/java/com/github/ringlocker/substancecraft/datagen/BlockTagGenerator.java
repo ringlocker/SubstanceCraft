@@ -22,8 +22,13 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(SubstanceCraftBlocks.OXIDATION_MACHINE).add(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE)
                 .add(SubstanceCraftBlocks.MIXER).add(SubstanceCraftBlocks.HEATED_MIXER)
                 .add(SubstanceCraftBlocks.FERMENTATION_TANK)
-                .add(SubstanceCraftBlocks.HALITE);
-        valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL).add(SubstanceCraftBlocks.OIL_SHALE);
+                .add(SubstanceCraftBlocks.HALITE)
+                .add(SubstanceCraftBlocks.SYLVITE)
+                .add(SubstanceCraftBlocks.SULFUR_ORE)
+                .add(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE);
+
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(SubstanceCraftBlocks.OIL_SHALE);
     }
 
 }

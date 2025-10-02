@@ -89,7 +89,7 @@ public class SubstanceCraftItems {
     public static final Item AMPHETAMINE = registerItem("amphetamine", SimpleDrugs.Amphetamine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
     public static final Item COCA_LEAVES = registerItem("coca_leaves", Item::new, new Item.Properties());
     public static final Item RAW_SULFUR = registerItem("raw_sulfur", Item::new, new Item.Properties());
-    public static final Item SULFUR = registerItem("sulfur", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item SULFUR = registerItem("sulfur", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_LIQUID, MatterState.SOLID), new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));

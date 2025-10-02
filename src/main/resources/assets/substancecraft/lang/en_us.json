@@ -19,6 +19,10 @@
   "block.substancecraft.heated_mixer": "Heated Mixer",
   "block.substancecraft.fermentation_tank": "Fermentation Tank",
   "block.substancecraft.corn_crop": "Corn Seeds",
+  "block.substancecraft.coca_plant": "Coca Plant Seeds",
+  "block.substancecraft.sylvite_block": "Sylvite",
+  "block.substancecraft.sulfur_ore": "Sulfur Ore",
+  "block.substancecraft.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
 
   "effect.minecraft.hunger": "Munchies",
   "effect.minecraft.speed": "Zoomies",
@@ -83,5 +87,8 @@
   "item.substancecraft.nitroethane": "Nitroethane",
   "item.substancecraft.formic_acid": "Formic Acid",
   "item.substancecraft.methyl_formate": "Methyl Formate",
-  "item.substancecraft.amphetamine": "Amphetamine"
+  "item.substancecraft.amphetamine": "Amphetamine",
+  "item.substancecraft.coca_leaves": "Coca Leaves",
+  "item.substancecraft.raw_sulfur": "Raw Sulfur",
+  "item.substancecraft.sulfur": "Sulfur"
 }

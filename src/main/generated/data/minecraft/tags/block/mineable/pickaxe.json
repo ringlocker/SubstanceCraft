@@ -9,6 +9,9 @@
     "substancecraft:mixer",
     "substancecraft:heated_mixer",
     "substancecraft:fermentation_tank",
-    "substancecraft:salt_block"
+    "substancecraft:salt_block",
+    "substancecraft:sylvite_block",
+    "substancecraft:sulfur_ore",
+    "substancecraft:deepslate_sulfur_ore"
   ]
 }
