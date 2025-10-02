@@ -1,5 +1,10 @@
 {
+  "itemgroup.substancecraft.drugs": "Drugs",
+  "itemgroup.substancecraft.blocks": "Blocks",
+  "itemgroup.substancecraft.materials": "Materials",
+  "itemgroup.substancecraft.agriculture": "Agriculture",
   "itemgroup.substancecraft.substances": "Substances",
+  "itemgroup.substancecraft.all": "SubstanceCraft Items",
 
   "block.substancecraft.marijuana_plant": "Marijuana Seeds",
   "block.substancecraft.hash_press": "Hash Press",
