@@ -58,4 +58,19 @@ public class SimpleDrugs {
             return stack;
         }
     }
+
+    public static class Cocaine extends Item {
+
+        public Cocaine(Properties properties) {
+            super(properties);
+        }
+
+        @Override
+        public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
+            if (!(livingEntity instanceof Player player)) return stack;
+            player.addEffect(new MobEffectInstance(MobEffects.SPEED, 20*600, 0));
+            stack.setCount(stack.getCount() - 1);
+            return stack;
+        }
+    }
 }

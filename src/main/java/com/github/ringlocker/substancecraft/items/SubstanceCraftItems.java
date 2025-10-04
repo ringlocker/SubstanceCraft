@@ -89,11 +89,24 @@ public class SubstanceCraftItems {
     public static final Item AMPHETAMINE = registerItem("amphetamine", SimpleDrugs.Amphetamine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
     public static final Item COCA_LEAVES = registerItem("coca_leaves", Item::new, new Item.Properties());
     public static final Item RAW_SULFUR = registerItem("raw_sulfur", Item::new, new Item.Properties());
-    public static final Item SULFUR = registerItem("sulfur", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_LIQUID, MatterState.SOLID), new Item.Properties());
+    public static final Item SULFUR = registerItem("sulfur", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item SULFURIC_ACID = registerItem("sulfuric_acid", properties -> new SubstanceItem(properties, SubstanceTintColors.VERY_LIGHT_YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item TRONA = registerItem("trona", Item::new, new Item.Properties());
+    public static final Item SYLVITE = registerItem("sylvite", Item::new, new Item.Properties());
     public static final Item SODIUM_CARBONATE = registerItem("sodium_carbonate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item SODIUM_CARBONATE_SOLUTION = registerItem("sodium_carbonate_solution", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_WHITE_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item AGUA_RICA = registerItem("agua_rica", properties -> new SubstanceItem(properties, SubstanceTintColors.GREENISH_ORANGE_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item PYROLUSITE = registerItem("pyrolusite", Item::new, new Item.Properties());
+    public static final Item POTASSIUM_CHLORIDE = registerItem("potassium_chloride", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item POTASSIUM_HYDROXIDE = registerItem("potassium_hydroxide", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item POTASSIUM_CARBONATE = registerItem("potassium_carbonate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item MANGANESE_DIOXIDE = registerItem("manganese_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_BLACK_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item POTASSIUM_PERMANGANATE = registerItem("potassium_permanganate", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_BLACK_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item COCA_PASTE = registerItem("coca_paste", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item ACETONE = registerItem("acetone", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item AMMONIA_SOLUTION = registerItem("ammonia_solution", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item COCAINE = registerItem("cocaine", SimpleDrugs.Cocaine::new, new Item.Properties());
+    public static final Item CARBON_DIOXIDE = registerItem("carbon_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
@@ -109,37 +122,27 @@ public class SubstanceCraftItems {
         DRUGS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "drugs"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.drugs"))
-                        .icon(() -> new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM)).displayItems((displayContext, entries) -> {
-                            addDrugItems(entries);
-                        }).build());
+                        .icon(() -> new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM)).displayItems((displayContext, entries) -> addDrugItems(entries)).build());
 
         BLOCKS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "blocks"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.blocks"))
-                        .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY))).displayItems((displayContext, entries) -> {
-                            addBlockItems(entries);
-                        }).build());
+                        .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY))).displayItems((displayContext, entries) -> addBlockItems(entries)).build());
 
         MATERIALS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "materials"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.materials"))
-                        .icon(() -> new ItemStack(SubstanceCraftItems.HALITE)).displayItems((displayContext, entries) -> {
-                            addMaterialItems(entries);
-                        }).build());
+                        .icon(() -> new ItemStack(SubstanceCraftItems.HALITE)).displayItems((displayContext, entries) -> addMaterialItems(entries)).build());
 
         AGRICULTURE_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "agriculture"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.agriculture"))
-                        .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT))).displayItems((displayContext, entries) -> {
-                            addAgricultureItems(entries);
-                        }).build());
+                        .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT))).displayItems((displayContext, entries) -> addAgricultureItems(entries)).build());
 
         SUBSTANCES_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substances"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.substances"))
-                        .icon(() -> new ItemStack(SubstanceCraftItems.SALT)).displayItems((displayContext, entries) -> {
-                            addSubstanceItems(entries);
-                        }).build());
+                        .icon(() -> new ItemStack(SubstanceCraftItems.SALT)).displayItems((displayContext, entries) -> addSubstanceItems(entries)).build());
 
         ALL_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "all"),
@@ -163,6 +166,7 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftItems.KETAMINE);
         entries.accept(SubstanceCraftItems.TWO_C_B);
         entries.accept(SubstanceCraftItems.AMPHETAMINE);
+        entries.accept(SubstanceCraftItems.COCAINE);
     }
 
     private static void addBlockItems(CreativeModeTab.Output entries) {
@@ -181,6 +185,8 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SULFUR_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PYROLUSITE_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {
@@ -188,7 +194,9 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftItems.OIL_SHALE);
         entries.accept(SubstanceCraftItems.COKE);
         entries.accept(SubstanceCraftItems.RAW_SULFUR);
+        entries.accept(SubstanceCraftItems.SYLVITE);
         entries.accept(SubstanceCraftItems.TRONA);
+        entries.accept(SubstanceCraftItems.PYROLUSITE);
     }
 
     private static void addAgricultureItems(CreativeModeTab.Output entries) {
@@ -247,10 +255,20 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftItems.TWO_C_H);
         entries.accept(SubstanceCraftItems.P2P);
         entries.accept(SubstanceCraftItems.P2NP);
+        entries.accept(SubstanceCraftItems.CARBON_DIOXIDE);
         entries.accept(SubstanceCraftItems.SULFUR);
         entries.accept(SubstanceCraftItems.SULFURIC_ACID);
+        entries.accept(SubstanceCraftItems.AMMONIA_SOLUTION);
         entries.accept(SubstanceCraftItems.SODIUM_CARBONATE);
         entries.accept(SubstanceCraftItems.SODIUM_CARBONATE_SOLUTION);
+        entries.accept(SubstanceCraftItems.AGUA_RICA);
+        entries.accept(SubstanceCraftItems.POTASSIUM_CHLORIDE);
+        entries.accept(SubstanceCraftItems.POTASSIUM_HYDROXIDE);
+        entries.accept(SubstanceCraftItems.POTASSIUM_CARBONATE);
+        entries.accept(SubstanceCraftItems.MANGANESE_DIOXIDE);
+        entries.accept(SubstanceCraftItems.POTASSIUM_PERMANGANATE);
+        entries.accept(SubstanceCraftItems.COCA_PASTE);
+        entries.accept(SubstanceCraftItems.ACETONE);
     }
 
 }

@@ -1,0 +1,10 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredient": "substancecraft:trona",
+  "result": {
+    "count": 1,
+    "id": "substancecraft:sodium_carbonate"
+  },
+  "time": 1200
+}

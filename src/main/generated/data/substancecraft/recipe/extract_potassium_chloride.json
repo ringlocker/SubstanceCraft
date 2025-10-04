@@ -1,0 +1,10 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredient": "substancecraft:sylvite",
+  "result": {
+    "count": 1,
+    "id": "substancecraft:potassium_chloride"
+  },
+  "time": 1200
+}

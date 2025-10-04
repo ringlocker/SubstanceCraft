@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:sodium_carbonate_solution",
+    "substancecraft:kerosene",
+    "substancecraft:coca_leaves",
+    "substancecraft:sulfuric_acid"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:agua_rica"
+  },
+  "time": 800
+}
