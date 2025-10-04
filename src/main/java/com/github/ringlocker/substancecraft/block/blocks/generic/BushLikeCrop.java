@@ -29,13 +29,6 @@ public abstract class BushLikeCrop extends VegetationBlock implements Bonemealab
     }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
-        if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
-            entity.makeStuckInBlock(state, new Vec3(1 - ((double) state.getValue(age) / (double) MAX_AGE) * 0.4, 0.75, 1 - ((double) state.getValue(age) / (double) MAX_AGE) * 0.4));
-        }
-    }
-
-    @Override
     protected boolean isRandomlyTicking(BlockState state) {
         return state.getValue(age) < MAX_AGE;
     }

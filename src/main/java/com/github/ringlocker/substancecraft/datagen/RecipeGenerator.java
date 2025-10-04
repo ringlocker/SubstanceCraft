@@ -385,7 +385,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                                 1000,
                                 ElectrolysisRecipe::new
                         )
-                        .unlockedBy("has_item", has(SubstanceCraftItems.BRINE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "electrolysis_water")));
 
                 ExtractorRecipeBuilder.extract(
@@ -620,6 +620,17 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.FORMIC_ACID))
                         .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIA))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_amphetamine")));
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.SULFUR), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER),  Ingredient.of(SubstanceCraftItems.OXYGEN)),
+                                SubstanceCraftItems.SULFURIC_ACID,
+                                800,
+                                HeatedMixerRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFUR))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.OXYGEN))
+                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mix_sulfuric_acid")));
 
 
                 FermentationTankRecipeBuilder.ferment(

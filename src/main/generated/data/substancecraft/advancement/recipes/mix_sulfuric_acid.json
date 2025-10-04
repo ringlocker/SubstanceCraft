@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "substancecraft:distilled_water"
+            "items": "substancecraft:oxygen"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:electrolysis_water"
+        "recipe": "substancecraft:mix_sulfuric_acid"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "substancecraft:electrolysis_water"
+      "substancecraft:mix_sulfuric_acid"
     ]
   }
 }

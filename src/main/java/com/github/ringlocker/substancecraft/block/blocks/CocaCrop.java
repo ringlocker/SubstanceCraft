@@ -57,6 +57,8 @@ public class CocaCrop extends BushLikeCrop {
         return SHAPE_BY_AGE[state.getValue(age)];
     }
 
+
+
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (MAX_AGE == state.getValue(age)) {

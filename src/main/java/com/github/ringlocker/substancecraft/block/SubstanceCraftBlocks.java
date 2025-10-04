@@ -51,6 +51,7 @@ public class SubstanceCraftBlocks {
     public static final Block SYLVITE = registerBlock("sylvite_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block SULFUR_ORE = registerBlock("sulfur_ore", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block DEEPSLATE_SULFUR_ORE = registerBlock("deepslate_sulfur_ore", Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.CALCITE));
+    public static final Block TRONA = registerBlock("trona_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);

@@ -1,0 +1,14 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:sulfur",
+    "substancecraft:distilled_water",
+    "substancecraft:oxygen"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:sulfuric_acid"
+  },
+  "time": 800
+}

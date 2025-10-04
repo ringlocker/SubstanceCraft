@@ -12,11 +12,14 @@ public class SubstanceTintColors {
     public static final int LIGHT_YELLOW_GAS = ARGB.color(120, 242, 206, 75);
     public static final int VERY_LIGHT_YELLOW_LIQUID = ARGB.color(140, 223, 224, 161);
     public static final int YELLOW_LIQUID = ARGB.color(200, 214, 180, 59);
+    public static final int YELLOW_SOLID = ARGB.color(200, 234, 213, 105);
     public static final int PISS_YELLOW_LIQUID = ARGB.color(200, 216, 166, 39);
     public static final int FOGGY_ORANGE_LIQUID = ARGB.color(155, 206, 93, 18);
     public static final int LIGHT_FOGGY_ORANGE_LIQUID = ARGB.color(140, 183, 89, 27);
     public static final int RED_LIQUID = ARGB.color(200, 229, 41, 41);
     public static final int CLEAR_GAS = ARGB.color(75, 195, 219, 214);
     public static final int CLEAR_LIQUID = ARGB.color(155, 178, 191, 193);
+    public static final int WHITE_SOLID = ARGB.color(255, 195, 204, 203);
+    public static final int THICK_WHITE_LIQUID = ARGB.color(210, 195, 204, 203);
 
 }

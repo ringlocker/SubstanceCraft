@@ -54,6 +54,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SYLVITE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SULFUR_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.TRONA);
     }
 
     @Override
@@ -122,6 +123,10 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.COCA_LEAVES, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.RAW_SULFUR, ModelTemplates.FLAT_ITEM);
         generateSubstanceItem(SubstanceCraftItems.SULFUR, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.SULFURIC_ACID, itemModelGenerator);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.TRONA, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.SODIUM_CARBONATE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.SODIUM_CARBONATE_SOLUTION, itemModelGenerator);
     }
 
     public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {

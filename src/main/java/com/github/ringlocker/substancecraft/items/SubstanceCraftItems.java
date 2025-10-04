@@ -90,6 +90,10 @@ public class SubstanceCraftItems {
     public static final Item COCA_LEAVES = registerItem("coca_leaves", Item::new, new Item.Properties());
     public static final Item RAW_SULFUR = registerItem("raw_sulfur", Item::new, new Item.Properties());
     public static final Item SULFUR = registerItem("sulfur", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_LIQUID, MatterState.SOLID), new Item.Properties());
+    public static final Item SULFURIC_ACID = registerItem("sulfuric_acid", properties -> new SubstanceItem(properties, SubstanceTintColors.VERY_LIGHT_YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item TRONA = registerItem("trona", Item::new, new Item.Properties());
+    public static final Item SODIUM_CARBONATE = registerItem("sodium_carbonate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item SODIUM_CARBONATE_SOLUTION = registerItem("sodium_carbonate_solution", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_WHITE_LIQUID, MatterState.LIQUID), new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
@@ -176,6 +180,7 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SYLVITE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SULFUR_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {
@@ -183,6 +188,7 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftItems.OIL_SHALE);
         entries.accept(SubstanceCraftItems.COKE);
         entries.accept(SubstanceCraftItems.RAW_SULFUR);
+        entries.accept(SubstanceCraftItems.TRONA);
     }
 
     private static void addAgricultureItems(CreativeModeTab.Output entries) {
@@ -242,6 +248,9 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftItems.P2P);
         entries.accept(SubstanceCraftItems.P2NP);
         entries.accept(SubstanceCraftItems.SULFUR);
+        entries.accept(SubstanceCraftItems.SULFURIC_ACID);
+        entries.accept(SubstanceCraftItems.SODIUM_CARBONATE);
+        entries.accept(SubstanceCraftItems.SODIUM_CARBONATE_SOLUTION);
     }
 
 }
