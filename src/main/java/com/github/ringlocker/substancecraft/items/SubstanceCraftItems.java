@@ -101,11 +101,11 @@ public class SubstanceCraftItems {
     public static final Item POTASSIUM_HYDROXIDE = registerItem("potassium_hydroxide", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item POTASSIUM_CARBONATE = registerItem("potassium_carbonate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item MANGANESE_DIOXIDE = registerItem("manganese_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_BLACK_SOLID, MatterState.SOLID), new Item.Properties());
-    public static final Item POTASSIUM_PERMANGANATE = registerItem("potassium_permanganate", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_BLACK_SOLID, MatterState.SOLID), new Item.Properties());
-    public static final Item COCA_PASTE = registerItem("coca_paste", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item POTASSIUM_PERMANGANATE = registerItem("potassium_permanganate", properties -> new SubstanceItem(properties, SubstanceTintColors.DARK_PURPLE_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item COCA_PASTE = registerItem("coca_paste", properties -> new SubstanceItem(properties, SubstanceTintColors.VERY_LIGHT_YELLOW_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item ACETONE = registerItem("acetone", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item AMMONIA_SOLUTION = registerItem("ammonia_solution", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
-    public static final Item COCAINE = registerItem("cocaine", SimpleDrugs.Cocaine::new, new Item.Properties());
+    public static final Item COCAINE = registerItem("cocaine", SimpleDrugs.Cocaine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
     public static final Item CARBON_DIOXIDE = registerItem("carbon_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
@@ -171,7 +171,6 @@ public class SubstanceCraftItems {
 
     private static void addBlockItems(CreativeModeTab.Output entries) {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY));
-        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CATALYTIC_REFORMER));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR));

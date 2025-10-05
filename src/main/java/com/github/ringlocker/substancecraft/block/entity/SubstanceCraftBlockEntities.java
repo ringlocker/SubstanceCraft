@@ -3,7 +3,6 @@ package com.github.ringlocker.substancecraft.block.entity;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import com.github.ringlocker.substancecraft.block.entity.entities.CatalyticReformerBlockEntity;
 import com.github.ringlocker.substancecraft.block.entity.entities.ElectrolysisMachineBlockEntity;
 import com.github.ringlocker.substancecraft.block.entity.entities.ExtractorBlockEntity;
 import com.github.ringlocker.substancecraft.block.entity.entities.FermentationTankBlockEntity;
@@ -36,10 +35,6 @@ public class SubstanceCraftBlockEntities {
     public static final BlockEntityType<OxidizerBlockEntity> OXIDIZER =
             Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "oxidizer"),
                     FabricBlockEntityTypeBuilder.create(OxidizerBlockEntity::new, SubstanceCraftBlocks.OXIDATION_MACHINE).build());
-
-    public static final BlockEntityType<CatalyticReformerBlockEntity> CATALYTIC_REFORMER =
-            Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "catalytic_reformer"),
-                    FabricBlockEntityTypeBuilder.create(CatalyticReformerBlockEntity::new, SubstanceCraftBlocks.CATALYTIC_REFORMER).build());
 
     public static final BlockEntityType<ExtractorBlockEntity> EXTRACTOR =
             Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "extractor"),

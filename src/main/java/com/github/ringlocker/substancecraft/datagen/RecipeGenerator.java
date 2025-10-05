@@ -3,7 +3,6 @@ package com.github.ringlocker.substancecraft.datagen;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
-import com.github.ringlocker.substancecraft.recipe.builder.CatalyticReformerRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.builder.ElectrolysisRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.builder.ExtractorRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.builder.FermentationTankRecipeBuilder;
@@ -12,7 +11,6 @@ import com.github.ringlocker.substancecraft.recipe.builder.HeatedMixerRecipeBuil
 import com.github.ringlocker.substancecraft.recipe.builder.MixerRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.builder.OxidizerRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.builder.RefineryRecipeBuilder;
-import com.github.ringlocker.substancecraft.recipe.recipes.CatalyticReformerRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.ElectrolysisRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.ExtractorRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.FermentationTankRecipe;
@@ -39,6 +37,10 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class RecipeGenerator extends FabricRecipeProvider {
+
+    private static final int SHORT_REFINE_TIME = 600;
+    private static final int REFINE_TIME = 800;
+    private static final int LONG_REFINE_TIME = 1000;
 
     public RecipeGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
@@ -118,18 +120,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(Items.COPPER_BLOCK))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "fermentation_tank")));
 
-                shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CATALYTIC_REFORMER))
-                        .pattern("333")
-                        .pattern("212")
-                        .pattern("343")
-                        .define('1', Items.CAULDRON)
-                        .define('2', Items.IRON_INGOT)
-                        .define('3', Items.COPPER_BLOCK)
-                        .define('4', Items.LAVA_BUCKET)
-                        .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
-                        .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "catalytic_reformer")));
-
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE))
                         .pattern("323")
                         .pattern("212")
@@ -180,7 +170,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                                 Ingredient.of(SubstanceCraftItems.OIL_SHALE),
                                 SubstanceCraftItems.OIL,
                                 List.of(new ItemStack(SubstanceCraftItems.NATURAL_GAS, 40 >> 1)),
-                                800,
+                                SHORT_REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE)))
@@ -189,7 +179,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.OIL),
                                 SubstanceCraftItems.PETROLEUM_NAPHTHA,
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.OIL))
@@ -198,7 +188,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.OIL),
                                 SubstanceCraftItems.KEROSENE,
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.OIL))
@@ -207,7 +197,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.OIL),
                                 SubstanceCraftItems.GASOLINE,
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.OIL))
@@ -216,7 +206,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.OIL),
                                 SubstanceCraftItems.DIPHENHYDRAMINE,
-                                1000,
+                                LONG_REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.OIL))
@@ -225,7 +215,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.OIL),
                                 SubstanceCraftItems.KETAMINE,
-                                1000,
+                                LONG_REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.OIL))
@@ -234,7 +224,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
                                 SubstanceCraftItems.METHANOL,
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.NATURAL_GAS))
@@ -243,7 +233,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
                                 SubstanceCraftItems.ETHANE,
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.NATURAL_GAS))
@@ -252,7 +242,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
                                 SubstanceCraftItems.BUTANE,
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.NATURAL_GAS))
@@ -261,7 +251,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
                                 SubstanceCraftItems.PROPANE,
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.NATURAL_GAS))
@@ -270,7 +260,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.PROPANE),
                                 SubstanceCraftItems.PROPYLENE,
-                                1000,
+                                LONG_REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.PROPANE))
@@ -279,7 +269,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.ETHANE),
                                 SubstanceCraftItems.ETHYLENE,
-                                1000,
+                                LONG_REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.ETHANE))
@@ -288,7 +278,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.OIL),
                                 SubstanceCraftItems.DIESEL,
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.ETHANE))
@@ -298,26 +288,26 @@ public class RecipeGenerator extends FabricRecipeProvider {
                                 Ingredient.of(Items.COAL),
                                 SubstanceCraftItems.COKE,
                                 List.of(new ItemStack(SubstanceCraftItems.CARBON_MONOXIDE, 50 >> 1)),
-                                1000,
+                                REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(Items.COAL))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "refine_coke")));
 
-                CatalyticReformerRecipeBuilder.reform(
+                RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.PETROLEUM_NAPHTHA),
                                 SubstanceCraftItems.BENZENE,
-                                1000,
-                                CatalyticReformerRecipe::new
+                                REFINE_TIME,
+                                RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.PETROLEUM_NAPHTHA))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "reform_benzene")));
 
-                CatalyticReformerRecipeBuilder.reform(
+                RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.PETROLEUM_NAPHTHA),
                                 SubstanceCraftItems.TOLUENE,
-                                1000,
-                                CatalyticReformerRecipe::new
+                                REFINE_TIME,
+                                RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.PETROLEUM_NAPHTHA))
                         .save(recipeOutput, ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "reform_toluene")));

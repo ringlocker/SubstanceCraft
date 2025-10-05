@@ -6,7 +6,8 @@ public class SubstanceTintColors {
 
     public static final int DEFAULT_COLOR = ARGB.color(255, 224, 7, 239);
     public static final int THICK_BLACK_LIQUID = ARGB.color(225, 28, 26, 35);
-    public static final int THICK_BLACK_SOLID = ARGB.color(255, 28, 26, 26);
+    public static final int THICK_BLACK_SOLID = ARGB.color(240, 45, 45, 45);
+    public static final int DARK_PURPLE_SOLID = ARGB.color(240, 61, 44, 71);
     public static final int DARK_BLUE_LIQUID = ARGB.color(165, 19, 17, 155);
     public static final int LIGHT_BLUE_LIQUID = ARGB.color(200, 9, 164, 242);
     public static final int LIGHT_TEAL_LIQUID = ARGB.color(150, 19, 140, 120);

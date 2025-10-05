@@ -3,7 +3,6 @@ package com.github.ringlocker.substancecraft.recipe;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.network.payloads.RecipeCountPayload;
 import com.github.ringlocker.substancecraft.network.payloads.RecipePayload;
-import com.github.ringlocker.substancecraft.recipe.recipes.CatalyticReformerRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.ElectrolysisRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.ExtractorRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.FermentationTankRecipe;
@@ -48,9 +47,6 @@ public class SubstanceCraftRecipes {
 
         types.add(Registry.register(BuiltInRegistries.RECIPE_TYPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, OxidizerRecipe.ID), OxidizerRecipe.Type.INSTANCE));
         Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID,  OxidizerRecipe.ID), OxidizerRecipe.Serializer.INSTANCE);
-
-        types.add(Registry.register(BuiltInRegistries.RECIPE_TYPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, CatalyticReformerRecipe.ID), CatalyticReformerRecipe.Type.INSTANCE));
-        Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID,  CatalyticReformerRecipe.ID), CatalyticReformerRecipe.Serializer.INSTANCE);
 
         types.add(Registry.register(BuiltInRegistries.RECIPE_TYPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, ExtractorRecipe.ID), ExtractorRecipe.Type.INSTANCE));
         Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID,  ExtractorRecipe.ID), ExtractorRecipe.Serializer.INSTANCE);

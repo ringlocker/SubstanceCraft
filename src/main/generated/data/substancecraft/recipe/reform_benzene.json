@@ -1,10 +1,10 @@
 {
-  "type": "substancecraft:catalytic_reformer",
+  "type": "substancecraft:refinery",
   "byproducts": [],
   "ingredient": "substancecraft:petroleum_naphtha",
   "result": {
     "count": 1,
     "id": "substancecraft:benzene"
   },
-  "time": 1000
+  "time": 800
 }

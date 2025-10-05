@@ -24,7 +24,7 @@ public class SimpleDrugs {
             player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 360, 0));
             player.addEffect(new MobEffectInstance(MobEffects.POISON, 180, 0));
             player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 360, 0));
-            stack.setCount(stack.getCount() - 1);
+            if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
             return stack;
         }
     }
@@ -39,7 +39,7 @@ public class SimpleDrugs {
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
             player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 20*60, 0));
-            stack.setCount(stack.getCount() - 1);
+            if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
             return stack;
         }
     }
@@ -54,7 +54,7 @@ public class SimpleDrugs {
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
             player.addEffect(new MobEffectInstance(MobEffects.SPEED, 20*600, 0));
-            stack.setCount(stack.getCount() - 1);
+            if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
             return stack;
         }
     }
@@ -69,7 +69,7 @@ public class SimpleDrugs {
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
             player.addEffect(new MobEffectInstance(MobEffects.SPEED, 20*600, 0));
-            stack.setCount(stack.getCount() - 1);
+            if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
             return stack;
         }
     }
