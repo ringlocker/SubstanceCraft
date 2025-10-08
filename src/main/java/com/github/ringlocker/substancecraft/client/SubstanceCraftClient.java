@@ -42,7 +42,7 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
     }
 
     private void registerBlockEntityRenderers() {
-        BlockEntityRenderers.register(SubstanceCraftBlockEntities.HASH_PRESS, context -> new HashPressBlockEntityRenderer());
+        BlockEntityRenderers.register(SubstanceCraftBlockEntities.HASH_PRESS, HashPressBlockEntityRenderer::new);
     }
 
     @Override
