@@ -111,8 +111,8 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK))
                         .pattern("121")
-                        .pattern("232")
-                        .pattern("121")
+                        .pattern("222")
+                        .pattern("131")
                         .define('1', Items.COPPER_BLOCK)
                         .define('2', Items.IRON_INGOT)
                         .define('3', Items.CAULDRON)
