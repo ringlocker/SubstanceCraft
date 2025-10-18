@@ -33,7 +33,7 @@ public class SubstanceCraftBlocks {
 
     private static final HashMap<Block, Item> BLOCK_ITEMS = new HashMap<>();
 
-    public static final Block MARIJUANA_PLANT = registerBlock("marijuana_plant", MarijuanaPlant::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
+    public static final Block MARIJUANA_PLANT = registerBlock("marijuana_plant", MarijuanaPlant::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
     public static final Block HASH_PRESS = registerBlock("hash_press", HashPress::new, BlockBehaviour.Properties.of().strength(3.5F));
     public static final Block REFINERY = registerBlock("refinery", Refinery::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
     public static final Block OIL_SHALE = registerBlock("oil_shale_block", Block::new, BlockBehaviour.Properties.of().strength(0.6F).sound(SoundType.GRAVEL));

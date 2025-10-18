@@ -61,7 +61,7 @@ public class DabRig {
                         float chance = randomSource.nextFloat();
                         int rolls = (chance < 0.15F) ? 0 : ((chance < 0.5) ? 1 : ((chance < 0.8F) ? 2 : 3));
                         for (int i = 0; i < rolls; i++) {
-                            if (!level.isClientSide) {
+                            if (!level.isClientSide()) {
                                 ServerLevel server = (ServerLevel) level;
                                 server.sendParticles(
                                         ParticleTypes.CAMPFIRE_COSY_SMOKE,

@@ -82,14 +82,14 @@ public class GenericMenuBlock<T extends MenuProvider> extends BaseEntityBlock im
     }
 
     @Override
-    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
         return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public @NotNull InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player entity, BlockHitResult hit) {
-        if (!world.isClientSide) {
+        if (!world.isClientSide()) {
             MenuProvider menuProvider = (T) world.getBlockEntity(pos);
             if (menuProvider != null) {
                 entity.openMenu(menuProvider);

@@ -7,6 +7,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
@@ -119,21 +120,23 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
     }
 
     @Override
-    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+    public boolean mouseDragged(MouseButtonEvent mouseButtonEvent, double dragX, double dragY) {
         if (this.scrolling && this.isScrollBarActive()) {
             int recipeY = this.topPos + RECIPES_Y;
             int bottomScrollerY = recipeY + SCROLLER_FULL_HEIGHT;
-            this.scrollOffset = ((float) mouseY - (float) recipeY - 7.5F) / ((float) (bottomScrollerY - recipeY) - 15.0F);
+            this.scrollOffset = ((float) mouseButtonEvent.y() - (float) recipeY - 7.5F) / ((float) (bottomScrollerY - recipeY) - 15.0F);
             this.scrollOffset = Mth.clamp(this.scrollOffset, 0.0F, 1.0F);
             this.firstVisibleIndex = (int) ((double) (this.scrollOffset * (float) this.getOffscreenRows()) + (double) 0.5F) * RECIPES_COLUMNS;
             return true;
         } else {
-            return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+            return super.mouseDragged(mouseButtonEvent, dragX, dragY);
         }
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean mouseClicked(MouseButtonEvent mouseButtonEvent, boolean isDoubleClick) {
+        double mouseX = mouseButtonEvent.x();
+        double mouseY = mouseButtonEvent.y();
         this.scrolling = false;
         int recipeX = this.leftPos + RECIPES_X;
         int recipeY = this.topPos + RECIPES_Y;
@@ -161,7 +164,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
         if (isMouseInBox((int) mouseX, (int) mouseY, recipeX, recipeX + (RECIPES_ROWS * RECIPES_COLUMNS), recipeY, recipeY + SCROLLER_FULL_HEIGHT)) {
             this.scrolling = true;
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(mouseButtonEvent, isDoubleClick);
     }
 
     protected abstract void renderRecipes(GuiGraphics guiGraphics, int x, int y, int startIndex);

@@ -26,6 +26,6 @@ public class HeatedMixer extends GenericMenuBlock<HeatedMixerBlockEntity> {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
-        return level.isClientSide ? null : createTickerHelper(blockEntityType, SubstanceCraftBlockEntities.HEATED_MIXER, (world1, pos, blockState, blockEntity) -> blockEntity.tick(world1, pos, blockState));
+        return level.isClientSide() ? null : createTickerHelper(blockEntityType, SubstanceCraftBlockEntities.HEATED_MIXER, (world1, pos, blockState, blockEntity) -> blockEntity.tick(world1, pos, blockState));
     }
 }

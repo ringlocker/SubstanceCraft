@@ -26,7 +26,7 @@ public class CatalyticReformer extends GenericMenuBlock<CatalyticReformerBlockEn
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
-        return level.isClientSide ? null : createTickerHelper(blockEntityType, SubstanceCraftBlockEntities.CATALYTIC_REFORMER, (world1, pos, blockState, blockEntity) -> blockEntity.tick(world1, pos, blockState));
+        return level.isClientSide() ? null : createTickerHelper(blockEntityType, SubstanceCraftBlockEntities.CATALYTIC_REFORMER, (world1, pos, blockState, blockEntity) -> blockEntity.tick(world1, pos, blockState));
     }
 
 }
