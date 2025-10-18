@@ -27,31 +27,34 @@ List of workstations:
 <img src="https://github.com/ringlocker/images/blob/main/substancecraft/workstations.png?raw=true" alt="screenshot of workstations" width="480" height="270">
 
 ## Substances
-| Gasses          | Liquids           | Solids           |
-|-----------------|-------------------|------------------|
-| Formaldehyde    | Oil               | Salt             |
-| Hydrogen        | Petroleum Naphtha | Sodium Hydroxide |
-| Chlorine        | Kerosene          | Ammonium Acetate |
-| Methane         | Gasoline          | Petroleum Coke   |
-| Nitrogen        | Methanol          | β-Nitrostyrene   |
-| Oxygen          | Benzene           | Maleic Anhydride |
-| Natural Gas     | Chloroform        | Bromide          |
-| Ethane          | Toluene           | P2NP             |
-| Propane         | Brine             |                  |
-| Butane          | Diesel            |                  |
-| Methylamine     | Ethanol           |                  |
-| Ethylene        | Hydrochloric Acid |                  |
-| Propylene       | Benzaldehyde      |                  |
-| Ammonia         | Nitric Acid       |                  |
-| Carbon Monoxide | Nitromethane      |                  |
-|                 | Acetic Acid       |                  |
-|                 | Tetrahydrofuran   |                  |
-|                 | Bromine           |                  |
-|                 | Distilled Water   |                  |
-|                 | P2P               |                  |
-|                 | Nitroethane       |                  |
-|                 | Formic Acid       |                  |
-|                 | Methyl Formate    |                  |
+| Gasses          | Liquids                   | Solids                 |
+|-----------------|---------------------------|------------------------|
+| Formaldehyde    | Oil                       | Salt                   |
+| Hydrogen        | Petroleum Naphtha         | Sodium Hydroxide       |
+| Chlorine        | Kerosene                  | Ammonium Acetate       |
+| Methane         | Gasoline                  | Petroleum Coke         |
+| Nitrogen        | Methanol                  | β-Nitrostyrene         |
+| Oxygen          | Benzene                   | Maleic Anhydride       |
+| Natural Gas     | Chloroform                | Bromide                |
+| Ethane          | Toluene                   | P2NP                   |
+| Propane         | Brine                     | Sulfur                 |
+| Butane          | Diesel                    | Sodium Carbonate       |
+| Methylamine     | Ethanol                   | Potassium Chloride     |
+| Ethylene        | Hydrochloric Acid         | Potassium Hydroxide    |
+| Propylene       | Benzaldehyde              | Potassium Carbonate    |
+| Ammonia         | Nitric Acid               | Manganese Dioxide      |
+| Carbon Monoxide | Nitromethane              | Potassium Permanganate |
+| Carbon Dioxide  | Acetic Acid               | Coca Paste             |
+|                 | Tetrahydrofuran           |                        |
+|                 | Bromine                   |                        |
+|                 | Distilled Water           |                        |
+|                 | P2P                       |                        |
+|                 | Nitroethane               |                        |
+|                 | Formic Acid               |                        |
+|                 | Methyl Formate            |                        |
+|                 | Sodium Carbonate Solution |                        |
+|                 | Agua Rica                 |                        |
+|                 | Acetone                   |                        |
 
 ## Drugs
 ### Marijuana
