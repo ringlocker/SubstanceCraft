@@ -104,7 +104,7 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.TWO_C_H, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BROMIDE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BROMINE, itemModelGenerator);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.COKE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.COKE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BENZALDEHYDE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.NITRIC_ACID, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.NITROMETHANE, itemModelGenerator);

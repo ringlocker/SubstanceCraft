@@ -56,7 +56,7 @@ public class SubstanceCraftItems {
     public static final Item ETHANE = registerItem("ethane", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item PROPANE = registerItem("propane", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item BUTANE = registerItem("butane", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
-    public static final Item METHYLAMINE = registerItem("methylamine", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.GAS), new Item.Properties());
+    public static final Item METHYLAMINE = registerItem("methylamine", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item ETHYLENE = registerItem("ethylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item PROPYLENE = registerItem("propylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item DIESEL = registerItem("diesel", properties -> new SubstanceItem(properties, SubstanceTintColors.RED_LIQUID, MatterState.LIQUID), new Item.Properties());
@@ -72,7 +72,7 @@ public class SubstanceCraftItems {
     public static final Item ACETIC_ACID = registerItem("acetic_acid", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item AMMONIUM_ACETATE = registerItem("ammonium_acetate", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.SOLID), new Item.Properties());
     public static final Item CARBON_MONOXIDE = registerItem("carbon_monoxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
-    public static final Item COKE = registerItem("coke", Item::new, new Item.Properties());
+    public static final Item COKE = registerItem("coke", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_BLACK_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item BETA_NITROSTYRENE = registerItem("beta_nitrostyrene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.SOLID), new Item.Properties());
     public static final Item MALEIC_ANHYDRIDE = registerItem("maleic_anhydride", properties -> new SubstanceItem(properties, SubstanceTintColors.LIGHT_FOGGY_ORANGE_LIQUID, MatterState.SOLID), new Item.Properties());
     public static final Item TETRAHYDROFURAN = registerItem("tetrahydrofuran", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
@@ -189,12 +189,11 @@ public class SubstanceCraftItems {
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {
-        entries.accept(SubstanceCraftItems.HALITE);
         entries.accept(SubstanceCraftItems.OIL_SHALE);
-        entries.accept(SubstanceCraftItems.COKE);
-        entries.accept(SubstanceCraftItems.RAW_SULFUR);
+        entries.accept(SubstanceCraftItems.HALITE);
         entries.accept(SubstanceCraftItems.SYLVITE);
         entries.accept(SubstanceCraftItems.TRONA);
+        entries.accept(SubstanceCraftItems.RAW_SULFUR);
         entries.accept(SubstanceCraftItems.PYROLUSITE);
     }
 
@@ -249,6 +248,7 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftItems.CARBON_MONOXIDE);
         entries.accept(SubstanceCraftItems.METHYL_FORMATE);
         entries.accept(SubstanceCraftItems.FORMIC_ACID);
+        entries.accept(SubstanceCraftItems.COKE);
         entries.accept(SubstanceCraftItems.TETRAHYDROFURAN);
         entries.accept(SubstanceCraftItems.BETA_NITROSTYRENE);
         entries.accept(SubstanceCraftItems.TWO_C_H);

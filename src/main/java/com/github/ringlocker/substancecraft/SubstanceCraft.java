@@ -29,10 +29,4 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftNetworking.init();
     }
 
-    // TODO: Texture more green coca
-    // loot table drops coca
-    // new texture for oil shale
-    // lang
-    //
-
 }
