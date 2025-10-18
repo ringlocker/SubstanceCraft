@@ -1,7 +1,9 @@
-package com.github.ringlocker.substancecraft.items;
+package com.github.ringlocker.substancecraft.item;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
+import com.github.ringlocker.substancecraft.item.items.DabRig;
+import com.github.ringlocker.substancecraft.item.items.SimpleDrugs;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

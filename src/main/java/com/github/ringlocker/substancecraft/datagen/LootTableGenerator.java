@@ -2,7 +2,7 @@ package com.github.ringlocker.substancecraft.datagen;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
-import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
+import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;

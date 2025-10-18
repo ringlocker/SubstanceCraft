@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.items;
+package com.github.ringlocker.substancecraft.item;
 
 import net.minecraft.world.item.Item;
 

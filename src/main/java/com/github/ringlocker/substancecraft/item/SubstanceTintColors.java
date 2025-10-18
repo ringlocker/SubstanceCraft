@@ -1,10 +1,11 @@
-package com.github.ringlocker.substancecraft.items;
+package com.github.ringlocker.substancecraft.item;
 
 import net.minecraft.util.ARGB;
 
 public class SubstanceTintColors {
 
     public static final int DEFAULT_COLOR = ARGB.color(255, 224, 7, 239);
+    public static final int FULL_TRANSPARENT = ARGB.color(0, 255, 255, 255);
     public static final int THICK_BLACK_LIQUID = ARGB.color(225, 28, 26, 35);
     public static final int THICK_BLACK_SOLID = ARGB.color(240, 45, 45, 45);
     public static final int DARK_PURPLE_SOLID = ARGB.color(240, 61, 44, 71);
