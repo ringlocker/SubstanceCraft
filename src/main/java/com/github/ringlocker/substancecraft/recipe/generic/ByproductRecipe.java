@@ -8,4 +8,6 @@ public interface ByproductRecipe {
 
     List<ItemStack> getByproducts();
 
+    ItemStack getResult();
+
 }

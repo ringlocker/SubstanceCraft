@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:natural_resources",
+  "criteria": {
+    "got_halite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:halite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Halite is found under oceans between y=0 and y=48 and any anywhere in dripstone caves",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:salt_block"
+    },
+    "show_toast": false,
+    "title": "Halite"
+  },
+  "requirements": [
+    [
+      "got_halite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

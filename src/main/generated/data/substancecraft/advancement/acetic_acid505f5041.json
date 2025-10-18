@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:ammonium_acetate51e7cdfd",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:acetic_acid"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.acetic_acid"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

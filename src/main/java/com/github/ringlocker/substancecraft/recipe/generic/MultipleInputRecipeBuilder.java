@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.recipe.generic;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
+import com.github.ringlocker.substancecraft.datagen.AdvancementGenerator;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
@@ -78,6 +79,7 @@ public class MultipleInputRecipeBuilder implements RecipeBuilder {
         Advancement.Builder advancementBuilder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
         this.criteria.forEach(advancementBuilder::addCriterion);
         MultipleInputRecipe recipe = this.factory.create(this.ingredients, new ItemStack(this.result, outputCount), this.byproducts, this.time);
+        AdvancementGenerator.RecipeCache.cacheRecipe(recipe);
         exporter.accept(resourceKey, recipe, advancementBuilder.build(resourceKey.location().withPrefix("recipes/")));
     }
 

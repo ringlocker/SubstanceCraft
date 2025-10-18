@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:workstations",
+  "criteria": {
+    "got_extractor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:extractor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Used for extracting substances. Crafted with 4 copper blocks, 1 cauldron, 1 hopper, and 3 iron ingots",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:extractor"
+    },
+    "show_toast": false,
+    "title": "Extractor"
+  },
+  "requirements": [
+    [
+      "got_extractor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

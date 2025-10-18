@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:propylene566c290b",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:propane"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.propane"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
