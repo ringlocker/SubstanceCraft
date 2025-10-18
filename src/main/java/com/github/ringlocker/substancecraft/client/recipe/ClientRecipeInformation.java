@@ -43,6 +43,7 @@ public class ClientRecipeInformation {
             recipesByType.get(holder.value().getType()).add(holder);
         }
         recipesLoaded = true;
+        buffer.clear();
     }
 
     public static List<RecipeHolder<?>> getAllRecipesFor(RecipeType<?> type) {

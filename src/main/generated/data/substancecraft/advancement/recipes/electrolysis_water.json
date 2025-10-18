@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "substancecraft:brine"
+            "items": "substancecraft:distilled_water"
           }
         ]
       },

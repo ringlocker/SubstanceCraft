@@ -1,0 +1,14 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:agua_rica",
+    "substancecraft:ammonia_solution",
+    "substancecraft:potassium_permanganate"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:coca_paste"
+  },
+  "time": 800
+}

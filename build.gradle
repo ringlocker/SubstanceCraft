@@ -22,10 +22,6 @@ loom {
     }
 }
 
-runDatagen {
-    outputs.dir file("src/main/generated")
-}
-
 version = project.mod_version
 group = project.maven_group
 

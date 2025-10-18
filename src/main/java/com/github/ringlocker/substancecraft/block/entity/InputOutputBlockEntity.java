@@ -1,6 +1,6 @@
 package com.github.ringlocker.substancecraft.block.entity;
 
-import com.github.ringlocker.substancecraft.block.GenericMenuBlock;
+import com.github.ringlocker.substancecraft.block.blocks.generic.GenericMenuBlock;
 import com.github.ringlocker.substancecraft.client.recipe.ClientRecipeInformation;
 import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import com.github.ringlocker.substancecraft.recipe.generic.ByproductRecipe;

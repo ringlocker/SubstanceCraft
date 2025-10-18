@@ -28,4 +28,5 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftLootTables.registerLootTables();
         SubstanceCraftNetworking.init();
     }
+
 }

@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.client.datagen;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
+import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
 import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
@@ -21,7 +22,6 @@ import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.client.renderer.block.model.Variant;
-import net.minecraft.client.renderer.block.model.VariantMutator;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.WeightedList;
@@ -31,9 +31,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 @Environment(EnvType.CLIENT)
 public class ModelGenerator extends FabricModelProvider {
-
-    private static final PropertyDispatch<VariantMutator> ROTATION_HORIZONTAL_FACING = PropertyDispatch.modify(BlockStateProperties.HORIZONTAL_FACING)
-            .select(Direction.EAST, BlockModelGenerators.Y_ROT_90).select(Direction.SOUTH, BlockModelGenerators.Y_ROT_180).select(Direction.WEST, BlockModelGenerators.Y_ROT_270).select(Direction.NORTH, BlockModelGenerators.NOP);
 
     public ModelGenerator(FabricDataOutput output) {
         super(output);
@@ -46,13 +43,19 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.OIL_SHALE);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.OXIDATION_MACHINE, blockStateModelGenerator);
-        createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.CATALYTIC_REFORMER, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.EXTRACTOR, blockStateModelGenerator);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.HALITE);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.MIXER, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.HEATED_MIXER, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.FERMENTATION_TANK, blockStateModelGenerator);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.CORN_CROP, BlockModelGenerators.PlantType.TINTED, CornCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.COCA_CROP, BlockModelGenerators.PlantType.TINTED, CocaCrop.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SYLVITE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SULFUR_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.TRONA);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PYROLUSITE_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE);
     }
 
     @Override
@@ -101,7 +104,7 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.TWO_C_H, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BROMIDE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BROMINE, itemModelGenerator);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.COKE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.COKE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.BENZALDEHYDE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.NITRIC_ACID, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.NITROMETHANE, itemModelGenerator);
@@ -118,6 +121,26 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.FORMIC_ACID, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.METHYL_FORMATE, itemModelGenerator);
         itemModelGenerator.generateFlatItem(SubstanceCraftItems.AMPHETAMINE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.COCA_LEAVES, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.RAW_SULFUR, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.SULFUR, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.SULFURIC_ACID, itemModelGenerator);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.TRONA, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.SYLVITE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.SODIUM_CARBONATE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.SODIUM_CARBONATE_SOLUTION, itemModelGenerator);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.PYROLUSITE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.COCAINE, ModelTemplates.FLAT_ITEM);
+        generateSubstanceItem(SubstanceCraftItems.AGUA_RICA, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.POTASSIUM_CHLORIDE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.POTASSIUM_HYDROXIDE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.POTASSIUM_CARBONATE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.POTASSIUM_PERMANGANATE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.MANGANESE_DIOXIDE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.COCA_PASTE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.ACETONE, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.AMMONIA_SOLUTION, itemModelGenerator);
+        generateSubstanceItem(SubstanceCraftItems.CARBON_DIOXIDE, itemModelGenerator);
     }
 
     public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {
@@ -137,7 +160,16 @@ public class ModelGenerator extends FabricModelProvider {
         MultiVariant offVariant = new MultiVariant(WeightedList.of(new Variant(texture)));
         MultiVariant onVariant = new MultiVariant(WeightedList.of(new Variant(frontOn)));
         blockModelGenerators.blockStateOutput.accept(
-                MultiVariantGenerator.dispatch(block).with(PropertyDispatch.initial(BlockStateProperties.LIT).select(true, onVariant).select(false, offVariant)).with(ROTATION_HORIZONTAL_FACING)
+                MultiVariantGenerator.dispatch(block)
+                        .with(PropertyDispatch.initial(BlockStateProperties.LIT)
+                                .select(true, onVariant).select(false, offVariant)
+                        )
+                        .with(PropertyDispatch.modify(BlockStateProperties.HORIZONTAL_FACING)
+                                .select(Direction.EAST, BlockModelGenerators.Y_ROT_90)
+                                .select(Direction.SOUTH, BlockModelGenerators.Y_ROT_180)
+                                .select(Direction.WEST, BlockModelGenerators.Y_ROT_270)
+                                .select(Direction.NORTH, BlockModelGenerators.NOP)
+                        )
         );
     }
 

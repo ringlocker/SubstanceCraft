@@ -2,7 +2,6 @@ package com.github.ringlocker.substancecraft.gui;
 
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.gui.menus.CatalyticReformerMenu;
 import com.github.ringlocker.substancecraft.gui.menus.ElectrolysisMachineMenu;
 import com.github.ringlocker.substancecraft.gui.menus.ExtractorMenu;
 import com.github.ringlocker.substancecraft.gui.menus.FermentationTankMenu;
@@ -30,12 +29,6 @@ public class SubstanceCraftMenus {
             BuiltInRegistries.MENU,
             ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "refinery"),
             new ExtendedScreenHandlerType<>(RefineryMenu::new, BlockPos.STREAM_CODEC.cast())
-    );
-
-    public static final MenuType<CatalyticReformerMenu> CATALYTIC_REFORMER = Registry.register(
-            BuiltInRegistries.MENU,
-            ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "catalytic_reformer"),
-            new ExtendedScreenHandlerType<>(CatalyticReformerMenu::new, BlockPos.STREAM_CODEC.cast())
     );
 
     public static final MenuType<OxidizerMenu> OXIDIZER = Registry.register(

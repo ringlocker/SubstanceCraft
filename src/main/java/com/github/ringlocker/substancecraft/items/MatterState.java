@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 public enum MatterState {
 
     SOLID(resourceLocation("item/solid"), resourceLocation("item/solid_overlay")),
-    LIQUID(resourceLocation("item/substance"), resourceLocation("item/substance_overlay")),
+    LIQUID(resourceLocation("item/liquid"), resourceLocation("item/liquid_overlay")),
     GAS(resourceLocation("item/substance"), resourceLocation("item/substance_overlay"));
 
     private final ResourceLocation baseTexture;

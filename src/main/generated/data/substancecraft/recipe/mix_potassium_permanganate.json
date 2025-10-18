@@ -1,0 +1,14 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:oxygen",
+    "substancecraft:manganese_dioxide",
+    "substancecraft:potassium_hydroxide"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:potassium_permanganate"
+  },
+  "time": 800
+}
