@@ -1,5 +1,6 @@
-package com.github.ringlocker.substancecraft.items;
+package com.github.ringlocker.substancecraft.item.items;
 
+import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.particles.ParticleTypes;
@@ -28,7 +29,7 @@ import org.joml.Vector3f;
 
 public class DabRig {
 
-    static class DabRigItem extends Item {
+    public static class DabRigItem extends Item {
 
         public DabRigItem(Properties properties) {
             super(properties);
@@ -108,7 +109,7 @@ public class DabRig {
         }
     }
 
-    static class EmptyDabRigItem extends Item {
+    public static class EmptyDabRigItem extends Item {
 
         public EmptyDabRigItem(Properties properties) {
             super(properties);

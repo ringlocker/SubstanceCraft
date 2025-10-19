@@ -2,7 +2,7 @@ package com.github.ringlocker.substancecraft.datagen;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
+import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.recipe.builder.ElectrolysisRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.builder.ExtractorRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.builder.FermentationTankRecipeBuilder;

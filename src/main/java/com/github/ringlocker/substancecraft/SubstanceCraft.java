@@ -2,13 +2,19 @@ package com.github.ringlocker.substancecraft;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
+import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
+import com.github.ringlocker.substancecraft.effect.component.SubstanceCraftDataComponents;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
-import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
+import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.network.SubstanceCraftNetworking;
 import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
+import com.github.ringlocker.substancecraft.server.command.SubstanceCraftCommands;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftFeatures;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftLootTables;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +33,17 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftFeatures.registerFeatures();
         SubstanceCraftLootTables.registerLootTables();
         SubstanceCraftNetworking.init();
+        SubstanceCraftDataComponents.registerComponents();
+        SubstanceCraftCommands.registerCommands();
+
+        registerServerEvents();
+    }
+
+    private static void registerServerEvents() {
+        ServerTickEvents.START_SERVER_TICK.register(SubstanceEffectTicker::onServerTick);
+        ServerLifecycleEvents.SERVER_STARTED.register(SubstanceEffectTicker::serverStart);
+        ServerPlayerEvents.JOIN.register(SubstanceEffectTicker::playerJoin);
+        ServerPlayerEvents.COPY_FROM.register(SubstanceEffectTicker::playerCopyEvent);
     }
 
 }
