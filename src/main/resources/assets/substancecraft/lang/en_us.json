@@ -27,8 +27,15 @@
   "block.substancecraft.pyrolusite_ore": "Pyrolusite Ore",
   "block.substancecraft.deepslate_pyrolusite_ore": "Deepslate Pyrolusite Ore",
 
+  "effect.substancecraft.fast": "Zoomies",
+  "effect.substancecraft.slow": "Slow",
+  "effect.substancecraft.stoned": "Stoned",
+  "effect.substancecraft.dph": "Diphenhydramine",
+  "effect.substancecraft.coke": "Cocaine",
+  "effect.substancecraft.ketamine": "Ketamine",
+  "effect.substancecraft.amphetamine": "Amphetamine",
+
   "effect.minecraft.hunger": "Munchies",
-  "effect.minecraft.speed": "Zoomies",
 
   "item.substancecraft.marijuana": "Marijuana",
   "item.substancecraft.marijuana_trim": "Marijuana Trim",

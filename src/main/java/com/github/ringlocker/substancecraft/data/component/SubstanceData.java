@@ -1,5 +1,6 @@
-package com.github.ringlocker.substancecraft.effect.component.components;
+package com.github.ringlocker.substancecraft.data.component;
 
+import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.item.Drug;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.ExtraCodecs;
@@ -8,12 +9,22 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public record SubstanceData(List<SubstanceInstance> substances) {
+public class SubstanceData {
 
     public static final Codec<SubstanceData> CODEC = ExtraCodecs.compactListCodec(SubstanceInstance.CODEC).xmap(SubstanceData::new, SubstanceData::substances);
 
+    private final ArrayList<SubstanceInstance> substances;
+
+    public SubstanceData(List<SubstanceInstance> substances) {
+        this.substances = new ArrayList<>(substances);
+    }
+
     public SubstanceData() {
         this(new ArrayList<>());
+    }
+
+    public List<SubstanceInstance> substances() {
+        return substances;
     }
 
     public SubstanceInstance getInstanceOrCreateIfNotPresent(Drug drug) {
@@ -25,6 +36,16 @@ public record SubstanceData(List<SubstanceInstance> substances) {
         SubstanceInstance instance = new SubstanceInstance(drug, 0, new ArrayList<>());
         substances.add(instance);
         return instance;
+    }
+
+    public SubstanceInstance getInstance(Drug drug) {
+        for (SubstanceInstance substance : substances) {
+            if (substance.drug() == drug) {
+                return substance;
+            }
+        }
+        SubstanceCraft.LOGGER.warn("Could not find instance of {}", drug.name());
+        return getInstanceOrCreateIfNotPresent(drug);
     }
 
     @Override

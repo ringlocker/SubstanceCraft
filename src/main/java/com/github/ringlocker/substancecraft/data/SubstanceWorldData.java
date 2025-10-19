@@ -1,7 +1,6 @@
-package com.github.ringlocker.substancecraft.effect;
+package com.github.ringlocker.substancecraft.data;
 
-
-import com.github.ringlocker.substancecraft.effect.component.components.SubstanceData;
+import com.github.ringlocker.substancecraft.data.component.SubstanceData;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.server.level.ServerLevel;

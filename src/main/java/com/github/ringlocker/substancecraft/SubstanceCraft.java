@@ -2,13 +2,13 @@ package com.github.ringlocker.substancecraft;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
+import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
-import com.github.ringlocker.substancecraft.effect.component.SubstanceCraftDataComponents;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.network.SubstanceCraftNetworking;
 import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
-import com.github.ringlocker.substancecraft.server.command.SubstanceCraftCommands;
+import com.github.ringlocker.substancecraft.command.SubstanceCraftCommands;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftFeatures;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftLootTables;
 import net.fabricmc.api.ModInitializer;
@@ -33,7 +33,7 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftFeatures.registerFeatures();
         SubstanceCraftLootTables.registerLootTables();
         SubstanceCraftNetworking.init();
-        SubstanceCraftDataComponents.registerComponents();
+        SubstanceCraftEffects.registerEffects();
         SubstanceCraftCommands.registerCommands();
 
         registerServerEvents();

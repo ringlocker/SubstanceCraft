@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.effect.component.components;
+package com.github.ringlocker.substancecraft.data.component;
 
 import com.github.ringlocker.substancecraft.item.Drug;
 import com.mojang.serialization.Codec;

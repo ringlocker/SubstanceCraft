@@ -1,10 +1,13 @@
 package com.github.ringlocker.substancecraft.item.items;
 
+import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
+import com.github.ringlocker.substancecraft.item.Drug;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -12,8 +15,6 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -47,7 +48,8 @@ public class DabRig {
             if (player.getOffhandItem().is(SubstanceCraftItems.HASH)) {
                 ItemStack hash = player.getOffhandItem();
                 hash.setCount(hash.getCount() - 1);
-                player.getCooldowns().addCooldown(itemStack, 20 * 20);
+                player.getCooldowns().addCooldown(itemStack, 10 * 20);
+                if (player instanceof ServerPlayer sp) SubstanceEffectTicker.playerConsumeDrug(sp, Drug.HASH);
 
                 Vector3f positionVector = new Vector3f((float) player.getX(), (float) player.getY(), (float) player.getZ())
                                 .add(player.getLookAngle().normalize().toVector3f().mul(0.8f))
@@ -88,6 +90,7 @@ public class DabRig {
                         1.0F,
                         1.0F);
 
+                /*
                 int previousAmplifier = -1;
                 int duration = (180 * 20);
                 for (MobEffectInstance effect : player.getActiveEffects()) {
@@ -104,6 +107,8 @@ public class DabRig {
                 }
                 player.addEffect(new MobEffectInstance(MobEffects.HUNGER, duration, Math.min(previousAmplifier + 1, 9), true, false));
                 player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, duration, Math.min((previousAmplifier < 4 ? previousAmplifier : 3) + 1, 9), true, false));
+
+                 */
             }
             return itemStack;
         }

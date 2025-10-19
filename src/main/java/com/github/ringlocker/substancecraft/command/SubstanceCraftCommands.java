@@ -1,10 +1,8 @@
-package com.github.ringlocker.substancecraft.server.command;
+package com.github.ringlocker.substancecraft.command;
 
-import com.github.ringlocker.substancecraft.effect.SubstanceWorldData;
+import com.github.ringlocker.substancecraft.data.SubstanceWorldData;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.minecraft.network.chat.ChatType;
-import net.minecraft.network.chat.OutgoingChatMessage;
-import net.minecraft.network.chat.PlayerChatMessage;
+import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +12,15 @@ import static net.minecraft.commands.Commands.literal;
 public class SubstanceCraftCommands {
 
     public static void registerCommands() {
-            CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("sampleData")
+            CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("substancedata")
                 .executes(context -> {
                     String msg = SubstanceWorldData.get(context.getSource().getLevel()).toString();
-                    List<String> msgs = splitString(msg, 255);
-                    msgs.forEach(string -> context.getSource().sendChatMessage(
-                            OutgoingChatMessage.create(PlayerChatMessage.system(string)),
-                            false,
-                            ChatType.bind(ChatType.MSG_COMMAND_INCOMING, context.getSource()).withTargetName(context.getSource().getDisplayName())));
+                    List<String> msgs = splitString(msg, 250);
+                    List<Component> components = new ArrayList<>();
+                    msgs.forEach(string -> components.add(Component.literal(string)));
+                    components.forEach(c -> context.getSource().getPlayer().sendSystemMessage(c));
+
+
                     return 1;
                 })));
     }

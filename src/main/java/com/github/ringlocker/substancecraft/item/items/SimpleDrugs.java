@@ -3,8 +3,6 @@ package com.github.ringlocker.substancecraft.item.items;
 import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
 import com.github.ringlocker.substancecraft.item.Drug;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -23,10 +21,6 @@ public class SimpleDrugs {
         @Override
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
-            //player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 360, 0));
-            //player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 360, 0));
-            //player.addEffect(new MobEffectInstance(MobEffects.POISON, 180, 0));
-           // player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 360, 0));
             if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
             if (!level.isClientSide()) SubstanceEffectTicker.playerConsumeDrug((ServerPlayer) player, Drug.DIPHENHYDRAMINE);
             return stack;
@@ -42,8 +36,8 @@ public class SimpleDrugs {
         @Override
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
-            player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 20*60, 0));
             if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
+            if (!level.isClientSide()) SubstanceEffectTicker.playerConsumeDrug((ServerPlayer) player, Drug.KETAMINE);
             return stack;
         }
     }
@@ -57,8 +51,8 @@ public class SimpleDrugs {
         @Override
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
-            player.addEffect(new MobEffectInstance(MobEffects.SPEED, 20*600, 0));
             if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
+            if (!level.isClientSide()) SubstanceEffectTicker.playerConsumeDrug((ServerPlayer) player, Drug.AMPHETAMINE);
             return stack;
         }
     }
@@ -72,8 +66,8 @@ public class SimpleDrugs {
         @Override
         public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
             if (!(livingEntity instanceof Player player)) return stack;
-            player.addEffect(new MobEffectInstance(MobEffects.SPEED, 20*600, 0));
             if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
+            if (!level.isClientSide()) SubstanceEffectTicker.playerConsumeDrug((ServerPlayer) player, Drug.COCAINE);
             return stack;
         }
     }

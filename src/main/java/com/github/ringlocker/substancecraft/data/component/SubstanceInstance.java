@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.effect.component.components;
+package com.github.ringlocker.substancecraft.data.component;
 
 import com.github.ringlocker.substancecraft.item.Drug;
 import com.mojang.serialization.Codec;
@@ -20,12 +20,12 @@ public class SubstanceInstance {
 
     private final Drug drug;
     private float amount;
-    private final List<Dose> doses;
+    private final ArrayList<Dose> doses;
 
     public SubstanceInstance(Drug drug, float amount, List<Dose> doses) {
         this.drug = drug;
         this.amount = amount;
-        this.doses = doses;
+        this.doses = new ArrayList<>(doses);
     }
 
     public void tick() {
