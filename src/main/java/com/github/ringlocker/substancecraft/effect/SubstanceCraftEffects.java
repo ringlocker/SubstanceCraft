@@ -32,7 +32,9 @@ public class SubstanceCraftEffects {
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.slow"), -0.075F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static final Holder<MobEffect> NARCAN = register("narcan", new BasicEffect(MobEffectCategory.BENEFICIAL));
-    public static final Holder<MobEffect> OVERDOSE = register("overdose", new SimpleEffects.Overdose());
+    public static final Holder<MobEffect> OVERDOSE = register("overdose", new SimpleEffects.OpioidOverdose());
+    public static final Holder<MobEffect> NOT_HUNGRY = register("not_hungry", new SimpleEffects.NotHungry());
+    public static final Holder<MobEffect> HUNGRY = register("hungry", new SimpleEffects.Hungry());
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);

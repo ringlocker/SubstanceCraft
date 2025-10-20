@@ -3,6 +3,7 @@ package com.github.ringlocker.substancecraft.effect.effects;
 import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import com.github.ringlocker.substancecraft.effect.damagesource.SubstanceCraftDamageSources;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -10,9 +11,9 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class SimpleEffects {
 
-    public static class Overdose extends SubstanceCraftEffects.TickingEffect {
+    public static class OpioidOverdose extends SubstanceCraftEffects.TickingEffect {
 
-        public Overdose() {
+        public OpioidOverdose() {
             super(MobEffectCategory.HARMFUL);
         }
 
@@ -40,5 +41,47 @@ public class SimpleEffects {
             return SubstanceCraftDamageSources.getDamageSource(level, SubstanceCraftDamageSources.OVERDOSE);
         }
     }
+
+    public static class NotHungry extends SubstanceCraftEffects.TickingEffect {
+
+        public NotHungry() {
+            super(MobEffectCategory.BENEFICIAL);
+        }
+
+        @Override
+        protected boolean shouldTick(int duration) {
+            return duration % 20 == 0;
+        }
+
+        @Override
+        protected void tick(ServerLevel level, LivingEntity entity, int amplifier) {
+            if (entity instanceof ServerPlayer player) {
+                player.getFoodData().setFoodLevel(20);
+                player.getFoodData().setSaturation(0.5F);
+            }
+        }
+    }
+
+    public static class Hungry extends SubstanceCraftEffects.TickingEffect {
+
+        public Hungry() {
+            super(MobEffectCategory.HARMFUL);
+        }
+
+        @Override
+        protected boolean shouldTick(int duration) {
+            return duration % 100 == 0;
+        }
+
+        @Override
+        protected void tick(ServerLevel level, LivingEntity entity, int amplifier) {
+            if (entity instanceof ServerPlayer player) {
+               player.getFoodData().addExhaustion(0.5F * amplifier);
+            }
+        }
+
+    }
+
+
 
 }

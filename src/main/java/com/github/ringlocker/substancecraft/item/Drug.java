@@ -13,7 +13,8 @@ import java.util.List;
 public enum Drug {
     HASH(
             milligrams(25), micrograms(400), minutes(2), seconds(3), seconds(20), fromID("stoned"),
-            List.of(new DrugSideEffect(fromID("slow"), milligrams(30), milligrams(15), 25))
+            List.of(new DrugSideEffect(fromID("slow"), milligrams(30), milligrams(15), 25),
+                    new DrugSideEffect(fromID("hungry"), milligrams(10), milligrams(10), 25))
     ),
     DIPHENHYDRAMINE(
             milligrams(300), milligrams(25), minutes(4), seconds(10), seconds(45), fromID("dph"),
@@ -26,7 +27,8 @@ public enum Drug {
     ),
     AMPHETAMINE(
             milligrams(50), milligrams(2.5F), minutes(4), seconds(5), seconds(30), fromID("amphetamine"),
-            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10), 25))
+            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10), 25),
+                    new DrugSideEffect(fromID("not_hungry"), milligrams(30), grams(1), 0))
     ),
     KETAMINE(
             milligrams(250), milligrams(50), minutes(3), seconds(5), seconds(15), fromID("ketamine"),
