@@ -91,4 +91,5 @@ Not fully implemented, created in refinery with oil. Gives 60 seconds of invisib
 ### Diphenhydramine
 Not fully implemented, created in refinery with oil. Gives several negative effects, consumption is discouraged
 
-
+### Cocaine
+Synthesized from coca leaves, gives speed.
