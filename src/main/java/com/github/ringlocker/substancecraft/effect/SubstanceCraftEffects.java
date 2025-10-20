@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.effect;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
+import com.github.ringlocker.substancecraft.effect.effects.SimpleEffects;
 import com.github.ringlocker.substancecraft.item.SubstanceTintColors;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -26,9 +27,12 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> AMPHETAMINE = register("amphetamine", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     public static final Holder<MobEffect> FAST = register("fast", new BasicEffect(MobEffectCategory.BENEFICIAL)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.fast"), 0.05F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.fast"), 0.075F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static final Holder<MobEffect> SLOW = register("slow", new BasicEffect(MobEffectCategory.HARMFUL)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.slow"), -0.05F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.slow"), -0.075F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static final Holder<MobEffect> NARCAN = register("narcan", new BasicEffect(MobEffectCategory.BENEFICIAL));
+    public static final Holder<MobEffect> OVERDOSE = register("overdose", new SimpleEffects.Overdose());
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);

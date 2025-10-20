@@ -4,6 +4,7 @@ import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
+import com.github.ringlocker.substancecraft.effect.damagesource.SubstanceCraftDamageSources;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.network.SubstanceCraftNetworking;
@@ -35,6 +36,7 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftNetworking.init();
         SubstanceCraftEffects.registerEffects();
         SubstanceCraftCommands.registerCommands();
+        SubstanceCraftDamageSources.registerDamageSources();
 
         registerServerEvents();
     }

@@ -13,23 +13,24 @@ import java.util.List;
 public enum Drug {
     HASH(
             milligrams(25), micrograms(400), minutes(2), seconds(3), seconds(20), fromID("stoned"),
-            List.of(new DrugSideEffect(fromID("slow"), milligrams(30), milligrams(15)))
+            List.of(new DrugSideEffect(fromID("slow"), milligrams(30), milligrams(15), 25))
     ),
     DIPHENHYDRAMINE(
-            milligrams(300), milligrams(25), minutes(4), seconds(10), seconds(90), fromID("dph"),
-            List.of(new DrugSideEffect(fromID("slow"), milligrams(50), milligrams(25)))
+            milligrams(300), milligrams(25), minutes(4), seconds(10), seconds(45), fromID("dph"),
+            List.of(new DrugSideEffect(fromID("slow"), milligrams(50), milligrams(25), 25))
     ),
     COCAINE(
-            milligrams(100), milligrams(5), minutes(3), seconds(5), seconds(30), fromID("coke"),
-            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10)))
+            milligrams(100), milligrams(5), minutes(3), seconds(5), seconds(15), fromID("coke"),
+            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10), 25),
+                    new DrugSideEffect(fromID("overdose"), milligrams(1000), milligrams(200), 25))
     ),
     AMPHETAMINE(
-            milligrams(50), milligrams(2.5F), minutes(4), seconds(10), seconds(45), fromID("amphetamine"),
-            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10)))
+            milligrams(50), milligrams(2.5F), minutes(4), seconds(5), seconds(30), fromID("amphetamine"),
+            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10), 25))
     ),
     KETAMINE(
-            milligrams(250), milligrams(50), minutes(3), seconds(5), seconds(30), fromID("ketamine"),
-            List.of(new DrugSideEffect(fromID("fast"), milligrams(200), milligrams(50)))
+            milligrams(250), milligrams(50), minutes(3), seconds(5), seconds(15), fromID("ketamine"),
+            List.of(new DrugSideEffect(fromID("fast"), milligrams(200), milligrams(50), 25))
     );
 
     private static final HashMap<Drug, Float> decayFactorCache = new HashMap<>();
@@ -131,10 +132,14 @@ public enum Drug {
         return minutes * 1200;
     }
 
-    public record DrugSideEffect(ResourceLocation effect, int threshold, int amplifyEvery) {
+    public record DrugSideEffect(ResourceLocation effect, int threshold, int amplifyEvery, int maxAmplifier) {
 
         public Holder<MobEffect> getEffect() {
             return SubstanceCraftEffects.getEffect(effect);
+        }
+
+        public int clampAmplifier(int amplifier) {
+            return Math.clamp(amplifier, 0, maxAmplifier);
         }
 
     }

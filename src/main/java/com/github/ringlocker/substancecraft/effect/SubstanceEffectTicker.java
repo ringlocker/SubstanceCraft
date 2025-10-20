@@ -59,13 +59,12 @@ public class SubstanceEffectTicker {
         SubstanceData dataComponent = data.getData(player.getUUID());
         dataComponent.substances().forEach(SubstanceInstance::tick);
         if (tick % 20 == 0) dataComponent.substances().forEach(instance -> refreshBaseEffects(player, instance));
-        if (tick % 20 == 0)refreshSideEffects(player, dataComponent);
+        if (tick % 20 == 0) refreshSideEffects(player, dataComponent);
     }
 
     public static void playerConsumeDrug(ServerPlayer player, Drug drug) {
         SubstanceData dataComponent = data.getData(player.getUUID());
         dataComponent.getInstanceOrCreateIfNotPresent(drug).addDose();
-        System.out.println(dataComponent);
         SubstanceWorldData.save(overworld, data);
 
     }
@@ -89,7 +88,6 @@ public class SubstanceEffectTicker {
                 }
             }
         }
-
         summary.applyTo(player);
     }
 
@@ -98,7 +96,7 @@ public class SubstanceEffectTicker {
             return 0;
         } else {
             float diff = amount - sideEffectThreshold;
-            return (int) ((float) sideEffectAmplifyEvery / diff);
+            return (int) (diff / (float) sideEffectAmplifyEvery);
         }
     }
     

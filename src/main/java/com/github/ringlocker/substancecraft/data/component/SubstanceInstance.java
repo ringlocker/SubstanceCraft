@@ -36,7 +36,7 @@ public class SubstanceInstance {
                 float consumeAmount = drug.getDose() / (float) drug().getComeUp();
                 float leftover = dose.consume(consumeAmount);
                 amount += consumeAmount;
-                if (leftover < 0) {
+                if (leftover <= 0) {
                     toRemove.add(dose);
                     amount -= leftover;
                 }
