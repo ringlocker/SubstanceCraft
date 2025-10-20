@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.items;
+package com.github.ringlocker.substancecraft.item.items;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

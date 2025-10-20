@@ -1,14 +1,13 @@
-package com.github.ringlocker.substancecraft.items;
+package com.github.ringlocker.substancecraft.item.items;
 
+import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
+import com.github.ringlocker.substancecraft.util.particle.Smoke;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -28,7 +27,7 @@ import org.joml.Vector3f;
 
 public class DabRig {
 
-    static class DabRigItem extends Item {
+    public static class DabRigItem extends Item {
 
         public DabRigItem(Properties properties) {
             super(properties);
@@ -46,38 +45,13 @@ public class DabRig {
             if (player.getOffhandItem().is(SubstanceCraftItems.HASH)) {
                 ItemStack hash = player.getOffhandItem();
                 hash.setCount(hash.getCount() - 1);
-                player.getCooldowns().addCooldown(itemStack, 20 * 20);
+                player.getCooldowns().addCooldown(itemStack, 10 * 20);
+
+                Smoke.generateSmokeParticles(player, level, 1.0F, 5, 0, 3);
 
                 Vector3f positionVector = new Vector3f((float) player.getX(), (float) player.getY(), (float) player.getZ())
                                 .add(player.getLookAngle().normalize().toVector3f().mul(0.8f))
                                 .add(new Vector3f(0.0f, 1.5f, 0.0f));
-                Vector3f smokeVelocity = player.getLookAngle().normalize().toVector3f()
-                                .add(new Vector3f(0.0f, 0.8f, 0.0f))
-                                .mul(0.01F);
-
-                RandomSource randomSource = level.random;
-                for (int x = -2; x < 3; x++) {
-                    for (int z = -2; z < 3; z++) {
-                        float chance = randomSource.nextFloat();
-                        int rolls = (chance < 0.15F) ? 0 : ((chance < 0.5) ? 1 : ((chance < 0.8F) ? 2 : 3));
-                        for (int i = 0; i < rolls; i++) {
-                            if (!level.isClientSide()) {
-                                ServerLevel server = (ServerLevel) level;
-                                server.sendParticles(
-                                        ParticleTypes.CAMPFIRE_COSY_SMOKE,
-                                        positionVector.x + ((double) x) / 8,
-                                        positionVector.y + randomSource.nextFloat() * 0.4F,
-                                        positionVector.z + ((double) z) / 8,
-                                        0,
-                                        smokeVelocity.x + (((double) x) / 8) * (randomSource.nextFloat() * 0.07F),
-                                        smokeVelocity.y + randomSource.nextFloat() * 0.05F,
-                                        smokeVelocity.z + (((double) z) / 8) * (randomSource.nextFloat() * 0.07F),
-                                        1
-                                );
-                            }
-                        }
-                    }
-                }
 
                 level.playSound(
                         player,
@@ -85,7 +59,8 @@ public class DabRig {
                         SoundEvents.BREWING_STAND_BREW,
                         SoundSource.BLOCKS,
                         1.0F,
-                        1.0F);
+                        1.0F
+                );
 
                 int previousAmplifier = -1;
                 int duration = (180 * 20);
@@ -108,7 +83,7 @@ public class DabRig {
         }
     }
 
-    static class EmptyDabRigItem extends Item {
+    public static class EmptyDabRigItem extends Item {
 
         public EmptyDabRigItem(Properties properties) {
             super(properties);
