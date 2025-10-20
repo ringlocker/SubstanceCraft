@@ -101,7 +101,7 @@ This mod features two advancement tabs. Their function is less of showing "advan
 Has 3 subsections: Natural Resources, Workstations, and Agriculture.
 The advance descriptions will show where to find/how to get the given item.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/xxxxx?raw=true" alt="screenshot of substancecraft tab" width="282" height="260">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="512" height="335">
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 Shows the recipe tree for certain syntheses.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/xxxxx?raw=true" alt="screenshot of synthesis tree" width="282" height="260">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsynthesis.png?raw=true" alt="screenshot of synthesis tree" width="512" height="335">
 
 *Since the vanilla advancement window is quite small, it is hard to see the large synthesis trees.
 I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) (depends on modmenu, cloth-config)
