@@ -15,9 +15,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -82,7 +80,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .save(writer, SubstanceCraft.MOD_ID + ":natural_resources");
 
 
-        AdvancementHolder freedom = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(naturalResources)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE),
@@ -97,7 +95,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_oil", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.OIL_SHALE))
                 .save(writer, SubstanceCraft.MOD_ID + ":oil");
 
-        AdvancementHolder halite = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(naturalResources)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HALITE),
@@ -112,7 +110,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_halite", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.HALITE))
                 .save(writer, SubstanceCraft.MOD_ID + ":halite");
 
-        AdvancementHolder sylvite = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(naturalResources)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SYLVITE),
@@ -127,7 +125,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_sylvite", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.SYLVITE))
                 .save(writer, SubstanceCraft.MOD_ID + ":sylvite");
 
-        AdvancementHolder sulfur = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(naturalResources)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SULFUR_ORE),
@@ -142,7 +140,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_sulfur", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.SULFUR))
                 .save(writer, SubstanceCraft.MOD_ID + ":sulfur");
 
-        AdvancementHolder trona = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(naturalResources)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA),
@@ -157,7 +155,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_trona", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.TRONA))
                 .save(writer, SubstanceCraft.MOD_ID + ":trona");
 
-        AdvancementHolder pyrolusite = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(naturalResources)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PYROLUSITE_ORE),
@@ -190,7 +188,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
                 .save(writer, SubstanceCraft.MOD_ID + ":agriculture");
 
-        AdvancementHolder weed = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(agriculture)
                 .display(
                         SubstanceCraftItems.MARIJUANA_TRIM,
@@ -205,7 +203,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_weed", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.MARIJUANA))
                 .save(writer, SubstanceCraft.MOD_ID + ":weed");
 
-        AdvancementHolder coca = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(agriculture)
                 .display(
                         SubstanceCraftItems.COCA_LEAVES,
@@ -220,7 +218,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_coca", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.COCA_LEAVES))
                 .save(writer, SubstanceCraft.MOD_ID + ":coca");
 
-        AdvancementHolder corn = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(agriculture)
                 .display(
                         SubstanceCraftItems.CORN,
@@ -252,7 +250,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
                 .save(writer, SubstanceCraft.MOD_ID + ":workstations");
 
-        AdvancementHolder hashPress = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(workstations)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HASH_PRESS),
@@ -267,7 +265,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_hash_press", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HASH_PRESS)))
                 .save(writer, SubstanceCraft.MOD_ID + ":hash_press");
 
-        AdvancementHolder refinery = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(workstations)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY),
@@ -282,7 +280,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_refinery", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY)))
                 .save(writer, SubstanceCraft.MOD_ID + ":refinery");
 
-        AdvancementHolder mixer = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(workstations)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIXER),
@@ -297,7 +295,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_mixer", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIXER)))
                 .save(writer, SubstanceCraft.MOD_ID + ":mixer");
 
-        AdvancementHolder heatedMixer = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(workstations)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HEATED_MIXER),
@@ -313,7 +311,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .save(writer, SubstanceCraft.MOD_ID + ":heated_mixer");
 
 
-        AdvancementHolder oxidizer = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(workstations)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE),
@@ -328,7 +326,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_oxidizer", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE)))
                 .save(writer, SubstanceCraft.MOD_ID + ":oxidizer");
 
-        AdvancementHolder extractor = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(workstations)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR),
@@ -343,7 +341,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_extractor", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR)))
                 .save(writer, SubstanceCraft.MOD_ID + ":extractor");
 
-        AdvancementHolder electrolysis = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(workstations)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE),
@@ -358,7 +356,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("got_electrolysis_machine", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE)))
                 .save(writer, SubstanceCraft.MOD_ID + ":electrolysis_machine");
 
-        AdvancementHolder fermentationTank = Advancement.Builder.advancement()
+        Advancement.Builder.advancement()
                 .parent(workstations)
                 .display(
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK),
@@ -399,33 +397,24 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     @SuppressWarnings("deprecation")
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
-        AdvancementHolder itemAdvancement = Advancement.Builder.advancement().parent(parent)
+        Recipe<?> recipe = getRecipeForItem(toSynthesize);
+        if (recipe == null) return;
+
+        AdvancementHolder itemAdvancement = Advancement.Builder.advancement()
+                .parent(parent)
                 .display(toSynthesize, getNameFromItem(toSynthesize), Component.literal(""), null, AdvancementType.TASK, false, false, false)
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
                 .save(writer, SubstanceCraft.MOD_ID + ":" + toSynthesize.builtInRegistryHolder().key().location().getPath() + randomID());
 
-        Recipe<?> recipe = getRecipeForItem(toSynthesize);
-        if (recipe != null) {
-            List<Ingredient> ingredients = getIngredients(recipe);
-            for (Ingredient ingredient : ingredients) {
-                Item item = getItemFromIngredient(ingredient);
-                if (item == null) {
-                    System.err.println("Could not find item for ingredient");
-                    break;
-                }
-                generateSynthesisTree(item, writer, itemAdvancement);
+        List<Ingredient> ingredients = getIngredients(recipe);
+        for (Ingredient ingredient : ingredients) {
+            Item item = getItemFromIngredient(ingredient);
+            if (item == null) {
+                System.err.println("Could not find item for ingredient");
+                continue;
             }
+            generateSynthesisTree(item, writer, itemAdvancement);
         }
-    }
-
-    private static String randomID() {
-        return UUID.randomUUID().toString().split("-")[0];
-    }
-
-    private static Component getNameFromItem(Item item) {
-        return item == Items.POTION
-                ? Component.literal("Water Bottle")
-                : new ItemStack(item).getItemName();
     }
 
     @Nullable
@@ -459,7 +448,10 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     private static void appendIfMatch(Item item, Recipe<?> checkIfMatchItem, List<Recipe<?>> matches) {
         ByproductRecipe byproductRecipe = (ByproductRecipe) checkIfMatchItem;
-        if (byproductRecipe.getResult().getItem() == item) matches.add(checkIfMatchItem);
+        if (byproductRecipe.getResult().getItem() == item) {
+            matches.add(checkIfMatchItem);
+            return;
+        }
         List<ItemStack> byproduct = byproductRecipe.getByproducts();
         for (ItemStack stack : byproduct) {
             if (stack.getItem() == item) {
@@ -467,6 +459,16 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 return;
             }
         }
+    }
+
+    private static String randomID() {
+        return UUID.randomUUID().toString().split("-")[0];
+    }
+
+    private static Component getNameFromItem(Item item) {
+        return item == Items.POTION
+                ? Component.literal("Water Bottle")
+                : new ItemStack(item).getItemName();
     }
 
     public static class RecipeCache {
