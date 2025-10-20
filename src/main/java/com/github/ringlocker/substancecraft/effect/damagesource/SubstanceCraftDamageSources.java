@@ -12,6 +12,7 @@ import net.minecraft.world.damagesource.DamageType;
 public class SubstanceCraftDamageSources {
 
     public static final ResourceKey<DamageType> OVERDOSE = fromID("overdose");
+    public static final ResourceKey<DamageType> CARDIAC_ARREST = fromID("cardiac_arrest");
 
     public static void registerDamageSources() {
     }

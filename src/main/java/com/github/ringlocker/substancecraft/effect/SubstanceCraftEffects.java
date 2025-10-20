@@ -27,14 +27,15 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> AMPHETAMINE = register("amphetamine", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     public static final Holder<MobEffect> FAST = register("fast", new BasicEffect(MobEffectCategory.BENEFICIAL)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.fast"), 0.075F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.fast"), 0.12F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static final Holder<MobEffect> SLOW = register("slow", new BasicEffect(MobEffectCategory.HARMFUL)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.slow"), -0.075F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.slow"), -0.09F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static final Holder<MobEffect> NARCAN = register("narcan", new BasicEffect(MobEffectCategory.BENEFICIAL));
     public static final Holder<MobEffect> OVERDOSE = register("overdose", new SimpleEffects.OpioidOverdose());
     public static final Holder<MobEffect> NOT_HUNGRY = register("not_hungry", new SimpleEffects.NotHungry());
     public static final Holder<MobEffect> HUNGRY = register("hungry", new SimpleEffects.Hungry());
+    public static final Holder<MobEffect> ELEVATED_HEART_RATE = register("elevated_heart_rate", new SimpleEffects.Hungry());
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);

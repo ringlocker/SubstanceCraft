@@ -40,6 +40,7 @@ public class SimpleEffects {
         private static DamageSource getDamageSource(ServerLevel level) {
             return SubstanceCraftDamageSources.getDamageSource(level, SubstanceCraftDamageSources.OVERDOSE);
         }
+
     }
 
     public static class NotHungry extends SubstanceCraftEffects.TickingEffect {
@@ -76,8 +77,30 @@ public class SimpleEffects {
         @Override
         protected void tick(ServerLevel level, LivingEntity entity, int amplifier) {
             if (entity instanceof ServerPlayer player) {
-               player.getFoodData().addExhaustion(0.5F * amplifier);
+               player.getFoodData().addExhaustion(1.0F * amplifier);
+               player.getFoodData().setSaturation(player.getFoodData().getSaturationLevel() - 0.25F * amplifier);
             }
+        }
+
+    }
+
+    public static class CardiacArrest extends SubstanceCraftEffects.TickingEffect {
+        public CardiacArrest() {
+            super(MobEffectCategory.HARMFUL);
+        }
+
+        @Override
+        protected boolean shouldTick(int duration) {
+            return duration % 20 == 0;
+        }
+
+        @Override
+        protected void tick(ServerLevel level, LivingEntity entity, int amplifier) {
+            entity.hurtServer(level, getDamageSource(level), 2.0F * (amplifier + 1));
+        }
+
+        private static DamageSource getDamageSource(ServerLevel level) {
+            return SubstanceCraftDamageSources.getDamageSource(level, SubstanceCraftDamageSources.CARDIAC_ARREST);
         }
 
     }

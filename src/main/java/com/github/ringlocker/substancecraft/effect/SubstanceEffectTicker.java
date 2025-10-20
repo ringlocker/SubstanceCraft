@@ -66,13 +66,14 @@ public class SubstanceEffectTicker {
         SubstanceData dataComponent = data.getData(player.getUUID());
         dataComponent.getInstanceOrCreateIfNotPresent(drug).addDose();
         SubstanceWorldData.save(overworld, data);
-
     }
 
     private static void refreshBaseEffects(ServerPlayer player, SubstanceInstance instance) {
         player.removeEffect(instance.drug().getBaseEffect());
-        if (instance.drug().getThreshold() < instance.amount()) {
-            player.addEffect(new MobEffectInstance(instance.drug().getBaseEffect(), -1, 0, false, false));
+        float threshold = instance.drug().getThreshold();
+        float amount = instance.amount();
+        if (threshold < amount) {
+            player.addEffect(new MobEffectInstance(instance.drug().getBaseEffect(), remainingTime(instance.drug().getDecayFactor(), amount, threshold), 0, false, false, true));
         }
     }
     
@@ -139,20 +140,23 @@ public class SubstanceEffectTicker {
             }
 
             public MobEffectInstance build() {
-                return new MobEffectInstance(effect.getEffect(), duration, amp);
+                return new MobEffectInstance(effect.getEffect(), duration, amp, false, false, true);
             }
 
             private int calcRemainingTime(SubstanceInstance instance) {
                 double decay = instance.drug().getDecayFactor();
                 double start = instance.amount();
                 double threshold = effect.threshold();
-                double result = Math.log(threshold / start) / Math.log(decay);
-                return (int) Math.ceil(result);
+                return remainingTime(decay, start, threshold);
             }
 
 
         }
         
+    }
+
+    private static int remainingTime(double decay, double amount, double threshold) {
+        return (int) Math.ceil(Math.log(threshold / amount) / Math.log(decay));
     }
 
 }
