@@ -4,6 +4,9 @@ Requires fabric API
 
 Compiling from source: Requires java 21 and gradle 8.12
 
+Dependencies:
+- Fabric API
+
 Disclaimer: for funsies only, I do not promote the selling, distribution, or consumption of drugs outside of this mod.
 
 ## Features
@@ -11,13 +14,12 @@ Disclaimer: for funsies only, I do not promote the selling, distribution, or con
 Features several block entity workstations used for crafting different substances. 
 Each workstation has a recipe menu (like a stonecutter) that shows the recipes for the workstation.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/refinery_workstation.png?raw=true" alt="screenshot of workstations" width="282" height="260">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/refinery_workstation.png?raw=true" alt="screenshot of workstation" width="282" height="260">
 
 List of workstations:
 - Refinery
 - Extractor
 - Oxidizer
-- Catalytic Reformer
 - Mixer
 - Heated Mixer
 - Electrolysis Machine
@@ -91,4 +93,25 @@ Not fully implemented, created in refinery with oil. Gives 60 seconds of invisib
 ### Diphenhydramine
 Not fully implemented, created in refinery with oil. Gives several negative effects, consumption is discouraged
 
+## Advancements
+This mod features two advancement tabs. Their function is less of showing "advancement" but rather they act as a guide.
 
+**SubstanceCraft Tab**
+
+Has 3 subsections: Natural Resources, Workstations, and Agriculture.
+The advance descriptions will show where to find/how to get the given item.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/xxxxx?raw=true" alt="screenshot of substancecraft tab" width="282" height="260">
+
+___
+
+**Synthesis Tab**
+
+Shows the recipe tree for certain syntheses.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/xxxxx?raw=true" alt="screenshot of synthesis tree" width="282" height="260">
+
+*Since the vanilla advancement window is quite small, it is hard to see the large synthesis trees.
+I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) (depends on modmenu, cloth-config)
+ 
+___
