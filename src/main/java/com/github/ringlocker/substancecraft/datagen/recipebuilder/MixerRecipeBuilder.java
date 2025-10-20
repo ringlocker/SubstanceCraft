@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.recipe.builder;
+package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
 import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputRecipe;
 import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputRecipeBuilder;
