@@ -30,6 +30,8 @@
   "effect.minecraft.hunger": "Munchies",
   "effect.minecraft.speed": "Zoomies",
 
+  "entity.substancecraft.dealer": "Dealer",
+
   "item.substancecraft.marijuana": "Marijuana",
   "item.substancecraft.marijuana_trim": "Marijuana Trim",
   "item.substancecraft.hash": "Hash",

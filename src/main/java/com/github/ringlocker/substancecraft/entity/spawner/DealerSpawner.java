@@ -1,8 +1,9 @@
 package com.github.ringlocker.substancecraft.entity.spawner;
 
+import com.github.ringlocker.substancecraft.entity.SubstanceCraftEntities;
+import com.github.ringlocker.substancecraft.entity.entities.Dealer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -11,7 +12,6 @@ import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
-import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.GameRules;
@@ -25,15 +25,16 @@ public class DealerSpawner implements Spawner {
 
     private final RandomSource random = RandomSource.create();
     private static final int maxDistance = 48;
+    private static final int chance = 30;
 
     private int tickDelay;
     private int spawnDelay;
     private int spawnChance;
 
     public DealerSpawner() {
-        this.tickDelay = 1200;
-        this.spawnDelay = 24000;
-        this.spawnChance = 25;
+        this.tickDelay = 600;
+        this.spawnDelay = 8000;
+        this.spawnChance = chance;
     }
 
     @Override
@@ -41,19 +42,18 @@ public class DealerSpawner implements Spawner {
         if (!level.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING)) return;
         if (!(--this.tickDelay <= 0)) return;
 
-        this.tickDelay = 1200;
+        this.tickDelay = 600;
         this.spawnDelay -= 1200;
 
         if (this.spawnDelay > 0) return;
 
-        this.spawnDelay = 24000;
+        this.spawnDelay = 8000;
         int chance = this.spawnChance;
-        this.spawnChance = Mth.clamp(this.spawnChance + 25, 25, 75);
+        this.spawnChance = Mth.clamp(this.spawnChance + chance, chance, 80);
         if (this.random.nextInt(100) <= chance) {
             if (this.spawn(level)) {
-                this.spawnChance = 25;
+                this.spawnChance = chance;
             }
-
         }
 
     }
@@ -69,22 +69,13 @@ public class DealerSpawner implements Spawner {
             PoiManager poimanager = level.getPoiManager();
             Optional<BlockPos> optional = poimanager.find(poiTypeHolder -> poiTypeHolder.is(PoiTypes.MEETING), pos -> true, playerPos, maxDistance, PoiManager.Occupancy.ANY);
             BlockPos foundPos = optional.orElse(playerPos);
-            BlockPos spawnPos = this.findSpawnPositionNear(level, foundPos, maxDistance);
+            BlockPos spawnPos = this.findSpawnPositionNear(level, foundPos);
             if (spawnPos != null && this.hasEnoughSpace(level, spawnPos)) {
-                if (level.getBiome(spawnPos).is(BiomeTags.WITHOUT_WANDERING_TRADER_SPAWNS)) {
-                    return false;
-                }
-
-                // TODO made custom dealer entity, like wandering trader, custom trades
-                WanderingTrader wanderingtrader = EntityType.WANDERING_TRADER.spawn(level, spawnPos, EntitySpawnReason.EVENT);
-                if (wanderingtrader != null) {
-
-                    // update delays
-                    wanderingtrader.setDespawnDelay(48000);
-                    wanderingtrader.setWanderTarget(foundPos);
-                    wanderingtrader.setHomeTo(foundPos, 16);
-                    //
-
+                Dealer dealer = SubstanceCraftEntities.DEALER.spawn(level, spawnPos, EntitySpawnReason.EVENT);
+                if (dealer != null) {
+                    dealer.setDespawnDelay(48000);
+                    dealer.setWanderTarget(foundPos);
+                    dealer.setHomeTo(foundPos, 16);
                     return true;
                 }
             }
@@ -93,15 +84,14 @@ public class DealerSpawner implements Spawner {
         }
     }
 
-
     @Nullable
-    private BlockPos findSpawnPositionNear(LevelReader levelReader, BlockPos pos, int maxDistance) {
+    private BlockPos findSpawnPositionNear(LevelReader levelReader, BlockPos pos) {
         BlockPos blockpos = null;
         SpawnPlacementType spawnplacementtype = SpawnPlacements.getPlacementType(EntityType.WANDERING_TRADER);
 
         for (int i = 0; i < 10; i++) {
-            int randX = pos.getX() + this.random.nextInt(maxDistance * 2) - maxDistance;
-            int randZ = pos.getZ() + this.random.nextInt(maxDistance * 2) - maxDistance;
+            int randX = pos.getX() + this.random.nextInt(DealerSpawner.maxDistance * 2) - DealerSpawner.maxDistance;
+            int randZ = pos.getZ() + this.random.nextInt(DealerSpawner.maxDistance * 2) - DealerSpawner.maxDistance;
             int randY = levelReader.getHeight(Heightmap.Types.WORLD_SURFACE, randX, randZ);
             BlockPos randomPos = new BlockPos(randX, randY, randZ);
             if (spawnplacementtype.isSpawnPositionOk(levelReader, randomPos, EntityType.WANDERING_TRADER)) {
