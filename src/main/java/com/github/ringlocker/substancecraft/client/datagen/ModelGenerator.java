@@ -141,6 +141,8 @@ public class ModelGenerator extends FabricModelProvider {
         generateSubstanceItem(SubstanceCraftItems.ACETONE, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.AMMONIA_SOLUTION, itemModelGenerator);
         generateSubstanceItem(SubstanceCraftItems.CARBON_DIOXIDE, itemModelGenerator);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.CASH, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BAND, ModelTemplates.FLAT_ITEM);
     }
 
     public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {
