@@ -26,11 +26,11 @@ public class ItemForItemOffer implements VillagerTrades.ItemListing {
         this(new ItemCost(buyFromMerchant.asItem(), minQuantity + random.nextInt(maxQuantity - minQuantity + 1)), sellingToMerchant, maxUses, villagerXp);
     }
 
-    public ItemForItemOffer(ItemCost buyFromMerchant, ItemStack sellingToMerchant, int maxUses, int villagerXp) {
+    public ItemForItemOffer(ItemCost buyFromMerchant, ItemStack sellingToMerchant, int maxUses, int xp) {
         this.buyFromMerchant = buyFromMerchant;
         this.sellingToMerchant = sellingToMerchant;
         this.maxUses = maxUses;
-        this.villagerXp = villagerXp;
+        this.villagerXp = xp;
         this.priceMultiplier = 0.05F;
     }
 
