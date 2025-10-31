@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:amphetamine_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "ammonia_3",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:ammonia"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.ammonia"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

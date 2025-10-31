@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:acetic_acid_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "methanol_1",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:methanol"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.methanol"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

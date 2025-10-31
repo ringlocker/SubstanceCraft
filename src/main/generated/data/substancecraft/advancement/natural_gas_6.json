@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:propane_2",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "natural_gas_5",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:natural_gas"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.natural_gas"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

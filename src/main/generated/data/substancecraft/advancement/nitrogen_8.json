@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:ammonia_8",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "nitrogen_7",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:nitrogen"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.nitrogen"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

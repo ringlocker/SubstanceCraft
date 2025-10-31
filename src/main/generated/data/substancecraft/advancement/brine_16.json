@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:sodium_hydroxide_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "brine_15",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:brine"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.brine"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

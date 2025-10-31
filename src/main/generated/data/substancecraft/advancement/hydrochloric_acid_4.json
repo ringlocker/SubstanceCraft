@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:2c_b_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "hydrochloric_acid_3",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:hydrochloric_acid"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.hydrochloric_acid"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
