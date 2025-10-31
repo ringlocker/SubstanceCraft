@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:maleic_anhydride_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:benzene"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.benzene"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

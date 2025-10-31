@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:2c_b_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:bromine"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.bromine"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -112,6 +112,6 @@ Shows the recipe tree for certain syntheses.
 <img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsynthesis.png?raw=true" alt="screenshot of synthesis tree" width="512" height="335">
 
 *Since the vanilla advancement window is quite small, it is hard to see the large synthesis trees.
-I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) (depends on modmenu, cloth-config)
+I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) which is used in the above images. (depends on modmenu, cloth-config)
  
 ___

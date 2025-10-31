@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
@@ -62,7 +61,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         addSyntheses(writer);
     }
 
-    private void addNaturalResources(Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
+    private static void addNaturalResources(Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
 
         AdvancementHolder naturalResources = Advancement.Builder.advancement()
                 .parent(parent)
@@ -172,7 +171,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     }
 
-    private void addAgriculture(Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
+    private static void addAgriculture(Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
         AdvancementHolder agriculture = Advancement.Builder.advancement()
                 .parent(parent)
                 .display(
@@ -234,7 +233,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .save(writer, SubstanceCraft.MOD_ID + ":corn");
     }
 
-    private void addWorkstations(Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
+    private static void addWorkstations(Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
         AdvancementHolder workstations = Advancement.Builder.advancement()
                 .parent(parent)
                 .display(
@@ -373,7 +372,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     }
 
-    private void addSyntheses(Consumer<AdvancementHolder> writer) {
+    private static void addSyntheses(Consumer<AdvancementHolder> writer) {
         AdvancementHolder syntheses = Advancement.Builder.advancement()
                 .display(
                         SubstanceCraftItems.SALT,
@@ -395,7 +394,6 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         RecipeCache.clear();
     }
 
-    @SuppressWarnings("deprecation")
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
         Recipe<?> recipe = getRecipeForItem(toSynthesize);
         if (recipe == null) return;
@@ -404,7 +402,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .parent(parent)
                 .display(toSynthesize, getNameFromItem(toSynthesize), Component.literal(""), null, AdvancementType.TASK, false, false, false)
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
-                .save(writer, SubstanceCraft.MOD_ID + ":" + toSynthesize.builtInRegistryHolder().key().location().getPath() + randomID());
+                .save(writer, SubstanceCraft.MOD_ID + ":" + createKey(toSynthesize));
 
         List<Ingredient> ingredients = getIngredients(recipe);
         for (Ingredient ingredient : ingredients) {
@@ -461,8 +459,17 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         }
     }
 
-    private static String randomID() {
-        return UUID.randomUUID().toString().split("-")[0];
+    private static final HashMap<String, Integer> usedNames = new HashMap<>();
+
+    private static String createKey(Item item) {
+        String name = item.getName().getString().split("\\.")[2];
+        if (!usedNames.containsKey(name)) {
+            usedNames.put(name, 0);
+            return name + "_0";
+        } else {
+            Integer value = usedNames.put(name, usedNames.get(name) + 1);
+            return name + "_" + value;
+        }
     }
 
     private static Component getNameFromItem(Item item) {

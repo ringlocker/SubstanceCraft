@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:potassium_permanganate_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:manganese_dioxide"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.manganese_dioxide"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
