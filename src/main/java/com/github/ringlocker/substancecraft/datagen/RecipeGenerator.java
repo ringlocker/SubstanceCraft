@@ -486,6 +486,15 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(Items.CHARCOAL))
                         .save(recipeOutput, key("extract_carbon_dioxide"));
 
+                ExtractorRecipeBuilder.extract(
+                                Ingredient.of(SubstanceCraftItems.RAW_SULFUR),
+                                SubstanceCraftItems.SULFUR,
+                                1200,
+                                ExtractorRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.RAW_SULFUR))
+                        .save(recipeOutput, key("extract_sulfur"));
+
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SALT), Ingredient.of(Items.POTION)),
                                 SubstanceCraftItems.BRINE,
