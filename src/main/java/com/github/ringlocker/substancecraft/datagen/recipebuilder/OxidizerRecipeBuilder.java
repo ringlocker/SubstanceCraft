@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
 import com.github.ringlocker.substancecraft.recipe.generic.OneInputRecipe;
-import com.github.ringlocker.substancecraft.recipe.generic.OneInputRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.recipes.OxidizerRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;

@@ -7,7 +7,7 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "",
+    "description": "Electrolysis",
     "icon": {
       "count": 1,
       "id": "substancecraft:potassium_hydroxide"

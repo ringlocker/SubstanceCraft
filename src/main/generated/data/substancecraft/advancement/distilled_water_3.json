@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrochloric_acid_0",
+  "parent": "substancecraft:ammonia_solution_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,7 +7,7 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "",
+    "description": "Extract",
     "icon": {
       "count": 1,
       "id": "substancecraft:distilled_water"

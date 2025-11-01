@@ -1,7 +1,8 @@
-package com.github.ringlocker.substancecraft.recipe.generic;
+package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.datagen.AdvancementGenerator;
+import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;

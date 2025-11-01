@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:nitrogen_1",
+  "parent": "substancecraft:nitrogen_3",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

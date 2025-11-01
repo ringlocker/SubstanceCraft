@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class OneInputRecipe extends SingleItemRecipe implements ByproductRecipe {
+public abstract class OneInputRecipe extends SingleItemRecipe implements ByproductRecipe {
 
     private final RecipeType<? extends OneInputRecipe> type;
     private final RecipeSerializer<? extends OneInputRecipe> serializer;

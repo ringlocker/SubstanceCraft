@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrogen_1",
+  "parent": "substancecraft:distilled_water_8",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,15 +7,13 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Mixer",
+    "description": "",
     "icon": {
       "count": 1,
-      "id": "substancecraft:brine"
+      "id": "minecraft:potion"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.brine"
-    }
+    "title": "Water Bottle"
   },
   "requirements": [
     [

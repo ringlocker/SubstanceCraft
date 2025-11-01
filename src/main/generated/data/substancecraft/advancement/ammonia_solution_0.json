@@ -7,7 +7,7 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "",
+    "description": "Mixer",
     "icon": {
       "count": 1,
       "id": "substancecraft:ammonia_solution"

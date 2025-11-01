@@ -396,13 +396,15 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {
+        Recipe<?> recipe = getRecipeForItem(toSynthesize);
+        Component recipeType = recipe == null ? Component.literal("") : ((ByproductRecipe) recipe).getTypeString();
+
         AdvancementHolder itemAdvancement = Advancement.Builder.advancement()
                 .parent(parent)
-                .display(toSynthesize, getNameFromItem(toSynthesize), Component.literal(""), null, AdvancementType.TASK, false, false, false)
+                .display(toSynthesize, getNameFromItem(toSynthesize), recipeType, null, AdvancementType.TASK, false, false, false)
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
                 .save(writer, SubstanceCraft.MOD_ID + ":" + createKey(toSynthesize, counts));
 
-        Recipe<?> recipe = getRecipeForItem(toSynthesize);
         if (recipe == null) return;
 
         List<Ingredient> ingredients = getIngredients(recipe);
