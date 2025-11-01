@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:tetrahydrofuran_0",
+  "parent": "substancecraft:ammonia_4",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

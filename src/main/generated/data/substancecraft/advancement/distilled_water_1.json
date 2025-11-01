@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ammonia_solution_0",
+  "parent": "substancecraft:sulfuric_acid_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

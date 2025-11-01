@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:potassium_hydroxide_1",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:potassium_chloride"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.potassium_chloride"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

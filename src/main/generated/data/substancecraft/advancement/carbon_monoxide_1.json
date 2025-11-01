@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:acetic_acid_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:carbon_monoxide"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.carbon_monoxide"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:2c_b_0",
+  "parent": "substancecraft:2c_h_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

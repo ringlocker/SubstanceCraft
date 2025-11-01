@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:sodium_carbonate_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:trona"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.trona"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

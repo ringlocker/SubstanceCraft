@@ -387,22 +387,23 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
                 .save(writer, SubstanceCraft.MOD_ID + ":syntheses");
 
-        generateSynthesisTree(SubstanceCraftItems.COCAINE, writer, syntheses);
-        generateSynthesisTree(SubstanceCraftItems.AMPHETAMINE, writer, syntheses);
-        generateSynthesisTree(SubstanceCraftItems.TWO_C_B, writer, syntheses);
+        HashMap<String, Integer> counts = new HashMap<>();
+        generateSynthesisTree(SubstanceCraftItems.COCAINE, writer, syntheses, counts);
+        generateSynthesisTree(SubstanceCraftItems.AMPHETAMINE, writer, syntheses, counts);
+        generateSynthesisTree(SubstanceCraftItems.TWO_C_B, writer, syntheses, counts);
 
         RecipeCache.clear();
     }
 
-    private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
-        Recipe<?> recipe = getRecipeForItem(toSynthesize);
-        if (recipe == null) return;
-
+    private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {
         AdvancementHolder itemAdvancement = Advancement.Builder.advancement()
                 .parent(parent)
                 .display(toSynthesize, getNameFromItem(toSynthesize), Component.literal(""), null, AdvancementType.TASK, false, false, false)
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
-                .save(writer, SubstanceCraft.MOD_ID + ":" + createKey(toSynthesize));
+                .save(writer, SubstanceCraft.MOD_ID + ":" + createKey(toSynthesize, counts));
+
+        Recipe<?> recipe = getRecipeForItem(toSynthesize);
+        if (recipe == null) return;
 
         List<Ingredient> ingredients = getIngredients(recipe);
         for (Ingredient ingredient : ingredients) {
@@ -411,7 +412,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 System.err.println("Could not find item for ingredient");
                 continue;
             }
-            generateSynthesisTree(item, writer, itemAdvancement);
+            generateSynthesisTree(item, writer, itemAdvancement, counts);
         }
     }
 
@@ -459,17 +460,20 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         }
     }
 
-    private static final HashMap<String, Integer> usedNames = new HashMap<>();
-
-    private static String createKey(Item item) {
-        String name = item.getName().getString().split("\\.")[2];
-        if (!usedNames.containsKey(name)) {
-            usedNames.put(name, 0);
-            return name + "_0";
+    private static String createKey(Item item, HashMap<String, Integer> counts) {
+        String id = item.getName().getString();
+        String name;
+        if (id.contains("substancecraft")) {
+            name = id.split("\\.")[2];
         } else {
-            Integer value = usedNames.put(name, usedNames.get(name) + 1);
-            return name + "_" + value;
+            name = item.getDescriptionId().replace("item.minecraft.", "");
         }
+        if (!counts.containsKey(name)) {
+           counts.put(name, 0);
+        } else {
+            counts.put(name, counts.get(name) + 1);
+        }
+        return name + "_" + counts.get(name);
     }
 
     private static Component getNameFromItem(Item item) {

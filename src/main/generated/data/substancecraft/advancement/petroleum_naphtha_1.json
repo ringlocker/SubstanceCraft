@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:benzene_0",
+  "parent": "substancecraft:toluene_1",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

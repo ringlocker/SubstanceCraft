@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:nitromethane_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:nitric_acid"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.nitric_acid"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

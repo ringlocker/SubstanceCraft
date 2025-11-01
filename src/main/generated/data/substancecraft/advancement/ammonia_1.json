@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:amphetamine_0",
+  "parent": "substancecraft:nitric_acid_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

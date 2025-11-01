@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:methanol_0",
+  "parent": "substancecraft:propane_1",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:beta_nitrostyrene_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:benzaldehyde"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.benzaldehyde"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
