@@ -1,5 +1,5 @@
 # SubstanceCraft
-1.21.8 Fabric mod with fun substances
+1.21.10 Fabric mod with fun substances
 Requires fabric API
 
 Compiling from source: Requires java 21 and gradle 8.12
