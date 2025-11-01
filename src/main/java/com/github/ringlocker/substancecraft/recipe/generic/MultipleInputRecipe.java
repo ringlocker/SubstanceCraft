@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MultipleInputRecipe implements Recipe<MultipleItemInput>, ByproductRecipe {
+public abstract class MultipleInputRecipe implements Recipe<MultipleItemInput>, ByproductRecipe {
 
     private final RecipeType<? extends MultipleInputRecipe> type;
     private final RecipeSerializer<? extends MultipleInputRecipe> serializer;

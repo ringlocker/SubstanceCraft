@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:workstations",
+  "criteria": {
+    "got_heated_mixer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:heated_mixer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Used for mixing substances with heat. Crafted with 4 copper blocks, 1 cauldron, 2 iron ingots, 1 iron shovel, and 1 lava bucket",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:heated_mixer"
+    },
+    "show_toast": false,
+    "title": "Heated Mixer"
+  },
+  "requirements": [
+    [
+      "got_heated_mixer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

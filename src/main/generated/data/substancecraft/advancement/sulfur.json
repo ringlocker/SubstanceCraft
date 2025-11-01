@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:natural_resources",
+  "criteria": {
+    "got_sulfur": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:sulfur"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Sulfur is found underground between y=-64 and y=16",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:sulfur_ore"
+    },
+    "show_toast": false,
+    "title": "Sulfur"
+  },
+  "requirements": [
+    [
+      "got_sulfur"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

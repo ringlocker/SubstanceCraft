@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:workstations",
+  "criteria": {
+    "got_refinery": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:refinery"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Used for refining substances. Crafted with 5 copper blocks, 1 cauldron, and 3 iron ingots",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:refinery"
+    },
+    "show_toast": false,
+    "title": "Refinery"
+  },
+  "requirements": [
+    [
+      "got_refinery"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

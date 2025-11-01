@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:workstations",
+  "criteria": {
+    "got_electrolysis_machine": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:electrolysis"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Used for electrolysis reactions with substances. Crafted with 4 copper blocks, 1 cauldron, 2 redstone, 1 lever, and 1 iron ingot",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:electrolysis"
+    },
+    "show_toast": false,
+    "title": "Electrolysis Machine"
+  },
+  "requirements": [
+    [
+      "got_electrolysis_machine"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

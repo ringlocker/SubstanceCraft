@@ -14,6 +14,7 @@ public class SubstanceCraftDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(ItemTagGenerator::new);
         pack.addProvider(LootTableGenerator::new);
         pack.addProvider(RecipeGenerator::new);
+        pack.addProvider(AdvancementGenerator::new);
 
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
             try {

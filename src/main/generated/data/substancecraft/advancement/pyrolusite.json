@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:natural_resources",
+  "criteria": {
+    "got_pyrolusite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:pyrolusite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Pyrolusite is found underground between y=0 and y=72",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:pyrolusite_ore"
+    },
+    "show_toast": false,
+    "title": "Pyrolusite"
+  },
+  "requirements": [
+    [
+      "got_pyrolusite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

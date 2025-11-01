@@ -17,7 +17,6 @@ List of workstations:
 - Refinery
 - Extractor
 - Oxidizer
-- Catalytic Reformer
 - Mixer
 - Heated Mixer
 - Electrolysis Machine
@@ -93,3 +92,26 @@ Not fully implemented, created in refinery with oil. Gives several negative effe
 
 ### Cocaine
 Synthesized from coca leaves, gives speed.
+
+## Advancements
+This mod features two advancement tabs. Their function is less of showing "advancement" but rather they act as a guide.
+
+**SubstanceCraft Tab**
+
+Has 3 subsections: Natural Resources, Workstations, and Agriculture.
+The advance descriptions will show where to find/how to get the given item.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="512" height="335">
+
+___
+
+**Synthesis Tab**
+
+Shows the recipe tree for certain syntheses.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsynthesis.png?raw=true" alt="screenshot of synthesis tree" width="512" height="335">
+
+*Since the vanilla advancement window is quite small, it is hard to see the large synthesis trees.
+I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) which is used in the above images. (depends on modmenu, cloth-config)
+
+___
