@@ -99,7 +99,7 @@ This mod features two advancement tabs. Their function is less of showing "advan
 **SubstanceCraft Tab**
 
 Has 3 subsections: Natural Resources, Workstations, and Agriculture.
-The advance descriptions will show where to find/how to get the given item.
+The advancement descriptions will show where to find/how to get the given item.
 
 <img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="512" height="335">
 
