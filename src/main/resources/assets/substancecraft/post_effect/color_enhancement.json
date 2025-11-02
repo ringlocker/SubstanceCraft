@@ -1,0 +1,27 @@
+{
+  "targets": {
+    "swap": {}
+  },
+  "passes": [
+    {
+      "vertex_shader": "minecraft:core/screenquad",
+      "fragment_shader": "substancecraft:post/color_enhancement",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "minecraft:main"
+        }
+      ],
+      "output": "minecraft:main",
+      "uniforms": {
+        "Config": [
+          {
+            "name": "Saturation",
+            "type": "vec4",
+            "value": [ 1.8, 0.0, 0.0, 0.0 ]
+          }
+        ]
+      }
+    }
+  ]
+}

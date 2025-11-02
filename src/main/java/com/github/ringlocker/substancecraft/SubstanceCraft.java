@@ -13,9 +13,6 @@ import com.github.ringlocker.substancecraft.command.SubstanceCraftCommands;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftFeatures;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftLootTables;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,19 +30,11 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftMenus.registerMenus();
         SubstanceCraftFeatures.registerFeatures();
         SubstanceCraftLootTables.registerLootTables();
-        SubstanceCraftNetworking.init();
         SubstanceCraftEffects.registerEffects();
         SubstanceCraftCommands.registerCommands();
         SubstanceCraftDamageSources.registerDamageSources();
-
-        registerServerEvents();
-    }
-
-    private static void registerServerEvents() {
-        ServerTickEvents.START_SERVER_TICK.register(SubstanceEffectTicker::onServerTick);
-        ServerLifecycleEvents.SERVER_STARTED.register(SubstanceEffectTicker::serverStart);
-        ServerPlayerEvents.JOIN.register(SubstanceEffectTicker::playerJoin);
-        ServerPlayerEvents.COPY_FROM.register(SubstanceEffectTicker::playerCopyEvent);
+        SubstanceCraftNetworking.init();
+        SubstanceEffectTicker.init();
     }
 
 }

@@ -34,6 +34,10 @@ public enum Drug {
     KETAMINE(
             milligrams(250), milligrams(50), minutes(3), seconds(5), seconds(15), fromID("ketamine"),
             List.of(new DrugSideEffect(fromID("fast"), milligrams(200), milligrams(50), 10))
+    ),
+    TWO_CB(
+            milligrams(25), milligrams(5), minutes(5), seconds(10), seconds(45), fromID("two_cb"),
+            List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(25), milligrams(10), 10))
     );
 
     private static final HashMap<Drug, Float> decayFactorCache = new HashMap<>();

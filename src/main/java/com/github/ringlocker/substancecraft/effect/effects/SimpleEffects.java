@@ -32,7 +32,8 @@ public class SimpleEffects {
                 if (instance == null) entity.hurtServer(level, getDamageSource(level), 2.0F * (amplifier + 1));
                 else {
                     int narcAmplifier = instance.getAmplifier();
-                    if (narcAmplifier < amplifier) entity.hurtServer(level, getDamageSource(level), 2.0F * (amplifier + 1 - (narcAmplifier + 1)));
+                    if (narcAmplifier < amplifier)
+                        entity.hurtServer(level, getDamageSource(level), 2.0F * (amplifier + 1 - (narcAmplifier + 1)));
                 }
             }
         }
@@ -77,14 +78,15 @@ public class SimpleEffects {
         @Override
         protected void tick(ServerLevel level, LivingEntity entity, int amplifier) {
             if (entity instanceof ServerPlayer player) {
-               player.getFoodData().addExhaustion(1.0F * amplifier);
-               player.getFoodData().setSaturation(player.getFoodData().getSaturationLevel() - 0.25F * amplifier);
+                player.getFoodData().addExhaustion(1.0F * amplifier);
+                player.getFoodData().setSaturation(player.getFoodData().getSaturationLevel() - 0.25F * amplifier);
             }
         }
 
     }
 
     public static class CardiacArrest extends SubstanceCraftEffects.TickingEffect {
+
         public CardiacArrest() {
             super(MobEffectCategory.HARMFUL);
         }
@@ -104,7 +106,5 @@ public class SimpleEffects {
         }
 
     }
-
-
 
 }

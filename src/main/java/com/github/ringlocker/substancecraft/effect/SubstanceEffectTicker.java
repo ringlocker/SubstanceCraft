@@ -4,7 +4,12 @@ import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.data.SubstanceWorldData;
 import com.github.ringlocker.substancecraft.data.component.SubstanceData;
 import com.github.ringlocker.substancecraft.data.component.SubstanceInstance;
+import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
 import com.github.ringlocker.substancecraft.item.Drug;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,6 +22,14 @@ public class SubstanceEffectTicker {
     
     private static SubstanceWorldData data;
     private static ServerLevel overworld;
+
+    public static void init() {
+        ServerTickEvents.START_SERVER_TICK.register(SubstanceEffectTicker::onServerTick);
+        ServerLifecycleEvents.SERVER_STARTED.register(SubstanceEffectTicker::serverStart);
+        ServerPlayerEvents.JOIN.register(SubstanceEffectTicker::playerJoin);
+        ServerPlayerEvents.COPY_FROM.register(SubstanceEffectTicker::playerCopyEvent);
+        ClientTickEvents.START_CLIENT_TICK.register(ColorEnhancement::clientTick);
+    }
 
     public static void onServerTick(MinecraftServer minecraftServer) {
         if (minecraftServer.tickRateManager().isFrozen()) {

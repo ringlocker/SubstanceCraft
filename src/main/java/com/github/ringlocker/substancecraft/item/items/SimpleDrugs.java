@@ -71,4 +71,19 @@ public class SimpleDrugs {
             return stack;
         }
     }
+
+    public static class TwoCB extends Item {
+
+        public TwoCB(Properties properties) {
+            super(properties);
+        }
+
+        @Override
+        public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
+            if (!(livingEntity instanceof Player player)) return stack;
+            if (!livingEntity.hasInfiniteMaterials()) stack.setCount(stack.getCount() - 1);
+            if (!level.isClientSide()) SubstanceEffectTicker.playerConsumeDrug((ServerPlayer) player, Drug.TWO_CB);
+            return stack;
+        }
+    }
 }

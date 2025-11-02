@@ -81,7 +81,7 @@ public class SubstanceCraftItems {
     public static final Item TWO_C_H = registerItem("2c_h", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.SOLID), new Item.Properties());
     public static final Item BROMINE = registerItem("bromine", properties -> new SubstanceItem(properties, SubstanceTintColors.FOGGY_ORANGE_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item BROMIDE = registerItem("bromide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.SOLID), new Item.Properties());
-    public static final Item TWO_C_B = registerItem("2c_b", Item::new, new Item.Properties());
+    public static final Item TWO_C_B = registerItem("2c_b", SimpleDrugs.TwoCB::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
     public static final Item DISTILLED_WATER = registerItem("distilled_water", properties -> new SubstanceItem(properties, SubstanceTintColors.DARK_BLUE_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item P2P = registerItem("p2p", properties -> new SubstanceItem(properties, SubstanceTintColors.VERY_LIGHT_YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item P2NP = registerItem("p2np", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_LIQUID, MatterState.SOLID), new Item.Properties());

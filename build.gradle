@@ -10,6 +10,7 @@ fabricApi {
 }
 
 loom {
+    accessWidenerPath = file("src/main/resources/substancecraft.accesswidener")
     runs {
         datagen {
             client()

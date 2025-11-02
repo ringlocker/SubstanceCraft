@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.effect;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
+import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
 import com.github.ringlocker.substancecraft.effect.effects.SimpleEffects;
 import com.github.ringlocker.substancecraft.item.SubstanceTintColors;
 import net.minecraft.core.Holder;
@@ -36,6 +37,7 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> NOT_HUNGRY = register("not_hungry", new SimpleEffects.NotHungry());
     public static final Holder<MobEffect> HUNGRY = register("hungry", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> ELEVATED_HEART_RATE = register("elevated_heart_rate", new SimpleEffects.Hungry());
+    public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new ColorEnhancement());
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);
@@ -52,7 +54,7 @@ public class SubstanceCraftEffects {
         return effects.getOrDefault(id, STONED);
     }
 
-    protected static class BasicEffect extends MobEffect {
+    public static class BasicEffect extends MobEffect {
         public BasicEffect(MobEffectCategory category) {
             super(category, SubstanceTintColors.FULL_TRANSPARENT);
         }
