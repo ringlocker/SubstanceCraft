@@ -4,7 +4,7 @@ import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.data.SubstanceWorldData;
 import com.github.ringlocker.substancecraft.data.component.SubstanceData;
 import com.github.ringlocker.substancecraft.data.component.SubstanceInstance;
-import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
+import com.github.ringlocker.substancecraft.effect.effects.generic.PostShaderEffect;
 import com.github.ringlocker.substancecraft.item.Drug;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
@@ -15,7 +15,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 
-import java.util.HashMap;
 import java.util.UUID;
 
 public class SubstanceEffectTicker {
@@ -28,7 +27,7 @@ public class SubstanceEffectTicker {
         ServerLifecycleEvents.SERVER_STARTED.register(SubstanceEffectTicker::serverStart);
         ServerPlayerEvents.JOIN.register(SubstanceEffectTicker::playerJoin);
         ServerPlayerEvents.COPY_FROM.register(SubstanceEffectTicker::playerCopyEvent);
-        ClientTickEvents.START_CLIENT_TICK.register(ColorEnhancement::clientTick);
+        ClientTickEvents.START_CLIENT_TICK.register(PostShaderEffect::clientTick);
     }
 
     public static void onServerTick(MinecraftServer minecraftServer) {
@@ -53,7 +52,7 @@ public class SubstanceEffectTicker {
     }
 
     public static void playerJoin(ServerPlayer player) {
-        SubstanceData playerData = data.getData(player.getUUID());
+        data.getData(player.getUUID());
         SubstanceWorldData.save(overworld, data);
     }
 
@@ -113,62 +112,8 @@ public class SubstanceEffectTicker {
             return (int) (diff / (float) sideEffectAmplifyEvery);
         }
     }
-    
-    
-    private static class SideEffectsSummary {
 
-        private final HashMap<Drug.DrugSideEffect, MobEffectInstanceBuilder> map = new HashMap<>();
-        
-        public void add(Drug.DrugSideEffect sideEffect, int amplifier, SubstanceInstance instance) {
-            if (map.containsKey(sideEffect)) {
-                map.get(sideEffect).increaseAmplifier(amplifier);
-            } else {
-                map.put(sideEffect, new MobEffectInstanceBuilder(sideEffect, amplifier));
-            }
-            map.get(sideEffect).estimateDuration(instance);
-        }
-
-        public void applyTo(ServerPlayer player) {
-            map.values().forEach((instance) -> player.removeEffect(instance.effect.getEffect()));
-            map.values().forEach((instance) -> player.addEffect(instance.build()));
-        }
-
-        private static class MobEffectInstanceBuilder {
-
-            private final Drug.DrugSideEffect effect;
-            private int duration = -1;
-            private int amp;
-
-            public MobEffectInstanceBuilder(Drug.DrugSideEffect effect, int amp) {
-                this.effect = effect;
-                this.amp = amp;
-            }
-
-            public void increaseAmplifier(int amount) {
-                amp += amount;
-            }
-
-            public void estimateDuration(SubstanceInstance instance) {
-                duration = Math.max(duration, calcRemainingTime(instance));
-            }
-
-            public MobEffectInstance build() {
-                return new MobEffectInstance(effect.getEffect(), duration, amp, false, false, true);
-            }
-
-            private int calcRemainingTime(SubstanceInstance instance) {
-                double decay = instance.drug().getDecayFactor();
-                double start = instance.amount();
-                double threshold = effect.threshold();
-                return remainingTime(decay, start, threshold);
-            }
-
-
-        }
-        
-    }
-
-    private static int remainingTime(double decay, double amount, double threshold) {
+    public static int remainingTime(double decay, double amount, double threshold) {
         return (int) Math.ceil(Math.log(threshold / amount) / Math.log(decay));
     }
 

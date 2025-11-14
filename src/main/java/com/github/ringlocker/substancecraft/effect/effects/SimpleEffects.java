@@ -1,7 +1,9 @@
 package com.github.ringlocker.substancecraft.effect.effects;
 
 import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
+import com.github.ringlocker.substancecraft.effect.TickFrequency;
 import com.github.ringlocker.substancecraft.effect.damagesource.SubstanceCraftDamageSources;
+import com.github.ringlocker.substancecraft.effect.effects.generic.TickingEffect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -11,15 +13,10 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class SimpleEffects {
 
-    public static class OpioidOverdose extends SubstanceCraftEffects.TickingEffect {
+    public static class OpioidOverdose extends TickingEffect {
 
         public OpioidOverdose() {
-            super(MobEffectCategory.HARMFUL);
-        }
-
-        @Override
-        protected boolean shouldTick(int duration) {
-            return duration % 20 == 0;
+            super(MobEffectCategory.HARMFUL, TickFrequency.PER_SECOND);
         }
 
         @Override
@@ -44,15 +41,10 @@ public class SimpleEffects {
 
     }
 
-    public static class NotHungry extends SubstanceCraftEffects.TickingEffect {
+    public static class NotHungry extends TickingEffect {
 
         public NotHungry() {
-            super(MobEffectCategory.BENEFICIAL);
-        }
-
-        @Override
-        protected boolean shouldTick(int duration) {
-            return duration % 20 == 0;
+            super(MobEffectCategory.BENEFICIAL, TickFrequency.PER_SECOND);
         }
 
         @Override
@@ -62,17 +54,13 @@ public class SimpleEffects {
                 player.getFoodData().setSaturation(0.5F);
             }
         }
+
     }
 
-    public static class Hungry extends SubstanceCraftEffects.TickingEffect {
+    public static class Hungry extends TickingEffect {
 
         public Hungry() {
-            super(MobEffectCategory.HARMFUL);
-        }
-
-        @Override
-        protected boolean shouldTick(int duration) {
-            return duration % 100 == 0;
+            super(MobEffectCategory.HARMFUL, TickFrequency.FIVE_SECOND);
         }
 
         @Override
@@ -85,15 +73,10 @@ public class SimpleEffects {
 
     }
 
-    public static class CardiacArrest extends SubstanceCraftEffects.TickingEffect {
+    public static class CardiacArrest extends TickingEffect {
 
         public CardiacArrest() {
-            super(MobEffectCategory.HARMFUL);
-        }
-
-        @Override
-        protected boolean shouldTick(int duration) {
-            return duration % 20 == 0;
+            super(MobEffectCategory.HARMFUL, TickFrequency.PER_SECOND);
         }
 
         @Override

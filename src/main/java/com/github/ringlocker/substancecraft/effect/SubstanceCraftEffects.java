@@ -1,17 +1,16 @@
 package com.github.ringlocker.substancecraft.effect;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
+import com.github.ringlocker.substancecraft.effect.effects.Blur;
+import com.github.ringlocker.substancecraft.effect.effects.generic.BasicEffect;
 import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
 import com.github.ringlocker.substancecraft.effect.effects.SimpleEffects;
-import com.github.ringlocker.substancecraft.item.SubstanceTintColors;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
@@ -26,6 +25,7 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> COKE = register("coke", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> KETAMINE = register("ketamine", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> AMPHETAMINE = register("amphetamine", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> TWO_CB = register("two_cb", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     public static final Holder<MobEffect> FAST = register("fast", new BasicEffect(MobEffectCategory.BENEFICIAL)
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.fast"), 0.12F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -38,6 +38,7 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> HUNGRY = register("hungry", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> ELEVATED_HEART_RATE = register("elevated_heart_rate", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new ColorEnhancement());
+    public static final Holder<MobEffect> BLUR = register("blur", new Blur());
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);
@@ -52,35 +53,6 @@ public class SubstanceCraftEffects {
 
     public static Holder<MobEffect> getEffect(ResourceLocation id) {
         return effects.getOrDefault(id, STONED);
-    }
-
-    public static class BasicEffect extends MobEffect {
-        public BasicEffect(MobEffectCategory category) {
-            super(category, SubstanceTintColors.FULL_TRANSPARENT);
-        }
-    }
-
-    public static abstract class TickingEffect extends BasicEffect {
-
-        protected TickingEffect(MobEffectCategory category) {
-            super(category);
-        }
-
-        protected abstract boolean shouldTick(int duration);
-
-        protected abstract void tick(ServerLevel level, LivingEntity entity, int amplifier);
-
-        @Override
-        public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-            return this.shouldTick(duration);
-        }
-
-        @Override
-        public boolean applyEffectTick(ServerLevel level, LivingEntity entity, int amplifier) {
-            this.tick(level, entity, amplifier);
-            return super.applyEffectTick(level, entity, amplifier);
-        }
-
     }
 
 }

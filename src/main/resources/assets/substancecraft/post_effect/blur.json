@@ -5,7 +5,7 @@
   "passes": [
     {
       "vertex_shader": "minecraft:core/screenquad",
-      "fragment_shader": "substancecraft:post/color_enhancement",
+      "fragment_shader": "substancecraft:post/blur",
       "inputs": [
         {
           "sampler_name": "In",
@@ -14,11 +14,16 @@
       ],
       "output": "minecraft:main",
       "uniforms": {
-        "Config": [
+        "BitsConfig": [
           {
-            "name": "Saturation",
-            "type": "vec4",
-            "value": [ 1.0, 0.0, 0.0, 0.0 ]
+            "name": "Resolution",
+            "type": "float",
+            "value": 16.0
+          },
+          {
+            "name": "MosaicSize",
+            "type": "float",
+            "value": 4.0
           }
         ]
       }
