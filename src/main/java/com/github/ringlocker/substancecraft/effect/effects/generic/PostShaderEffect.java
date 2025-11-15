@@ -16,15 +16,14 @@ import java.util.ArrayList;
 public abstract class PostShaderEffect extends BasicEffect {
 
     private static final ArrayList<PostShaderEffect> effects = new ArrayList<>();
-
-    protected final String targetUniform;
+    protected static final String targetUniform = "Config"
+            ;
     private final ResourceLocation id;
     protected int amplifier = -1;
     protected boolean active = false;
 
-    public PostShaderEffect(MobEffectCategory category, String targetUniform, ResourceLocation id) {
+    public PostShaderEffect(MobEffectCategory category, ResourceLocation id) {
         super(category);
-        this.targetUniform = targetUniform;
         this.id = id;
         effects.add(this);
     }

@@ -1,7 +1,8 @@
 package com.github.ringlocker.substancecraft.effect;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.effect.effects.Blur;
+import com.github.ringlocker.substancecraft.effect.effects.ColorResolution;
+import com.github.ringlocker.substancecraft.effect.effects.Mosaic;
 import com.github.ringlocker.substancecraft.effect.effects.generic.BasicEffect;
 import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
 import com.github.ringlocker.substancecraft.effect.effects.SimpleEffects;
@@ -38,7 +39,8 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> HUNGRY = register("hungry", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> ELEVATED_HEART_RATE = register("elevated_heart_rate", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new ColorEnhancement());
-    public static final Holder<MobEffect> BLUR = register("blur", new Blur());
+    public static final Holder<MobEffect> MOSAIC = register("mosaic", new Mosaic());
+    public static final Holder<MobEffect> COLOR_RESOLUTION = register("color_resolution", new ColorResolution());
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);

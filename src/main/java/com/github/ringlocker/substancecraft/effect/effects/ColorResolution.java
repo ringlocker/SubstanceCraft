@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.effect.effects;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import com.github.ringlocker.substancecraft.effect.effects.generic.PostShaderEffect;
 import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.buffers.Std140Builder;
@@ -11,22 +10,22 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectCategory;
 import org.lwjgl.system.MemoryStack;
 
-public class ColorEnhancement extends PostShaderEffect {
+public class ColorResolution extends PostShaderEffect {
 
-    public ColorEnhancement() {
+    public ColorResolution() {
         super(
                 MobEffectCategory.NEUTRAL,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_enhancement"));
+                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_resolution"));
     }
 
+    @Override
     protected void setBuffer(PostPass postPass) {
         try (MemoryStack stack = MemoryStack.stackPush()) {
-            Std140Builder builder = Std140Builder.onStack(stack, 16);
-            builder.putFloat(1.0F + ((amplifier + 1) * 0.1F));
-            builder.putFloat(0F).putFloat(0F).putFloat(0F);
+            Std140Builder builder = Std140Builder.onStack(stack, 4);
+            builder.putFloat(23F - (amplifier + 1));
             GpuBuffer newBuf = RenderSystem.getDevice().createBuffer(
                     () -> postPass + " " + targetUniform,
-                    128,
+                    32,
                     builder.get()
             );
             postPass.customUniforms.put(targetUniform, newBuf);
@@ -34,5 +33,4 @@ public class ColorEnhancement extends PostShaderEffect {
             System.err.println(e.getMessage());
         }
     }
-
 }
