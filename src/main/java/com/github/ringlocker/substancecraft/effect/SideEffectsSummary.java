@@ -13,7 +13,7 @@ public class SideEffectsSummary {
 
     public void add(Drug.DrugSideEffect sideEffect, int amplifier, SubstanceInstance instance) {
         if (map.containsKey(sideEffect)) {
-            map.get(sideEffect).increaseAmplifier(amplifier);
+            map.get(sideEffect).increaseAmplifier(sideEffect.clampAmplifier(amplifier), sideEffect.hardAmplifierLimit());
         } else {
             map.put(sideEffect, new MobEffectInstanceBuilder(sideEffect, amplifier));
         }
@@ -30,14 +30,16 @@ public class SideEffectsSummary {
         private final Drug.DrugSideEffect effect;
         private int duration = -1;
         private int amp;
+        private int hardAmplifierLimit = 255;
 
         public MobEffectInstanceBuilder(Drug.DrugSideEffect effect, int amp) {
             this.effect = effect;
             this.amp = amp;
         }
 
-        public void increaseAmplifier(int amount) {
-            amp += amount;
+        public void increaseAmplifier(int amplifier, int hardAmplifierLimit) {
+            amp += amplifier;
+            this.hardAmplifierLimit = Math.min(hardAmplifierLimit, this.hardAmplifierLimit);
         }
 
         public void estimateDuration(SubstanceInstance instance) {
@@ -45,7 +47,7 @@ public class SideEffectsSummary {
         }
 
         public MobEffectInstance build() {
-            return new MobEffectInstance(effect.getEffect(), duration, amp, false, false, true);
+            return new MobEffectInstance(effect.getEffect(), duration, Math.clamp(amp, 0, hardAmplifierLimit), false, false, true);
         }
 
         private int calcRemainingTime(SubstanceInstance instance) {

@@ -9,19 +9,20 @@ layout(std140) uniform SamplerInfo {
     vec2 InSize;
 };
 
-layout(std140) uniform Config {
+layout(std140) uniform MosaicConfig {
     float MosaicSize;
+    int Enabled;
 };
 
 out vec4 fragColor;
 
 void main() {
-    vec2 pixelCoord = texCoord * InSize;
-
-    vec2 mosaicPixel = floor(pixelCoord / MosaicSize) * MosaicSize
-    + MosaicSize * 0.5;
-
-    vec2 mosaicUV = mosaicPixel / InSize;
-
-    fragColor = texture(InSampler, mosaicUV);
+    if (Enabled == 1) {
+        vec2 pixelCoord = texCoord * InSize;
+        vec2 mosaicPixel = floor(pixelCoord / MosaicSize) * MosaicSize + MosaicSize * 0.5;
+        vec2 mosaicUV = mosaicPixel / InSize;
+        fragColor = texture(InSampler, mosaicUV);
+    } else {
+        fragColor = texture(InSampler, texCoord);
+    }
 }

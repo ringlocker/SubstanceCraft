@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.effect.effects;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import com.github.ringlocker.substancecraft.effect.effects.generic.PostShaderEffect;
 import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.buffers.Std140Builder;
@@ -14,24 +13,22 @@ import org.lwjgl.system.MemoryStack;
 public class ColorEnhancement extends PostShaderEffect {
 
     public ColorEnhancement() {
-        super(
-                MobEffectCategory.NEUTRAL,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_enhancement"));
+        super(MobEffectCategory.NEUTRAL, "ColorEnhancementConfig", ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_enhancement"));
     }
 
-    protected void setBuffer(PostPass postPass) {
+    protected void setBuffer(PostPass postPass, boolean enabled) {
         try (MemoryStack stack = MemoryStack.stackPush()) {
-            Std140Builder builder = Std140Builder.onStack(stack, 16);
-            builder.putFloat(1.0F + ((amplifier + 1) * 0.1F));
-            builder.putFloat(0F).putFloat(0F).putFloat(0F);
+            Std140Builder builder = Std140Builder.onStack(stack, 8);
+            builder.putFloat(1.0F + ((amplifier + 1) * 0.2F));
+            builder.putInt(enabled ? 1 : 0);
             GpuBuffer newBuf = RenderSystem.getDevice().createBuffer(
-                    () -> postPass + " " + targetUniform,
-                    128,
+                    () -> postPass + " " + uniformName,
+                        64,
                     builder.get()
             );
-            postPass.customUniforms.put(targetUniform, newBuf);
+            postPass.customUniforms.put(uniformName, newBuf);
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            System.err.println("Erroring creating ColorEnhancementConfig Buffer: " + e.getMessage());
         }
     }
 

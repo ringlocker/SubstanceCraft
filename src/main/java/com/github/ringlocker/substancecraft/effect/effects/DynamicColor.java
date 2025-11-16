@@ -5,31 +5,39 @@ import com.github.ringlocker.substancecraft.effect.effects.generic.PostShaderEff
 import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.buffers.Std140Builder;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.PostPass;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectCategory;
 import org.lwjgl.system.MemoryStack;
 
-public class ColorResolution extends PostShaderEffect {
+public class DynamicColor extends PostShaderEffect {
 
-    public ColorResolution() {
-        super(MobEffectCategory.NEUTRAL, "ColorResolutionConfig", ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_resolution"));
+    public DynamicColor() {
+        super(MobEffectCategory.NEUTRAL, "DynamicColorConfig", ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "dynamic_color"));
     }
 
     @Override
-    protected void setBuffer(PostPass postPass, boolean enabled) {
+    public void setBuffer(PostPass postPass, boolean enabled) {
         try (MemoryStack stack = MemoryStack.stackPush()) {
-            Std140Builder builder = Std140Builder.onStack(stack, 8);
-            builder.putFloat(23F - (amplifier + 1));
+            Std140Builder builder = Std140Builder.onStack(stack, 12);
+            int time = Minecraft.getInstance().level != null ?
+                    Minecraft.getInstance().getSingleplayerServer() == null ?
+                            0 :
+                            Minecraft.getInstance().getSingleplayerServer().getTickCount() :
+                    0;
+            builder.putFloat((float) time);
+            builder.putFloat(0.05F * (amplifier + 1));
             builder.putInt(enabled ? 1 : 0);
             GpuBuffer newBuf = RenderSystem.getDevice().createBuffer(
                     () -> postPass + " " + uniformName,
-                    64,
+                    96,
                     builder.get()
             );
             postPass.customUniforms.put(uniformName, newBuf);
         } catch (Exception e) {
-            System.err.println("Erroring creating ColorResolutionConfig Buffer: " + e.getMessage());
+            System.err.println("Erroring creating DynamicColorConfig Buffer: " + e.getMessage());
         }
     }
+
 }

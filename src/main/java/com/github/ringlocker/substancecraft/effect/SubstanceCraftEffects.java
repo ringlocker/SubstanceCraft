@@ -6,6 +6,7 @@ import com.github.ringlocker.substancecraft.effect.effects.Mosaic;
 import com.github.ringlocker.substancecraft.effect.effects.generic.BasicEffect;
 import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
 import com.github.ringlocker.substancecraft.effect.effects.SimpleEffects;
+import com.github.ringlocker.substancecraft.effect.effects.DynamicColor;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -41,6 +42,7 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new ColorEnhancement());
     public static final Holder<MobEffect> MOSAIC = register("mosaic", new Mosaic());
     public static final Holder<MobEffect> COLOR_RESOLUTION = register("color_resolution", new ColorResolution());
+    public static final Holder<MobEffect> DYNAMIC_COLOR = register("dynamic_color", new DynamicColor());
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);

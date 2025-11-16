@@ -13,24 +13,23 @@ import org.lwjgl.system.MemoryStack;
 public class Mosaic extends PostShaderEffect {
 
     public Mosaic() {
-        super(
-                MobEffectCategory.NEUTRAL,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mosaic"));
+        super(MobEffectCategory.NEUTRAL, "MosaicConfig", ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mosaic"));
     }
 
     @Override
-    protected void setBuffer(PostPass postPass) {
+    protected void setBuffer(PostPass postPass, boolean enabled) {
         try (MemoryStack stack = MemoryStack.stackPush()) {
-            Std140Builder builder = Std140Builder.onStack(stack, 4);
-            builder.putFloat(1.0F + (amplifier + 1));
+            Std140Builder builder = Std140Builder.onStack(stack, 8);
+            builder.putFloat(1.0F + (0.2F * (float) (amplifier + 1)));
+            builder.putInt(enabled ? 1 : 0);
             GpuBuffer newBuf = RenderSystem.getDevice().createBuffer(
-                    () -> postPass + " " + targetUniform,
-                    32,
+                    () -> postPass + " " + uniformName,
+                    64,
                     builder.get()
             );
-            postPass.customUniforms.put(targetUniform, newBuf);
+            postPass.customUniforms.put(uniformName, newBuf);
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            System.err.println("Erroring creating MosaicConfig Buffer: " + e.getMessage());
         }
     }
 }

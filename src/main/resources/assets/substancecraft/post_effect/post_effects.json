@@ -1,0 +1,112 @@
+{
+  "targets": {
+    "swap": {}
+  },
+  "passes": [
+    {
+      "vertex_shader": "minecraft:core/screenquad",
+      "fragment_shader": "substancecraft:post/color_enhancement",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "minecraft:main"
+        }
+      ],
+      "output": "swap",
+      "uniforms": {
+        "ColorEnhancementConfig": [
+          {
+            "name": "Saturation",
+            "type": "float",
+            "value": 1.0
+          },
+          {
+            "name": "Enabled",
+            "type": "int",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "vertex_shader": "minecraft:core/screenquad",
+      "fragment_shader": "substancecraft:post/mosaic",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "swap"
+        }
+      ],
+      "output": "swap",
+      "uniforms": {
+        "MosaicConfig": [
+          {
+            "name": "MosaicSize",
+            "type": "float",
+            "value": 2.0
+          },
+          {
+            "name": "Enabled",
+            "type": "int",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "vertex_shader": "minecraft:core/screenquad",
+      "fragment_shader": "substancecraft:post/color_resolution",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "swap"
+        }
+      ],
+      "output": "swap",
+      "uniforms": {
+        "ColorResolutionConfig": [
+          {
+            "name": "Resolution",
+            "type": "float",
+            "value": 256
+          },
+          {
+            "name": "Enabled",
+            "type": "int",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "vertex_shader": "minecraft:core/screenquad",
+      "fragment_shader": "substancecraft:post/dynamic_color",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "swap"
+        }
+      ],
+      "output": "minecraft:main",
+      "uniforms": {
+        "DynamicColorConfig": [
+          {
+            "name": "Time",
+            "type": "float",
+            "value": 0
+          },
+          {
+            "name": "Intensity",
+            "type": "float",
+            "value": 0
+          },
+          {
+            "name": "Enabled",
+            "type": "int",
+            "value": 1
+          }
+        ]
+      }
+    }
+  ]
+}

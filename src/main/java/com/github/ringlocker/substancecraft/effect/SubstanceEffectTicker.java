@@ -96,7 +96,7 @@ public class SubstanceEffectTicker {
             float amount = instance.amount();
             for (Drug.DrugSideEffect sideEffect : instance.drug().getSideEffects()) {
                 if (sideEffect.threshold() < amount) {
-                    int amp = calculateAmplifier(amount, sideEffect.threshold(), sideEffect.amplifyEvery());
+                    int amp = calculateAmplifier(amount, sideEffect.threshold(), sideEffect.amplifyEvery(), sideEffect.maxAmplifier());
                     summary.add(sideEffect, amp, instance);
                 }
             }
@@ -104,12 +104,12 @@ public class SubstanceEffectTicker {
         summary.applyTo(player);
     }
 
-    private static int calculateAmplifier(float amount, int sideEffectThreshold, int sideEffectAmplifyEvery) {
+    private static int calculateAmplifier(float amount, int sideEffectThreshold, int sideEffectAmplifyEvery, int max) {
         if (amount < sideEffectThreshold) {
             return 0;
         } else {
             float diff = amount - sideEffectThreshold;
-            return (int) (diff / (float) sideEffectAmplifyEvery);
+            return Math.min((int) (diff / (float) sideEffectAmplifyEvery), max);
         }
     }
 

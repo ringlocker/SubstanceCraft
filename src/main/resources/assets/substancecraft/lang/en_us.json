@@ -34,11 +34,15 @@
   "effect.substancecraft.not_hungry": "Not Hungry",
   "effect.substancecraft.elevated_heart_rate": "Elevated Heart Rate",
   "effect.substancecraft.cardiac_arrest": "Cardiac Arrest",
+  "effect.substancecraft.color_enhancement": "Color Enhancement",
+  "effect.substancecraft.color_resolution": "Color Distortion",
+  "effect.substancecraft.mosaic": "Visual Distortion",
 
   "effect.substancecraft.dph": "Diphenhydramine",
   "effect.substancecraft.coke": "Cocaine",
   "effect.substancecraft.ketamine": "Ketamine",
   "effect.substancecraft.amphetamine": "Geeked",
+  "effect.substancecraft.two_cb": "2C-B",
 
   "death.attack.overdose": "%1$s overdosed",
   "death.attack.cardiac_arrest": "%1$s died from cardiac arrest",
