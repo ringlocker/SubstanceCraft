@@ -37,6 +37,8 @@
   "effect.substancecraft.color_enhancement": "Color Enhancement",
   "effect.substancecraft.color_resolution": "Color Distortion",
   "effect.substancecraft.mosaic": "Visual Distortion",
+  "effect.substancecraft.dynamic_color": "Color Shifting",
+  "effect.substancecraft.overdose": "Overdose",
 
   "effect.substancecraft.dph": "Diphenhydramine",
   "effect.substancecraft.coke": "Cocaine",

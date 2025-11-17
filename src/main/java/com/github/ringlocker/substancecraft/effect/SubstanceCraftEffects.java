@@ -39,6 +39,7 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> NOT_HUNGRY = register("not_hungry", new SimpleEffects.NotHungry());
     public static final Holder<MobEffect> HUNGRY = register("hungry", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> ELEVATED_HEART_RATE = register("elevated_heart_rate", new SimpleEffects.Hungry());
+    public static final Holder<MobEffect> CARDIAC_ARREST = register("cardiac_arrest", new SimpleEffects.CardiacArrest());
     public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new ColorEnhancement());
     public static final Holder<MobEffect> MOSAIC = register("mosaic", new Mosaic());
     public static final Holder<MobEffect> COLOR_RESOLUTION = register("color_resolution", new ColorResolution());
