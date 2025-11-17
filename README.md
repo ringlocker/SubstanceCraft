@@ -93,6 +93,11 @@ Not fully implemented, created in refinery with oil. Gives 60 seconds of invisib
 ### Diphenhydramine
 Not fully implemented, created in refinery with oil. Gives several negative effects, consumption is discouraged
 
+## Dealer
+Every once in a while, a dealer appears, much like a wandering trader but a tad more common. 
+The dealer will sell 2 different drugs and buy 4 different drugs, selling drugs returns slightly less cash than it would cost to buy.
+Dealers sell one agricultural item, such as coca seeds or marijuana plant seeds. Lastly, dealers will sell 6 random substances/compounds at varying prices.
+
 ## Advancements
 This mod features two advancement tabs. Their function is less of showing "advancement" but rather they act as a guide.
 
