@@ -44,6 +44,8 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> MOSAIC = register("mosaic", new Mosaic());
     public static final Holder<MobEffect> COLOR_RESOLUTION = register("color_resolution", new ColorResolution());
     public static final Holder<MobEffect> DYNAMIC_COLOR = register("dynamic_color", new DynamicColor());
+    public static final Holder<MobEffect> TIME_COMPRESSION = register("time_compression", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> TIME_DILATION = register("time_dilation", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);

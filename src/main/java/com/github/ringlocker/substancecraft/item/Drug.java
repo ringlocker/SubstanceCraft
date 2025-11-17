@@ -12,38 +12,39 @@ import java.util.List;
 
 public enum Drug {
     HASH(
-            milligrams(25), micrograms(400), minutes(2), seconds(3), seconds(20), fromID("stoned"),
+            milligrams(25), micrograms(400), minutes(1), seconds(3), seconds(20), fromID("stoned"),
             List.of(new DrugSideEffect(fromID("slow"), milligrams(30), milligrams(35), 9),
                     new DrugSideEffect(fromID("hungry"), milligrams(10), milligrams(25), 9),
                     new DrugSideEffect(fromID("color_enhancement"), milligrams(100), milligrams(50), 3),
                     new DrugSideEffect(fromID("color_resolution"), milligrams(100), milligrams(40), 5))
     ),
     DIPHENHYDRAMINE(
-            milligrams(300), milligrams(25), minutes(4), seconds(10), seconds(45), fromID("dph"),
+            milligrams(300), milligrams(25), minutes(3), seconds(10), seconds(45), fromID("dph"),
             List.of(new DrugSideEffect(fromID("slow"), milligrams(50), milligrams(25), 9))
     ),
     COCAINE(
-            milligrams(100), milligrams(5), minutes(3), seconds(5), seconds(15), fromID("coke"),
+            milligrams(150), milligrams(5), minutes(2), seconds(5), seconds(15), fromID("coke"),
             List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10), 9),
                     new DrugSideEffect(fromID("elevated_heart_rate"), milligrams(300), milligrams(150), 9),
-                    new DrugSideEffect(fromID("cardiac_arrest"), milligrams(1200), milligrams(200), 9))
+                    new DrugSideEffect(fromID("cardiac_arrest"), milligrams(1200), milligrams(200), 9),
+                    new DrugSideEffect(fromID("time_compression"), milligrams(100), milligrams(100), 24))
     ),
     AMPHETAMINE(
-            milligrams(50), milligrams(2.5F), minutes(4), seconds(5), seconds(30), fromID("amphetamine"),
+            milligrams(50), milligrams(2.5F), minutes(3), seconds(5), seconds(30), fromID("amphetamine"),
             List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10), 9),
                     new DrugSideEffect(fromID("not_hungry"), milligrams(30), grams(1), 0))
     ),
     KETAMINE(
-            milligrams(250), milligrams(50), minutes(3), seconds(5), seconds(15), fromID("ketamine"),
-            List.of(new DrugSideEffect(fromID("fast"), milligrams(200), milligrams(50), 9),
-                    new DrugSideEffect(fromID("color_resolution"), milligrams(200), milligrams(50), 19))
+            milligrams(250), milligrams(50), minutes(2), seconds(5), seconds(15), fromID("ketamine"),
+            List.of(new DrugSideEffect(fromID("color_resolution"), milligrams(200), milligrams(50), 19))
     ),
     TWO_CB(
-            milligrams(25), milligrams(5), minutes(4), seconds(10), seconds(45), fromID("two_cb"),
+            milligrams(25), milligrams(5), minutes(3), seconds(10), seconds(45), fromID("two_cb"),
             List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
                     new DrugSideEffect(fromID("color_resolution"), milligrams(10), milligrams(10), 15, 18),
-                    new DrugSideEffect(fromID("mosaic"), milligrams(25), milligrams(1), 9, 9),
-                    new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9))
+                    new DrugSideEffect(fromID("mosaic"), milligrams(25), milligrams(10), 9, 9),
+                    new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
+                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     );
 
     private static final HashMap<Drug, Float> decayFactorCache = new HashMap<>();
