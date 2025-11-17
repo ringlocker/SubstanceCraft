@@ -98,6 +98,8 @@ Every once in a while, a dealer appears, much like a wandering trader but a tad 
 The dealer will sell 2 different drugs and buy 4 different drugs, selling drugs returns slightly less cash than it would cost to buy.
 Dealers sell one agricultural item, such as coca seeds or marijuana plant seeds. Lastly, dealers will sell 6 random substances/compounds at varying prices.
 
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/dealer_screen.png?raw=true" alt="screenshot of dealer screen" width="341" height="223">
+
 ## Advancements
 This mod features two advancement tabs. Their function is less of showing "advancement" but rather they act as a guide.
 
@@ -106,7 +108,7 @@ This mod features two advancement tabs. Their function is less of showing "advan
 Has 3 subsections: Natural Resources, Workstations, and Agriculture.
 The advance descriptions will show where to find/how to get the given item.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="512" height="335">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="341" height="223">
 
 ___
 
@@ -114,7 +116,7 @@ ___
 
 Shows the recipe tree for certain syntheses.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsynthesis.png?raw=true" alt="screenshot of synthesis tree" width="512" height="335">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsynthesis.png?raw=true" alt="screenshot of synthesis tree" width="341" height="223">
 
 *Since the vanilla advancement window is quite small, it is hard to see the large synthesis trees.
 I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) which is used in the above images. (depends on modmenu, cloth-config)
