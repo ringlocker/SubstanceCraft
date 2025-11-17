@@ -109,6 +109,8 @@ public class SubstanceCraftItems {
     public static final Item AMMONIA_SOLUTION = registerItem("ammonia_solution", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item COCAINE = registerItem("cocaine", SimpleDrugs.Cocaine::new, new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().build()));
     public static final Item CARBON_DIOXIDE = registerItem("carbon_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
+    public static final Item CASH = registerItem("cash", Item::new, new Item.Properties());
+    public static final Item BAND = registerItem("band", Item::new, new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
@@ -169,6 +171,8 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftItems.TWO_C_B);
         entries.accept(SubstanceCraftItems.AMPHETAMINE);
         entries.accept(SubstanceCraftItems.COCAINE);
+        entries.accept(SubstanceCraftItems.CASH);
+        entries.accept(SubstanceCraftItems.BAND);
     }
 
     private static void addBlockItems(CreativeModeTab.Output entries) {
@@ -270,6 +274,7 @@ public class SubstanceCraftItems {
         entries.accept(SubstanceCraftItems.POTASSIUM_PERMANGANATE);
         entries.accept(SubstanceCraftItems.COCA_PASTE);
         entries.accept(SubstanceCraftItems.ACETONE);
+
     }
 
 }

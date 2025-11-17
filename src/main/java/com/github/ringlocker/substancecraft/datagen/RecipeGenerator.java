@@ -132,7 +132,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(Items.COPPER_BLOCK))
                         .save(recipeOutput, key("oxidizer"));
 
-
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR))
                         .pattern("343")
                         .pattern("212")
@@ -157,6 +156,13 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
                         .unlockedBy("has_item", has(Items.COPPER_BLOCK))
                         .save(recipeOutput, key("electrolysis_machine"));
+
+                nineBlockStorageRecipesWithCustomPacking(
+                        RecipeCategory.MISC,
+                        SubstanceCraftItems.CASH,
+                        RecipeCategory.MISC,
+                        SubstanceCraftItems.BAND, "band", "cash"
+                );
 
                 HashPressRecipeBuilder.press(
                                 Ingredient.of(SubstanceCraftItems.MARIJUANA),

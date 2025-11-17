@@ -30,6 +30,8 @@
   "effect.minecraft.hunger": "Munchies",
   "effect.minecraft.speed": "Zoomies",
 
+  "entity.substancecraft.dealer": "Dealer",
+
   "item.substancecraft.marijuana": "Marijuana",
   "item.substancecraft.marijuana_trim": "Marijuana Trim",
   "item.substancecraft.hash": "Hash",
@@ -110,5 +112,7 @@
   "item.substancecraft.sylvite": "Sylvite",
   "item.substancecraft.trona": "Trona",
   "item.substancecraft.pyrolusite": "Pyrolusite",
-  "item.substancecraft.cocaine": "Cocaine"
+  "item.substancecraft.cocaine": "Cocaine",
+  "item.substancecraft.cash": "Cash",
+  "item.substancecraft.band": "Band"
 }

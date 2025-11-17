@@ -2,6 +2,9 @@ package com.github.ringlocker.substancecraft;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
+import com.github.ringlocker.substancecraft.client.entity.render.SubstanceCraftEntityRenderers;
+import com.github.ringlocker.substancecraft.entity.SubstanceCraftEntities;
+import com.github.ringlocker.substancecraft.entity.spawner.SubstanceCraftEntitySpawners;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.network.SubstanceCraftNetworking;
@@ -26,7 +29,10 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftMenus.registerMenus();
         SubstanceCraftFeatures.registerFeatures();
         SubstanceCraftLootTables.registerLootTables();
+        SubstanceCraftEntities.registerEntities();
+        SubstanceCraftEntityRenderers.registerEntityRenderers();
         SubstanceCraftNetworking.init();
+        SubstanceCraftEntitySpawners.init();
     }
 
 }
