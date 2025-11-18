@@ -1,6 +1,5 @@
 # SubstanceCraft
-1.21.8 Fabric mod with fun substances
-Requires fabric API
+1.21.10 Fabric mod with fun substances
 
 Compiling from source: Requires java 21 and gradle 8.12
 
@@ -15,6 +14,7 @@ Features several block entity workstations used for crafting different substance
 Each workstation has a recipe menu (like a stonecutter) that shows the recipes for the workstation.
 
 <img src="https://github.com/ringlocker/images/blob/main/substancecraft/refinery_workstation.png?raw=true" alt="screenshot of workstation" width="282" height="260">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/workstations.png?raw=true" alt="screenshot of workstations" width="470" height="260">
 
 List of workstations:
 - Refinery
@@ -26,37 +26,36 @@ List of workstations:
 - Fermentation Tank
 - Hash Press
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/workstations.png?raw=true" alt="screenshot of workstations" width="480" height="270">
-
 ## Substances
-| Gasses          | Liquids                   | Solids                 |
-|-----------------|---------------------------|------------------------|
-| Formaldehyde    | Oil                       | Salt                   |
-| Hydrogen        | Petroleum Naphtha         | Sodium Hydroxide       |
-| Chlorine        | Kerosene                  | Ammonium Acetate       |
-| Methane         | Gasoline                  | Petroleum Coke         |
-| Nitrogen        | Methanol                  | β-Nitrostyrene         |
-| Oxygen          | Benzene                   | Maleic Anhydride       |
-| Natural Gas     | Chloroform                | Bromide                |
-| Ethane          | Toluene                   | P2NP                   |
-| Propane         | Brine                     | Sulfur                 |
-| Butane          | Diesel                    | Sodium Carbonate       |
-| Methylamine     | Ethanol                   | Potassium Chloride     |
-| Ethylene        | Hydrochloric Acid         | Potassium Hydroxide    |
-| Propylene       | Benzaldehyde              | Potassium Carbonate    |
-| Ammonia         | Nitric Acid               | Manganese Dioxide      |
-| Carbon Monoxide | Nitromethane              | Potassium Permanganate |
-| Carbon Dioxide  | Acetic Acid               | Coca Paste             |
-|                 | Tetrahydrofuran           |                        |
-|                 | Bromine                   |                        |
-|                 | Distilled Water           |                        |
-|                 | P2P                       |                        |
-|                 | Nitroethane               |                        |
-|                 | Formic Acid               |                        |
-|                 | Methyl Formate            |                        |
-|                 | Sodium Carbonate Solution |                        |
-|                 | Agua Rica                 |                        |
-|                 | Acetone                   |                        |
+|                | **Gasses**  |                 |
+|----------------|-------------|-----------------|
+| Formaldehyde   | Hydrogen    | Chlorine        |
+| Methane        | Nitrogen    | Oxygen          |
+| Natural Gas    | Ethane      | Propane         |
+| Butane         | Methylamine | Ethylene        |
+| Propylene      | Ammonia     | Carbon Monoxide |
+| Carbon Dioxide |             |                 |
+
+|                 | **Liquids**       |                           |
+|-----------------|-------------------|---------------------------|
+| Oil             | Petroleum Naphtha | Kerosene                  |
+| Gasoline        | Methanol          | Benzene                   |
+| Chloroform      | Toluene           | Brine                     |
+| Diesel          | Ethanol           | Hydrochloric Acid         |
+| Benzaldehyde    | Nitric Acid       | Nitromethane              |
+| Acetic Acid     | Tetrahydrofuran   | Bromine                   |
+| Distilled Water | P2P               | Nitroethane               |
+| Formic Acid     | Methyl Formate    | Sodium Carbonate Solution |
+| Agua Rica       | Acetone           |                           |
+
+|                     | **Solids**         |                        |
+|---------------------|--------------------|------------------------|
+| Salt                | Sodium Hydroxide   | Ammonium Acetate       |
+| Petroleum Coke      | β-Nitrostyrene     | Maleic Anhydride       |
+| Bromide             | P2NP               | Sulfur                 |
+| Sodium Carbonate    | Potassium Chloride | Potassium Hydroxide    |
+| Potassium Carbonate | Manganese Dioxide  | Potassium Permanganate |
+| Coca Paste          |                    |                        |
 
 ## Drugs
 ### Marijuana
@@ -76,6 +75,7 @@ Ergot and yeast are bacteria found rarely when harvesting wheat, carrot, potatoe
 #### Future Plans:
 - Beer
 - Wine & Grapes
+- 
 - Vodka
 
 ### 2CB
@@ -111,7 +111,7 @@ This mod features two advancement tabs. Their function is less of showing "advan
 Has 3 subsections: Natural Resources, Workstations, and Agriculture.
 The advance descriptions will show where to find/how to get the given item.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="512" height="335">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="256" height="167">
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 Shows the recipe tree for certain syntheses.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsynthesis.png?raw=true" alt="screenshot of synthesis tree" width="512" height="335">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsynthesis.png?raw=true" alt="screenshot of synthesis tree" width="256" height="167">
 
 *Since the vanilla advancement window is quite small, it is hard to see the large synthesis trees.
 I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) which is used in the above images. (depends on modmenu, cloth-config)
