@@ -1,8 +1,11 @@
 # SubstanceCraft
-1.21.10 Fabric mod with fun substances
+1.21.8 Fabric mod with fun substances
 Requires fabric API
 
 Compiling from source: Requires java 21 and gradle 8.12
+
+Dependencies:
+- Fabric API
 
 Disclaimer: for funsies only, I do not promote the selling, distribution, or consumption of drugs outside of this mod.
 
@@ -11,7 +14,7 @@ Disclaimer: for funsies only, I do not promote the selling, distribution, or con
 Features several block entity workstations used for crafting different substances. 
 Each workstation has a recipe menu (like a stonecutter) that shows the recipes for the workstation.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/refinery_workstation.png?raw=true" alt="screenshot of workstations" width="282" height="260">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/refinery_workstation.png?raw=true" alt="screenshot of workstation" width="282" height="260">
 
 List of workstations:
 - Refinery
@@ -93,13 +96,20 @@ Not fully implemented, created in refinery with oil. Gives several negative effe
 ### Cocaine
 Synthesized from coca leaves, gives speed.
 
+## Dealer
+Every once in a while, a dealer appears, much like a wandering trader but a tad more common. 
+The dealer will sell 2 different drugs and buy 4 different drugs, selling drugs returns slightly less cash than it would cost to buy.
+Dealers sell one agricultural item, such as coca seeds or marijuana plant seeds. Lastly, dealers will sell 6 random substances/compounds at varying prices.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/dealer_screen.png?raw=true" alt="screenshot of dealer screen" width="341" height="223">
+
 ## Advancements
 This mod features two advancement tabs. Their function is less of showing "advancement" but rather they act as a guide.
 
 **SubstanceCraft Tab**
 
 Has 3 subsections: Natural Resources, Workstations, and Agriculture.
-The advancement descriptions will show where to find/how to get the given item.
+The advance descriptions will show where to find/how to get the given item.
 
 <img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="512" height="335">
 
@@ -113,5 +123,5 @@ Shows the recipe tree for certain syntheses.
 
 *Since the vanilla advancement window is quite small, it is hard to see the large synthesis trees.
 I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) which is used in the above images. (depends on modmenu, cloth-config)
-
+ 
 ___
