@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:natural_resources",
+  "criteria": {
+    "got_sylvite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:sylvite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Sylvite is found in deserts and badlands between y=8 and y=96",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:sylvite_block"
+    },
+    "show_toast": false,
+    "title": "Sylvite"
+  },
+  "requirements": [
+    [
+      "got_sylvite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

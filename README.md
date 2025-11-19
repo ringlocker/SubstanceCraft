@@ -1,8 +1,10 @@
 # SubstanceCraft
-1.21.8 Fabric mod with fun substances
-Requires fabric API
+1.21.10 Fabric mod with fun substances
 
 Compiling from source: Requires java 21 and gradle 8.12
+
+Dependencies:
+- Fabric API
 
 Disclaimer: for funsies only, I do not promote the selling, distribution, or consumption of drugs outside of this mod.
 
@@ -11,50 +13,49 @@ Disclaimer: for funsies only, I do not promote the selling, distribution, or con
 Features several block entity workstations used for crafting different substances. 
 Each workstation has a recipe menu (like a stonecutter) that shows the recipes for the workstation.
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/refinery_workstation.png?raw=true" alt="screenshot of workstations" width="282" height="260">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/refinery_workstation.png?raw=true" alt="screenshot of workstation" width="282" height="260">
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/workstations.png?raw=true" alt="screenshot of workstations" width="470" height="260">
 
 List of workstations:
 - Refinery
 - Extractor
 - Oxidizer
-- Catalytic Reformer
 - Mixer
 - Heated Mixer
 - Electrolysis Machine
 - Fermentation Tank
 - Hash Press
 
-<img src="https://github.com/ringlocker/images/blob/main/substancecraft/workstations.png?raw=true" alt="screenshot of workstations" width="480" height="270">
-
 ## Substances
-| Gasses          | Liquids                   | Solids                 |
-|-----------------|---------------------------|------------------------|
-| Formaldehyde    | Oil                       | Salt                   |
-| Hydrogen        | Petroleum Naphtha         | Sodium Hydroxide       |
-| Chlorine        | Kerosene                  | Ammonium Acetate       |
-| Methane         | Gasoline                  | Petroleum Coke         |
-| Nitrogen        | Methanol                  | β-Nitrostyrene         |
-| Oxygen          | Benzene                   | Maleic Anhydride       |
-| Natural Gas     | Chloroform                | Bromide                |
-| Ethane          | Toluene                   | P2NP                   |
-| Propane         | Brine                     | Sulfur                 |
-| Butane          | Diesel                    | Sodium Carbonate       |
-| Methylamine     | Ethanol                   | Potassium Chloride     |
-| Ethylene        | Hydrochloric Acid         | Potassium Hydroxide    |
-| Propylene       | Benzaldehyde              | Potassium Carbonate    |
-| Ammonia         | Nitric Acid               | Manganese Dioxide      |
-| Carbon Monoxide | Nitromethane              | Potassium Permanganate |
-| Carbon Dioxide  | Acetic Acid               | Coca Paste             |
-|                 | Tetrahydrofuran           |                        |
-|                 | Bromine                   |                        |
-|                 | Distilled Water           |                        |
-|                 | P2P                       |                        |
-|                 | Nitroethane               |                        |
-|                 | Formic Acid               |                        |
-|                 | Methyl Formate            |                        |
-|                 | Sodium Carbonate Solution |                        |
-|                 | Agua Rica                 |                        |
-|                 | Acetone                   |                        |
+|                | **Gasses**  |                 |
+|----------------|-------------|-----------------|
+| Formaldehyde   | Hydrogen    | Chlorine        |
+| Methane        | Nitrogen    | Oxygen          |
+| Natural Gas    | Ethane      | Propane         |
+| Butane         | Methylamine | Ethylene        |
+| Propylene      | Ammonia     | Carbon Monoxide |
+| Carbon Dioxide |             |                 |
+
+|                 | **Liquids**       |                           |
+|-----------------|-------------------|---------------------------|
+| Oil             | Petroleum Naphtha | Kerosene                  |
+| Gasoline        | Methanol          | Benzene                   |
+| Chloroform      | Toluene           | Brine                     |
+| Diesel          | Ethanol           | Hydrochloric Acid         |
+| Benzaldehyde    | Nitric Acid       | Nitromethane              |
+| Acetic Acid     | Tetrahydrofuran   | Bromine                   |
+| Distilled Water | P2P               | Nitroethane               |
+| Formic Acid     | Methyl Formate    | Sodium Carbonate Solution |
+| Agua Rica       | Acetone           |                           |
+
+|                     | **Solids**         |                        |
+|---------------------|--------------------|------------------------|
+| Salt                | Sodium Hydroxide   | Ammonium Acetate       |
+| Petroleum Coke      | β-Nitrostyrene     | Maleic Anhydride       |
+| Bromide             | P2NP               | Sulfur                 |
+| Sodium Carbonate    | Potassium Chloride | Potassium Hydroxide    |
+| Potassium Carbonate | Manganese Dioxide  | Potassium Permanganate |
+| Coca Paste          |                    |                        |
 
 ## Drugs
 ### Marijuana
@@ -74,6 +75,7 @@ Ergot and yeast are bacteria found rarely when harvesting wheat, carrot, potatoe
 #### Future Plans:
 - Beer
 - Wine & Grapes
+- 
 - Vodka
 
 ### 2CB
@@ -91,4 +93,35 @@ Not fully implemented, created in refinery with oil. Gives 60 seconds of invisib
 ### Diphenhydramine
 Not fully implemented, created in refinery with oil. Gives several negative effects, consumption is discouraged
 
+### Cocaine
+Synthesized from coca leaves, gives speed.
 
+## Dealer
+Every once in a while, a dealer appears, much like a wandering trader but a tad more common. 
+The dealer will sell 2 different drugs and buy 4 different drugs, selling drugs returns slightly less cash than it would cost to buy.
+Dealers sell one agricultural item, such as coca seeds or marijuana plant seeds. Lastly, dealers will sell 6 random substances/compounds at varying prices.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/dealer_screen.png?raw=true" alt="screenshot of dealer screen" width="341" height="223">
+
+## Advancements
+This mod features two advancement tabs. Their function is less of showing "advancement" but rather they act as a guide.
+
+**SubstanceCraft Tab**
+
+Has 3 subsections: Natural Resources, Workstations, and Agriculture.
+The advance descriptions will show where to find/how to get the given item.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsubstance.png?raw=true" alt="screenshot of substancecraft tab" width="256" height="167">
+
+___
+
+**Synthesis Tab**
+
+Shows the recipe tree for certain syntheses.
+
+<img src="https://github.com/ringlocker/images/blob/main/substancecraft/advancementsynthesis.png?raw=true" alt="screenshot of synthesis tree" width="256" height="167">
+
+*Since the vanilla advancement window is quite small, it is hard to see the large synthesis trees.
+I would recommend installing [LargerAdvancementTab](https://github.com/ringlocker/LargerAdvancementTab/releases/tag/v0.1) which is used in the above images. (depends on modmenu, cloth-config)
+ 
+___

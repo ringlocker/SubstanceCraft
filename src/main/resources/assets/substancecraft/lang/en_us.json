@@ -51,6 +51,8 @@
   "death.attack.overdose": "%1$s overdosed",
   "death.attack.cardiac_arrest": "%1$s died from cardiac arrest",
 
+  "entity.substancecraft.dealer": "Dealer",
+
   "item.substancecraft.marijuana": "Marijuana",
   "item.substancecraft.marijuana_trim": "Marijuana Trim",
   "item.substancecraft.hash": "Hash",
@@ -131,5 +133,7 @@
   "item.substancecraft.sylvite": "Sylvite",
   "item.substancecraft.trona": "Trona",
   "item.substancecraft.pyrolusite": "Pyrolusite",
-  "item.substancecraft.cocaine": "Cocaine"
+  "item.substancecraft.cocaine": "Cocaine",
+  "item.substancecraft.cash": "Cash",
+  "item.substancecraft.band": "Band"
 }

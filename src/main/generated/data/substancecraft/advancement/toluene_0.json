@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:benzaldehyde_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Refine",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:toluene"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.toluene"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

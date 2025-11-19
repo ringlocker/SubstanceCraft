@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:workstations",
+  "criteria": {
+    "got_hash_press": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:hash_press"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Used for pressing hash. Crafted with 1 redstone block, 1 piston, and 5 smooth stone slabs",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:hash_press"
+    },
+    "show_toast": false,
+    "title": "Hash Press"
+  },
+  "requirements": [
+    [
+      "got_hash_press"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

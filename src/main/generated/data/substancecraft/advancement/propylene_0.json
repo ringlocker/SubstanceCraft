@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:acetone_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Refine",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:propylene"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.propylene"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -3,14 +3,14 @@ package com.github.ringlocker.substancecraft.datagen;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
-import com.github.ringlocker.substancecraft.recipe.builder.ElectrolysisRecipeBuilder;
-import com.github.ringlocker.substancecraft.recipe.builder.ExtractorRecipeBuilder;
-import com.github.ringlocker.substancecraft.recipe.builder.FermentationTankRecipeBuilder;
-import com.github.ringlocker.substancecraft.recipe.builder.HashPressRecipeBuilder;
-import com.github.ringlocker.substancecraft.recipe.builder.HeatedMixerRecipeBuilder;
-import com.github.ringlocker.substancecraft.recipe.builder.MixerRecipeBuilder;
-import com.github.ringlocker.substancecraft.recipe.builder.OxidizerRecipeBuilder;
-import com.github.ringlocker.substancecraft.recipe.builder.RefineryRecipeBuilder;
+import com.github.ringlocker.substancecraft.datagen.recipebuilder.ElectrolysisRecipeBuilder;
+import com.github.ringlocker.substancecraft.datagen.recipebuilder.ExtractorRecipeBuilder;
+import com.github.ringlocker.substancecraft.datagen.recipebuilder.FermentationTankRecipeBuilder;
+import com.github.ringlocker.substancecraft.datagen.recipebuilder.HashPressRecipeBuilder;
+import com.github.ringlocker.substancecraft.datagen.recipebuilder.HeatedMixerRecipeBuilder;
+import com.github.ringlocker.substancecraft.datagen.recipebuilder.MixerRecipeBuilder;
+import com.github.ringlocker.substancecraft.datagen.recipebuilder.OxidizerRecipeBuilder;
+import com.github.ringlocker.substancecraft.datagen.recipebuilder.RefineryRecipeBuilder;
 import com.github.ringlocker.substancecraft.recipe.recipes.ElectrolysisRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.ExtractorRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.FermentationTankRecipe;
@@ -132,7 +132,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(Items.COPPER_BLOCK))
                         .save(recipeOutput, key("oxidizer"));
 
-
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR))
                         .pattern("343")
                         .pattern("212")
@@ -157,6 +156,13 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
                         .unlockedBy("has_item", has(Items.COPPER_BLOCK))
                         .save(recipeOutput, key("electrolysis_machine"));
+
+                nineBlockStorageRecipesWithCustomPacking(
+                        RecipeCategory.MISC,
+                        SubstanceCraftItems.CASH,
+                        RecipeCategory.MISC,
+                        SubstanceCraftItems.BAND, "band", "cash"
+                );
 
                 HashPressRecipeBuilder.press(
                                 Ingredient.of(SubstanceCraftItems.MARIJUANA),
@@ -485,6 +491,15 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         )
                         .unlockedBy("has_item", has(Items.CHARCOAL))
                         .save(recipeOutput, key("extract_carbon_dioxide"));
+
+                ExtractorRecipeBuilder.extract(
+                                Ingredient.of(SubstanceCraftItems.RAW_SULFUR),
+                                SubstanceCraftItems.SULFUR,
+                                1200,
+                                ExtractorRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.RAW_SULFUR))
+                        .save(recipeOutput, key("extract_sulfur"));
 
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SALT), Ingredient.of(Items.POTION)),

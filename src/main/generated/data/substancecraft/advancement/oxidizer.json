@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:workstations",
+  "criteria": {
+    "got_oxidizer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:oxidation_machine"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Used for oxidizing substances. Crafted with 4 copper blocks, 1 cauldron, and 4 iron ingots",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:oxidation_machine"
+    },
+    "show_toast": false,
+    "title": "Oxidizer"
+  },
+  "requirements": [
+    [
+      "got_oxidizer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:formic_acid_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Heated Mixer",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:methyl_formate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.methyl_formate"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
