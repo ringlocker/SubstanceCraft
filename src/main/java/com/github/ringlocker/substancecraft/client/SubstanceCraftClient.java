@@ -5,6 +5,7 @@ import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.client.block.entity.renderer.HashPressBlockEntityRenderer;
 import com.github.ringlocker.substancecraft.client.datagen.ModelGenerator;
+import com.github.ringlocker.substancecraft.client.entity.render.SubstanceCraftEntityRenderers;
 import com.github.ringlocker.substancecraft.client.gui.SubstanceCraftScreens;
 import com.github.ringlocker.substancecraft.client.network.SubstanceCraftClientNetworking;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
@@ -29,6 +30,8 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
         registerBlockEntityRenderers();
 
         SubstanceCraftScreens.registerScreens();
+        SubstanceCraftEntityRenderers.registerEntityRenderers();
+
         SubstanceCraftClientNetworking.init();
     }
 
