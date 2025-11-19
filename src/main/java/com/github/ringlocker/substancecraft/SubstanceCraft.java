@@ -37,7 +37,6 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftCommands.registerCommands();
         SubstanceCraftDamageSources.registerDamageSources();
         SubstanceCraftEntities.registerEntities();
-        SubstanceCraftEntityRenderers.registerEntityRenderers();
         SubstanceCraftNetworking.init();
         SubstanceEffectTicker.init();
         SubstanceCraftEntitySpawners.init();

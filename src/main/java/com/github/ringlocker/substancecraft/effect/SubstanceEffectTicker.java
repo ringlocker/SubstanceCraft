@@ -27,7 +27,6 @@ public class SubstanceEffectTicker {
         ServerLifecycleEvents.SERVER_STARTED.register(SubstanceEffectTicker::serverStart);
         ServerPlayerEvents.JOIN.register(SubstanceEffectTicker::playerJoin);
         ServerPlayerEvents.COPY_FROM.register(SubstanceEffectTicker::playerCopyEvent);
-        ClientTickEvents.START_CLIENT_TICK.register(PostShaderEffect::clientTick);
     }
 
     public static void onServerTick(MinecraftServer minecraftServer) {
