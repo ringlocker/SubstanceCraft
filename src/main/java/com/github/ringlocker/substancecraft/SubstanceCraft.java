@@ -11,7 +11,6 @@ import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
 import com.github.ringlocker.substancecraft.effect.damagesource.SubstanceCraftDamageSources;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
-import com.github.ringlocker.substancecraft.items.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.network.SubstanceCraftNetworking;
 import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftFeatures;
