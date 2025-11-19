@@ -121,7 +121,7 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
-        return slot == 0;
+        return slot < OUTPUT_SLOT;
     }
 
     @Override
