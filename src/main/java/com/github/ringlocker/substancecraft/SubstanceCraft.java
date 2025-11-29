@@ -21,6 +21,12 @@ import org.slf4j.LoggerFactory;
 
 public class SubstanceCraft implements ModInitializer {
 
+    /*
+    TODO:
+     - Dealer spawn delay saved in world data
+     - First slot of two drugs sold by dealer should be exclusive to non-craftable drugs
+     */
+
     public static final String MOD_ID = "substancecraft";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
