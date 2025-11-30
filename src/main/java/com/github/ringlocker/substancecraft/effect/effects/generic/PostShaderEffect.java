@@ -32,7 +32,7 @@ public abstract class PostShaderEffect extends BasicEffect {
         effectsByUniformName.put(uniformName, this);
     }
 
-    public static void clientTick(Minecraft client) { // TODO: fix effects amplifier not synced between client server? they are in inventory, check buffer writes?
+    public static void clientTick(Minecraft client) {
         if (client.level == null) return;
 
         PostChain postChain = client.getShaderManager().getPostChain(id, LevelTargetBundle.MAIN_TARGETS);
