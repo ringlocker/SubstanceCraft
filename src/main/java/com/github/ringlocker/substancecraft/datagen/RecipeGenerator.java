@@ -230,12 +230,12 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
-                                SubstanceCraftItems.METHANOL,
+                                SubstanceCraftItems.METHANE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.NATURAL_GAS))
-                        .save(recipeOutput, key("refine_methanol"));
+                        .save(recipeOutput, key("refine_methane"));
 
                 RefineryRecipeBuilder.refine(
                                 Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
@@ -622,8 +622,18 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
 
                 HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.DISTILLED_WATER), Ingredient.of(SubstanceCraftItems.METHANE)),
+                                SubstanceCraftItems.METHANOL,
+                                800,
+                                HeatedMixerRecipe::new
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.METHANE))
+                        .save(recipeOutput, key("mix_methanol"));
+
+                HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.AMMONIA), Ingredient.of(SubstanceCraftItems.METHANOL)),
-                                SubstanceCraftItems.METHYLAMINE,
+                                SubstanceCraftItems.METHYLAMINE, // can produce dimethylamine and trimethylamine as byproducts
                                 800,
                                 HeatedMixerRecipe::new
                         )
@@ -658,8 +668,8 @@ public class RecipeGenerator extends FabricRecipeProvider {
                                 800,
                                 HeatedMixerRecipe::new
                         )
-                        .unlockedBy("has_item", has(SubstanceCraftItems.CHLORINE))
-                        .unlockedBy("has_item", has(SubstanceCraftItems.METHANE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.NITROGEN))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.HYDROGEN))
                         .save(recipeOutput, key("mix_ammonia"));
 
                 HeatedMixerRecipeBuilder.mix(
