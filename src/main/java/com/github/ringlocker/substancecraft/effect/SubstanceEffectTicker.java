@@ -4,9 +4,7 @@ import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.data.SubstanceWorldData;
 import com.github.ringlocker.substancecraft.data.component.SubstanceData;
 import com.github.ringlocker.substancecraft.data.component.SubstanceInstance;
-import com.github.ringlocker.substancecraft.effect.effects.generic.PostShaderEffect;
 import com.github.ringlocker.substancecraft.item.Drug;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -18,9 +16,8 @@ import net.minecraft.world.effect.MobEffectInstance;
 import java.util.UUID;
 
 public class SubstanceEffectTicker {
-    
+
     private static SubstanceWorldData data;
-    private static ServerLevel overworld;
 
     public static void init() {
         ServerTickEvents.START_SERVER_TICK.register(SubstanceEffectTicker::onServerTick);
@@ -43,16 +40,15 @@ public class SubstanceEffectTicker {
     public static void serverStart(MinecraftServer server) {
         ServerLevel level = server.getLevel(ServerLevel.OVERWORLD);
         if (level == null) {
-            System.out.println("Overworld loading failed!");
+            SubstanceCraft.LOGGER.warn("Overworld loading failed");
             return;
         }
-        overworld = level;
         data = SubstanceWorldData.get(level);
     }
 
     public static void playerJoin(ServerPlayer player) {
         data.getData(player.getUUID());
-        SubstanceWorldData.save(overworld, data);
+        data.setDirty();
     }
 
     public static void playerCopyEvent(ServerPlayer old, ServerPlayer newPlayer, boolean dimensionTransfer) {
@@ -63,7 +59,7 @@ public class SubstanceEffectTicker {
         if(!data.clearPlayerData(uuid)) {
             SubstanceCraft.LOGGER.warn("Could not find uuid of player: {}", uuid);
         }
-        SubstanceWorldData.save(overworld, data);
+        data.setDirty();
     }
 
     private static void tickSubstances(ServerPlayer player, int tick) {
@@ -76,7 +72,7 @@ public class SubstanceEffectTicker {
     public static void playerConsumeDrug(ServerPlayer player, Drug drug) {
         SubstanceData dataComponent = data.getData(player.getUUID());
         dataComponent.getInstanceOrCreateIfNotPresent(drug).addDose();
-        SubstanceWorldData.save(overworld, data);
+        data.setDirty();
     }
 
     private static void refreshBaseEffects(ServerPlayer player, SubstanceInstance instance) {

@@ -1,5 +1,6 @@
 package com.github.ringlocker.substancecraft.entity.spawner;
 
+import com.github.ringlocker.substancecraft.data.SubstanceWorldData;
 import com.github.ringlocker.substancecraft.entity.SubstanceCraftEntities;
 import com.github.ringlocker.substancecraft.entity.entities.Dealer;
 import net.minecraft.core.BlockPos;
@@ -25,16 +26,26 @@ public class DealerSpawner implements Spawner {
 
     private final RandomSource random = RandomSource.create();
     private static final int maxDistance = 48;
-    private static final int chance = 30;
 
+    private final SubstanceWorldData data;
     private int tickDelay;
     private int spawnDelay;
     private int spawnChance;
 
-    public DealerSpawner() {
-        this.tickDelay = 600;
-        this.spawnDelay = 8000;
-        this.spawnChance = chance;
+    public DealerSpawner(ServerLevel overworld) {
+        SubstanceWorldData data = SubstanceWorldData.get(overworld);
+        this.data = data;
+
+        this.tickDelay = 1000;
+        this.spawnDelay = data.getDealerSpawnDelay();
+        this.spawnChance = data.getDealerSpawnChance();
+
+        if (this.spawnDelay == 0 && this.spawnChance == 0) {
+            this.spawnDelay = 10000;
+            this.spawnChance = 25;
+            data.setDealerSpawnDelay(this.spawnDelay);
+            data.setDealerSpawnChance(this.spawnChance);
+        }
     }
 
     @Override
@@ -42,20 +53,20 @@ public class DealerSpawner implements Spawner {
         if (!level.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING)) return;
         if (!(--this.tickDelay <= 0)) return;
 
-        this.tickDelay = 600;
-        this.spawnDelay -= 1200;
-
+        this.tickDelay = 1000;
+        this.spawnDelay -= 1000;
+        data.setDealerSpawnDelay(this.spawnDelay);
         if (this.spawnDelay > 0) return;
+        this.spawnDelay = 10000;
 
-        this.spawnDelay = 8000;
         int chance = this.spawnChance;
-        this.spawnChance = Mth.clamp(this.spawnChance + chance, chance, 80);
+        this.spawnChance = Mth.clamp(this.spawnChance + chance, chance, 75);
+        data.setDealerSpawnChance(this.spawnChance);
         if (this.random.nextInt(100) <= chance) {
             if (this.spawn(level)) {
                 this.spawnChance = chance;
             }
         }
-
     }
 
     private boolean spawn(ServerLevel level) {
@@ -79,7 +90,6 @@ public class DealerSpawner implements Spawner {
                     return true;
                 }
             }
-
             return false;
         }
     }
@@ -99,7 +109,6 @@ public class DealerSpawner implements Spawner {
                 break;
             }
         }
-
         return blockpos;
     }
 
@@ -109,7 +118,6 @@ public class DealerSpawner implements Spawner {
                 return false;
             }
         }
-
         return true;
     }
 

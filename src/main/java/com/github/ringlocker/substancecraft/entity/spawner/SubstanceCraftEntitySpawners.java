@@ -14,8 +14,6 @@ public class SubstanceCraftEntitySpawners {
     private static final List<Spawner> spawners = new ArrayList<>();
 
     public static void init() {
-        spawners.add(new DealerSpawner());
-
         ServerTickEvents.START_SERVER_TICK.register(SubstanceCraftEntitySpawners::tick);
         ServerLifecycleEvents.SERVER_STARTED.register(SubstanceCraftEntitySpawners::serverStart);
     }
@@ -27,6 +25,7 @@ public class SubstanceCraftEntitySpawners {
             return;
         }
         overworld = level;
+        spawners.add(new DealerSpawner(level));
     }
 
     public static void tick(MinecraftServer server) {

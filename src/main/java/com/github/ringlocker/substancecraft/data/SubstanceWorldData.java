@@ -15,17 +15,26 @@ public class SubstanceWorldData extends SavedData {
 
     private static final String FILE_NAME = "substance_data";
     private static final Codec<Map<UUID, SubstanceData>> MAP_CODEC = Codec.unboundedMap(Codec.STRING.xmap(UUID::fromString, UUID::toString), SubstanceData.CODEC);
-    private static final Codec<SubstanceWorldData> CODEC = RecordCodecBuilder.create(instance -> instance.group(MAP_CODEC.fieldOf("players").forGetter(SubstanceWorldData::getPlayerData)).apply(instance, SubstanceWorldData::new));
+    private static final Codec<SubstanceWorldData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                    MAP_CODEC.fieldOf("playerData").forGetter(SubstanceWorldData::getPlayerData),
+                    Codec.INT.fieldOf("dealerSpawnDelay").forGetter(SubstanceWorldData::getDealerSpawnDelay),
+                    Codec.INT.fieldOf("dealerSpawnChance").forGetter(SubstanceWorldData::getDealerSpawnChance)
+            ).apply(instance, SubstanceWorldData::new)
+    );
     private static final SavedDataType<SubstanceWorldData> TYPE = new SavedDataType<>(FILE_NAME, ctx -> new SubstanceWorldData(), ctx -> SubstanceWorldData.CODEC, null);
 
     private final Map<UUID, SubstanceData> playerData = new HashMap<>();
+    private int dealerSpawnDelay;
+    private int dealerSpawnChance;
 
     public SubstanceWorldData() {
-        this.setDirty(true);
+
     }
 
-    public SubstanceWorldData(Map<UUID, SubstanceData> map) {
+    public SubstanceWorldData(Map<UUID, SubstanceData> map, int dealerSpawnDelay,  int dealerSpawnChance) {
         this.playerData.putAll(map);
+        this.dealerSpawnDelay = dealerSpawnDelay;
+        this.dealerSpawnChance = dealerSpawnChance;
     }
 
     public static SavedDataType<SubstanceWorldData> type() {
@@ -36,12 +45,16 @@ public class SubstanceWorldData extends SavedData {
         return level.getDataStorage().computeIfAbsent(TYPE);
     }
 
-    public static void save(ServerLevel level, SubstanceWorldData value) {
-        level.getDataStorage().set(type(), value);
-    }
-
     public Map<UUID, SubstanceData> getPlayerData() {
         return this.playerData;
+    }
+
+    public int getDealerSpawnDelay() {
+        return this.dealerSpawnDelay;
+    }
+
+    public int getDealerSpawnChance() {
+        return this.dealerSpawnChance;
     }
 
     public boolean clearPlayerData(UUID uuid) {
@@ -52,9 +65,20 @@ public class SubstanceWorldData extends SavedData {
         return playerData.computeIfAbsent(playerId, id -> new SubstanceData());
     }
 
+    public void setDealerSpawnDelay(int dealerSpawnDelay) {
+        if (dealerSpawnDelay != this.dealerSpawnDelay) this.setDirty();
+        this.dealerSpawnDelay = dealerSpawnDelay;
+    }
+
+    public void setDealerSpawnChance(int dealerSpawnChance) {
+        if (dealerSpawnChance != this.dealerSpawnChance) this.setDirty();
+        this.dealerSpawnChance = dealerSpawnChance;
+    }
+
     @Override
     public String toString() {
-        return String.format("SubstanceWorldData{playerData=[%s]}", playerData);
+        return String.format("SubstanceWorldData{dealerSpawnDelay=%d,dealerSpawnChance=%d,p;ayerData=[%s]}",
+                dealerSpawnDelay, dealerSpawnChance, playerData);
     }
 
 }

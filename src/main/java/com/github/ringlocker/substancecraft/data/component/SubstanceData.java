@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.data.component;
 
-import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.item.Drug;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.ExtraCodecs;
@@ -36,16 +35,6 @@ public class SubstanceData {
         SubstanceInstance instance = new SubstanceInstance(drug, 0, new ArrayList<>());
         substances.add(instance);
         return instance;
-    }
-
-    public SubstanceInstance getInstance(Drug drug) {
-        for (SubstanceInstance substance : substances) {
-            if (substance.drug() == drug) {
-                return substance;
-            }
-        }
-        SubstanceCraft.LOGGER.warn("Could not find instance of {}", drug.name());
-        return getInstanceOrCreateIfNotPresent(drug);
     }
 
     @Override
