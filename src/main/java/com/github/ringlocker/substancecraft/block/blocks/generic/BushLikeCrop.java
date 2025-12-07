@@ -3,10 +3,6 @@ package com.github.ringlocker.substancecraft.block.blocks.generic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.InsideBlockEffectApplier;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -15,12 +11,11 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.phys.Vec3;
 
 public abstract class BushLikeCrop extends VegetationBlock implements BonemealableBlock {
 
     public final int MAX_AGE;
-    public IntegerProperty age;
+    public final IntegerProperty age;
 
     protected BushLikeCrop(Properties properties, int maxAge, IntegerProperty age) {
         super(properties);

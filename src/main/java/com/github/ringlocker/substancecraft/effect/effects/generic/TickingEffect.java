@@ -7,7 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public abstract class TickingEffect extends BasicEffect {
 
-    TickFrequency frequency;
+    private final TickFrequency frequency;
 
     protected TickingEffect(MobEffectCategory category, TickFrequency frequency) {
         super(category);

@@ -2,7 +2,6 @@ package com.github.ringlocker.substancecraft;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
-import com.github.ringlocker.substancecraft.client.entity.render.SubstanceCraftEntityRenderers;
 import com.github.ringlocker.substancecraft.entity.SubstanceCraftEntities;
 import com.github.ringlocker.substancecraft.entity.spawner.SubstanceCraftEntitySpawners;
 import com.github.ringlocker.substancecraft.command.SubstanceCraftCommands;
@@ -20,12 +19,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SubstanceCraft implements ModInitializer {
-
-    /*
-    TODO:
-     - Dealer spawn delay saved in world data
-     - First slot of two drugs sold by dealer should be exclusive to non-craftable drugs
-     */
 
     public static final String MOD_ID = "substancecraft";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
