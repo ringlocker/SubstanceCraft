@@ -3,7 +3,7 @@ package com.github.ringlocker.substancecraft.effect;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.effect.effects.ColorResolution;
 import com.github.ringlocker.substancecraft.effect.effects.Mosaic;
-import com.github.ringlocker.substancecraft.effect.effects.generic.BasicEffect;
+import com.github.ringlocker.substancecraft.effect.effects.BasicEffect;
 import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
 import com.github.ringlocker.substancecraft.effect.effects.SimpleEffects;
 import com.github.ringlocker.substancecraft.effect.effects.DynamicColor;

@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.gui.menus;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.RefineryBlockEntity;
-import com.github.ringlocker.substancecraft.gui.OneInputMenu;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.recipe.recipes.RefineryRecipe;
 import net.minecraft.core.BlockPos;

@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.recipe.generic;
+package com.github.ringlocker.substancecraft.recipe;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;

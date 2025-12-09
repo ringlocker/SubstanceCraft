@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.block.entity.entities;
 
-import com.github.ringlocker.substancecraft.block.entity.MultiInputBlockEntity;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.gui.menus.FermentationTankMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.FermentationTankRecipe;

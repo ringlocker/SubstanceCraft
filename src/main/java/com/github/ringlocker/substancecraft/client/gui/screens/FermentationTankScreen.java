@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.FermentationTankBlockEntity;
-import com.github.ringlocker.substancecraft.client.gui.MultipleInputScreen;
 import com.github.ringlocker.substancecraft.gui.menus.FermentationTankMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.FermentationTankRecipe;
 import net.fabricmc.api.EnvType;

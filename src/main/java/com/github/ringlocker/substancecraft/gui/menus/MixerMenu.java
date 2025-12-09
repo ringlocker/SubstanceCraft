@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.gui.menus;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.MixerBlockEntity;
-import com.github.ringlocker.substancecraft.gui.MultipleInputMenu;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.recipe.recipes.MixerRecipe;
 import net.minecraft.core.BlockPos;

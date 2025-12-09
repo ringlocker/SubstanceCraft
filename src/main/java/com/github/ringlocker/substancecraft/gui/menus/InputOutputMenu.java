@@ -1,6 +1,6 @@
-package com.github.ringlocker.substancecraft.gui;
+package com.github.ringlocker.substancecraft.gui.menus;
 
-import com.github.ringlocker.substancecraft.block.entity.InputOutputBlockEntity;
+import com.github.ringlocker.substancecraft.block.entity.entities.InputOutputBlockEntity;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;

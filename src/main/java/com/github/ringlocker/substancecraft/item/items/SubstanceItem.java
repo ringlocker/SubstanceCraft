@@ -1,5 +1,6 @@
-package com.github.ringlocker.substancecraft.item;
+package com.github.ringlocker.substancecraft.item.items;
 
+import com.github.ringlocker.substancecraft.item.MatterState;
 import net.minecraft.world.item.Item;
 
 public class SubstanceItem extends Item {

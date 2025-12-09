@@ -3,7 +3,6 @@ package com.github.ringlocker.substancecraft.effect.effects;
 import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import com.github.ringlocker.substancecraft.effect.TickFrequency;
 import com.github.ringlocker.substancecraft.effect.damagesource.SubstanceCraftDamageSources;
-import com.github.ringlocker.substancecraft.effect.effects.generic.TickingEffect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;

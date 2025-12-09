@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.block.entity.entities;
 
-import com.github.ringlocker.substancecraft.block.entity.OneInputBlockEntity;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.gui.menus.OxidizerMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.OxidizerRecipe;

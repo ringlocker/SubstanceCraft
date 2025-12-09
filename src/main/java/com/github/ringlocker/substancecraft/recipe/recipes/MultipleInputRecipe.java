@@ -1,5 +1,7 @@
-package com.github.ringlocker.substancecraft.recipe.generic;
+package com.github.ringlocker.substancecraft.recipe.recipes;
 
+import com.github.ringlocker.substancecraft.recipe.ByproductRecipe;
+import com.github.ringlocker.substancecraft.recipe.MultipleItemInput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;

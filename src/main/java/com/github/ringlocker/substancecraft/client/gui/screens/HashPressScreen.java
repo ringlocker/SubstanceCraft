@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.HashPressBlockEntity;
-import com.github.ringlocker.substancecraft.client.gui.OneInputScreen;
 import com.github.ringlocker.substancecraft.gui.menus.HashPressMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.HashPressRecipe;
 import net.fabricmc.api.EnvType;

@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.gui.menus;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.ElectrolysisMachineBlockEntity;
-import com.github.ringlocker.substancecraft.gui.OneInputMenu;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.recipe.recipes.ElectrolysisRecipe;
 import net.minecraft.core.BlockPos;

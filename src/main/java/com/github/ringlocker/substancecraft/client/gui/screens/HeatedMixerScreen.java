@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.HeatedMixerBlockEntity;
-import com.github.ringlocker.substancecraft.client.gui.MultipleInputScreen;
 import com.github.ringlocker.substancecraft.gui.menus.HeatedMixerMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.HeatedMixerRecipe;
 import net.minecraft.network.chat.Component;

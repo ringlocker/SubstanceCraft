@@ -1,5 +1,6 @@
-package com.github.ringlocker.substancecraft.recipe.generic;
+package com.github.ringlocker.substancecraft.recipe.serializer;
 
+import com.github.ringlocker.substancecraft.recipe.recipes.OneInputRecipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

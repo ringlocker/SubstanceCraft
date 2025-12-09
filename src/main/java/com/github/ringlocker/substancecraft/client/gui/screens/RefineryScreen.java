@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.RefineryBlockEntity;
-import com.github.ringlocker.substancecraft.client.gui.OneInputScreen;
 import com.github.ringlocker.substancecraft.gui.menus.RefineryMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.RefineryRecipe;
 import net.fabricmc.api.EnvType;

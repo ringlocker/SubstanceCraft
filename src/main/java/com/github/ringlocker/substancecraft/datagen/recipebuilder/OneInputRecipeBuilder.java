@@ -2,7 +2,7 @@ package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.datagen.AdvancementGenerator;
-import com.github.ringlocker.substancecraft.recipe.generic.OneInputRecipe;
+import com.github.ringlocker.substancecraft.recipe.recipes.OneInputRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;

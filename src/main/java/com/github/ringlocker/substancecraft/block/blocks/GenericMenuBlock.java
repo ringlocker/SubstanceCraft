@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.block.blocks.generic;
+package com.github.ringlocker.substancecraft.block.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

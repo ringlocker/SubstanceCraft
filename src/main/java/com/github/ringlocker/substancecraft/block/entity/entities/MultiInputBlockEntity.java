@@ -1,7 +1,8 @@
-package com.github.ringlocker.substancecraft.block.entity;
+package com.github.ringlocker.substancecraft.block.entity.entities;
 
-import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputRecipe;
-import com.github.ringlocker.substancecraft.recipe.generic.MultipleItemInput;
+import com.github.ringlocker.substancecraft.block.entity.RecipeList;
+import com.github.ringlocker.substancecraft.recipe.recipes.MultipleInputRecipe;
+import com.github.ringlocker.substancecraft.recipe.MultipleItemInput;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;

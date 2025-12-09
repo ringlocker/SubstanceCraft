@@ -1,8 +1,8 @@
-package com.github.ringlocker.substancecraft.client.gui;
+package com.github.ringlocker.substancecraft.client.gui.screens;
 
-import com.github.ringlocker.substancecraft.block.entity.MultiInputBlockEntity;
-import com.github.ringlocker.substancecraft.gui.MultipleInputMenu;
-import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputRecipe;
+import com.github.ringlocker.substancecraft.block.entity.entities.MultiInputBlockEntity;
+import com.github.ringlocker.substancecraft.gui.menus.MultipleInputMenu;
+import com.github.ringlocker.substancecraft.recipe.recipes.MultipleInputRecipe;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.GuiGraphics;

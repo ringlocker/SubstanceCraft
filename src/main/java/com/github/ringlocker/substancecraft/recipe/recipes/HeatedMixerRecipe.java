@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.recipe.recipes;
 
-import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputRecipe;
-import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputSerializer;
+import com.github.ringlocker.substancecraft.recipe.serializer.MultipleInputSerializer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;

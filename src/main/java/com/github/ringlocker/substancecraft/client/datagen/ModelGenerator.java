@@ -6,7 +6,7 @@ import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
-import com.github.ringlocker.substancecraft.item.SubstanceItem;
+import com.github.ringlocker.substancecraft.item.items.SubstanceItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;

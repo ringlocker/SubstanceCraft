@@ -10,11 +10,11 @@ import org.apache.commons.lang3.tuple.Pair;
 
 public class Trades {
 
-    private static final int MAX_DRUG_BUY_QUANTITY = 8;
-    private static final int MAX_DRUG_SELL_QUANTITY = 16;
-    private static final int MAX_PLANT_BUY_QUANTITY = 8;
-    private static final int MAX_PLANT_BULK_SELL_QUANTITY = 8;
-    private static final int MAX_CHEMICAL_BUY_QUANTITY = 16;
+    private static final int MAX_DRUG_BUY_QUANTITY = 512;
+    private static final int MAX_DRUG_SELL_QUANTITY = 512;
+    private static final int MAX_PLANT_BUY_QUANTITY = 512;
+    private static final int MAX_PLANT_BULK_SELL_QUANTITY = 512;
+    private static final int MAX_CHEMICAL_BUY_QUANTITY = 512;
     
     public static final ImmutableList<Pair<VillagerTrades.ItemListing[], Integer>> DEALER_TRADES = ImmutableList.<Pair<VillagerTrades.ItemListing[], Integer>>builder()
             // Buys 3 unique synthesizable drugs from player
@@ -54,8 +54,8 @@ public class Trades {
 
             // Buys plant harvests
             .add(Pair.of(new VillagerTrades.ItemListing[]{
-                    new ItemForItemOffer(SubstanceCraftItems.CASH, 5, 10, stack(SubstanceCraftItems.MARIJUANA, 16), MAX_PLANT_BUY_QUANTITY, 1),
-                    new ItemForItemOffer(SubstanceCraftItems.CASH, 6, 12, stack(SubstanceCraftItems.COCA_LEAVES, 16), MAX_PLANT_BUY_QUANTITY, 1),
+                    new ItemForItemOffer(SubstanceCraftItems.MARIJUANA, 8, stack(SubstanceCraftItems.BAND, 1), MAX_PLANT_BULK_SELL_QUANTITY, 1),
+                    new ItemForItemOffer(SubstanceCraftItems.COCA_LEAVES, 8, stack(SubstanceCraftItems.BAND, 1), MAX_PLANT_BULK_SELL_QUANTITY, 1),
             }, 2))
 
             // Sells 6 substances

@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.gui.menus;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.ExtractorBlockEntity;
-import com.github.ringlocker.substancecraft.gui.OneInputMenu;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.recipe.recipes.ExtractorRecipe;
 import net.minecraft.core.BlockPos;

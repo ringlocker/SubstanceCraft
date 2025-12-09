@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.block.blocks.generic;
+package com.github.ringlocker.substancecraft.block.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

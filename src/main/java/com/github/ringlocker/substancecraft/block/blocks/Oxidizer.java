@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
-import com.github.ringlocker.substancecraft.block.blocks.generic.GenericMenuBlock;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.block.entity.entities.OxidizerBlockEntity;
 import net.minecraft.core.BlockPos;

@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.ExtractorBlockEntity;
-import com.github.ringlocker.substancecraft.client.gui.OneInputScreen;
 import com.github.ringlocker.substancecraft.gui.menus.ExtractorMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.ExtractorRecipe;
 import net.fabricmc.api.EnvType;

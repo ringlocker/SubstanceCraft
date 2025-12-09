@@ -1,9 +1,10 @@
-package com.github.ringlocker.substancecraft.block.entity;
+package com.github.ringlocker.substancecraft.block.entity.entities;
 
-import com.github.ringlocker.substancecraft.block.blocks.generic.GenericMenuBlock;
+import com.github.ringlocker.substancecraft.block.blocks.GenericMenuBlock;
+import com.github.ringlocker.substancecraft.block.entity.ImplementedInventory;
 import com.github.ringlocker.substancecraft.client.recipe.ClientRecipeInformation;
 import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
-import com.github.ringlocker.substancecraft.recipe.generic.ByproductRecipe;
+import com.github.ringlocker.substancecraft.recipe.ByproductRecipe;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;

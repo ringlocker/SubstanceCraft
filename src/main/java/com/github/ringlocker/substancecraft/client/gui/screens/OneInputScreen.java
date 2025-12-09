@@ -1,8 +1,8 @@
-package com.github.ringlocker.substancecraft.client.gui;
+package com.github.ringlocker.substancecraft.client.gui.screens;
 
-import com.github.ringlocker.substancecraft.block.entity.OneInputBlockEntity;
-import com.github.ringlocker.substancecraft.gui.OneInputMenu;
-import com.github.ringlocker.substancecraft.recipe.generic.OneInputRecipe;
+import com.github.ringlocker.substancecraft.block.entity.entities.OneInputBlockEntity;
+import com.github.ringlocker.substancecraft.gui.menus.OneInputMenu;
+import com.github.ringlocker.substancecraft.recipe.recipes.OneInputRecipe;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.GuiGraphics;

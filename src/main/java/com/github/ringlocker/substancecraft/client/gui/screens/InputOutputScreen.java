@@ -1,7 +1,7 @@
-package com.github.ringlocker.substancecraft.client.gui;
+package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.gui.InputOutputMenu;
+import com.github.ringlocker.substancecraft.gui.menus.InputOutputMenu;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;

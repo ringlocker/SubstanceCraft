@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.ElectrolysisMachineBlockEntity;
-import com.github.ringlocker.substancecraft.client.gui.OneInputScreen;
 import com.github.ringlocker.substancecraft.gui.menus.ElectrolysisMachineMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.ElectrolysisRecipe;
 import net.fabricmc.api.EnvType;

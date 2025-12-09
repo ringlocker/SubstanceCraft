@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.effect.effects.generic;
+package com.github.ringlocker.substancecraft.effect.effects;
 
 import com.github.ringlocker.substancecraft.item.SubstanceTintColors;
 import net.minecraft.world.effect.MobEffect;

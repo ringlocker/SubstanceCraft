@@ -9,7 +9,7 @@ import com.github.ringlocker.substancecraft.client.entity.render.SubstanceCraftE
 import com.github.ringlocker.substancecraft.client.gui.SubstanceCraftScreens;
 import com.github.ringlocker.substancecraft.client.network.SubstanceCraftClientNetworking;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
-import com.github.ringlocker.substancecraft.effect.effects.generic.PostShaderEffect;
+import com.github.ringlocker.substancecraft.effect.effects.PostShaderEffect;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

@@ -1,6 +1,6 @@
 package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
-import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputRecipe;
+import com.github.ringlocker.substancecraft.recipe.recipes.MultipleInputRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.MixerRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;

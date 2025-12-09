@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.effect.effects;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.effect.effects.generic.PostShaderEffect;
 import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.buffers.Std140Builder;
 import com.mojang.blaze3d.systems.RenderSystem;

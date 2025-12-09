@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.MixerBlockEntity;
-import com.github.ringlocker.substancecraft.client.gui.MultipleInputScreen;
 import com.github.ringlocker.substancecraft.gui.menus.MixerMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.MixerRecipe;
 import net.fabricmc.api.EnvType;

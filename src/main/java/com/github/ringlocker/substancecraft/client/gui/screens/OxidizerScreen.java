@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.OxidizerBlockEntity;
-import com.github.ringlocker.substancecraft.client.gui.OneInputScreen;
 import com.github.ringlocker.substancecraft.gui.menus.OxidizerMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.OxidizerRecipe;
 import net.fabricmc.api.EnvType;

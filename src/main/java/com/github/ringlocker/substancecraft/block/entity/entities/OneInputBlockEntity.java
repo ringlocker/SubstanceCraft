@@ -1,6 +1,7 @@
-package com.github.ringlocker.substancecraft.block.entity;
+package com.github.ringlocker.substancecraft.block.entity.entities;
 
-import com.github.ringlocker.substancecraft.recipe.generic.OneInputRecipe;
+import com.github.ringlocker.substancecraft.block.entity.RecipeList;
+import com.github.ringlocker.substancecraft.recipe.recipes.OneInputRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
