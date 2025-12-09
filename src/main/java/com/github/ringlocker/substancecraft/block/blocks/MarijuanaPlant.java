@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import com.github.ringlocker.substancecraft.block.blocks.generic.BushLikeCrop;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -116,10 +115,10 @@ public class MarijuanaPlant extends BushLikeCrop {
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
                 level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                level.setBlock(pos, state.setValue(age, oneBlockMaxAge), Block.UPDATE_CLIENTS);
+                level.setBlock(pos, state.setValue(age, oneBlockMaxAge - 1), Block.UPDATE_CLIENTS);
             } else {
                 level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                level.setBlock(pos.below(), state.setValue(age, oneBlockMaxAge).setValue(HALF, DoubleBlockHalf.LOWER), Block.UPDATE_CLIENTS);
+                level.setBlock(pos.below(), state.setValue(age, oneBlockMaxAge - 1).setValue(HALF, DoubleBlockHalf.LOWER), Block.UPDATE_CLIENTS);
             }
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
             return InteractionResult.SUCCESS_SERVER;
@@ -138,21 +137,14 @@ public class MarijuanaPlant extends BushLikeCrop {
                 level.setBlock(pos.above(1), state.setValue(AGE, age + 1).setValue(HALF, DoubleBlockHalf.UPPER), Block.UPDATE_CLIENTS);
             } else {
                 BlockState upper = level.getBlockState(pos.above());
-                if (upper.is(this) && upper.getValue(HALF) == DoubleBlockHalf.UPPER) {
-                    int upperAge = upper.getValue(AGE);
-                    if (upperAge < MAX_AGE) {
-                        level.setBlock(pos.above(), upper.setValue(AGE, upperAge + 1), Block.UPDATE_CLIENTS);
-                    } else {
-                        level.setBlock(pos.above(), upper.setValue(AGE, upperAge), Block.UPDATE_CLIENTS);
-                    }
-                }
+                if (!(upper.is(this) && upper.getValue(HALF) == DoubleBlockHalf.UPPER)) return;
+                int upperAge = upper.getValue(AGE);
+                if (upperAge < MAX_AGE) level.setBlock(pos.above(), upper.setValue(AGE, upperAge + 1), Block.UPDATE_CLIENTS);
+                else level.setBlock(pos.above(), upper.setValue(AGE, upperAge), Block.UPDATE_CLIENTS);
             }
         } else if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
-            if (age < MAX_AGE) {
-                level.setBlock(pos, state.setValue(AGE, age + 1), Block.UPDATE_CLIENTS);
-            } else {
-                level.setBlock(pos, state.setValue(AGE, age), Block.UPDATE_CLIENTS);
-            }
+            if (age < MAX_AGE) level.setBlock(pos, state.setValue(AGE, age + 1), Block.UPDATE_CLIENTS);
+            else level.setBlock(pos, state.setValue(AGE, age), Block.UPDATE_CLIENTS);
         }
     }
 
