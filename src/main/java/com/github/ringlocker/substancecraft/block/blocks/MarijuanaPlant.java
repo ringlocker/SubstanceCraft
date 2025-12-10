@@ -43,13 +43,13 @@ public class MarijuanaPlant extends BushLikeCrop {
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[] {
             Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 7.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 6.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 13.0, 16.0)
+            Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 7.0, 16.0)
     };
 
     public MarijuanaPlant(Properties properties) {
