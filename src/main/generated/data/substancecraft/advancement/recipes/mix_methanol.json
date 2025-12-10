@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "substancecraft:natural_gas"
+            "items": "substancecraft:methane"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:refine_methanol"
+        "recipe": "substancecraft:mix_methanol"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "substancecraft:refine_methanol"
+      "substancecraft:mix_methanol"
     ]
   }
 }

@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:extractor",
   "byproducts": [],
-  "ingredient": "substancecraft:brine",
+  "ingredients": [
+    "substancecraft:brine"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:bromide"

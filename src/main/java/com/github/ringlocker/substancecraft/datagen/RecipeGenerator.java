@@ -165,7 +165,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 );
 
                 HashPressRecipeBuilder.press(
-                                Ingredient.of(SubstanceCraftItems.MARIJUANA),
+                                List.of(Ingredient.of(SubstanceCraftItems.MARIJUANA)),
                                 SubstanceCraftItems.HASH,
                                 1000,
                                 HashPressRecipe::new
@@ -174,7 +174,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("press_hash"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.OIL_SHALE),
+                                List.of(Ingredient.of(SubstanceCraftItems.OIL_SHALE)),
                                 SubstanceCraftItems.OIL,
                                 List.of(new ItemStack(SubstanceCraftItems.NATURAL_GAS, 40 >> 1)),
                                 SHORT_REFINE_TIME,
@@ -184,7 +184,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_oil"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.OIL),
+                                List.of(Ingredient.of(SubstanceCraftItems.OIL)),
                                 SubstanceCraftItems.PETROLEUM_NAPHTHA,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -193,7 +193,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_naphtha"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.OIL),
+                                List.of(Ingredient.of(SubstanceCraftItems.OIL)),
                                 SubstanceCraftItems.KEROSENE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -202,7 +202,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_kerosene"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.OIL),
+                                List.of(Ingredient.of(SubstanceCraftItems.OIL)),
                                 SubstanceCraftItems.GASOLINE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -211,7 +211,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_gasoline"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.OIL),
+                                List.of(Ingredient.of(SubstanceCraftItems.OIL)),
                                 SubstanceCraftItems.DIPHENHYDRAMINE,
                                 LONG_REFINE_TIME,
                                 RefineryRecipe::new
@@ -220,7 +220,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_dph"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.OIL),
+                                List.of(Ingredient.of(SubstanceCraftItems.OIL)),
                                 SubstanceCraftItems.KETAMINE,
                                 LONG_REFINE_TIME,
                                 RefineryRecipe::new
@@ -229,7 +229,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_ketamine"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
+                                List.of(Ingredient.of(SubstanceCraftItems.NATURAL_GAS)),
                                 SubstanceCraftItems.METHANE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -238,7 +238,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_methane"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
+                                List.of(Ingredient.of(SubstanceCraftItems.NATURAL_GAS)),
                                 SubstanceCraftItems.ETHANE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -247,7 +247,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_ethane"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
+                                List.of(Ingredient.of(SubstanceCraftItems.NATURAL_GAS)),
                                 SubstanceCraftItems.BUTANE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -256,7 +256,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_butane"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.NATURAL_GAS),
+                                List.of(Ingredient.of(SubstanceCraftItems.NATURAL_GAS)),
                                 SubstanceCraftItems.PROPANE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -265,7 +265,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_propane"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.PROPANE),
+                                List.of(Ingredient.of(SubstanceCraftItems.PROPANE)),
                                 SubstanceCraftItems.PROPYLENE,
                                 LONG_REFINE_TIME,
                                 RefineryRecipe::new
@@ -274,7 +274,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_propylene"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.ETHANE),
+                                List.of(Ingredient.of(SubstanceCraftItems.ETHANE)),
                                 SubstanceCraftItems.ETHYLENE,
                                 LONG_REFINE_TIME,
                                 RefineryRecipe::new
@@ -283,7 +283,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_ethylene"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.OIL),
+                                List.of(Ingredient.of(SubstanceCraftItems.OIL)),
                                 SubstanceCraftItems.DIESEL,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -292,7 +292,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_diesel"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(Items.COAL),
+                                List.of(Ingredient.of(Items.COAL)),
                                 SubstanceCraftItems.COKE,
                                 List.of(new ItemStack(SubstanceCraftItems.CARBON_MONOXIDE, 50 >> 1)),
                                 REFINE_TIME,
@@ -302,7 +302,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("refine_coke"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.PETROLEUM_NAPHTHA),
+                                List.of(Ingredient.of(SubstanceCraftItems.PETROLEUM_NAPHTHA)),
                                 SubstanceCraftItems.BENZENE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -311,7 +311,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("reform_benzene"));
 
                 RefineryRecipeBuilder.refine(
-                                Ingredient.of(SubstanceCraftItems.PETROLEUM_NAPHTHA),
+                                List.of(Ingredient.of(SubstanceCraftItems.PETROLEUM_NAPHTHA)),
                                 SubstanceCraftItems.TOLUENE,
                                 REFINE_TIME,
                                 RefineryRecipe::new
@@ -320,7 +320,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("reform_toluene"));
 
                 OxidizerRecipeBuilder.oxidize(
-                                Ingredient.of(SubstanceCraftItems.METHANOL),
+                                List.of(Ingredient.of(SubstanceCraftItems.METHANOL)),
                                 SubstanceCraftItems.FORMALDEHYDE,
                                 1000,
                                 OxidizerRecipe::new
@@ -329,7 +329,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("oxidize_formaldehyde"));
 
                 OxidizerRecipeBuilder.oxidize(
-                                Ingredient.of(SubstanceCraftItems.AMMONIA),
+                                List.of(Ingredient.of(SubstanceCraftItems.AMMONIA)),
                                 SubstanceCraftItems.NITRIC_ACID,
                                 1000,
                                 OxidizerRecipe::new
@@ -338,7 +338,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("oxidize_nitric_acid"));
 
                 OxidizerRecipeBuilder.oxidize(
-                                Ingredient.of(SubstanceCraftItems.TOLUENE),
+                                List.of(Ingredient.of(SubstanceCraftItems.TOLUENE)),
                                 SubstanceCraftItems.BENZALDEHYDE,
                                 1000,
                                 OxidizerRecipe::new
@@ -347,7 +347,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("oxidize_benzaldehyde"));
 
                 OxidizerRecipeBuilder.oxidize(
-                                Ingredient.of(SubstanceCraftItems.BENZENE),
+                                List.of(Ingredient.of(SubstanceCraftItems.BENZENE)),
                                 SubstanceCraftItems.MALEIC_ANHYDRIDE,
                                 1000,
                                 OxidizerRecipe::new
@@ -356,7 +356,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("oxidize_maleic_anhydride"));
 
                 OxidizerRecipeBuilder.oxidize(
-                                Ingredient.of(SubstanceCraftItems.PROPYLENE),
+                                List.of(Ingredient.of(SubstanceCraftItems.PROPYLENE)),
                                 SubstanceCraftItems.ACETONE,
                                 1000,
                                 OxidizerRecipe::new
@@ -365,7 +365,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("oxidize_acetone"));
 
                 OxidizerRecipeBuilder.oxidize(
-                                Ingredient.of(SubstanceCraftItems.BROMIDE),
+                                List.of(Ingredient.of(SubstanceCraftItems.BROMIDE)),
                                 SubstanceCraftItems.BROMINE,
                                 1000,
                                 OxidizerRecipe::new
@@ -374,7 +374,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("oxidize_bromine"));
 
                 ElectrolysisRecipeBuilder.electrolysis(
-                                Ingredient.of(SubstanceCraftItems.BRINE),
+                                List.of(Ingredient.of(SubstanceCraftItems.BRINE)),
                                 SubstanceCraftItems.SODIUM_HYDROXIDE,
                                 List.of(new ItemStack(SubstanceCraftItems.CHLORINE, 30 >> 1), new ItemStack(SubstanceCraftItems.HYDROGEN, 30 >> 1)),
                                 1000,
@@ -384,7 +384,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("electrolysis_brine"));
 
                 ElectrolysisRecipeBuilder.electrolysis(
-                                Ingredient.of(SubstanceCraftItems.DISTILLED_WATER),
+                                List.of(Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
                                 SubstanceCraftItems.HYDROGEN,
                                 List.of(new ItemStack(SubstanceCraftItems.OXYGEN, 50 >> 1)),
                                 1000,
@@ -394,7 +394,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("electrolysis_water"));
 
                 ElectrolysisRecipeBuilder.electrolysis(
-                                Ingredient.of(SubstanceCraftItems.POTASSIUM_CHLORIDE),
+                                List.of(Ingredient.of(SubstanceCraftItems.POTASSIUM_CHLORIDE)),
                                 SubstanceCraftItems.POTASSIUM_HYDROXIDE,
                                 1000,
                                 ElectrolysisRecipe::new
@@ -403,7 +403,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("electrolysis_potassium_hydroxide"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(Items.GLASS_BOTTLE),
+                                List.of(Ingredient.of(Items.GLASS_BOTTLE)),
                                 SubstanceCraftItems.NITROGEN,
                                 600,
                                 ExtractorRecipe::new
@@ -412,7 +412,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_nitrogen"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(SubstanceCraftItems.HALITE),
+                                List.of(Ingredient.of(SubstanceCraftItems.HALITE)),
                                 SubstanceCraftItems.SALT,
                                 600,
                                 ExtractorRecipe::new
@@ -421,7 +421,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_salt"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(Items.GLASS_BOTTLE),
+                                List.of(Ingredient.of(Items.GLASS_BOTTLE)),
                                 SubstanceCraftItems.OXYGEN,
                                 1200,
                                 ExtractorRecipe::new
@@ -430,7 +430,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_oxygen"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(SubstanceCraftItems.BRINE),
+                                List.of(Ingredient.of(SubstanceCraftItems.BRINE)),
                                 SubstanceCraftItems.BROMIDE,
                                 1200,
                                 ExtractorRecipe::new
@@ -439,7 +439,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_bromide"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(Items.POTION),
+                                List.of(Ingredient.of(Items.POTION)),
                                 SubstanceCraftItems.DISTILLED_WATER,
                                 800,
                                 ExtractorRecipe::new
@@ -448,7 +448,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_distilled_water"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(SubstanceCraftItems.P2NP),
+                                List.of(Ingredient.of(SubstanceCraftItems.P2NP)),
                                 SubstanceCraftItems.P2P,
                                 1200,
                                 ExtractorRecipe::new
@@ -457,7 +457,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_p2p"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(SubstanceCraftItems.TRONA),
+                                List.of(Ingredient.of(SubstanceCraftItems.TRONA)),
                                 SubstanceCraftItems.SODIUM_CARBONATE,
                                 1200,
                                 ExtractorRecipe::new
@@ -466,7 +466,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_sodium_carbonate"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(SubstanceCraftItems.PYROLUSITE),
+                                List.of(Ingredient.of(SubstanceCraftItems.PYROLUSITE)),
                                 SubstanceCraftItems.MANGANESE_DIOXIDE,
                                 1200,
                                 ExtractorRecipe::new
@@ -475,7 +475,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_pyrolusite"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(SubstanceCraftItems.SYLVITE),
+                                List.of(Ingredient.of(SubstanceCraftItems.SYLVITE)),
                                 SubstanceCraftItems.POTASSIUM_CHLORIDE,
                                 1200,
                                 ExtractorRecipe::new
@@ -484,7 +484,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_potassium_chloride"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(Items.CHARCOAL),
+                                List.of(Ingredient.of(Items.CHARCOAL)),
                                 SubstanceCraftItems.CARBON_DIOXIDE,
                                 1200,
                                 ExtractorRecipe::new
@@ -493,7 +493,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("extract_carbon_dioxide"));
 
                 ExtractorRecipeBuilder.extract(
-                                Ingredient.of(SubstanceCraftItems.RAW_SULFUR),
+                                List.of(Ingredient.of(SubstanceCraftItems.RAW_SULFUR)),
                                 SubstanceCraftItems.SULFUR,
                                 1200,
                                 ExtractorRecipe::new

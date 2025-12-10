@@ -1,7 +1,9 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.gui.menus.InputOutputMenu;
+import com.github.ringlocker.substancecraft.block.entity.entities.WorkstationBlockEntity;
+import com.github.ringlocker.substancecraft.gui.menus.WorkstationMenu;
+import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
@@ -11,19 +13,30 @@ import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Environment(EnvType.CLIENT)
-public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends AbstractContainerScreen<T> {
+public abstract class WorkstationScreen<
+        R extends ByproductRecipe,
+        B extends WorkstationBlockEntity<R>,
+        M extends WorkstationMenu<R, B>>
+    extends AbstractContainerScreen<M> {
 
     protected static final ResourceLocation SCROLLER_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/scroller");
     protected static final ResourceLocation SCROLLER_DISABLED_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/scroller_disabled");
@@ -45,20 +58,20 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
     protected static final int PROGRESS_ARROW_X = 103;
     protected static final int PROGRESS_ARROW_Y = 30;
 
-    protected ResourceLocation BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/one_input_output_0_byproduct.png");
+    protected ResourceLocation BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/1_input_0_byproduct.png");
 
     protected float scrollOffset;
     protected boolean scrolling;
     protected int firstVisibleIndex;
 
-    public InputOutputScreen(T menu, Inventory playerInventory, Component title) {
+    public WorkstationScreen(M menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
     }
 
     @Override
     protected void init() {
         super.init();
-        setBackgroundTexture(menu.getBlockEntity().getMaxByproducts(), menu.getBlockEntity().multipleInput());
+        setBackgroundTexture(menu.getBlockEntity());
         titleLabelY = 5;
         titleLabelX = 10;
     }
@@ -71,6 +84,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+        setBackgroundTexture(menu.getBlockEntity());
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
         ResourceLocation scrollerTexture = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
         guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, scrollerTexture, leftPos + SCROLLER_X, topPos + SCROLLER_Y + (int) (41.0F * this.scrollOffset), SCROLLER_WIDTH, SCROLLER_HEIGHT);
@@ -166,9 +180,38 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
         return super.mouseClicked(mouseButtonEvent, isDoubleClick);
     }
 
-    protected abstract void renderRecipes(GuiGraphics guiGraphics, int x, int y, int startIndex);
+    @SuppressWarnings("deprecation")
+    protected List<Component> tooltip(int index) {
+        ByproductRecipe recipe = this.menu.getRecipes().get(index).value();
+        List<Ingredient> inputs = recipe.getInputs();
+        ItemStack resultItem = recipe.getResult();
+        List<Component> tooltip = new ArrayList<>();
+        tooltip.add(getItemNameString(resultItem));
+        tooltip.add(Component.literal("Requires: "));
+        Set<Holder<Item>> itemInputsSet = inputs.stream().flatMap(Ingredient::items).collect(Collectors.toUnmodifiableSet());
+        for (Holder<Item> item : itemInputsSet) {
+            tooltip.add(getItemNameString(new ItemStack(item.value())));
+        }
+        if (!recipe.getByproducts().isEmpty()) {
+            tooltip.add(Component.literal("Byproducts: "));
+            List<ItemStack> byproducts = recipe.getByproducts();
+            for (ItemStack byproduct : byproducts) {
+                tooltip.add(getByproductString(byproduct, byproduct.getCount() << 1));
+            }
+        }
+        return tooltip;
+    }
 
-    protected abstract List<Component> tooltip(int index);
+    protected void renderRecipes(GuiGraphics guiGraphics, int x, int y, int startIndex) {
+        List<RecipeHolder<R>> list = this.menu.getRecipes();
+        for (int index = this.firstVisibleIndex; index < startIndex && index < this.menu.getNumRecipes(); index++) {
+            int relativeIndex = index - this.firstVisibleIndex;
+            int renderX = x + relativeIndex % RECIPES_COLUMNS * RECIPES_IMAGE_SIZE_WIDTH;
+            int row = relativeIndex / RECIPES_COLUMNS;
+            int renderY = y + row * RECIPES_IMAGE_SIZE_HEIGHT + 2;
+            guiGraphics.renderItem(list.get(index).value().getResult(), renderX, renderY);
+        }
+    }
 
     private boolean isMouseInBox(int mouseX, int mouseY, int minX, int maxX, int minY, int maxY) {
         return mouseX >= minX && mouseX < maxX && mouseY >= minY && mouseY < maxY;
@@ -212,11 +255,10 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
         else return Component.literal(itemStack.getDisplayName().getString().replace("[", "").replace("]", "") + " " + chance + "%");
     }
 
-    private void setBackgroundTexture(int numberOfByproductSlots, boolean multipleInput) {
-        String texture = multipleInput
-                ? String.format("textures/gui/multiple_input_output_%s_byproduct.png", numberOfByproductSlots)
-                : String.format("textures/gui/one_input_output_%s_byproduct.png", numberOfByproductSlots);
-
+    private void setBackgroundTexture(WorkstationBlockEntity<R> blockEntity) {
+        if (blockEntity.getCurrentRecipe().isEmpty()) return;
+        R recipe = blockEntity.getCurrentRecipe().get().value();
+        String texture = String.format("textures/gui/%d_input_%d_byproduct.png", recipe.getInputs().size(), recipe.getByproducts().size());
         BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, texture);
     }
 

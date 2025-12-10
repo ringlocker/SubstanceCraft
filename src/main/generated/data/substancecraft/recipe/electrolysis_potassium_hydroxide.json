@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:electrolysis",
   "byproducts": [],
-  "ingredient": "substancecraft:potassium_chloride",
+  "ingredients": [
+    "substancecraft:potassium_chloride"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:potassium_hydroxide"

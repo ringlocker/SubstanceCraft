@@ -10,7 +10,9 @@
       "id": "substancecraft:hydrogen"
     }
   ],
-  "ingredient": "substancecraft:brine",
+  "ingredients": [
+    "substancecraft:brine"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:sodium_hydroxide"

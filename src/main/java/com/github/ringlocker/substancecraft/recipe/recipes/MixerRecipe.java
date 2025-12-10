@@ -1,6 +1,6 @@
 package com.github.ringlocker.substancecraft.recipe.recipes;
 
-import com.github.ringlocker.substancecraft.recipe.serializer.MultipleInputSerializer;
+import com.github.ringlocker.substancecraft.recipe.serializer.ByproductRecipeSerializer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -9,7 +9,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 
 import java.util.List;
 
-public class MixerRecipe extends MultipleInputRecipe {
+public class MixerRecipe extends ByproductRecipe {
 
     public static final String ID = "mixer";
 
@@ -18,7 +18,7 @@ public class MixerRecipe extends MultipleInputRecipe {
     }
 
     @Override
-    public Component getTypeString() {
+    public Component getLabel() {
         return Component.literal("Mixer");
     }
 
@@ -27,7 +27,7 @@ public class MixerRecipe extends MultipleInputRecipe {
     }
 
     public static class Serializer {
-        public static final RecipeSerializer<MixerRecipe> INSTANCE = new MultipleInputSerializer<>(MixerRecipe::new);
+        public static final RecipeSerializer<MixerRecipe> INSTANCE = new ByproductRecipeSerializer<>(MixerRecipe::new);
     }
 
 }

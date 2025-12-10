@@ -8,14 +8,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-public class HeatedMixerMenu extends MultipleInputMenu<HeatedMixerRecipe, HeatedMixerBlockEntity> {
+public class HeatedMixerMenu extends WorkstationMenu<HeatedMixerRecipe, HeatedMixerBlockEntity> {
 
     public HeatedMixerMenu(int syncId, Inventory playerInventory, BlockPos pos) {
         this(syncId, playerInventory, playerInventory.player.level().getBlockEntity(pos), new SimpleContainerData(3));
     }
 
     public HeatedMixerMenu(int syncId, Inventory inventory, BlockEntity entity, SimpleContainerData arrayPropertyDelegate) {
-        super(SubstanceCraftMenus.HEATED_MIXER, syncId, inventory, entity, arrayPropertyDelegate);
+        super(SubstanceCraftMenus.HEATED_MIXER, syncId, inventory, (HeatedMixerBlockEntity) entity, arrayPropertyDelegate);
     }
 
 

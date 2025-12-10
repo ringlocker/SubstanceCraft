@@ -2,7 +2,7 @@ package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.datagen.AdvancementGenerator;
-import com.github.ringlocker.substancecraft.recipe.recipes.OneInputRecipe;
+import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
@@ -24,20 +24,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class OneInputRecipeBuilder implements RecipeBuilder {
+public class ByproductRecipeBuilder implements RecipeBuilder {
 
+    private final List<Ingredient> ingredients;
     private final Item result;
-    private final Ingredient ingredient;
     private final List<ItemStack> byproducts;
     private final int time;
 
     private int outputCount = 1;
 
     protected final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-    private final OneInputRecipe.Factory<? extends OneInputRecipe> factory;
+    private final ByproductRecipe.Factory<? extends ByproductRecipe> factory;
 
-    protected OneInputRecipeBuilder(final Ingredient ingredient, final ItemLike result, List<ItemStack> byproducts, int time, OneInputRecipe.Factory<? extends OneInputRecipe> factory) {
-        this.ingredient = ingredient;
+    protected ByproductRecipeBuilder(final List<Ingredient> ingredients, final ItemLike result, List<ItemStack> byproducts, int time, ByproductRecipe.Factory<? extends ByproductRecipe> factory) {
+        this.ingredients = ingredients;
         this.result = result.asItem();
         this.byproducts = byproducts != null ? byproducts : List.of();
         this.time = time;
@@ -45,12 +45,12 @@ public class OneInputRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public @NotNull OneInputRecipeBuilder unlockedBy(String string, Criterion<?> advancementCriterion) {
+    public @NotNull ByproductRecipeBuilder unlockedBy(String string, Criterion<?> advancementCriterion) {
         this.criteria.put(string, advancementCriterion);
         return this;
     }
 
-    public OneInputRecipeBuilder setOutputCount(int outputCount) {
+    public ByproductRecipeBuilder setOutputCount(int outputCount) {
         if (outputCount < 1 || outputCount > 64) {
             SubstanceCraft.LOGGER.warn("Invalid outputCount in recipe: {} not in range [1,64]", outputCount);
             return this;
@@ -75,7 +75,7 @@ public class OneInputRecipeBuilder implements RecipeBuilder {
         Advancement.Builder advancementBuilder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(advancementBuilder);
         this.criteria.forEach(advancementBuilder::addCriterion);
-        OneInputRecipe recipe = this.factory.create(this.ingredient, new ItemStack(this.result, outputCount), this.byproducts, this.time);
+        ByproductRecipe recipe = this.factory.create(this.ingredients, new ItemStack(this.result, outputCount), this.byproducts, this.time);
         AdvancementGenerator.RecipeCache.cacheRecipe(recipe);
         exporter.accept(resourceKey, recipe, advancementBuilder.build(resourceKey.location().withPrefix("recipes/")));
     }

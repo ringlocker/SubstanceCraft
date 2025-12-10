@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
 @Environment(EnvType.CLIENT)
-public class MixerScreen extends MultipleInputScreen<MixerRecipe, MixerBlockEntity, MixerMenu> {
+public class MixerScreen extends WorkstationScreen<MixerRecipe, MixerBlockEntity, MixerMenu> {
 
     public MixerScreen(MixerMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);

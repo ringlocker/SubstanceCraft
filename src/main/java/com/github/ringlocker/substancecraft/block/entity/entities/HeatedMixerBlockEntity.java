@@ -10,10 +10,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class HeatedMixerBlockEntity extends MultiInputBlockEntity<HeatedMixerRecipe> {
+public class HeatedMixerBlockEntity extends WorkstationBlockEntity<HeatedMixerRecipe> {
 
     public HeatedMixerBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Heated Mixer", HeatedMixerRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.HEATED_MIXER);
+        super(SubstanceCraftBlockEntities.HEATED_MIXER, HeatedMixerRecipe.Type.INSTANCE, pos, state, "Heated Mixer");
     }
 
     @Override

@@ -10,10 +10,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class RefineryBlockEntity extends OneInputBlockEntity<RefineryRecipe> {
+public class RefineryBlockEntity extends WorkstationBlockEntity<RefineryRecipe> {
 
     public RefineryBlockEntity(BlockPos pos, BlockState blockState) {
-        super(pos, blockState, "Refinery", RefineryRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.REFINERY);
+        super(SubstanceCraftBlockEntities.REFINERY, RefineryRecipe.Type.INSTANCE, pos, blockState, "Refinery");
     }
 
     @Override

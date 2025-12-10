@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:brine_8",
+  "parent": "substancecraft:brine_6",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

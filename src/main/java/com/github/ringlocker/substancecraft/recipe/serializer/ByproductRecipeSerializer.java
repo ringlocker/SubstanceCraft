@@ -1,6 +1,6 @@
 package com.github.ringlocker.substancecraft.recipe.serializer;
 
-import com.github.ringlocker.substancecraft.recipe.recipes.MultipleInputRecipe;
+import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -15,35 +15,35 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultipleInputSerializer<T extends MultipleInputRecipe> implements RecipeSerializer<T> {
+public class ByproductRecipeSerializer<R extends ByproductRecipe> implements RecipeSerializer<R> {
 
-    private final MultipleInputRecipe.Factory<T> factory;
-    private final MapCodec<T> codec;
-    private final StreamCodec<RegistryFriendlyByteBuf, T> packetCodec;
+    private final ByproductRecipe.Factory<R> factory;
+    private final MapCodec<R> codec;
+    private final StreamCodec<RegistryFriendlyByteBuf, R> packetCodec;
 
-    public MultipleInputSerializer(MultipleInputRecipe.Factory<T> factory) {
+    public ByproductRecipeSerializer(ByproductRecipe.Factory<R> factory) {
         this.factory = factory;
         this.codec = RecordCodecBuilder.mapCodec(
                 (instance) -> instance.group(
-                        Ingredient.CODEC.listOf().fieldOf("ingredients").forGetter(MultipleInputRecipe::getInputs),
-                        ItemStack.STRICT_CODEC.fieldOf("result").forGetter(MultipleInputRecipe::getResult),
-                        ItemStack.CODEC.listOf().fieldOf("byproducts").forGetter(MultipleInputRecipe::getByproducts),
-                        Codec.INT.fieldOf("time").orElse(200).forGetter(MultipleInputRecipe::getTime)
+                        Ingredient.CODEC.listOf().fieldOf("ingredients").forGetter(ByproductRecipe::getInputs),
+                        ItemStack.STRICT_CODEC.fieldOf("result").forGetter(ByproductRecipe::getResult),
+                        ItemStack.CODEC.listOf().fieldOf("byproducts").forGetter(ByproductRecipe::getByproducts),
+                        Codec.INT.fieldOf("time").orElse(200).forGetter(ByproductRecipe::getTime)
                 ).apply(instance, factory::create));
         packetCodec = StreamCodec.of(this::write, this::read);
     }
 
     @Override
-    public @NotNull MapCodec<T> codec() {
+    public @NotNull MapCodec<R> codec() {
         return codec;
     }
 
     @Override
-    public @NotNull StreamCodec<RegistryFriendlyByteBuf, T> streamCodec() {
+    public @NotNull StreamCodec<RegistryFriendlyByteBuf, R> streamCodec() {
         return packetCodec;
     }
 
-    private T read(RegistryFriendlyByteBuf buf) {
+    private R read(RegistryFriendlyByteBuf buf) {
         List<Ingredient> input = new ArrayList<>();
         int size = buf.readVarInt();
         for (int i = 0; i < size; i++) {
@@ -55,7 +55,7 @@ public class MultipleInputSerializer<T extends MultipleInputRecipe> implements R
         return this.factory.create(input, output, byproducts, buf.readInt());
     }
 
-    private void write(RegistryFriendlyByteBuf buf, T recipe) {
+    private void write(RegistryFriendlyByteBuf buf, R recipe) {
         buf.writeVarInt(recipe.getInputs().size());
         for (Ingredient ingredient : recipe.getInputs()) {
             Ingredient.CONTENTS_STREAM_CODEC.encode(buf, ingredient);

@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:extractor",
   "byproducts": [],
-  "ingredient": "minecraft:charcoal",
+  "ingredients": [
+    "minecraft:charcoal"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:carbon_dioxide"

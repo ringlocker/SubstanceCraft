@@ -8,14 +8,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-public class MixerMenu extends MultipleInputMenu<MixerRecipe, MixerBlockEntity> {
+public class MixerMenu extends WorkstationMenu<MixerRecipe, MixerBlockEntity> {
 
     public MixerMenu(int syncId, Inventory playerInventory, BlockPos pos) {
         this(syncId, playerInventory, playerInventory.player.level().getBlockEntity(pos), new SimpleContainerData(3));
     }
 
     public MixerMenu(int syncId, Inventory inventory, BlockEntity entity, SimpleContainerData arrayPropertyDelegate) {
-        super(SubstanceCraftMenus.MIXER, syncId, inventory, entity, arrayPropertyDelegate);
+        super(SubstanceCraftMenus.MIXER, syncId, inventory, (MixerBlockEntity) entity, arrayPropertyDelegate);
     }
 
 

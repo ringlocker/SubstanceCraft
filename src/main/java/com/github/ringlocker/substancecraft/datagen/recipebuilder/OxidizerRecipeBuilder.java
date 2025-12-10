@@ -1,6 +1,6 @@
 package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
-import com.github.ringlocker.substancecraft.recipe.recipes.OneInputRecipe;
+import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.OxidizerRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -8,18 +8,18 @@ import net.minecraft.world.level.ItemLike;
 
 import java.util.List;
 
-public class OxidizerRecipeBuilder extends OneInputRecipeBuilder {
+public class OxidizerRecipeBuilder extends ByproductRecipeBuilder {
 
-    private OxidizerRecipeBuilder(final ItemLike result, final Ingredient ingredient, List<ItemStack> byproducts, int time, OneInputRecipe.Factory<OxidizerRecipe> factory) {
-        super(ingredient, result, byproducts, time, factory);
+    private OxidizerRecipeBuilder(final ItemLike result, final List<Ingredient> ingredients, List<ItemStack> byproducts, int time, ByproductRecipe.Factory<OxidizerRecipe> factory) {
+        super(ingredients, result, byproducts, time, factory);
     }
 
-    public static OxidizerRecipeBuilder oxidize(Ingredient ingredient, ItemLike result, List<ItemStack> byproducts, int time, OneInputRecipe.Factory<OxidizerRecipe> factory) {
-        return new OxidizerRecipeBuilder(result, ingredient, byproducts, time, factory);
+    public static OxidizerRecipeBuilder oxidize(List<Ingredient> ingredients, ItemLike result, List<ItemStack> byproducts, int time, ByproductRecipe.Factory<OxidizerRecipe> factory) {
+        return new OxidizerRecipeBuilder(result, ingredients, byproducts, time, factory);
     }
 
-    public static OxidizerRecipeBuilder oxidize(Ingredient ingredient, ItemLike result, int time, OneInputRecipe.Factory<OxidizerRecipe> factory) {
-        return new OxidizerRecipeBuilder(result, ingredient, null, time, factory);
+    public static OxidizerRecipeBuilder oxidize(List<Ingredient> ingredients, ItemLike result, int time, ByproductRecipe.Factory<OxidizerRecipe> factory) {
+        return new OxidizerRecipeBuilder(result, ingredients, null, time, factory);
     }
 
 }

@@ -1,8 +1,8 @@
 package com.github.ringlocker.substancecraft.recipe.recipes;
 
-import com.github.ringlocker.substancecraft.recipe.ByproductRecipe;
 import com.github.ringlocker.substancecraft.recipe.MultipleItemInput;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.PlacementInfo;
@@ -17,10 +17,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public abstract class MultipleInputRecipe implements Recipe<MultipleItemInput>, ByproductRecipe {
+public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
 
-    private final RecipeType<? extends MultipleInputRecipe> type;
-    private final RecipeSerializer<? extends MultipleInputRecipe> serializer;
+    private final RecipeType<? extends ByproductRecipe> type;
+    private final RecipeSerializer<? extends ByproductRecipe> serializer;
 
     protected final List<Ingredient> ingredients;
     protected final ItemStack result;
@@ -30,9 +30,9 @@ public abstract class MultipleInputRecipe implements Recipe<MultipleItemInput>, 
     @Nullable
     private PlacementInfo placementInfo;
 
-    public MultipleInputRecipe(
-            RecipeType<? extends MultipleInputRecipe> type,
-            RecipeSerializer<? extends MultipleInputRecipe> serializer,
+    public ByproductRecipe(
+            RecipeType<? extends ByproductRecipe> type,
+            RecipeSerializer<? extends ByproductRecipe> serializer,
             List<Ingredient> ingredients,
             ItemStack result,
             List<ItemStack> byproducts,
@@ -46,6 +46,8 @@ public abstract class MultipleInputRecipe implements Recipe<MultipleItemInput>, 
         this.time = time;
     }
 
+    public abstract Component getLabel();
+
     @NotNull
     public List<Ingredient> getInputs() {
         return ingredients;
@@ -57,7 +59,6 @@ public abstract class MultipleInputRecipe implements Recipe<MultipleItemInput>, 
     }
 
     @NotNull
-    @Override
     public List<ItemStack> getByproducts() {
         return byproducts;
     }
@@ -99,12 +100,12 @@ public abstract class MultipleInputRecipe implements Recipe<MultipleItemInput>, 
     }
 
     @Override
-    public @NotNull RecipeSerializer<? extends MultipleInputRecipe> getSerializer() {
+    public @NotNull RecipeSerializer<? extends ByproductRecipe> getSerializer() {
         return serializer;
     }
 
     @Override
-    public @NotNull RecipeType<? extends MultipleInputRecipe> getType() {
+    public @NotNull RecipeType<? extends ByproductRecipe> getType() {
         return type;
     }
 
@@ -121,7 +122,7 @@ public abstract class MultipleInputRecipe implements Recipe<MultipleItemInput>, 
         return RecipeBookCategories.CRAFTING_MISC;
     }
 
-    public interface Factory<T extends MultipleInputRecipe> {
+    public interface Factory<T extends ByproductRecipe> {
         T create(List<Ingredient> ingredient, ItemStack result, List<ItemStack> byproducts, int time);
     }
 

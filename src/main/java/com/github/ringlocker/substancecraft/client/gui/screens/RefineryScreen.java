@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
 @Environment(EnvType.CLIENT)
-public class RefineryScreen extends OneInputScreen<RefineryRecipe, RefineryBlockEntity, RefineryMenu> {
+public class RefineryScreen extends WorkstationScreen<RefineryRecipe, RefineryBlockEntity, RefineryMenu> {
 
     public RefineryScreen(RefineryMenu handler, Inventory inventory, Component title) {
         super(handler, inventory, title);
