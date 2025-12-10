@@ -30,7 +30,7 @@ public abstract class BushLikeCrop extends VegetationBlock implements Bonemealab
 
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        int rand = (level.getBlockState(pos.below()).is(Blocks.FARMLAND)) ? random.nextInt(5) : random.nextInt(10);
+        int rand = (level.getBlockState(pos.below()).is(Blocks.FARMLAND)) ? random.nextInt(7) : random.nextInt(12);
         if (rand == 0) {
             if (state.getValue(age) < MAX_AGE) {
                 this.performBonemeal(level, level.random, pos, state);
