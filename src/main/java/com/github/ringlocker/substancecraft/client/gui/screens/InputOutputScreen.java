@@ -46,7 +46,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
     protected static final int PROGRESS_ARROW_X = 103;
     protected static final int PROGRESS_ARROW_Y = 30;
 
-    protected ResourceLocation BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/one_input_output_0_byproduct.png");
+    protected ResourceLocation BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/1_input_0_byproduct.png");
 
     protected float scrollOffset;
     protected boolean scrolling;
