@@ -10,10 +10,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class FermentationTankBlockEntity extends MultiInputBlockEntity<FermentationTankRecipe> {
+public class FermentationTankBlockEntity extends WorkstationBlockEntity<FermentationTankRecipe> {
 
     public FermentationTankBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Fermentation", FermentationTankRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.FERMENTATION_TANK);
+        super(SubstanceCraftBlockEntities.FERMENTATION_TANK, FermentationTankRecipe.Type.INSTANCE, pos, state, "Fermentation");
     }
 
     @Override

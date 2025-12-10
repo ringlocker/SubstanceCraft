@@ -1,10 +1,12 @@
 {
   "type": "substancecraft:refinery",
   "byproducts": [],
-  "ingredient": "substancecraft:natural_gas",
+  "ingredients": [
+    "substancecraft:natural_gas"
+  ],
   "result": {
     "count": 1,
-    "id": "substancecraft:methanol"
+    "id": "substancecraft:methane"
   },
   "time": 800
 }

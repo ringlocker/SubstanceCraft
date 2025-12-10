@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
 @Environment(EnvType.CLIENT)
-public class OxidizerScreen extends OneInputScreen<OxidizerRecipe, OxidizerBlockEntity, OxidizerMenu> {
+public class OxidizerScreen extends WorkstationScreen<OxidizerRecipe, OxidizerBlockEntity, OxidizerMenu> {
 
     public OxidizerScreen(OxidizerMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);

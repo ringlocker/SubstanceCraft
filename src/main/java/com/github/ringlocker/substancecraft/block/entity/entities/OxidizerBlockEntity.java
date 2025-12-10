@@ -10,10 +10,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class OxidizerBlockEntity extends OneInputBlockEntity<OxidizerRecipe> {
+public class OxidizerBlockEntity extends WorkstationBlockEntity<OxidizerRecipe> {
 
     public OxidizerBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Oxidizer", OxidizerRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.OXIDIZER);
+        super(SubstanceCraftBlockEntities.OXIDIZER, OxidizerRecipe.Type.INSTANCE, pos, state, "Oxidizer");
     }
 
     @Override

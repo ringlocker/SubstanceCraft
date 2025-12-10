@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:oxidizer",
   "byproducts": [],
-  "ingredient": "substancecraft:toluene",
+  "ingredients": [
+    "substancecraft:toluene"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:benzaldehyde"

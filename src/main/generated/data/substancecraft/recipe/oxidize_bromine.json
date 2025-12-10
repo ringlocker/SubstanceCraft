@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:oxidizer",
   "byproducts": [],
-  "ingredient": "substancecraft:bromide",
+  "ingredients": [
+    "substancecraft:bromide"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:bromine"

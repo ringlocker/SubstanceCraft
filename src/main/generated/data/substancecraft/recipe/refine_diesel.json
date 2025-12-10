@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:refinery",
   "byproducts": [],
-  "ingredient": "substancecraft:oil",
+  "ingredients": [
+    "substancecraft:oil"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:diesel"

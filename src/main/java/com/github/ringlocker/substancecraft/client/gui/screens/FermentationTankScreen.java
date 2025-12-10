@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
 @Environment(EnvType.CLIENT)
-public class FermentationTankScreen extends MultipleInputScreen<FermentationTankRecipe, FermentationTankBlockEntity, FermentationTankMenu> {
+public class FermentationTankScreen extends WorkstationScreen<FermentationTankRecipe, FermentationTankBlockEntity, FermentationTankMenu> {
 
     public FermentationTankScreen(FermentationTankMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);

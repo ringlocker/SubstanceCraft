@@ -3,9 +3,7 @@ package com.github.ringlocker.substancecraft.datagen;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
-import com.github.ringlocker.substancecraft.recipe.ByproductRecipe;
-import com.github.ringlocker.substancecraft.recipe.recipes.MultipleInputRecipe;
-import com.github.ringlocker.substancecraft.recipe.recipes.OneInputRecipe;
+import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.Advancement;
@@ -397,7 +395,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {
         Recipe<?> recipe = getRecipeForItem(toSynthesize);
-        Component recipeType = recipe == null ? Component.literal("") : ((ByproductRecipe) recipe).getTypeString();
+        Component recipeType = recipe == null ? Component.literal("") : ((ByproductRecipe) recipe).getLabel();
 
         AdvancementHolder itemAdvancement = Advancement.Builder.advancement()
                 .parent(parent)
@@ -426,13 +424,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     private static List<Ingredient> getIngredients(Recipe<?> recipe) {
-        if (recipe instanceof MultipleInputRecipe) {
-            return ((MultipleInputRecipe) recipe).getInputs();
-        } else if (recipe instanceof OneInputRecipe) {
-            return List.of(((OneInputRecipe) recipe).getInput());
-        } else {
-            return List.of();
-        }
+        return ((ByproductRecipe) recipe).getInputs();
     }
 
     @Nullable
