@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.gui.menus;
 
 import com.github.ringlocker.substancecraft.block.entity.entities.InputOutputBlockEntity;
+import com.github.ringlocker.substancecraft.block.entity.entities.MultiInputBlockEntity;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -42,7 +43,7 @@ public class InputOutputMenu<T extends InputOutputBlockEntity> extends AbstractC
         this.playerInventory = playerInventory;
         this.blockEntityData = blockEntityData;
 
-        boolean isMultiple = blockEntity.multipleInput();
+        boolean isMultiple = blockEntity instanceof MultiInputBlockEntity<?>;
         OUTPUT_SLOT_INDEX = isMultiple ? 4 : 1;
         BYPRODUCT_SLOT_INDEX = OUTPUT_SLOT_INDEX + 1;
 

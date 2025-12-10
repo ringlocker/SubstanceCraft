@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
+import com.github.ringlocker.substancecraft.block.entity.entities.MultiInputBlockEntity;
 import com.github.ringlocker.substancecraft.gui.menus.InputOutputMenu;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -58,7 +59,7 @@ public abstract class InputOutputScreen<T extends InputOutputMenu<?>> extends Ab
     @Override
     protected void init() {
         super.init();
-        setBackgroundTexture(menu.getBlockEntity().getMaxByproducts(), menu.getBlockEntity().multipleInput());
+        setBackgroundTexture(menu.getBlockEntity().getMaxByproducts(), menu.getBlockEntity() instanceof MultiInputBlockEntity<?>);
         titleLabelY = 5;
         titleLabelX = 10;
     }

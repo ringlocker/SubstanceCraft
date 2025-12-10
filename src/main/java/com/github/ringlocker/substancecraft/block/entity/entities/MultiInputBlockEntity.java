@@ -52,11 +52,6 @@ public abstract class MultiInputBlockEntity<T extends MultipleInputRecipe> exten
     }
 
     @Override
-    public boolean multipleInput() {
-        return true;
-    }
-
-    @Override
     public int getNumRecipes() {
         return recipes.size();
     }

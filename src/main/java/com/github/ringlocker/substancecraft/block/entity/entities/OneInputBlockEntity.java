@@ -55,11 +55,6 @@ public abstract class OneInputBlockEntity<T extends OneInputRecipe> extends Inpu
     }
 
     @Override
-    public boolean multipleInput() {
-        return false;
-    }
-
-    @Override
     public List<RecipeHolder<T>> getRecipes() {
         return this.recipes;
     }

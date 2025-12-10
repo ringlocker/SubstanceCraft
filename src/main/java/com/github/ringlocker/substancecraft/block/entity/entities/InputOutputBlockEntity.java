@@ -80,8 +80,6 @@ public abstract class InputOutputBlockEntity extends BlockEntity implements Exte
 
     public abstract int getNumRecipes();
 
-    public abstract boolean multipleInput();
-
     @NotNull
     protected List<RecipeHolder<?>> getRecipeList(RecipeType<?> type, Level level) {
         List<RecipeHolder<?>> allRecipes;
