@@ -112,10 +112,14 @@ public class SubstanceCraftItems {
     public static final Item CARBON_DIOXIDE = registerItem("carbon_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item CASH = registerItem("cash", Item::new, new Item.Properties());
     public static final Item BAND = registerItem("band", Item::new, new Item.Properties());
+    public static final Item NITROGEN_DIOXIDE = registerItem("nitrogen_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
+
+    public static final ArrayList<Item> substances = new ArrayList<>();
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
         Item item = factory.apply(properties.setId(key));
+        if (item instanceof SubstanceItem && substances != null) substances.add(item);
         return Registry.register(BuiltInRegistries.ITEM, key, item);
     }
 
