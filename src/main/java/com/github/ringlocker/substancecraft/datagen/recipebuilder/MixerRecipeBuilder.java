@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
-import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import com.github.ringlocker.substancecraft.recipe.recipes.MixerRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -10,16 +9,16 @@ import java.util.List;
 
 public class MixerRecipeBuilder extends ByproductRecipeBuilder {
 
-    protected MixerRecipeBuilder(List<Ingredient> ingredients, ItemLike result, List<ItemStack> byproducts, int time, ByproductRecipe.Factory<? extends ByproductRecipe> factory) {
-        super(ingredients, result, byproducts, time, factory);
+    protected MixerRecipeBuilder(List<Ingredient> ingredients, ItemLike result, List<ItemStack> byproducts, int time) {
+        super(ingredients, result, byproducts, time, MixerRecipe::new);
     }
 
-    public static MixerRecipeBuilder mix(List<Ingredient> ingredients, ItemLike result, List<ItemStack> byproducts, int time, ByproductRecipe.Factory<MixerRecipe> factory) {
-        return new MixerRecipeBuilder(ingredients, result, byproducts, time, factory);
+    public static MixerRecipeBuilder mix(List<Ingredient> ingredients, ItemLike result, List<ItemStack> byproducts, int time) {
+        return new MixerRecipeBuilder(ingredients, result, byproducts, time);
     }
 
-    public static MixerRecipeBuilder mix(List<Ingredient> ingredients, ItemLike result, int time, ByproductRecipe.Factory<MixerRecipe> factory) {
-        return new MixerRecipeBuilder(ingredients, result, null, time, factory);
+    public static MixerRecipeBuilder mix(List<Ingredient> ingredients, ItemLike result, int time) {
+        return new MixerRecipeBuilder(ingredients, result, null, time);
     }
 
 }
