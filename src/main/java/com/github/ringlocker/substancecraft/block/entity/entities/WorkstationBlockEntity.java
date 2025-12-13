@@ -34,6 +34,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -209,6 +210,7 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         for (RecipeHolder<?> recipeHolder : allRecipes) {
             recipes.add((RecipeHolder<T>) recipeHolder);
         }
+        recipes.sort(Comparator.comparing(recipe -> recipe.value().getResult().getDisplayName().getString()));
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
