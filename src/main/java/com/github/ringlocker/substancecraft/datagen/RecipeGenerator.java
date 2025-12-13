@@ -303,12 +303,12 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("oxidize_formaldehyde"));
 
                 OxidizerRecipeBuilder.oxidize(
-                                List.of(Ingredient.of(SubstanceCraftItems.AMMONIA)),
-                                SubstanceCraftItems.NITROGEN_DIOXIDE,
+                                List.of(Ingredient.of(SubstanceCraftItems.AMMONIA_SOLUTION)),
+                                SubstanceCraftItems.NITRIC_ACID,
                                 1000
                         )
-                        .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIA))
-                        .save(recipeOutput, key("oxidize_nitric_oxide"));
+                        .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIA_SOLUTION))
+                        .save(recipeOutput, key("oxidize_nitric_acid"));
 
                 OxidizerRecipeBuilder.oxidize(
                                 List.of(Ingredient.of(SubstanceCraftItems.TOLUENE)),
