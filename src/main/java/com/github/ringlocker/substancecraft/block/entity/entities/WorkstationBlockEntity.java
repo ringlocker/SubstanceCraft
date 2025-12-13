@@ -17,6 +17,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.Containers;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -258,6 +259,7 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
 
     public void setSelectedRecipeIndex(int selectedRecipeIndex) {
         this.selectedRecipeIndex = selectedRecipeIndex;
+        onSelectRecipeChange();
         setChanged();
     }
 
@@ -303,6 +305,49 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
             setItem(slot, new ItemStack(byproduct.getItem(), getItem(slot).getCount() + 1));
             index++;
         }
+    }
+
+    private void onSelectRecipeChange() {
+        if (level == null || level.isClientSide()) return;
+        ByproductRecipe recipe = getRecipes().get(getSelectedRecipeIndex()).value();
+        int inputs = recipe.getInputs().size();
+        int byproducts = recipe.getByproducts().size();
+        for (int i = inputs; i < 4; i++) {
+            moveOrDropItem(i, inputs, byproducts);
+        }
+        for (int i = 5 + byproducts; i < 8; i++) {
+            moveOrDropItem(i, inputs, byproducts);
+        }
+    }
+
+    private void moveOrDropItem(int fromIndex, int recipeInputs, int recipeByproducts) {
+        if (inventory.get(fromIndex) == ItemStack.EMPTY) return;
+        if (moveItemToEmptySlot(fromIndex, recipeInputs, recipeByproducts)) return;
+        if (level == null) return;
+        BlockPos pos = getBlockPos();
+        Containers.dropItemStack(level, pos.getX(), pos.getY() + 1, pos.getZ(), inventory.get(fromIndex));
+        inventory.set(fromIndex, ItemStack.EMPTY);
+    }
+
+    private boolean moveItemToEmptySlot(int fromIndex, int recipeInputs, int recipeByproducts) {
+        for (int i = recipeInputs - 1; i >= 0; i--) {
+            if (i == fromIndex) continue;
+            if (inventory.get(i) != ItemStack.EMPTY) continue;
+            moveToSlot(fromIndex, i);
+            return true;
+        }
+        for (int i = 4 + recipeByproducts; i > 3; i--) {
+            if (i == fromIndex) continue;
+            if (inventory.get(i) != ItemStack.EMPTY) continue;
+            moveToSlot(fromIndex, i);
+            return true;
+        }
+        return false;
+    }
+
+    private void moveToSlot(int fromIndex, int toIndex) {
+        inventory.set(toIndex, inventory.get(fromIndex));
+        inventory.set(fromIndex, ItemStack.EMPTY);
     }
 
     private void resetProgress() {
