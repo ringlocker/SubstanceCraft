@@ -17,9 +17,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Function;
 
 public class SubstanceCraftItems {
@@ -115,12 +112,10 @@ public class SubstanceCraftItems {
     public static final Item CASH = registerItem("cash", Item::new, new Item.Properties());
     public static final Item BAND = registerItem("band", Item::new, new Item.Properties());
 
-    public static final List<Item> substances = new ArrayList<>();
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
         Item item = factory.apply(properties.setId(key));
-        if (item instanceof SubstanceItem && substances != null) substances.add(item);
         return Registry.register(BuiltInRegistries.ITEM, key, item);
     }
 
