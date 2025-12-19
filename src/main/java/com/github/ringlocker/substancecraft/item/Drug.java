@@ -63,6 +63,7 @@ public enum Drug {
     private final int comeUp;
     private final Identifier baseEffect;
     private final List<DrugSideEffect> sideEffects;
+    private final float decayFactor;
 
     Drug(float dose, float threshold, int halfLife, int offset, int comeUp, Identifier baseEffect, List<DrugSideEffect> sideEffects) {
         this.dose = dose;
@@ -72,6 +73,7 @@ public enum Drug {
         this.comeUp = comeUp;
         this.baseEffect = baseEffect;
         this.sideEffects = sideEffects;
+        this.decayFactor = computeDecayFactor();
     }
 
     public float getDose() {
@@ -99,13 +101,11 @@ public enum Drug {
     }
 
     public float getDecayFactor() {
-        if (decayFactorCache.containsKey(this)) {
-            return decayFactorCache.get(this);
-        } else {
-            float decay = (float) Math.pow(0.5D, 1.0D / (double) halfLife);
-            decayFactorCache.put(this, decay);
-            return decay;
-        }
+        return decayFactor;
+    }
+
+    private float computeDecayFactor() {
+        return (float) Math.pow(0.5D, 1.0D / (double) halfLife);
     }
 
     private static Identifier fromID(String id) {
