@@ -1,31 +1,31 @@
 package com.github.ringlocker.substancecraft.item;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public enum MatterState {
 
-    SOLID(resourceLocation("item/solid"), resourceLocation("item/solid_overlay")),
-    LIQUID(resourceLocation("item/liquid"), resourceLocation("item/liquid_overlay")),
-    GAS(resourceLocation("item/substance"), resourceLocation("item/substance_overlay"));
+    SOLID(Identifier("item/solid"), Identifier("item/solid_overlay")),
+    LIQUID(Identifier("item/liquid"), Identifier("item/liquid_overlay")),
+    GAS(Identifier("item/substance"), Identifier("item/substance_overlay"));
 
-    private final ResourceLocation baseTexture;
-    private final ResourceLocation overlayTexture;
+    private final Identifier baseTexture;
+    private final Identifier overlayTexture;
 
-    MatterState(ResourceLocation baseTexture, ResourceLocation overlayTexture) {
+    MatterState(Identifier baseTexture, Identifier overlayTexture) {
         this.baseTexture = baseTexture;
         this.overlayTexture = overlayTexture;
     }
 
-    public ResourceLocation getBaseTexture() {
+    public Identifier getBaseTexture() {
         return baseTexture;
     }
 
-    public ResourceLocation getOverlayTexture() {
+    public Identifier getOverlayTexture() {
         return overlayTexture;
     }
 
-    private static ResourceLocation resourceLocation(String name) {
-        return ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name);
+    private static Identifier Identifier(String name) {
+        return Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name);
     }
 }

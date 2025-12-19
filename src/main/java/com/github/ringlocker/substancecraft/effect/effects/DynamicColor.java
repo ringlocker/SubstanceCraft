@@ -6,14 +6,14 @@ import com.mojang.blaze3d.buffers.Std140Builder;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.PostPass;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectCategory;
 import org.lwjgl.system.MemoryStack;
 
 public class DynamicColor extends PostShaderEffect {
 
     public DynamicColor() {
-        super(MobEffectCategory.NEUTRAL, "DynamicColorConfig", ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "dynamic_color"));
+        super(MobEffectCategory.NEUTRAL, "DynamicColorConfig", Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "dynamic_color"));
     }
 
     @Override

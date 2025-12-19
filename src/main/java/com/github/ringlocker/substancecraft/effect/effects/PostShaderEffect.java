@@ -8,7 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelTargetBundle;
 import net.minecraft.client.renderer.PostChain;
 import net.minecraft.client.renderer.PostPass;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import org.jetbrains.annotations.Nullable;
@@ -19,13 +19,13 @@ import java.util.List;
 public abstract class PostShaderEffect extends BasicEffect {
 
     private static final HashMap<String, PostShaderEffect> effectsByUniformName = new HashMap<>();
-    private static final ResourceLocation id = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "post_effects");
+    private static final Identifier id = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "post_effects");
     protected final String uniformName;
-    protected final ResourceLocation mobEffect;
+    protected final Identifier mobEffect;
     protected int amplifier = -1;
     protected boolean active = false;
 
-    public PostShaderEffect(MobEffectCategory category, String uniformName, ResourceLocation mobEffect) {
+    public PostShaderEffect(MobEffectCategory category, String uniformName, Identifier mobEffect) {
         super(category);
         this.uniformName = uniformName;
         this.mobEffect = mobEffect;

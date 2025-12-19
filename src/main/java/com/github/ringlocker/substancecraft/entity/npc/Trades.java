@@ -3,10 +3,11 @@ package com.github.ringlocker.substancecraft.entity.npc;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.tuple.Pair;
+import org.jetbrains.annotations.NotNull;
 
 public class Trades {
 
@@ -16,7 +17,7 @@ public class Trades {
     private static final int MAX_PLANT_BULK_SELL_QUANTITY = 512;
     private static final int MAX_CHEMICAL_BUY_QUANTITY = 512;
     
-    public static final ImmutableList<Pair<VillagerTrades.ItemListing[], Integer>> DEALER_TRADES = ImmutableList.<Pair<VillagerTrades.ItemListing[], Integer>>builder()
+    public static final ImmutableList<@NotNull Pair<VillagerTrades.ItemListing[], Integer>> DEALER_TRADES = ImmutableList.<Pair<VillagerTrades.ItemListing[], Integer>>builder()
             // Buys 3 unique synthesizable drugs from player
             .add(Pair.of(new VillagerTrades.ItemListing[]{
                     new ItemForItemOffer(SubstanceCraftItems.TWO_C_B, 1, stack(SubstanceCraftItems.BAND, 9), MAX_DRUG_SELL_QUANTITY, 2),

@@ -7,7 +7,7 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceKey;
@@ -45,7 +45,7 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public @NotNull ByproductRecipeBuilder unlockedBy(String string, Criterion<?> advancementCriterion) {
+    public @NotNull ByproductRecipeBuilder unlockedBy(@NotNull String string, @NotNull Criterion<?> advancementCriterion) {
         this.criteria.put(string, advancementCriterion);
         return this;
     }
@@ -70,14 +70,14 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public void save(RecipeOutput exporter, ResourceKey<Recipe<?>> resourceKey) {
+    public void save(RecipeOutput exporter, @NotNull ResourceKey<Recipe<?>> resourceKey) {
         this.validate(resourceKey);
         Advancement.Builder advancementBuilder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(advancementBuilder);
         this.criteria.forEach(advancementBuilder::addCriterion);
         ByproductRecipe recipe = this.factory.create(this.ingredients, new ItemStack(this.result, outputCount), this.byproducts, this.time);
         AdvancementGenerator.RecipeCache.cacheRecipe(recipe);
-        exporter.accept(resourceKey, recipe, advancementBuilder.build(resourceKey.location().withPrefix("recipes/")));
+        exporter.accept(resourceKey, recipe, advancementBuilder.build(resourceKey.identifier().withPrefix("recipes/")));
     }
 
     protected void validate(ResourceKey<Recipe<?>> resourceKey) {

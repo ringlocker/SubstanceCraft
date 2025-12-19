@@ -4,8 +4,10 @@ import com.github.ringlocker.substancecraft.data.component.SubstanceData;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +23,7 @@ public class SubstanceWorldData extends SavedData {
                     Codec.INT.fieldOf("dealerSpawnChance").forGetter(SubstanceWorldData::getDealerSpawnChance)
             ).apply(instance, SubstanceWorldData::new)
     );
-    private static final SavedDataType<SubstanceWorldData> TYPE = new SavedDataType<>(FILE_NAME, ctx -> new SubstanceWorldData(), ctx -> SubstanceWorldData.CODEC, null);
+    private static final SavedDataType<@NotNull SubstanceWorldData> TYPE = new SavedDataType<>(FILE_NAME, SubstanceWorldData::new, SubstanceWorldData.CODEC, DataFixTypes.LEVEL);
 
     private final Map<UUID, SubstanceData> playerData = new HashMap<>();
     private int dealerSpawnDelay;
@@ -37,7 +39,7 @@ public class SubstanceWorldData extends SavedData {
         this.dealerSpawnChance = dealerSpawnChance;
     }
 
-    public static SavedDataType<SubstanceWorldData> type() {
+    public static SavedDataType<@NotNull SubstanceWorldData> type() {
         return TYPE;
     }
 

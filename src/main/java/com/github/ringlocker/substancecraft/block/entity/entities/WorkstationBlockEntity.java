@@ -3,9 +3,7 @@ package com.github.ringlocker.substancecraft.block.entity.entities;
 import com.github.ringlocker.substancecraft.block.blocks.GenericMenuBlock;
 import com.github.ringlocker.substancecraft.block.entity.ImplementedInventory;
 import com.github.ringlocker.substancecraft.block.entity.RecipeList;
-import com.github.ringlocker.substancecraft.client.recipe.ClientRecipeInformation;
 import com.github.ringlocker.substancecraft.recipe.MultipleItemInput;
-import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.core.BlockPos;
@@ -53,9 +51,9 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
     private final RecipeType<T> type;
     private final List<RecipeHolder<T>> recipes;
 
-    protected int FIRST_INPUT_SLOT = 0;
-    protected int OUTPUT_SLOT = 4;
-    protected int FIRST_BYPRODUCT_SLOT = 5;
+    protected final int FIRST_INPUT_SLOT = 0;
+    protected final int OUTPUT_SLOT = 4;
+    protected final int FIRST_BYPRODUCT_SLOT = 5;
 
     protected final SimpleContainerData data = new SimpleContainerData(3) {
         @Override
@@ -104,13 +102,9 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
     }
 
     @NotNull
-    protected List<RecipeHolder<?>> getRecipeList(RecipeType<?> type, Level level) {
-        List<RecipeHolder<?>> allRecipes;
-        if (level.isClientSide()) {
-            allRecipes = ClientRecipeInformation.getAllRecipesFor(type);
-        } else {
-            allRecipes = SubstanceCraftRecipes.getAllRecipesFor(type);
-        }
+    protected List<RecipeHolder<T>> getRecipeList(RecipeType<T> type, Level level) {
+        List<RecipeHolder<T>> allRecipes;
+        allRecipes = new ArrayList<>(level.recipeAccess().getSynchronizedRecipes().getAllOfType(type));
         return allRecipes;
     }
 
@@ -203,14 +197,10 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         return getCurrentRecipe().map(tRecipeHolder -> tRecipeHolder.value().getByproducts().size()).orElse(0);
     }
 
-
-    @SuppressWarnings("unchecked")
     public void setupRecipeList(Level level) {
         this.recipes.clear();
-        List<RecipeHolder<?>> allRecipes = getRecipeList(type, level);
-        for (RecipeHolder<?> recipeHolder : allRecipes) {
-            recipes.add((RecipeHolder<T>) recipeHolder);
-        }
+        List<RecipeHolder<T>> allRecipes = getRecipeList(type, level);
+        recipes.addAll(allRecipes);
         recipes.sort(Comparator.comparing(recipe -> recipe.value().getResult().getDisplayName().getString()));
     }
 
@@ -283,7 +273,7 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         return this.getItem(slot).isEmpty() || getItem(slot).getCount() < getItem(slot).getMaxStackSize();
     }
 
-    protected void byproduct(ByproductRecipe recipe, int firstByproductSlot) {
+    protected void byproduct(ByproductRecipe recipe) {
         List<ItemStack> byproducts = recipe.getByproducts();
         if (byproducts.isEmpty()) { return; }
         int index = 0;
@@ -293,7 +283,7 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
                 index++;
                 continue;
             }
-            int slot = firstByproductSlot + index;
+            int slot = 5 + index;
             if (!canInsertItemIntoSlot(byproduct.getItem(), slot)) {
                 index++;
                 continue;
@@ -362,7 +352,7 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         if (canInsertAmountIntoSlot(result, OUTPUT_SLOT)) {
             this.setItem(OUTPUT_SLOT, new ItemStack(result.getItem(), getItem(OUTPUT_SLOT).getCount() + recipe.getResult().getCount()));
         }
-        byproduct(recipe, FIRST_BYPRODUCT_SLOT);
+        byproduct(recipe);
     }
 
     private boolean hasRecipe() {

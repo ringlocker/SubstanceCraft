@@ -5,14 +5,14 @@ import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.buffers.Std140Builder;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.renderer.PostPass;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectCategory;
 import org.lwjgl.system.MemoryStack;
 
 public class ColorEnhancement extends PostShaderEffect {
 
     public ColorEnhancement() {
-        super(MobEffectCategory.NEUTRAL, "ColorEnhancementConfig", ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_enhancement"));
+        super(MobEffectCategory.NEUTRAL, "ColorEnhancementConfig", Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_enhancement"));
     }
 
     protected void setBuffer(PostPass postPass, boolean enabled) {

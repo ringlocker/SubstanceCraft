@@ -5,14 +5,14 @@ import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.buffers.Std140Builder;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.renderer.PostPass;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectCategory;
 import org.lwjgl.system.MemoryStack;
 
 public class ColorResolution extends PostShaderEffect {
 
     public ColorResolution() {
-        super(MobEffectCategory.NEUTRAL, "ColorResolutionConfig", ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_resolution"));
+        super(MobEffectCategory.NEUTRAL, "ColorResolutionConfig", Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "color_resolution"));
     }
 
     @Override

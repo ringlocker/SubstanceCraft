@@ -25,8 +25,8 @@ import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.entity.ai.goal.TradeWithPlayerGoal;
 import net.minecraft.world.entity.ai.goal.UseItemGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
-import net.minecraft.world.entity.npc.AbstractVillager;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.AbstractVillager;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -102,15 +102,6 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
     }
 
     @Override
-    protected void updateTrades() {
-        MerchantOffers merchantoffers = this.getOffers();
-        for (Pair<VillagerTrades.ItemListing[], Integer> pair : Trades.DEALER_TRADES) {
-                VillagerTrades.ItemListing[] avillagertrades$itemlisting = pair.getLeft();
-            this.addOffersFromItemListings(merchantoffers, avillagertrades$itemlisting, pair.getRight());
-        }
-    }
-
-    @Override
     protected void addAdditionalSaveData(ValueOutput output) {
         super.addAdditionalSaveData(output);
         output.putInt("DespawnDelay", this.despawnDelay);
@@ -123,6 +114,15 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
         this.despawnDelay = input.getIntOr("DespawnDelay", 0);
         this.wanderTarget = input.read("wander_target", BlockPos.CODEC).orElse(null);
         this.setAge(Math.max(0, this.getAge()));
+    }
+
+    @Override
+    protected void updateTrades(@NotNull ServerLevel serverLevel) {
+        MerchantOffers merchantoffers = this.getOffers();
+        for (Pair<VillagerTrades.ItemListing[], Integer> pair : Trades.DEALER_TRADES) {
+            VillagerTrades.ItemListing[] avillagertrades$itemlisting = pair.getLeft();
+            this.addOffersFromItemListings(serverLevel, merchantoffers, avillagertrades$itemlisting, pair.getRight());
+        }
     }
 
     @Override
@@ -144,7 +144,7 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource damageSource) {
+    protected SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
         return SoundEvents.WANDERING_TRADER_HURT;
     }
 
@@ -170,10 +170,6 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
 
     public void setDespawnDelay(int despawnDelay) {
         this.despawnDelay = despawnDelay;
-    }
-
-    public int getDespawnDelay() {
-        return this.despawnDelay;
     }
 
     @Override

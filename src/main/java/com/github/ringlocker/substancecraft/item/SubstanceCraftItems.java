@@ -11,7 +11,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -114,12 +114,11 @@ public class SubstanceCraftItems {
     public static final Item CARBON_DIOXIDE = registerItem("carbon_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item CASH = registerItem("cash", Item::new, new Item.Properties());
     public static final Item BAND = registerItem("band", Item::new, new Item.Properties());
-    public static final Item NITROGEN_DIOXIDE = registerItem("nitrogen_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
 
     public static final List<Item> substances = new ArrayList<>();
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
-        ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
+        ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
         Item item = factory.apply(properties.setId(key));
         if (item instanceof SubstanceItem && substances != null) substances.add(item);
         return Registry.register(BuiltInRegistries.ITEM, key, item);
@@ -131,32 +130,32 @@ public class SubstanceCraftItems {
 
     private static void registerItemGroups() {
         DRUGS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "drugs"),
+                Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "drugs"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.drugs"))
                         .icon(() -> new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM)).displayItems((displayContext, entries) -> addDrugItems(entries)).build());
 
         BLOCKS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "blocks"),
+                Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "blocks"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.blocks"))
                         .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY))).displayItems((displayContext, entries) -> addBlockItems(entries)).build());
 
         MATERIALS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "materials"),
+                Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "materials"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.materials"))
                         .icon(() -> new ItemStack(SubstanceCraftItems.HALITE)).displayItems((displayContext, entries) -> addMaterialItems(entries)).build());
 
         AGRICULTURE_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "agriculture"),
+                Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "agriculture"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.agriculture"))
                         .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT))).displayItems((displayContext, entries) -> addAgricultureItems(entries)).build());
 
         SUBSTANCES_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substances"),
+                Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substances"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.substances"))
                         .icon(() -> new ItemStack(SubstanceCraftItems.SALT)).displayItems((displayContext, entries) -> addSubstanceItems(entries)).build());
 
         ALL_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "all"),
+                Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "all"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.all"))
                         .icon(() -> new ItemStack(Items.OMINOUS_BOTTLE)).displayItems((displayContext, entries) -> {
                             addDrugItems(entries);

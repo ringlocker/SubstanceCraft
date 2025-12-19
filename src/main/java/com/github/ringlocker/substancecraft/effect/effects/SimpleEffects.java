@@ -43,14 +43,14 @@ public class SimpleEffects {
     public static class NotHungry extends TickingEffect {
 
         public NotHungry() {
-            super(MobEffectCategory.BENEFICIAL, TickFrequency.PER_SECOND);
+            super(MobEffectCategory.BENEFICIAL, TickFrequency.FIVE_SECOND);
         }
 
         @Override
         protected void tick(ServerLevel level, LivingEntity entity, int amplifier) {
             if (entity instanceof ServerPlayer player) {
                 player.getFoodData().setFoodLevel(20);
-                player.getFoodData().setSaturation(0.5F);
+                player.getFoodData().setSaturation(15F);
             }
         }
 

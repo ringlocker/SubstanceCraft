@@ -15,8 +15,8 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.jetbrains.annotations.Nullable;
 
@@ -50,7 +50,7 @@ public class DealerSpawner implements Spawner {
 
     @Override
     public void tick(ServerLevel level) {
-        if (!level.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING)) return;
+        if (!level.getGameRules().get(GameRules.SPAWN_WANDERING_TRADERS)) return;
         if (!(--this.tickDelay <= 0)) return;
 
         this.tickDelay = 1000;

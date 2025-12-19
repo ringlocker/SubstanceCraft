@@ -10,7 +10,7 @@ import com.github.ringlocker.substancecraft.effect.effects.DynamicColor;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -20,7 +20,7 @@ import java.util.HashMap;
 
 public class SubstanceCraftEffects {
 
-    private static final HashMap<ResourceLocation, Holder<MobEffect>> effects = new HashMap<>();
+    private static final HashMap<Identifier, Holder<MobEffect>> effects = new HashMap<>();
 
     public static final Holder<MobEffect> STONED = register("stoned", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> DPH = register("dph", new BasicEffect(MobEffectCategory.NEUTRAL));
@@ -30,9 +30,9 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> TWO_CB = register("two_cb", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     public static final Holder<MobEffect> FAST = register("fast", new BasicEffect(MobEffectCategory.BENEFICIAL)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.fast"), 0.12F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.withDefaultNamespace("effect.fast"), 0.12F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
     public static final Holder<MobEffect> SLOW = register("slow", new BasicEffect(MobEffectCategory.HARMFUL)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.withDefaultNamespace("effect.slow"), -0.09F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.withDefaultNamespace("effect.slow"), -0.09F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static final Holder<MobEffect> NARCAN = register("narcan", new BasicEffect(MobEffectCategory.BENEFICIAL));
     public static final Holder<MobEffect> OVERDOSE = register("overdose", new SimpleEffects.OpioidOverdose());
@@ -48,17 +48,16 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> TIME_DILATION = register("time_dilation", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
-        ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);
-        Holder<MobEffect> effectHolder =  Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, resourceLocation, effect);
-        effects.put(resourceLocation, effectHolder);
+        Identifier identifier = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);
+        Holder<MobEffect> effectHolder =  Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, identifier, effect);
+        effects.put(identifier, effectHolder);
         return effectHolder;
     }
 
     public static void registerEffects() {
-
     }
 
-    public static Holder<MobEffect> getEffect(ResourceLocation id) {
+    public static Holder<MobEffect> getEffect(Identifier id) {
         return effects.getOrDefault(id, STONED);
     }
 

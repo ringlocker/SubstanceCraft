@@ -23,7 +23,7 @@ import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.client.renderer.block.model.Variant;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -87,15 +87,15 @@ public class ModelGenerator extends FabricModelProvider {
 
     public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {
         SubstanceItem item = (SubstanceItem) substance;
-        ResourceLocation overlay = item.getState().getOverlayTexture();
-        ResourceLocation base = item.getState().getBaseTexture();
-        ResourceLocation resourceLocation = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
-        itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(resourceLocation, new SubstanceTintColor()));
+        Identifier overlay = item.getState().getOverlayTexture();
+        Identifier base = item.getState().getBaseTexture();
+        Identifier Identifier = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
+        itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(Identifier, new SubstanceTintColor()));
     }
 
     private static void createTopBottomSideFrontAndFrontOnTexture(Block block, BlockModelGenerators blockModelGenerators) {
-        ResourceLocation texture = TexturedModel.ORIENTABLE.create(block, blockModelGenerators.modelOutput);
-        ResourceLocation frontOn = TexturedModel.ORIENTABLE.get(block)
+        Identifier texture = TexturedModel.ORIENTABLE.create(block, blockModelGenerators.modelOutput);
+        Identifier frontOn = TexturedModel.ORIENTABLE.get(block)
                 .updateTextures(textureMapping -> textureMapping.put(TextureSlot.FRONT, TextureMapping.getBlockTexture(block, "_front_on")))
                 .createWithSuffix(block, "_on", blockModelGenerators.modelOutput);
 

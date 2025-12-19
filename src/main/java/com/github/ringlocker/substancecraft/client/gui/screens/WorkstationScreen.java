@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
@@ -38,11 +38,11 @@ public abstract class WorkstationScreen<
         M extends WorkstationMenu<R, B>>
     extends AbstractContainerScreen<M> {
 
-    protected static final ResourceLocation SCROLLER_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/scroller");
-    protected static final ResourceLocation SCROLLER_DISABLED_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/scroller_disabled");
-    protected static final ResourceLocation RECIPE_SELECTED_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/recipe_selected");
-    protected static final ResourceLocation RECIPE_HIGHLIGHTED_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/recipe_highlighted");
-    protected static final ResourceLocation RECIPE_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/recipe");
+    protected static final Identifier SCROLLER_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/scroller");
+    protected static final Identifier SCROLLER_DISABLED_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/scroller_disabled");
+    protected static final Identifier RECIPE_SELECTED_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/recipe_selected");
+    protected static final Identifier RECIPE_HIGHLIGHTED_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/recipe_highlighted");
+    protected static final Identifier RECIPE_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/recipe");
 
     protected static final int SCROLLER_WIDTH = 12;
     protected static final int SCROLLER_HEIGHT = 15;
@@ -58,7 +58,7 @@ public abstract class WorkstationScreen<
     protected static final int PROGRESS_ARROW_X = 103;
     protected static final int PROGRESS_ARROW_Y = 30;
 
-    protected ResourceLocation BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/1_input_0_byproduct.png");
+    protected Identifier BACKGROUND_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/1_input_0_byproduct.png");
 
     protected float scrollOffset;
     protected boolean scrolling;
@@ -86,7 +86,7 @@ public abstract class WorkstationScreen<
     protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
         setBackgroundTexture(menu.getBlockEntity());
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
-        ResourceLocation scrollerTexture = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
+        Identifier scrollerTexture = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
         guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, scrollerTexture, leftPos + SCROLLER_X, topPos + SCROLLER_Y + (int) (41.0F * this.scrollOffset), SCROLLER_WIDTH, SCROLLER_HEIGHT);
 
         this.renderProgressArrow(guiGraphics, leftPos, topPos);
@@ -116,7 +116,7 @@ public abstract class WorkstationScreen<
             int row = relativeIndex / RECIPES_COLUMNS;
             int renderX = recipesX + relativeIndex % RECIPES_COLUMNS * RECIPES_IMAGE_SIZE_WIDTH;
             int renderY = recipesY + row * RECIPES_IMAGE_SIZE_HEIGHT + 2;
-            ResourceLocation buttonStateTexture = getButtonStateTexture(index, mouseX, mouseY, renderX, renderY);
+            Identifier buttonStateTexture = getButtonStateTexture(index, mouseX, mouseY, renderX, renderY);
             guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, buttonStateTexture, renderX, renderY - 1, RECIPES_IMAGE_SIZE_WIDTH, RECIPES_IMAGE_SIZE_HEIGHT);
         }
     }
@@ -159,9 +159,6 @@ public abstract class WorkstationScreen<
             int relativeIndex = index - this.firstVisibleIndex;
             double buttonX = mouseX - (double) (recipeX + relativeIndex % RECIPES_COLUMNS * RECIPES_IMAGE_SIZE_WIDTH);
             double buttonY = mouseY - (double) (recipeY + relativeIndex / RECIPES_COLUMNS * RECIPES_IMAGE_SIZE_HEIGHT);
-
-            Minecraft client = this.minecraft;
-            if (client == null) return false;
 
             if (buttonX >= 0.0 && buttonY >= 0.0 && buttonX < RECIPES_IMAGE_SIZE_WIDTH && buttonY < RECIPES_IMAGE_SIZE_HEIGHT && this.menu.clickMenuButton(this.minecraft.player, index)) {
                 Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0F));
@@ -217,8 +214,8 @@ public abstract class WorkstationScreen<
         return mouseX >= minX && mouseX < maxX && mouseY >= minY && mouseY < maxY;
     }
 
-    private ResourceLocation getButtonStateTexture(int index, int mouseX, int mouseY, int renderX, int renderY) {
-        ResourceLocation buttonStateTexture;
+    private Identifier getButtonStateTexture(int index, int mouseX, int mouseY, int renderX, int renderY) {
+        Identifier buttonStateTexture;
         if (index == this.menu.getBlockEntity().getSelectedRecipeIndex()) {
             buttonStateTexture = RECIPE_SELECTED_SPRITE;
         } else if (mouseX >= renderX && mouseY >= renderY && mouseX < renderX + RECIPES_IMAGE_SIZE_WIDTH && mouseY < renderY + RECIPES_IMAGE_SIZE_HEIGHT) {
@@ -259,7 +256,7 @@ public abstract class WorkstationScreen<
         if (blockEntity.getCurrentRecipe().isEmpty()) return;
         R recipe = blockEntity.getCurrentRecipe().get().value();
         String texture = String.format("textures/gui/%d_input_%d_byproduct.png", recipe.getInputs().size(), recipe.getByproducts().size());
-        BACKGROUND_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, texture);
+        BACKGROUND_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, texture);
     }
 
 }

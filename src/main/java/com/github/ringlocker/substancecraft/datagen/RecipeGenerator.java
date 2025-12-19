@@ -19,7 +19,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -743,7 +743,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
     }
 
     private static ResourceKey<Recipe<?>> key(String id) {
-        return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id));
+        return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id));
     }
 
     @Override

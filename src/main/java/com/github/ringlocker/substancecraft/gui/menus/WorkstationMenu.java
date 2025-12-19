@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlockEntity<R>> extends AbstractContainerMenu {
 

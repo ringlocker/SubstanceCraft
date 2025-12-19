@@ -4,7 +4,7 @@ package com.github.ringlocker.substancecraft.item;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffect;
 
 import java.util.HashMap;
@@ -23,15 +23,15 @@ public enum Drug {
             List.of(new DrugSideEffect(fromID("slow"), milligrams(50), milligrams(25), 9))
     ),
     COCAINE(
-            milligrams(150), milligrams(5), minutes(2), seconds(5), seconds(15), fromID("coke"),
-            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10), 9),
+            milligrams(150), milligrams(5), minutes(2), seconds(2), seconds(20), fromID("coke"),
+            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(20), 24),
                     new DrugSideEffect(fromID("elevated_heart_rate"), milligrams(300), milligrams(150), 9),
                     new DrugSideEffect(fromID("cardiac_arrest"), milligrams(1200), milligrams(200), 9),
                     new DrugSideEffect(fromID("time_compression"), milligrams(100), milligrams(100), 24))
     ),
     AMPHETAMINE(
             milligrams(50), milligrams(2.5F), minutes(3), seconds(5), seconds(30), fromID("amphetamine"),
-            List.of(new DrugSideEffect(fromID("fast"), milligrams(30), milligrams(10), 9),
+            List.of(new DrugSideEffect(fromID("fast"), milligrams(20), milligrams(10), 14),
                     new DrugSideEffect(fromID("not_hungry"), milligrams(30), grams(1), 0))
     ),
     KETAMINE(
@@ -54,10 +54,10 @@ public enum Drug {
     private final int halfLife;
     private final int offset;
     private final int comeUp;
-    private final ResourceLocation baseEffect;
+    private final Identifier baseEffect;
     private final List<DrugSideEffect> sideEffects;
 
-    Drug(float dose, float threshold, int halfLife, int offset, int comeUp, ResourceLocation baseEffect, List<DrugSideEffect> sideEffects) {
+    Drug(float dose, float threshold, int halfLife, int offset, int comeUp, Identifier baseEffect, List<DrugSideEffect> sideEffects) {
         this.dose = dose;
         this.threshold = threshold;
         this.halfLife = halfLife;
@@ -101,8 +101,8 @@ public enum Drug {
         }
     }
 
-    private static ResourceLocation fromID(String id) {
-        return ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);
+    private static Identifier fromID(String id) {
+        return Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);
     }
 
     private static int micrograms(int micrograms) {
@@ -146,9 +146,9 @@ public enum Drug {
         return minutes * 1200;
     }
 
-    public record DrugSideEffect(ResourceLocation effect, int threshold, int amplifyEvery, int maxAmplifier, int hardAmplifierLimit) {
+    public record DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier, int hardAmplifierLimit) {
 
-        public DrugSideEffect(ResourceLocation effect, int threshold, int amplifyEvery, int maxAmplifier) {
+        public DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier) {
             this(effect, threshold, amplifyEvery, maxAmplifier, 255);
         }
 
