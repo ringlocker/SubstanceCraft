@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrochloric_acid_2",
+  "parent": "substancecraft:nitrogen_4",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,14 +7,14 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Extract",
+    "description": "",
     "icon": {
       "count": 1,
-      "id": "substancecraft:distilled_water"
+      "id": "minecraft:glass_bottle"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.distilled_water"
+      "translate": "item.minecraft.glass_bottle"
     }
   },
   "requirements": [

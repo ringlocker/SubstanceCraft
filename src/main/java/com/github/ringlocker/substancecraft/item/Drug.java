@@ -45,6 +45,13 @@ public enum Drug {
                     new DrugSideEffect(fromID("mosaic"), milligrams(25), milligrams(10), 9, 9),
                     new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
+    ),
+    LSD(
+            milligrams(25), milligrams(5), minutes(3), seconds(10), seconds(45), fromID("two_cb"),
+            List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
+                    new DrugSideEffect(fromID("color_resolution"), milligrams(10), milligrams(10), 15, 18),
+                    new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
+                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     );
 
     private static final HashMap<Drug, Float> decayFactorCache = new HashMap<>();
