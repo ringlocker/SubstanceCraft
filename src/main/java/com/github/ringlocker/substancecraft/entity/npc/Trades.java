@@ -11,11 +11,11 @@ import org.jetbrains.annotations.NotNull;
 
 public class Trades {
 
-    private static final int MAX_DRUG_BUY_QUANTITY = 512;
-    private static final int MAX_DRUG_SELL_QUANTITY = 512;
-    private static final int MAX_PLANT_BUY_QUANTITY = 512;
-    private static final int MAX_PLANT_BULK_SELL_QUANTITY = 512;
-    private static final int MAX_CHEMICAL_BUY_QUANTITY = 512;
+    private static final int MAX_DRUG_BUY_QUANTITY = 16;
+    private static final int MAX_DRUG_SELL_QUANTITY = 16;
+    private static final int MAX_PLANT_BUY_QUANTITY = 4;
+    private static final int MAX_PLANT_BULK_SELL_QUANTITY = 16;
+    private static final int MAX_CHEMICAL_BUY_QUANTITY = 8;
     
     public static final ImmutableList<@NotNull Pair<VillagerTrades.ItemListing[], Integer>> DEALER_TRADES = ImmutableList.<Pair<VillagerTrades.ItemListing[], Integer>>builder()
             // Buys 3 unique synthesizable drugs from player
