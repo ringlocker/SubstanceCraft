@@ -2,7 +2,7 @@
   "type": "substancecraft:oxidizer",
   "byproducts": [],
   "ingredients": [
-    "substancecraft:ammonia"
+    "substancecraft:ammonia_solution"
   ],
   "result": {
     "count": 1,
