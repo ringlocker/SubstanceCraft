@@ -26,6 +26,8 @@
   "block.substancecraft.trona_block": "Trona Block",
   "block.substancecraft.pyrolusite_ore": "Pyrolusite Ore",
   "block.substancecraft.deepslate_pyrolusite_ore": "Deepslate Pyrolusite Ore",
+  "block.substancecraft.limestone_block": "Limestone",
+  "block.substancecraft.flouroapatite_block": "Flouroapatite",
 
   "effect.substancecraft.fast": "Zoomies",
   "effect.substancecraft.slow": "Slow",
@@ -47,6 +49,7 @@
   "effect.substancecraft.ketamine": "Ketamine",
   "effect.substancecraft.amphetamine": "Geeked",
   "effect.substancecraft.two_cb": "2C-B",
+  "effect.substancecraft.lsd": "LSD",
 
   "death.attack.overdose": "%1$s overdosed",
   "death.attack.cardiac_arrest": "%1$s died from cardiac arrest",
@@ -135,5 +138,24 @@
   "item.substancecraft.pyrolusite": "Pyrolusite",
   "item.substancecraft.cocaine": "Cocaine",
   "item.substancecraft.cash": "Cash",
-  "item.substancecraft.band": "Band"
+  "item.substancecraft.band": "Band",
+  "item.substancecraft.wine_lees": "Wine Lees",
+  "item.substancecraft.potassium_bitartrate": "Potassium Bitartrate",
+  "item.substancecraft.limestone": "Limestone",
+  "item.substancecraft.calcium_oxide": "Calcium Oxide",
+  "item.substancecraft.calcium_hydroxide": "Calcium Hydroxide",
+  "item.substancecraft.calcium_tartrate": "Calcium Tartrate",
+  "item.substancecraft.tartaric_acid": "Tartaric Acid",
+  "item.substancecraft.ergotamine": "Ergotamine",
+  "item.substancecraft.silica": "Silica",
+  "item.substancecraft.flouroapatite": "Flouroapatite",
+  "item.substancecraft.white_phosphorus": "White Phosphorus",
+  "item.substancecraft.red_phosphorus": "Red Phosphorus",
+  "item.substancecraft.phosphorus_trichloride": "Phosphorus Trichloride",
+  "item.substancecraft.phosphoryl_chloride": "Phosphoryl Chloride",
+  "item.substancecraft.diethylene": "Diethylene",
+  "item.substancecraft.d_lysergic_acid_hydrate": "D-Lysergic Acid Hydrate",
+  "item.substancecraft.magnesium": "Magnesium",
+  "item.substancecraft.magnesium_sulfate": "Magnesium Sulfate",
+  "item.substancecraft.lysergic_acid_diethylamine": "LSD"
 }

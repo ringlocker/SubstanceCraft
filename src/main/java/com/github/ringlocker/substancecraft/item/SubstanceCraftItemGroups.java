@@ -91,6 +91,8 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PYROLUSITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.LIMESTONE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FLOUROAPATITE));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {

@@ -52,6 +52,8 @@ public class SubstanceCraftBlocks {
     public static final Block TRONA = registerBlock("trona_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
     public static final Block PYROLUSITE_ORE = registerBlock("pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
     public static final Block DEEPSLATE_PYROLUSITE_ORE = registerBlock("deepslate_pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.STONE));
+    public static final Block LIMESTONE = registerBlock("limestone_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
+    public static final Block FLOUROAPATITE = registerBlock("flouroapatite_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);
