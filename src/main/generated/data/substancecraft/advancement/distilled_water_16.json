@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:sulfuric_acid_2",
+  "parent": "substancecraft:hydrogen_7",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

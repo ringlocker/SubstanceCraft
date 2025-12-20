@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:calcium_hydroxide_0",
+  "parent": "substancecraft:sulfuric_acid_1",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
