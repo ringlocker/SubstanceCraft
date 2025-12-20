@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:syntheses",
+  "parent": "substancecraft:coke_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,14 +7,14 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Heated Mixer",
+    "description": "",
     "icon": {
       "count": 1,
-      "id": "substancecraft:lysergic_acid_diethylamine"
+      "id": "minecraft:coal"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.lysergic_acid_diethylamine"
+      "translate": "item.minecraft.coal"
     }
   },
   "requirements": [

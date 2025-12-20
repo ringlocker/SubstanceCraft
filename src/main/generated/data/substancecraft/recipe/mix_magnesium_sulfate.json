@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:magnesium",
+    "substancecraft:sulfuric_acid"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:magnesium_sulfate"
+  },
+  "time": 1200
+}

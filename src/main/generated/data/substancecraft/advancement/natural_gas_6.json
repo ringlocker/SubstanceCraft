@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:syntheses",
+  "parent": "substancecraft:ethane_2",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,14 +7,14 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Heated Mixer",
+    "description": "Refine",
     "icon": {
       "count": 1,
-      "id": "substancecraft:lysergic_acid_diethylamine"
+      "id": "substancecraft:natural_gas"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.lysergic_acid_diethylamine"
+      "translate": "item.substancecraft.natural_gas"
     }
   },
   "requirements": [

@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:syntheses",
+  "parent": "substancecraft:ergotamine_sulfate_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,14 +7,14 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Heated Mixer",
+    "description": "Mixer",
     "icon": {
       "count": 1,
-      "id": "substancecraft:lysergic_acid_diethylamine"
+      "id": "substancecraft:ergotamine_tartrate"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.lysergic_acid_diethylamine"
+      "translate": "item.substancecraft.ergotamine_tartrate"
     }
   },
   "requirements": [

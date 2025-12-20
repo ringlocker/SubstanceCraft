@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:diethylene",
+    "substancecraft:d_lysergic_acid_hydrate",
+    "substancecraft:magnesium_sulfate",
+    "substancecraft:phosphoryl_chloride"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:lysergic_acid_diethylamine"
+  },
+  "time": 800
+}

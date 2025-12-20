@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:syntheses",
+  "parent": "substancecraft:distilled_water_25",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,15 +7,13 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Heated Mixer",
+    "description": "",
     "icon": {
       "count": 1,
-      "id": "substancecraft:lysergic_acid_diethylamine"
+      "id": "minecraft:potion"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.lysergic_acid_diethylamine"
-    }
+    "title": "Water Bottle"
   },
   "requirements": [
     [

@@ -342,6 +342,14 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.BROMIDE))
                         .save(recipeOutput, key("oxidize_bromine"));
 
+                OxidizerRecipeBuilder.oxidize(
+                                List.of(Ingredient.of(SubstanceCraftItems.PHOSPHORUS_TRICHLORIDE)),
+                                SubstanceCraftItems.PHOSPHORYL_CHLORIDE,
+                                1000
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.PHOSPHORUS_TRICHLORIDE))
+                        .save(recipeOutput, key("oxidize_phosphoryl_chloride"));
+
                 ElectrolysisRecipeBuilder.electrolysis(
                                 List.of(Ingredient.of(SubstanceCraftItems.BRINE)),
                                 SubstanceCraftItems.SODIUM_HYDROXIDE,
@@ -395,6 +403,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 ExtractorRecipeBuilder.extract(
                                 List.of(Ingredient.of(SubstanceCraftItems.BRINE)),
                                 SubstanceCraftItems.BROMIDE,
+                                List.of(new ItemStack(SubstanceCraftItems.MAGNESIUM, 50 >> 2)),
                                 1200
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.BRINE))
@@ -455,6 +464,38 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.RAW_SULFUR))
                         .save(recipeOutput, key("extract_sulfur"));
+
+                ExtractorRecipeBuilder.extract(
+                                List.of(Ingredient.of(SubstanceCraftItems.WINE_LEES)),
+                                SubstanceCraftItems.POTASSIUM_BITARTRATE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.WINE_LEES))
+                        .save(recipeOutput, key("extract_potassium_bitartrate"));
+
+                ExtractorRecipeBuilder.extract(
+                                List.of(Ingredient.of(SubstanceCraftItems.LIMESTONE)),
+                                SubstanceCraftItems.CALCIUM_OXIDE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.LIMESTONE))
+                        .save(recipeOutput, key("extract_calcium_oxide"));
+
+                ExtractorRecipeBuilder.extract(
+                                List.of(Ingredient.of(Items.QUARTZ)),
+                                SubstanceCraftItems.SILICA,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(Items.QUARTZ))
+                        .save(recipeOutput, key("extract_silica"));
+
+                ExtractorRecipeBuilder.extract(
+                                List.of(Ingredient.of(SubstanceCraftItems.ERGOT)),
+                                SubstanceCraftItems.ERGOTAMINE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ERGOT))
+                        .save(recipeOutput, key("extract_ergotamine"));
 
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SALT), Ingredient.of(Items.POTION)),
@@ -552,7 +593,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
                         .save(recipeOutput, key("mix_ammonia_solution"));
 
-
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.ACETONE), Ingredient.of(SubstanceCraftItems.POTASSIUM_CARBONATE), Ingredient.of(SubstanceCraftItems.COCA_PASTE), Ingredient.of(SubstanceCraftItems.HYDROCHLORIC_ACID)),
                                 SubstanceCraftItems.COCAINE,
@@ -564,6 +604,101 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.HYDROCHLORIC_ACID))
                         .save(recipeOutput, key("mix_cocaine"));
 
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.RED_PHOSPHORUS), Ingredient.of(SubstanceCraftItems.CHLORINE)),
+                                SubstanceCraftItems.PHOSPHORUS_TRICHLORIDE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.RED_PHOSPHORUS))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CHLORINE))
+                        .save(recipeOutput, key("mix_phosphorus_trichloride"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.CALCIUM_OXIDE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
+                                SubstanceCraftItems.CALCIUM_HYDROXIDE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CALCIUM_OXIDE))
+                        .save(recipeOutput, key("mix_calcium_hydroxide"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.CALCIUM_HYDROXIDE), Ingredient.of(SubstanceCraftItems.POTASSIUM_BITARTRATE)),
+                                SubstanceCraftItems.CALCIUM_TARTRATE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CALCIUM_HYDROXIDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.POTASSIUM_BITARTRATE))
+                        .save(recipeOutput, key("mix_calcium_tartrate"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.CALCIUM_TARTRATE), Ingredient.of(SubstanceCraftItems.SULFURIC_ACID)),
+                                SubstanceCraftItems.TARTARIC_ACID,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CALCIUM_TARTRATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .save(recipeOutput, key("mix_tataric_acid"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.ERGOTAMINE), Ingredient.of(SubstanceCraftItems.TARTARIC_ACID)),
+                                SubstanceCraftItems.ERGOTAMINE_TARTRATE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ERGOTAMINE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.TARTARIC_ACID))
+                        .save(recipeOutput, key("mix_ergotamine_tartrate"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.SULFURIC_ACID), Ingredient.of(SubstanceCraftItems.ETHYLENE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
+                                SubstanceCraftItems.ETHANOL,
+                                List.of(new ItemStack(SubstanceCraftItems.DIETHYL_ETHER, 33 >> 2)),
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ETHYLENE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .save(recipeOutput, key("mix_ethanol"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.SULFURIC_ACID), Ingredient.of(SubstanceCraftItems.ETHANOL)),
+                                SubstanceCraftItems.DIETHYL_ETHER,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ETHANOL))
+                        .save(recipeOutput, key("mix_diethyl_ether"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.SULFURIC_ACID), Ingredient.of(SubstanceCraftItems.ERGOTAMINE_TARTRATE), Ingredient.of(SubstanceCraftItems.DIETHYL_ETHER), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
+                                SubstanceCraftItems.ERGOTAMINE_SULFATE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ERGOTAMINE_TARTRATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DIETHYL_ETHER))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .save(recipeOutput, key("mix_ergotamine_sulfate"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.SULFURIC_ACID), Ingredient.of(SubstanceCraftItems.ERGOTAMINE_SULFATE), Ingredient.of(SubstanceCraftItems.AMMONIA), Ingredient.of(SubstanceCraftItems.ETHANOL)),
+                                SubstanceCraftItems.D_LYSERGIC_ACID_HYDRATE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ERGOTAMINE_SULFATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIA))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ETHANOL))
+                        .save(recipeOutput, key("mix_d_lysergic_acid_hydrate"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.MAGNESIUM), Ingredient.of(SubstanceCraftItems.SULFURIC_ACID)),
+                                SubstanceCraftItems.MAGNESIUM_SULFATE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.MAGNESIUM))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .save(recipeOutput, key("mix_magnesium_sulfate"));
 
                 HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.DISTILLED_WATER), Ingredient.of(SubstanceCraftItems.METHANE)),
@@ -669,7 +804,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
 
                 HeatedMixerRecipeBuilder.mix(
-                                List.of(Ingredient.of(SubstanceCraftItems.P2P), Ingredient.of(SubstanceCraftItems.FORMIC_ACID),  Ingredient.of(SubstanceCraftItems.AMMONIA)),
+                                List.of(Ingredient.of(SubstanceCraftItems.P2P), Ingredient.of(SubstanceCraftItems.FORMIC_ACID), Ingredient.of(SubstanceCraftItems.AMMONIA)),
                                 SubstanceCraftItems.AMPHETAMINE,
                                 800
                         )
@@ -679,7 +814,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("mix_amphetamine"));
 
                 HeatedMixerRecipeBuilder.mix(
-                                List.of(Ingredient.of(SubstanceCraftItems.SULFUR), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER),  Ingredient.of(SubstanceCraftItems.OXYGEN)),
+                                List.of(Ingredient.of(SubstanceCraftItems.SULFUR), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER), Ingredient.of(SubstanceCraftItems.OXYGEN)),
                                 SubstanceCraftItems.SULFURIC_ACID,
                                 800
                         )
@@ -690,7 +825,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
 
                 HeatedMixerRecipeBuilder.mix(
-                                List.of(Ingredient.of(SubstanceCraftItems.OXYGEN), Ingredient.of(SubstanceCraftItems.MANGANESE_DIOXIDE),  Ingredient.of(SubstanceCraftItems.POTASSIUM_HYDROXIDE)),
+                                List.of(Ingredient.of(SubstanceCraftItems.OXYGEN), Ingredient.of(SubstanceCraftItems.MANGANESE_DIOXIDE), Ingredient.of(SubstanceCraftItems.POTASSIUM_HYDROXIDE)),
                                 SubstanceCraftItems.POTASSIUM_PERMANGANATE,
                                 800
                         )
@@ -709,6 +844,44 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.CARBON_DIOXIDE))
                         .save(recipeOutput, key("mix_potassium_carbonate"));
 
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.COKE), Ingredient.of(SubstanceCraftItems.SILICA), Ingredient.of(SubstanceCraftItems.FLOUROAPATITE)),
+                                SubstanceCraftItems.WHITE_PHOSPHORUS,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.COKE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SILICA))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.FLOUROAPATITE))
+                        .save(recipeOutput, key("mix_white_phosphorus"));
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.WHITE_PHOSPHORUS), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
+                                SubstanceCraftItems.RED_PHOSPHORUS,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.WHITE_PHOSPHORUS))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .save(recipeOutput, key("mix_red_phosphorus"));
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.ETHANOL), Ingredient.of(SubstanceCraftItems.AMMONIA)),
+                                SubstanceCraftItems.DIETHYLENE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ETHANOL))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIA))
+                        .save(recipeOutput, key("mix_diethylene"));
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.DIETHYLENE), Ingredient.of(SubstanceCraftItems.D_LYSERGIC_ACID_HYDRATE), Ingredient.of(SubstanceCraftItems.MAGNESIUM_SULFATE), Ingredient.of(SubstanceCraftItems.PHOSPHORYL_CHLORIDE)),
+                                SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DIETHYLENE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.D_LYSERGIC_ACID_HYDRATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.MAGNESIUM_SULFATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.PHOSPHORYL_CHLORIDE))
+                        .save(recipeOutput, key("mix_lysergic_acid_diethylamide"));
 
                 FermentationTankRecipeBuilder.ferment(
                                 List.of(Ingredient.of(SubstanceCraftItems.YEAST), Ingredient.of(SubstanceCraftItems.CORN)),
