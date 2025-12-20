@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrochloric_acid_0",
+  "parent": "substancecraft:brine_14",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,15 +7,13 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Extract",
+    "description": "",
     "icon": {
       "count": 1,
-      "id": "substancecraft:distilled_water"
+      "id": "minecraft:potion"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.distilled_water"
-    }
+    "title": "Water Bottle"
   },
   "requirements": [
     [

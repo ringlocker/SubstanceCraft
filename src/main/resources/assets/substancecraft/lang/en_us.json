@@ -148,6 +148,7 @@
   "item.substancecraft.tartaric_acid": "Tartaric Acid",
   "item.substancecraft.ergotamine": "Ergotamine",
   "item.substancecraft.ergotamine_tartrate": "Ergotamine Tartrate",
+  "item.substancecraft.ergotamine_sulfate": "Ergotamine Sulfate",
   "item.substancecraft.diethyl_ether": "Diethyl Ether",
   "item.substancecraft.silica": "Silica",
   "item.substancecraft.flouroapatite": "Flouroapatite",
@@ -159,5 +160,7 @@
   "item.substancecraft.d_lysergic_acid_hydrate": "D-Lysergic Acid Hydrate",
   "item.substancecraft.magnesium": "Magnesium",
   "item.substancecraft.magnesium_sulfate": "Magnesium Sulfate",
-  "item.substancecraft.lysergic_acid_diethylamine": "LSD"
+  "item.substancecraft.lysergic_acid_diethylamine": "LSD",
+  "item.substancecraft.psilocybin": "Psilocybin",
+  "item.substancecraft.mescaline": "Mescaline"
 }

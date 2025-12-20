@@ -127,6 +127,8 @@ public class SubstanceCraftItems {
     public static final Item MAGNESIUM = registerItem("magnesium", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item MAGNESIUM_SULFATE = registerItem("magnesium_sulfate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item LYSERGIC_ACID_DIETHYLAMINE = registerItem("lysergic_acid_diethylamine", properties -> new DrugItem(properties, Drug.LSD), alwaysEatProperties());
+    public static final Item PSILOCYBIN = registerItem("psilocybin", properties -> new DrugItem(properties, Drug.PSILOCYBIN), alwaysEatProperties());
+    public static final Item MESCALINE = registerItem("mescaline", properties -> new DrugItem(properties, Drug.MESCALINE), alwaysEatProperties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));

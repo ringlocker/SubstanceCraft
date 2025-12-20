@@ -70,6 +70,8 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.AMPHETAMINE);
         entries.accept(SubstanceCraftItems.COCAINE);
         entries.accept(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE);
+        entries.accept(SubstanceCraftItems.PSILOCYBIN);
+        entries.accept(SubstanceCraftItems.MESCALINE);
         entries.accept(SubstanceCraftItems.CASH);
         entries.accept(SubstanceCraftItems.BAND);
     }

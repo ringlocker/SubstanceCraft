@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:formic_acid_0",
+  "parent": "substancecraft:ammonia_solution_1",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

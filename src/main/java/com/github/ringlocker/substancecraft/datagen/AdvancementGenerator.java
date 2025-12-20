@@ -390,6 +390,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         generateSynthesisTree(SubstanceCraftItems.COCAINE, writer, syntheses, counts);
         generateSynthesisTree(SubstanceCraftItems.AMPHETAMINE, writer, syntheses, counts);
         generateSynthesisTree(SubstanceCraftItems.TWO_C_B, writer, syntheses, counts);
+        generateSynthesisTree(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE, writer, syntheses, counts);
 
         RecipeCache.clear();
     }
