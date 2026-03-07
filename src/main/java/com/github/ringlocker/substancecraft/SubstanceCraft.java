@@ -4,9 +4,12 @@ import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.entity.SubstanceCraftEntities;
 import com.github.ringlocker.substancecraft.entity.spawner.SubstanceCraftEntitySpawners;
+import com.github.ringlocker.substancecraft.command.SubstanceCraftCommands;
+import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
+import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
+import com.github.ringlocker.substancecraft.effect.damagesource.SubstanceCraftDamageSources;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
-import com.github.ringlocker.substancecraft.network.SubstanceCraftNetworking;
 import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftFeatures;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftLootTables;
@@ -28,9 +31,11 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftMenus.registerMenus();
         SubstanceCraftFeatures.registerFeatures();
         SubstanceCraftLootTables.registerLootTables();
+        SubstanceCraftEffects.registerEffects();
+        SubstanceCraftCommands.registerCommands();
+        SubstanceCraftDamageSources.registerDamageSources();
         SubstanceCraftEntities.registerEntities();
-
-        SubstanceCraftNetworking.init();
+        SubstanceEffectTicker.init();
         SubstanceCraftEntitySpawners.init();
     }
 

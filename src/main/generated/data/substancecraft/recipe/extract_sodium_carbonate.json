@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:extractor",
   "byproducts": [],
-  "ingredient": "substancecraft:trona",
+  "ingredients": [
+    "substancecraft:trona"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:sodium_carbonate"

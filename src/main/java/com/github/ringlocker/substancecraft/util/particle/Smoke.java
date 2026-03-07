@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.util.particle;
 
-
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;

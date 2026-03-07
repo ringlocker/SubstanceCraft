@@ -6,7 +6,9 @@
       "id": "substancecraft:oxygen"
     }
   ],
-  "ingredient": "substancecraft:distilled_water",
+  "ingredients": [
+    "substancecraft:distilled_water"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:hydrogen"

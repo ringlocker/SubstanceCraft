@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import com.github.ringlocker.substancecraft.block.blocks.generic.BushLikeCrop;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

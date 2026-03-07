@@ -1,6 +1,6 @@
 package com.github.ringlocker.substancecraft.client.item;
 
-import com.github.ringlocker.substancecraft.item.SubstanceItem;
+import com.github.ringlocker.substancecraft.item.items.SubstanceItem;
 import com.github.ringlocker.substancecraft.item.SubstanceTintColors;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.block.entity.entities;
 
-import com.github.ringlocker.substancecraft.block.entity.OneInputBlockEntity;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.gui.menus.ExtractorMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.ExtractorRecipe;
@@ -11,10 +10,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class ExtractorBlockEntity extends OneInputBlockEntity<ExtractorRecipe> {
+public class ExtractorBlockEntity extends WorkstationBlockEntity<ExtractorRecipe> {
 
     public ExtractorBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state, "Extractor", ExtractorRecipe.Type.INSTANCE, SubstanceCraftBlockEntities.EXTRACTOR);
+        super(SubstanceCraftBlockEntities.EXTRACTOR, ExtractorRecipe.Type.INSTANCE, pos, state, "Extractor");
     }
 
     @Override

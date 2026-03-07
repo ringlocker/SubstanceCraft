@@ -4,21 +4,21 @@ import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.entity.entities.Dealer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.model.VillagerModel;
 import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.model.npc.VillagerModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.CrossedArmsItemLayer;
 import net.minecraft.client.renderer.entity.layers.CustomHeadLayer;
 import net.minecraft.client.renderer.entity.state.HoldingEntityRenderState;
 import net.minecraft.client.renderer.entity.state.VillagerRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 @Environment(EnvType.CLIENT)
-public class DealerRenderer extends MobRenderer<Dealer, VillagerRenderState, VillagerModel> {
+public class DealerRenderer extends MobRenderer<Dealer, VillagerRenderState, net.minecraft.client.model.npc.VillagerModel> {
 
-    private static final ResourceLocation DEALER_TEXTURE = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/entity/dealer.png");
+    private static final Identifier DEALER_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/entity/dealer.png");
 
     public DealerRenderer(EntityRendererProvider.Context context) {
         super(context, new VillagerModel(context.bakeLayer(ModelLayers.WANDERING_TRADER)), 0.5F);
@@ -26,7 +26,7 @@ public class DealerRenderer extends MobRenderer<Dealer, VillagerRenderState, Vil
         this.addLayer(new CrossedArmsItemLayer<>(this));
     }
 
-    public @NotNull ResourceLocation getTextureLocation(VillagerRenderState villagerRenderState) {
+    public @NotNull Identifier getTextureLocation(VillagerRenderState villagerRenderState) {
         return DEALER_TEXTURE;
     }
 

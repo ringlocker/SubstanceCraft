@@ -7,13 +7,13 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 
 public class SubstanceCraftEntities {
 
-    private static final ResourceLocation DEALER_LOCATION = ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "dealer");
+    private static final Identifier DEALER_LOCATION = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "dealer");
     public static final EntityType<Dealer> DEALER = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             DEALER_LOCATION,

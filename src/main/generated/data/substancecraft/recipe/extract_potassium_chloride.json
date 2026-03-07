@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:extractor",
   "byproducts": [],
-  "ingredient": "substancecraft:sylvite",
+  "ingredients": [
+    "substancecraft:sylvite"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:potassium_chloride"

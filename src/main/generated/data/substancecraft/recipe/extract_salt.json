@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:extractor",
   "byproducts": [],
-  "ingredient": "substancecraft:halite",
+  "ingredients": [
+    "substancecraft:halite"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:salt"

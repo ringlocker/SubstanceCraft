@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrochloric_acid_1",
+  "parent": "substancecraft:formic_acid_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

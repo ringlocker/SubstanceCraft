@@ -7,18 +7,20 @@ import com.github.ringlocker.substancecraft.client.block.entity.renderer.HashPre
 import com.github.ringlocker.substancecraft.client.datagen.ModelGenerator;
 import com.github.ringlocker.substancecraft.client.entity.render.SubstanceCraftEntityRenderers;
 import com.github.ringlocker.substancecraft.client.gui.SubstanceCraftScreens;
-import com.github.ringlocker.substancecraft.client.network.SubstanceCraftClientNetworking;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
+import com.github.ringlocker.substancecraft.effect.effects.PostShaderEffect;
+import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class SubstanceCraftClient implements ClientModInitializer, DataGeneratorEntrypoint {
@@ -31,12 +33,14 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
 
         SubstanceCraftScreens.registerScreens();
         SubstanceCraftEntityRenderers.registerEntityRenderers();
+        SubstanceCraftRecipes.synchronizeRecipes();
 
-        SubstanceCraftClientNetworking.init();
+        ClientTickEvents.START_CLIENT_TICK.register(PostShaderEffect::clientTick);
+
     }
 
     private void registerItemColors() {
-        ItemTintSources.ID_MAPPER.put(ResourceLocation.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substance_item_tint"), SubstanceTintColor.MAP_CODEC);
+        ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substance_item_tint"), SubstanceTintColor.MAP_CODEC);
     }
 
     private void registerRenderLayers() {

@@ -1,12 +1,15 @@
 package com.github.ringlocker.substancecraft.entity.npc;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.Nullable;
 
 public class ItemForItemOffer implements VillagerTrades.ItemListing {
 
@@ -34,7 +37,8 @@ public class ItemForItemOffer implements VillagerTrades.ItemListing {
         this.priceMultiplier = 0.05F;
     }
 
-    public MerchantOffer getOffer(Entity trader, RandomSource random) {
+    @Override
+    public @Nullable MerchantOffer getOffer(@NotNull ServerLevel serverLevel, @NotNull Entity entity, @NotNull RandomSource randomSource) {
         return new MerchantOffer(this.buyFromMerchant, sellingToMerchant, this.maxUses, this.villagerXp, this.priceMultiplier);
     }
 }

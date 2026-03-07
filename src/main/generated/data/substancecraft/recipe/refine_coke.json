@@ -6,7 +6,9 @@
       "id": "substancecraft:carbon_monoxide"
     }
   ],
-  "ingredient": "minecraft:coal",
+  "ingredients": [
+    "minecraft:coal"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:coke"

@@ -3,20 +3,18 @@ package com.github.ringlocker.substancecraft.datagen;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
-import com.github.ringlocker.substancecraft.recipe.generic.ByproductRecipe;
-import com.github.ringlocker.substancecraft.recipe.generic.MultipleInputRecipe;
-import com.github.ringlocker.substancecraft.recipe.generic.OneInputRecipe;
+import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.PlayerTrigger;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.PlayerTrigger;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -24,6 +22,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -40,13 +39,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     @Override
-    public void generateAdvancement(HolderLookup.Provider provider, Consumer<AdvancementHolder> writer) {
+    public void generateAdvancement(HolderLookup.@NotNull Provider provider, @NotNull Consumer<AdvancementHolder> writer) {
         AdvancementHolder welcome = Advancement.Builder.advancement()
                 .display(
                         SubstanceCraftItems.MARIJUANA_TRIM,
                         Component.literal("SubstanceCraft"),
                         Component.literal("You may find useful information in advancement descriptions"),
-                        ResourceLocation.withDefaultNamespace("gui/advancements/backgrounds/stone"),
+                        Identifier.withDefaultNamespace("gui/advancements/backgrounds/stone"),
                         AdvancementType.TASK,
                         false,
                         false,
@@ -378,7 +377,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftItems.SALT,
                         Component.literal("Syntheses"),
                         Component.literal(""),
-                        ResourceLocation.withDefaultNamespace("block/iron_block"),
+                        Identifier.withDefaultNamespace("block/iron_block"),
                         AdvancementType.TASK,
                         false,
                         false,
@@ -397,12 +396,12 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {
         Recipe<?> recipe = getRecipeForItem(toSynthesize);
-        Component recipeType = recipe == null ? Component.literal("") : ((ByproductRecipe) recipe).getTypeString();
+        Component recipeType = recipe == null ? Component.literal("") : ((ByproductRecipe) recipe).getLabel();
 
         AdvancementHolder itemAdvancement = Advancement.Builder.advancement()
                 .parent(parent)
                 .display(toSynthesize, getNameFromItem(toSynthesize), recipeType, null, AdvancementType.TASK, false, false, false)
-                .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
+                .addCriterion("free", net.minecraft.advancements.criterion.PlayerTrigger.TriggerInstance.tick())
                 .save(writer, SubstanceCraft.MOD_ID + ":" + createKey(toSynthesize, counts));
 
         if (recipe == null) return;
@@ -426,13 +425,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     private static List<Ingredient> getIngredients(Recipe<?> recipe) {
-        if (recipe instanceof MultipleInputRecipe) {
-            return ((MultipleInputRecipe) recipe).getInputs();
-        } else if (recipe instanceof OneInputRecipe) {
-            return List.of(((OneInputRecipe) recipe).getInput());
-        } else {
-            return List.of();
-        }
+        return ((ByproductRecipe) recipe).getInputs();
     }
 
     @Nullable

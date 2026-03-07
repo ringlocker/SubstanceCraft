@@ -27,8 +27,29 @@
   "block.substancecraft.pyrolusite_ore": "Pyrolusite Ore",
   "block.substancecraft.deepslate_pyrolusite_ore": "Deepslate Pyrolusite Ore",
 
-  "effect.minecraft.hunger": "Munchies",
-  "effect.minecraft.speed": "Zoomies",
+  "effect.substancecraft.fast": "Zoomies",
+  "effect.substancecraft.slow": "Slow",
+  "effect.substancecraft.stoned": "Stoned",
+  "effect.substancecraft.hungry": "Munchies",
+  "effect.substancecraft.not_hungry": "Not Hungry",
+  "effect.substancecraft.elevated_heart_rate": "Elevated Heart Rate",
+  "effect.substancecraft.cardiac_arrest": "Cardiac Arrest",
+  "effect.substancecraft.color_enhancement": "Color Enhancement",
+  "effect.substancecraft.color_resolution": "Color Distortion",
+  "effect.substancecraft.mosaic": "Visual Distortion",
+  "effect.substancecraft.dynamic_color": "Color Shifting",
+  "effect.substancecraft.overdose": "Overdose",
+  "effect.substancecraft.time_compression": "Time Compression",
+  "effect.substancecraft.time_dilation": "Time Dilation",
+
+  "effect.substancecraft.dph": "Diphenhydramine",
+  "effect.substancecraft.coke": "Cocaine",
+  "effect.substancecraft.ketamine": "Ketamine",
+  "effect.substancecraft.amphetamine": "Geeked",
+  "effect.substancecraft.two_cb": "2C-B",
+
+  "death.attack.overdose": "%1$s overdosed",
+  "death.attack.cardiac_arrest": "%1$s died from cardiac arrest",
 
   "entity.substancecraft.dealer": "Dealer",
 

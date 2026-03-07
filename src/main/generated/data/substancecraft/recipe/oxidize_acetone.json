@@ -1,7 +1,9 @@
 {
   "type": "substancecraft:oxidizer",
   "byproducts": [],
-  "ingredient": "substancecraft:propylene",
+  "ingredients": [
+    "substancecraft:propylene"
+  ],
   "result": {
     "count": 1,
     "id": "substancecraft:acetone"
