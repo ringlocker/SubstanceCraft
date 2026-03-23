@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:ammonia_4",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Extract",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:nitrogen"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.nitrogen"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

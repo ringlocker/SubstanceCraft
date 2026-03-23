@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "substancecraft:item/p2p",
+    "tints": [
+      {
+        "type": "substancecraft:substance_item_tint",
+        "default": -2095121
+      }
+    ]
+  }
+}

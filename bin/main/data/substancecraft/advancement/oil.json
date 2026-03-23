@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:natural_resources",
+  "criteria": {
+    "got_oil": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:oil_shale"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Oil Shale is found under deep oceans between y=-48 and y=16",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:oil_shale_block"
+    },
+    "show_toast": false,
+    "title": "Freedom"
+  },
+  "requirements": [
+    [
+      "got_oil"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

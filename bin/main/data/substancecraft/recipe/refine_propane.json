@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:refinery",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:natural_gas"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:propane"
+  },
+  "time": 800
+}

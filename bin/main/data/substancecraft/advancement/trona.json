@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:natural_resources",
+  "criteria": {
+    "got_trona": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:trona"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Trona is found underground between y=0 and y=72",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:trona_block"
+    },
+    "show_toast": false,
+    "title": "Trona"
+  },
+  "requirements": [
+    [
+      "got_trona"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

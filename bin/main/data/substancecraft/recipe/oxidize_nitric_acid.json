@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:oxidizer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:ammonia_solution"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:nitric_acid"
+  },
+  "time": 1000
+}
