@@ -1,12 +1,8 @@
 package com.github.ringlocker.substancecraft.effect;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.effect.effects.ColorResolution;
-import com.github.ringlocker.substancecraft.effect.effects.Mosaic;
 import com.github.ringlocker.substancecraft.effect.effects.BasicEffect;
-import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
 import com.github.ringlocker.substancecraft.effect.effects.SimpleEffects;
-import com.github.ringlocker.substancecraft.effect.effects.DynamicColor;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -40,10 +36,10 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> HUNGRY = register("hungry", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> ELEVATED_HEART_RATE = register("elevated_heart_rate", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> CARDIAC_ARREST = register("cardiac_arrest", new SimpleEffects.CardiacArrest());
-    public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new ColorEnhancement());
-    public static final Holder<MobEffect> MOSAIC = register("mosaic", new Mosaic());
-    public static final Holder<MobEffect> COLOR_RESOLUTION = register("color_resolution", new ColorResolution());
-    public static final Holder<MobEffect> DYNAMIC_COLOR = register("dynamic_color", new DynamicColor());
+    public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> MOSAIC = register("mosaic", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> COLOR_RESOLUTION = register("color_resolution", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> DYNAMIC_COLOR = register("dynamic_color", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> TIME_COMPRESSION = register("time_compression", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> TIME_DILATION = register("time_dilation", new BasicEffect(MobEffectCategory.NEUTRAL));
 
@@ -55,6 +51,7 @@ public class SubstanceCraftEffects {
     }
 
     public static void registerEffects() {
+
     }
 
     public static Holder<MobEffect> getEffect(Identifier id) {

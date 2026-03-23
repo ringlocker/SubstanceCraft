@@ -8,7 +8,7 @@ import com.github.ringlocker.substancecraft.client.datagen.ModelGenerator;
 import com.github.ringlocker.substancecraft.client.entity.render.SubstanceCraftEntityRenderers;
 import com.github.ringlocker.substancecraft.client.gui.SubstanceCraftScreens;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
-import com.github.ringlocker.substancecraft.effect.effects.PostShaderEffect;
+import com.github.ringlocker.substancecraft.client.shader.ShaderEffectTicker;
 import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -35,8 +35,7 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
         SubstanceCraftEntityRenderers.registerEntityRenderers();
         SubstanceCraftRecipes.synchronizeRecipes();
 
-        ClientTickEvents.START_CLIENT_TICK.register(PostShaderEffect::clientTick);
-
+        ClientTickEvents.START_CLIENT_TICK.register(ShaderEffectTicker::clientTick);
     }
 
     private void registerItemColors() {
