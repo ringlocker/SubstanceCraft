@@ -15,7 +15,8 @@ public class PlayerEffectState {
             SubstanceCraftEffects.MOSAIC, -1,
             SubstanceCraftEffects.COLOR_ENHANCEMENT, -1,
             SubstanceCraftEffects.COLOR_RESOLUTION, -1,
-            SubstanceCraftEffects.DYNAMIC_COLOR, -1
+            SubstanceCraftEffects.DYNAMIC_COLOR, -1,
+            SubstanceCraftEffects.SURFACE_WARP, -1
     ));
 
     private static boolean updateUniforms = true;

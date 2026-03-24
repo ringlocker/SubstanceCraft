@@ -37,6 +37,11 @@
             "value": 0
           },
           {
+            "name": "surfaceWarpEnabled",
+            "type": "int",
+            "value": 0
+          },
+          {
             "name": "saturation",
             "type": "float",
             "value": 1.0
@@ -58,6 +63,11 @@
           },
           {
             "name": "mosaicSize",
+            "type": "float",
+            "value": 1.0
+          },
+          {
+            "name": "warpIntensity",
             "type": "float",
             "value": 1.0
           }

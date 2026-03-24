@@ -14,11 +14,13 @@ layout(std140) uniform Config {
     int colorResolutionEnabled;
     int dynamicColorEnabled;
     int mosaicEnabled;
+    int surfaceWarpEnabled;
     float saturation;
     float resolution;
     float time;
     float hueIntensity;
     float mosaicSize;
+    float warpIntensity;
 };
 
 out vec4 fragColor;
@@ -73,18 +75,42 @@ vec4 applyDynamicColor(vec4 value) {
     return vec4(OutColor, 1.0);
 }
 
-vec4 applyMosaic() {
-    vec2 pixelCoord = texCoord * InSize;
-    vec2 mosaicPixel = floor(pixelCoord / mosaicSize) * mosaicSize + mosaicSize * 0.5;
-    vec2 mosaicUV = mosaicPixel / InSize;
-    return texture(InSampler, mosaicUV);
+vec2 applySurfaceWarpUV(vec2 pixelCoord) {
+    float bandSize = 3.0 + (1.0 * warpIntensity);
+    float bandIndex = floor(pixelCoord.y / bandSize);
+    float centeredX = (pixelCoord.x - InSize.x * 0.5) / InSize.x;
+    float pulse = 1.0 + 0.15 * sin(time * 0.03 * warpIntensity);
+    float yOffset =
+        sin(time * 0.06 * warpIntensity + bandIndex * 0.16) * 1.05 +
+        sin(time * 0.036 * warpIntensity+ centeredX * 7.0 + bandIndex * 0.05) * 0.50;
+    yOffset *= pulse;
+    yOffset = tanh(yOffset * 0.9) * bandSize;
+    pixelCoord.y += yOffset;
+    return pixelCoord;
+}
+
+vec2 applyMosaicUV(vec2 pixelCoord) {
+    float blockSize = max(1.0, floor(mosaicSize + 0.5));
+    vec2 snappedPixel = floor(pixelCoord / blockSize) * blockSize;
+    return snappedPixel + 0.5;
 }
 
 void main() {
-    vec4 value = texture(InSampler, texCoord);
-    if (mosaicEnabled == 1) {
-        value = applyMosaic();
+    // pixel modifications
+    vec2 pixelCoord = texCoord * InSize;
+    if (surfaceWarpEnabled == 1) {
+        pixelCoord = applySurfaceWarpUV(pixelCoord);
     }
+    if (mosaicEnabled == 1) {
+        pixelCoord = applyMosaicUV(pixelCoord);
+    } else {
+        pixelCoord += 0.5;
+    }
+    vec2 uv = pixelCoord / InSize;
+    uv = clamp(uv, vec2(0.5) / InSize, (InSize - 0.5) / InSize);
+
+    // color modifications
+    vec4 value = texture(InSampler, uv);
     if (colorEnhancementEnabled == 1) {
        value = applyColorSaturation(value);
     }

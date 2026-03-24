@@ -28,7 +28,7 @@ public class SubstanceCraftItems {
     public static final Item DAB_RIG = registerItem("dab_rig", properties -> new DrugConsumerItem(properties, List.of(consumable(HASH, Drug.HASH)), smoke(1.0F, 5, 0, 3)), alwaysEatProperties());
     public static final Item EMPTY_DAB_RIG = registerItem("empty_dab_rig", properties -> new WaterFillableItem(properties, DAB_RIG), new Item.Properties());
     public static final Item DIPHENHYDRAMINE = registerItem("diphenhydramine", properties -> new DrugItem(properties, Drug.TWO_CB), alwaysEatProperties());
-    public static final Item KETAMINE = registerItem("ketamine", properties -> new DrugItem(properties, Drug.TWO_CB), alwaysEatProperties());
+    public static final Item KETAMINE = registerItem("ketamine", properties -> new DrugItem(properties, Drug.KETAMINE), alwaysEatProperties());
     public static final Item OIL = registerItem("oil", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_BLACK_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item OIL_SHALE = registerItem("oil_shale", Item::new, new Item.Properties());
     public static final Item PETROLEUM_NAPHTHA = registerItem("petroleum_naphtha", properties -> new SubstanceItem(properties, SubstanceTintColors.PISS_YELLOW_LIQUID, MatterState.LIQUID), new Item.Properties());
