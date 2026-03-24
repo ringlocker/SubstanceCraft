@@ -37,7 +37,7 @@ public class ModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, BlockModelGenerators.PlantType.TINTED, MarijuanaPlant.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, BlockModelGenerators.PlantType.TINTED, MarijuanaPlant.AGE_PROPERTY, 0, 1, 2, 3, 4, 5, 6, 7);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.REFINERY, blockStateModelGenerator);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.OIL_SHALE);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE, blockStateModelGenerator);
@@ -48,7 +48,7 @@ public class ModelGenerator extends FabricModelProvider {
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.HEATED_MIXER, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.FERMENTATION_TANK, blockStateModelGenerator);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.CORN_CROP, BlockModelGenerators.PlantType.TINTED, CornCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.COCA_CROP, BlockModelGenerators.PlantType.TINTED, CocaCrop.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.COCA_CROP, BlockModelGenerators.PlantType.TINTED, CocaCrop.AGE_PROPERTY, 0, 1, 2, 3, 4, 5);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SYLVITE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SULFUR_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE);

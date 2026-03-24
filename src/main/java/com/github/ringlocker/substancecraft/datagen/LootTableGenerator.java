@@ -47,7 +47,7 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
 
         add(SubstanceCraftBlocks.COCA_CROP, createCropDrops(
                 SubstanceCraftBlocks.COCA_CROP, SubstanceCraftItems.COCA_LEAVES, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.COCA_CROP),
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.COCA_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CocaCrop.AGE, 5))));
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.COCA_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CocaCrop.AGE_PROPERTY, 5))));
 
         add(SubstanceCraftBlocks.OIL_SHALE, block -> createSilkTouchDispatchTable(
                 block,

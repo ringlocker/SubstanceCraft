@@ -15,24 +15,24 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 public abstract class BushLikeCrop extends VegetationBlock implements BonemealableBlock {
 
     public final int MAX_AGE;
-    public final IntegerProperty age;
+    public final IntegerProperty AGE;
 
     protected BushLikeCrop(Properties properties, int maxAge, IntegerProperty age) {
         super(properties);
         this.MAX_AGE = maxAge;
-        this.age = age;
+        this.AGE = age;
     }
 
     @Override
     protected boolean isRandomlyTicking(BlockState state) {
-        return state.getValue(age) < MAX_AGE;
+        return state.getValue(AGE) < MAX_AGE;
     }
 
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         int rand = (level.getBlockState(pos.below()).is(Blocks.FARMLAND)) ? random.nextInt(7) : random.nextInt(12);
         if (rand == 0) {
-            if (state.getValue(age) < MAX_AGE) {
+            if (state.getValue(AGE) < MAX_AGE) {
                 this.performBonemeal(level, level.random, pos, state);
             }
         }
@@ -40,7 +40,7 @@ public abstract class BushLikeCrop extends VegetationBlock implements Bonemealab
 
     @Override
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
-        return state.getValue(age) < MAX_AGE;
+        return state.getValue(AGE) < MAX_AGE;
     }
 
     @Override
@@ -50,6 +50,6 @@ public abstract class BushLikeCrop extends VegetationBlock implements Bonemealab
 
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        level.setBlock(pos, state.setValue(age, Math.min(state.getValue(age) + 1, MAX_AGE)), Block.UPDATE_CLIENTS);
+        level.setBlock(pos, state.setValue(AGE, Math.min(state.getValue(AGE) + 1, MAX_AGE)), Block.UPDATE_CLIENTS);
     }
 }
