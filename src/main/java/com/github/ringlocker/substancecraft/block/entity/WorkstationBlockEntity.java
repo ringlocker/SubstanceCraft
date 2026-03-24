@@ -1,8 +1,6 @@
-package com.github.ringlocker.substancecraft.block.entity.entities;
+package com.github.ringlocker.substancecraft.block.entity;
 
-import com.github.ringlocker.substancecraft.block.blocks.GenericMenuBlock;
-import com.github.ringlocker.substancecraft.block.entity.ImplementedInventory;
-import com.github.ringlocker.substancecraft.block.entity.RecipeList;
+import com.github.ringlocker.substancecraft.block.GenericMenuBlock;
 import com.github.ringlocker.substancecraft.recipe.MultipleItemInput;
 import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;

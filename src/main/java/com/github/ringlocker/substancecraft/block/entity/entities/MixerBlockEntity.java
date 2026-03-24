@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.block.entity.entities;
 
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
+import com.github.ringlocker.substancecraft.block.entity.WorkstationBlockEntity;
 import com.github.ringlocker.substancecraft.gui.menus.MixerMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.MixerRecipe;
 import net.minecraft.core.BlockPos;

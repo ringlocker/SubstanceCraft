@@ -27,7 +27,7 @@ public class SubstanceCraftItems {
     public static final Item HASH = registerItem("hash", Item::new, new Item.Properties());
     public static final Item DAB_RIG = registerItem("dab_rig", properties -> new DrugConsumerItem(properties, List.of(consumable(HASH, Drug.HASH)), smoke(1.0F, 5, 0, 3)), alwaysEatProperties());
     public static final Item EMPTY_DAB_RIG = registerItem("empty_dab_rig", properties -> new WaterFillableItem(properties, DAB_RIG), new Item.Properties());
-    public static final Item DIPHENHYDRAMINE = registerItem("diphenhydramine", properties -> new DrugItem(properties, Drug.TWO_CB), alwaysEatProperties());
+    public static final Item DIPHENHYDRAMINE = registerItem("diphenhydramine", properties -> new DrugItem(properties, Drug.DIPHENHYDRAMINE), alwaysEatProperties());
     public static final Item KETAMINE = registerItem("ketamine", properties -> new DrugItem(properties, Drug.KETAMINE), alwaysEatProperties());
     public static final Item OIL = registerItem("oil", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_BLACK_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item OIL_SHALE = registerItem("oil_shale", Item::new, new Item.Properties());
@@ -82,7 +82,7 @@ public class SubstanceCraftItems {
     public static final Item NITROETHANE = registerItem("nitroethane", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item FORMIC_ACID = registerItem("formic_acid", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item METHYL_FORMATE = registerItem("methyl_formate", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
-    public static final Item AMPHETAMINE = registerItem("amphetamine", properties -> new DrugItem(properties, Drug.TWO_CB), alwaysEatProperties());
+    public static final Item AMPHETAMINE = registerItem("amphetamine", properties -> new DrugItem(properties, Drug.AMPHETAMINE), alwaysEatProperties());
     public static final Item COCA_LEAVES = registerItem("coca_leaves", Item::new, new Item.Properties());
     public static final Item RAW_SULFUR = registerItem("raw_sulfur", Item::new, new Item.Properties());
     public static final Item SULFUR = registerItem("sulfur", properties -> new SubstanceItem(properties, SubstanceTintColors.YELLOW_SOLID, MatterState.SOLID), new Item.Properties());
@@ -101,7 +101,7 @@ public class SubstanceCraftItems {
     public static final Item COCA_PASTE = registerItem("coca_paste", properties -> new SubstanceItem(properties, SubstanceTintColors.VERY_LIGHT_YELLOW_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item ACETONE = registerItem("acetone", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item AMMONIA_SOLUTION = registerItem("ammonia_solution", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
-    public static final Item COCAINE = registerItem("cocaine", properties -> new DrugItem(properties, Drug.TWO_CB), alwaysEatProperties());
+    public static final Item COCAINE = registerItem("cocaine", properties -> new DrugItem(properties, Drug.COCAINE), alwaysEatProperties());
     public static final Item CARBON_DIOXIDE = registerItem("carbon_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item CASH = registerItem("cash", Item::new, new Item.Properties());
     public static final Item BAND = registerItem("band", Item::new, new Item.Properties());

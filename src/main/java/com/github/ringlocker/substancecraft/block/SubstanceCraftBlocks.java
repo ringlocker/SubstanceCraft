@@ -13,6 +13,7 @@ import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
 import com.github.ringlocker.substancecraft.block.blocks.Mixer;
 import com.github.ringlocker.substancecraft.block.blocks.Oxidizer;
 import com.github.ringlocker.substancecraft.block.blocks.Refinery;
+import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -56,6 +57,7 @@ public class SubstanceCraftBlocks {
     public static final Block LIMESTONE = registerBlock("limestone_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
     public static final Block PHOSPHORITE = registerBlock("phosphorite_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block GRAPEVINE = registerBlock("grapevine", Grapevine::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
+    public static final Block PSILOCYBIN = registerBlock("psilocybin", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY), SubstanceCraftItems.PSILOCYBIN);
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);
@@ -65,6 +67,13 @@ public class SubstanceCraftBlocks {
         ResourceKey<Block> key = key(name);
         Block block = factory.apply(properties.setId(key));
         BLOCK_ITEMS.put(block, registerBlockItem(name, block));
+        return Registry.register(BuiltInRegistries.BLOCK, key, block);
+    }
+
+    private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties, Item item) {
+        ResourceKey<Block> key = key(name);
+        Block block = factory.apply(properties.setId(key));
+        BLOCK_ITEMS.put(block, item);
         return Registry.register(BuiltInRegistries.BLOCK, key, block);
     }
 

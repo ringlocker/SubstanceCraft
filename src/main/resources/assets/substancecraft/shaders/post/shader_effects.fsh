@@ -80,7 +80,7 @@ vec4 applyDynamicColor(vec4 value) {
 }
 
 vec2 applySurfaceWarpUV(vec2 pixelCoord) {
-    float bandSize = 3.0 + (1.0 * warpIntensity);
+    float bandSize = 3.0 + (1.45 * warpIntensity);
     float bandIndex = floor(pixelCoord.y / bandSize);
     float centeredX = (pixelCoord.x - InSize.x * 0.5) / InSize.x;
     float pulse = 1.0 + 0.15 * sin(time * 0.03 * warpIntensity);

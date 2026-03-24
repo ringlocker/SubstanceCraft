@@ -1,7 +1,7 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.block.entity.entities.WorkstationBlockEntity;
+import com.github.ringlocker.substancecraft.block.entity.WorkstationBlockEntity;
 import com.github.ringlocker.substancecraft.gui.menus.WorkstationMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.fabricmc.api.EnvType;

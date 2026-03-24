@@ -10,7 +10,7 @@ import java.util.List;
 
 public enum Drug {
     HASH(
-            milligrams(25), micrograms(400), minutes(1), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
+            milligrams(25), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
     ),
     DIPHENHYDRAMINE(
             milligrams(300), milligrams(25), minutes(3), seconds(10), seconds(45), fromID("dph"),
@@ -41,13 +41,13 @@ public enum Drug {
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     ),
     LSD(
-            milligrams(25), milligrams(5), minutes(5), seconds(40), seconds(70), fromID("lsd"),
+            milligrams(25), milligrams(5), minutes(4), seconds(40), seconds(70), fromID("lsd"),
             List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
                     new DrugSideEffect(fromID("dynamic_color"), milligrams(20), milligrams(20), 6, 9),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     ),
     PSILOCYBIN(
-            milligrams(25), milligrams(5), minutes(4), seconds(30), seconds(60), fromID("psilocybin"),
+            milligrams(25), milligrams(5), seconds(200), seconds(30), seconds(60), fromID("psilocybin"),
             List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(8), 9, 19),
                     new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(25), 2, 19),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),

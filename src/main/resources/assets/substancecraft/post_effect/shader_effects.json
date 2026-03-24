@@ -9,8 +9,7 @@
       "inputs": [
         {
           "sampler_name": "In",
-          "target": "minecraft:main",
-          "bilinear": true
+          "target": "minecraft:main"
         }
       ],
       "output": "swap",

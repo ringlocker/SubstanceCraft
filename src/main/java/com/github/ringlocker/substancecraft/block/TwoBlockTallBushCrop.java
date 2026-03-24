@@ -1,6 +1,5 @@
-package com.github.ringlocker.substancecraft.block.blocks;
+package com.github.ringlocker.substancecraft.block;
 
-import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
