@@ -15,12 +15,16 @@ layout(std140) uniform Config {
     int dynamicColorEnabled;
     int mosaicEnabled;
     int surfaceWarpEnabled;
+    int doubleVisionEnabled;
     float saturation;
     float resolution;
     float time;
     float hueIntensity;
     float mosaicSize;
     float warpIntensity;
+    float doubleVisionIntensity;
+    float doubleVisionDistance;
+    float doubleVisionStretch;
 };
 
 out vec4 fragColor;
@@ -95,6 +99,13 @@ vec2 applyMosaicUV(vec2 pixelCoord) {
     return snappedPixel + 0.5;
 }
 
+vec4 applyDoubleVision(vec4 value) {
+    vec3 newColor = value.rgb * max(0.2, 1.0 - (0.05 * doubleVisionIntensity));
+    newColor += texture(InSampler, vec2(0.5 + (texCoord.s - 0.5) / doubleVisionStretch + doubleVisionDistance, texCoord.t)).rgb * min(0.4, (0.05 * doubleVisionIntensity));
+    newColor += texture(InSampler, vec2(0.5 + (texCoord.s - 0.5) / doubleVisionStretch - doubleVisionDistance, texCoord.t)).rgb * min(0.4, (0.05 * doubleVisionIntensity));
+    return vec4(mix(value.rgb, newColor, 1.0), value.a);
+}
+
 void main() {
     // pixel modifications
     vec2 pixelCoord = texCoord * InSize;
@@ -120,5 +131,9 @@ void main() {
     if (dynamicColorEnabled == 1) {
         value = applyDynamicColor(value);
     }
+    if (doubleVisionEnabled == 1) {
+        value = applyDoubleVision(value);
+    }
+
     fragColor = value;
 }

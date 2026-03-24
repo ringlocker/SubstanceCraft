@@ -16,7 +16,8 @@ public class PlayerEffectState {
             SubstanceCraftEffects.COLOR_ENHANCEMENT, -1,
             SubstanceCraftEffects.COLOR_RESOLUTION, -1,
             SubstanceCraftEffects.DYNAMIC_COLOR, -1,
-            SubstanceCraftEffects.SURFACE_WARP, -1
+            SubstanceCraftEffects.SURFACE_WARP, -1,
+            SubstanceCraftEffects.DOUBLE_VISION, -1
     ));
 
     private static boolean updateUniforms = true;
@@ -26,11 +27,8 @@ public class PlayerEffectState {
             if (player.hasEffect(mobEffect)) {
                 MobEffectInstance instance = player.getEffect(mobEffect);
                 if (instance != null) {
-                    int amplifier = instance.getAmplifier();
-                    if (effectAmplifiers.get(mobEffect) != amplifier || mobEffect.equals(SubstanceCraftEffects.DYNAMIC_COLOR)) {
-                        updateUniforms = true;
-                    }
-                    effectAmplifiers.put(mobEffect, amplifier);
+                    updateUniforms = true;
+                    effectAmplifiers.put(mobEffect, instance.getAmplifier());
                 }
             } else {
                 if (effectAmplifiers.get(mobEffect) != -1) {

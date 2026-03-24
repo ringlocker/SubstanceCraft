@@ -42,6 +42,11 @@
             "value": 0
           },
           {
+            "name": "doubleVisionEnabled",
+            "type": "int",
+            "value": 0
+          },
+          {
             "name": "saturation",
             "type": "float",
             "value": 1.0
@@ -68,6 +73,21 @@
           },
           {
             "name": "warpIntensity",
+            "type": "float",
+            "value": 1.0
+          },
+          {
+            "name": "doubleVisionIntensity",
+            "type": "float",
+            "value": 1.0
+          },
+          {
+            "name": "doubleVisionDistance",
+            "type": "float",
+            "value": 1.0
+          },
+          {
+            "name": "doubleVisionStretch",
             "type": "float",
             "value": 1.0
           }

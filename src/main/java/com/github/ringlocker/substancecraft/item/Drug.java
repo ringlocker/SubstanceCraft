@@ -54,7 +54,8 @@ public enum Drug {
             milligrams(25), milligrams(5), minutes(4), seconds(30), seconds(60), fromID("psilocybin"),
             List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(8), 9, 19),
                     new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(25), 2, 19),
-                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
+                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
+                    new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(20), 3))
     ),
     MESCALINE(
             milligrams(25), milligrams(5), minutes(3), seconds(10), seconds(45), fromID("mescaline"),

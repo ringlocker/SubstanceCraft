@@ -46,6 +46,7 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> TIME_COMPRESSION = register("time_compression", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> TIME_DILATION = register("time_dilation", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> SURFACE_WARP = register("surface_warp", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> DOUBLE_VISION = register("double_vision", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         Identifier identifier = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);
