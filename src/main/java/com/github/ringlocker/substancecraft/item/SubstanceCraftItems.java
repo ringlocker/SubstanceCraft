@@ -105,6 +105,7 @@ public class SubstanceCraftItems {
     public static final Item CARBON_DIOXIDE = registerItem("carbon_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item CASH = registerItem("cash", Item::new, new Item.Properties());
     public static final Item BAND = registerItem("band", Item::new, new Item.Properties());
+    public static final Item GRAPES = registerItem("grapes", Item::new, new Item.Properties());
     public static final Item WINE_LEES = registerItem("wine_lees", Item::new, new Item.Properties());
     public static final Item POTASSIUM_BITARTRATE = registerItem("potassium_bitartrate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item LIMESTONE = registerItem("limestone", Item::new, new Item.Properties());

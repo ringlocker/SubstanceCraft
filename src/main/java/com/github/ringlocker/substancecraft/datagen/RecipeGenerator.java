@@ -156,6 +156,14 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         SubstanceCraftItems.BAND, "band", "cash"
                 );
 
+            shapeless(
+                    RecipeCategory.MISC,
+                    SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.GRAPEVINE)
+                    )
+                    .requires(SubstanceCraftItems.GRAPES)
+                    .unlockedBy("has_item", has(SubstanceCraftItems.GRAPES))
+                    .save(recipeOutput, key("grapevine"));
+
                 HashPressRecipeBuilder.press(
                                 List.of(Ingredient.of(SubstanceCraftItems.MARIJUANA)),
                                 SubstanceCraftItems.HASH,

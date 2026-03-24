@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
+import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
@@ -17,9 +18,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class GrapevineBlock extends TwoBlockTallBushCrop {
+public class Grapevine extends TwoBlockTallBushCrop {
 
-    public static final MapCodec<GrapevineBlock> CODEC = simpleCodec(GrapevineBlock::new);
+    public static final MapCodec<Grapevine> CODEC = simpleCodec(Grapevine::new);
     public static final IntegerProperty AGE_PROPERTY = BlockStateProperties.AGE_7;
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[] {
@@ -33,9 +34,8 @@ public class GrapevineBlock extends TwoBlockTallBushCrop {
             Block.box(0.0, 0.0, 0.0, 16.0, 7.0, 16.0)
     };
 
-    public GrapevineBlock(Properties properties) {
+    public Grapevine(Properties properties) {
         super(properties, 7, AGE_PROPERTY, 4);
-
     }
 
     @Override
@@ -62,7 +62,8 @@ public class GrapevineBlock extends TwoBlockTallBushCrop {
 
     @Override
     protected void harvest(Level level, BlockPos pos) {
-
+        popResource(level, pos, new ItemStack(SubstanceCraftItems.GRAPES, 1));
+        popResource(level, pos, new ItemStack(SubstanceCraftItems.GRAPES, 1 + level.random.nextInt(2) == 1 ? 1 : 0));
     }
 
 }

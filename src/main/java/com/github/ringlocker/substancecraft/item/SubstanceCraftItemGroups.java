@@ -116,6 +116,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.ERGOT);
         entries.accept(SubstanceCraftItems.COCA_LEAVES);
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.GRAPEVINE));
+        entries.accept(SubstanceCraftItems.GRAPES);
         entries.accept(SubstanceCraftItems.WINE_LEES);
     }
 
