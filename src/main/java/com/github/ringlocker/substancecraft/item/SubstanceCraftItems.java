@@ -106,6 +106,7 @@ public class SubstanceCraftItems {
     public static final Item CASH = registerItem("cash", Item::new, new Item.Properties());
     public static final Item BAND = registerItem("band", Item::new, new Item.Properties());
     public static final Item GRAPES = registerItem("grapes", Item::new, new Item.Properties());
+    public static final Item RED_WINE = registerItem("red_wine", properties -> new DrugItem(properties, Drug.WINE), alwaysEatProperties());
     public static final Item WINE_LEES = registerItem("wine_lees", Item::new, new Item.Properties());
     public static final Item POTASSIUM_BITARTRATE = registerItem("potassium_bitartrate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item LIMESTONE = registerItem("limestone", Item::new, new Item.Properties());
@@ -118,6 +119,7 @@ public class SubstanceCraftItems {
     public static final Item DIETHYL_ETHER = registerItem("diethyl_ether", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item ERGOTAMINE_SULFATE = registerItem("ergotamine_sulfate", properties -> new SubstanceItem(properties, SubstanceTintColors.VERY_LIGHT_YELLOW_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item SILICA = registerItem("silica", properties -> new SubstanceItem(properties, SubstanceTintColors.OPAQUE_WHITE_SOLID, MatterState.SOLID), new Item.Properties());
+    public static final Item PHOSPHORITE = registerItem("phosphorite", Item::new, new Item.Properties());
     public static final Item FLOUROAPATITE = registerItem("flouroapatite", Item::new, new Item.Properties());
     public static final Item WHITE_PHOSPHORUS = registerItem("white_phosphorus", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item RED_PHOSPHORUS = registerItem("red_phosphorus", properties -> new SubstanceItem(properties, SubstanceTintColors.RED_SOLID, MatterState.SOLID), new Item.Properties());

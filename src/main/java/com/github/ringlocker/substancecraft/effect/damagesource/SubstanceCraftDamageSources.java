@@ -13,6 +13,7 @@ public class SubstanceCraftDamageSources {
 
     public static final ResourceKey<DamageType> OVERDOSE = fromID("overdose");
     public static final ResourceKey<DamageType> CARDIAC_ARREST = fromID("cardiac_arrest");
+    public static final ResourceKey<DamageType> ALCOHOL_POISONING = fromID("alcohol_poisoning");
 
     public static void registerDamageSources() {
     }

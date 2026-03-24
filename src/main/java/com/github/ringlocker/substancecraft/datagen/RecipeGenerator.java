@@ -505,6 +505,14 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.ERGOT))
                         .save(recipeOutput, key("extract_ergotamine"));
 
+                ExtractorRecipeBuilder.extract(
+                                List.of(Ingredient.of(SubstanceCraftItems.PHOSPHORITE)),
+                                SubstanceCraftItems.FLOUROAPATITE,
+                                1200
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ERGOT))
+                        .save(recipeOutput, key("extract_flouroapatite"));
+
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SALT), Ingredient.of(Items.POTION)),
                                 SubstanceCraftItems.BRINE,
@@ -919,6 +927,22 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.ERGOT))
                         .unlockedBy("has_item", has(Items.SUGAR))
                         .save(recipeOutput, key("ferment_ergot"));
+
+
+                FermentationTankRecipeBuilder.ferment(
+                                List.of(Ingredient.of(SubstanceCraftItems.GRAPES), Ingredient.of(SubstanceCraftItems.YEAST)),
+                                SubstanceCraftItems.RED_WINE,
+                                List.of(new ItemStack(SubstanceCraftItems.WINE_LEES, 50 >> 2)),
+                                2000
+                        )
+                        .setOutputCount(2)
+                        .unlockedBy("has_item", has(SubstanceCraftItems.GRAPES))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.YEAST))
+                        .save(recipeOutput, key("ferment_wine"));
+
+
+
+
             }
         };
     }

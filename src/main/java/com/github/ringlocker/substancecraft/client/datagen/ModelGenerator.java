@@ -57,7 +57,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PYROLUSITE_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.LIMESTONE);
-        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.FLOUROAPATITE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PHOSPHORITE);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.GRAPEVINE, BlockModelGenerators.PlantType.TINTED, Grapevine.AGE_PROPERTY, 0, 1, 2, 3, 4, 5, 6, 7);
     }
 

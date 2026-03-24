@@ -10,11 +10,7 @@ import java.util.List;
 
 public enum Drug {
     HASH(
-            milligrams(25), micrograms(400), minutes(1), seconds(3), seconds(20), fromID("stoned"),
-            List.of(new DrugSideEffect(fromID("slow"), milligrams(30), milligrams(35), 9),
-                    new DrugSideEffect(fromID("hungry"), milligrams(10), milligrams(25), 9),
-                    new DrugSideEffect(fromID("color_enhancement"), milligrams(100), milligrams(50), 3),
-                    new DrugSideEffect(fromID("color_resolution"), milligrams(100), milligrams(40), 5))
+            milligrams(25), micrograms(400), minutes(1), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
     ),
     DIPHENHYDRAMINE(
             milligrams(300), milligrams(25), minutes(3), seconds(10), seconds(45), fromID("dph"),
@@ -63,6 +59,9 @@ public enum Drug {
                     new DrugSideEffect(fromID("color_resolution"), milligrams(10), milligrams(10), 15, 18),
                     new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
+    ),
+    WINE( // gram=oz approx
+            grams(20), grams(10), minutes(3), seconds(10), seconds(60), fromID("alcohol"), DrugSideEffect.ETHANOL_EFFECTS
     );
 
     private final float dose;
@@ -162,7 +161,19 @@ public enum Drug {
         return minutes * 1200;
     }
 
-    public record DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier, int hardAmplifierLimit) {
+    public record DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier,
+                                 int hardAmplifierLimit) {
+
+        private static final List<DrugSideEffect> THC_EFFECTS = List.of(
+                new DrugSideEffect(fromID("hungry"), milligrams(10), milligrams(25), 9),
+                new DrugSideEffect(fromID("color_enhancement"), milligrams(100), milligrams(50), 3),
+                new DrugSideEffect(fromID("color_resolution"), milligrams(100), milligrams(40), 5)
+        );
+
+        private static final List<DrugSideEffect> ETHANOL_EFFECTS = List.of(
+                new DrugSideEffect(fromID("double_vision"), grams(50), grams(15), 9),
+                new DrugSideEffect(fromID("alcohol_poisoning"), grams(250), grams(50), 9)
+        );
 
         public DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier) {
             this(effect, threshold, amplifyEvery, maxAmplifier, 255);
@@ -176,6 +187,6 @@ public enum Drug {
             return Math.clamp(amplifier, 0, maxAmplifier);
         }
 
-    }
 
+    }
 }

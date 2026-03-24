@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:white_phosphorus_0",
+  "parent": "substancecraft:wine_lees_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,14 +7,14 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Extract",
+    "description": "Ferment",
     "icon": {
       "count": 1,
-      "id": "substancecraft:flouroapatite"
+      "id": "substancecraft:yeast"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.flouroapatite"
+      "translate": "item.substancecraft.yeast"
     }
   },
   "requirements": [

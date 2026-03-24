@@ -72,6 +72,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE);
         entries.accept(SubstanceCraftItems.PSILOCYBIN);
         entries.accept(SubstanceCraftItems.MESCALINE);
+        entries.accept(SubstanceCraftItems.RED_WINE);
         entries.accept(SubstanceCraftItems.CASH);
         entries.accept(SubstanceCraftItems.BAND);
     }
@@ -94,7 +95,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PYROLUSITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.LIMESTONE));
-        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FLOUROAPATITE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PHOSPHORITE));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {
@@ -105,6 +106,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.RAW_SULFUR);
         entries.accept(SubstanceCraftItems.PYROLUSITE);
         entries.accept(SubstanceCraftItems.LIMESTONE);
+        entries.accept(SubstanceCraftItems.PHOSPHORITE);
         entries.accept(SubstanceCraftItems.FLOUROAPATITE);
     }
 

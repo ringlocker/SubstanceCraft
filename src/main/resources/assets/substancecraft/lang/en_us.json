@@ -27,7 +27,8 @@
   "block.substancecraft.pyrolusite_ore": "Pyrolusite Ore",
   "block.substancecraft.deepslate_pyrolusite_ore": "Deepslate Pyrolusite Ore",
   "block.substancecraft.limestone_block": "Limestone",
-  "block.substancecraft.flouroapatite_block": "Flouroapatite",
+  "block.substancecraft.phosphorite_block": "Phosphorite Block",
+  "block.substancecraft.grapevine": "Grapevine Seeds",
 
   "effect.substancecraft.fast": "Zoomies",
   "effect.substancecraft.slow": "Slow",
@@ -38,11 +39,14 @@
   "effect.substancecraft.cardiac_arrest": "Cardiac Arrest",
   "effect.substancecraft.color_enhancement": "Color Enhancement",
   "effect.substancecraft.color_resolution": "Color Distortion",
-  "effect.substancecraft.mosaic": "Visual Distortion",
+  "effect.substancecraft.mosaic": "Visual Blur",
   "effect.substancecraft.dynamic_color": "Color Shifting",
   "effect.substancecraft.overdose": "Overdose",
   "effect.substancecraft.time_compression": "Time Compression",
   "effect.substancecraft.time_dilation": "Time Dilation",
+  "effect.substancecraft.surface_warp": "Visual Distortion",
+  "effect.substancecraft.double_vision": "Double Vision",
+  "effect.substancecraft.alcohol_poisoning": "Alcohol Poisoning",
 
   "effect.substancecraft.dph": "Diphenhydramine",
   "effect.substancecraft.coke": "Cocaine",
@@ -50,9 +54,13 @@
   "effect.substancecraft.amphetamine": "Geeked",
   "effect.substancecraft.two_cb": "2C-B",
   "effect.substancecraft.lsd": "LSD",
+  "effect.substancecraft.psilocybin": "Psilocybin",
+  "effect.substancecraft.mescaline": "Mescaline",
+  "effect.substancecraft.alcohol": "Drunk",
 
   "death.attack.overdose": "%1$s overdosed",
   "death.attack.cardiac_arrest": "%1$s died from cardiac arrest",
+  "death.attack.alcohol_poisoning": "%1$s died from alcohol poisoning",
 
   "entity.substancecraft.dealer": "Dealer",
 
@@ -151,6 +159,7 @@
   "item.substancecraft.ergotamine_sulfate": "Ergotamine Sulfate",
   "item.substancecraft.diethyl_ether": "Diethyl Ether",
   "item.substancecraft.silica": "Silica",
+  "item.substancecraft.phosphorite": "Phosphorite",
   "item.substancecraft.flouroapatite": "Flouroapatite",
   "item.substancecraft.white_phosphorus": "White Phosphorus",
   "item.substancecraft.red_phosphorus": "Red Phosphorus",
@@ -162,5 +171,7 @@
   "item.substancecraft.magnesium_sulfate": "Magnesium Sulfate",
   "item.substancecraft.lysergic_acid_diethylamine": "LSD",
   "item.substancecraft.psilocybin": "Psilocybin",
-  "item.substancecraft.mescaline": "Mescaline"
+  "item.substancecraft.mescaline": "Mescaline",
+  "item.substancecraft.grapes": "Grapes",
+  "item.substancecraft.red_wine": "Red Wine"
 }
