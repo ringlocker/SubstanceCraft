@@ -38,21 +38,7 @@ public class ShaderEffectTicker {
     private static void updateBuffer(PostPass postPass) {
         try (MemoryStack stack = MemoryStack.stackPush()) {
             Std140Builder builder = Std140Builder.onStack(stack, 4 * uniformsCount);
-            builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.COLOR_ENHANCEMENT) ? 1 : 0);
-            builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.COLOR_RESOLUTION) ? 1 : 0);
-            builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.DYNAMIC_COLOR) ? 1 : 0);
-            builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.MOSAIC) ? 1 : 0);
-            builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.SURFACE_WARP) ? 1 : 0);
-            builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.DOUBLE_VISION) ? 1 : 0);
-            builder.putFloat(1.0F + ((PlayerEffectState.strength(SubstanceCraftEffects.COLOR_ENHANCEMENT) + 1) * 0.2F));
-            builder.putFloat(23F - (PlayerEffectState.strength(SubstanceCraftEffects.COLOR_RESOLUTION) + 1));
-            builder.putFloat((float) getTime());
-            builder.putFloat(0.05F * (PlayerEffectState.strength(SubstanceCraftEffects.DYNAMIC_COLOR) + 1));
-            builder.putFloat(1.0F + (0.2F * (float) (PlayerEffectState.strength(SubstanceCraftEffects.MOSAIC) + 1)));
-            builder.putFloat(0.33F * (float) (PlayerEffectState.strength(SubstanceCraftEffects.SURFACE_WARP) + 1));
-            builder.putFloat(PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION) + 3);
-            builder.putFloat((float) (Math.sin(getTime() / 60F) * 0.005f * (1 + Math.max(8, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION)))));
-            builder.putFloat(1.1f + (Math.max(8, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION))) / 6.66f);
+            setUniforms(builder);
             GpuBuffer newBuf = RenderSystem.getDevice().createBuffer(
                     () -> postPass + " " + uniformName,
                     (uniformsCount * 4 * 8),
@@ -64,6 +50,24 @@ public class ShaderEffectTicker {
         } finally {
             PlayerEffectState.updated();
         }
+    }
+
+    private static void setUniforms(Std140Builder builder) {
+        builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.COLOR_ENHANCEMENT) ? 1 : 0);
+        builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.COLOR_RESOLUTION) ? 1 : 0);
+        builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.DYNAMIC_COLOR) ? 1 : 0);
+        builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.MOSAIC) ? 1 : 0);
+        builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.SURFACE_WARP) ? 1 : 0);
+        builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.DOUBLE_VISION) ? 1 : 0);
+        builder.putFloat(1.0F + ((PlayerEffectState.strength(SubstanceCraftEffects.COLOR_ENHANCEMENT) + 1) * 0.2F));
+        builder.putFloat(23F - (PlayerEffectState.strength(SubstanceCraftEffects.COLOR_RESOLUTION) + 1));
+        builder.putFloat((float) getTime());
+        builder.putFloat(0.05F * (PlayerEffectState.strength(SubstanceCraftEffects.DYNAMIC_COLOR) + 1));
+        builder.putFloat(1.0F + (0.2F * (float) (PlayerEffectState.strength(SubstanceCraftEffects.MOSAIC) + 1)));
+        builder.putFloat(0.33F * (float) (PlayerEffectState.strength(SubstanceCraftEffects.SURFACE_WARP) + 1));
+        builder.putFloat(PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION) + 3);
+        builder.putFloat((float) (Math.sin(getTime() / 60F) * 0.005f * (1 + Math.max(8, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION)))));
+        builder.putFloat(1.1f + (Math.max(8, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION))) / 6.66f);
     }
 
     private static int getTime() {
