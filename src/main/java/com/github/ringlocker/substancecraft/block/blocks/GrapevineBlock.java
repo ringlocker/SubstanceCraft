@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
@@ -9,6 +8,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -17,9 +17,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class MarijuanaPlant extends TwoBlockTallBushCrop {
+public class GrapevineBlock extends TwoBlockTallBushCrop {
 
-    public static final MapCodec<MarijuanaPlant> CODEC = simpleCodec(MarijuanaPlant::new);
+    public static final MapCodec<GrapevineBlock> CODEC = simpleCodec(GrapevineBlock::new);
     public static final IntegerProperty AGE_PROPERTY = BlockStateProperties.AGE_7;
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[] {
@@ -33,12 +33,13 @@ public class MarijuanaPlant extends TwoBlockTallBushCrop {
             Block.box(0.0, 0.0, 0.0, 16.0, 7.0, 16.0)
     };
 
-    public MarijuanaPlant(Properties properties) {
+    public GrapevineBlock(Properties properties) {
         super(properties, 7, AGE_PROPERTY, 4);
+
     }
 
     @Override
-    public @NotNull MapCodec<MarijuanaPlant> codec() {
+    protected MapCodec<? extends VegetationBlock> codec() {
         return CODEC;
     }
 
@@ -53,17 +54,15 @@ public class MarijuanaPlant extends TwoBlockTallBushCrop {
         return AGE_TO_SHAPE[state.getValue(this.AGE)];
     }
 
+
     @Override
     protected @NotNull ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean bl) {
-        return new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT));
+        return new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE));
     }
 
     @Override
     protected void harvest(Level level, BlockPos pos) {
-        popResource(level, pos, new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT), 1));
-        popResource(level, pos, new ItemStack(SubstanceCraftItems.MARIJUANA, 1));
-        popResource(level, pos, new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM, 1 + level.random.nextInt(2) == 1 ? 1 : 0));
-        popResource(level, pos, new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM, 1 + level.random.nextInt(2) == 1 ? 1 : 0));
+
     }
 
 }

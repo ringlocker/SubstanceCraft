@@ -46,6 +46,7 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
         BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.CORN_CROP, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.COCA_CROP, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.GRAPEVINE, ChunkSectionLayer.CUTOUT);
     }
 
     private void registerBlockEntityRenderers() {

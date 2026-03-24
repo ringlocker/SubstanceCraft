@@ -35,6 +35,7 @@ public abstract class TwoBlockTallBushCrop extends BushLikeCrop {
 
     public TwoBlockTallBushCrop(Properties properties, int maxAge, IntegerProperty age, int oneBlockMaxAge) {
         super(properties, maxAge, age);
+        this.registerDefaultState(this.defaultBlockState().setValue(this.AGE, 0).setValue(HALF, DoubleBlockHalf.LOWER));
         this.oneBlockMaxAge = oneBlockMaxAge;
     }
 

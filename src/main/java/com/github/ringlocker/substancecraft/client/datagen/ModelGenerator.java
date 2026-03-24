@@ -3,6 +3,7 @@ package com.github.ringlocker.substancecraft.client.datagen;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
+import com.github.ringlocker.substancecraft.block.blocks.GrapevineBlock;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
@@ -57,6 +58,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.LIMESTONE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.FLOUROAPATITE);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.GRAPEVINE, BlockModelGenerators.PlantType.TINTED, GrapevineBlock.AGE_PROPERTY, 0, 1, 2, 3, 4, 5, 6, 7);
     }
 
     @Override
