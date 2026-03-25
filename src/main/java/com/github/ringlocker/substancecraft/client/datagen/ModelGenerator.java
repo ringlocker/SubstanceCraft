@@ -5,6 +5,7 @@ import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
 import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
+import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
 import com.github.ringlocker.substancecraft.item.items.SubstanceItem;
@@ -59,6 +60,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.LIMESTONE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PHOSPHORITE);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.GRAPEVINE, BlockModelGenerators.PlantType.TINTED, Grapevine.AGE_PROPERTY, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
     }
 
     @Override

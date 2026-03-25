@@ -49,7 +49,7 @@ public enum Drug {
     PSILOCYBIN(
             milligrams(25), milligrams(5), seconds(200), seconds(30), seconds(60), fromID("psilocybin"),
             List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(8), 9, 19),
-                    new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(25), 2, 19),
+                    new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(25), 4, 19),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
                     new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(20), 3))
     ),
@@ -60,8 +60,8 @@ public enum Drug {
                     new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     ),
-    WINE( // gram=oz approx
-            grams(20), grams(10), minutes(3), seconds(10), seconds(60), fromID("alcohol"), DrugSideEffect.ETHANOL_EFFECTS
+    WINE(
+            grams(25), grams(10), minutes(3), seconds(10), seconds(60), fromID("alcohol"), DrugSideEffect.ETHANOL_EFFECTS
     );
 
     private final float dose;

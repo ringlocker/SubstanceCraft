@@ -103,7 +103,7 @@ vec4 applyDoubleVision(vec4 value) {
     vec3 newColor = value.rgb * max(0.2, 1.0 - (0.05 * doubleVisionIntensity));
     newColor += texture(InSampler, vec2(0.5 + (texCoord.s - 0.5) / doubleVisionStretch + doubleVisionDistance, texCoord.t)).rgb * min(0.4, (0.05 * doubleVisionIntensity));
     newColor += texture(InSampler, vec2(0.5 + (texCoord.s - 0.5) / doubleVisionStretch - doubleVisionDistance, texCoord.t)).rgb * min(0.4, (0.05 * doubleVisionIntensity));
-    return vec4(mix(value.rgb, newColor, 1.0), value.a);
+    return vec4(mix(value.rgb, newColor, 0.95), value.a);
 }
 
 void main() {

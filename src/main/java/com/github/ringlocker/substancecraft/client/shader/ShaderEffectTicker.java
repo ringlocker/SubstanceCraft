@@ -65,8 +65,8 @@ public class ShaderEffectTicker {
         builder.putFloat(0.05F * (PlayerEffectState.strength(SubstanceCraftEffects.DYNAMIC_COLOR) + 1));
         builder.putFloat(1.0F + (0.2F * (float) (PlayerEffectState.strength(SubstanceCraftEffects.MOSAIC) + 1)));
         builder.putFloat(0.33F * (float) (PlayerEffectState.strength(SubstanceCraftEffects.SURFACE_WARP) + 1));
-        builder.putFloat(PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION) + 3);
-        builder.putFloat((float) (Math.sin(getTime() / 60F) * 0.005f * (1 + Math.max(8, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION)))));
+        builder.putFloat(PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION) + 1);
+        builder.putFloat(0.005f * (1 + Math.max(8, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION))));
         builder.putFloat(1.1f + (Math.max(8, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION))) / 6.66f);
     }
 
