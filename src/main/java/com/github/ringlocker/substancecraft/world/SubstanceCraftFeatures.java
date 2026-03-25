@@ -58,6 +58,16 @@ public class SubstanceCraftFeatures {
                 GenerationStep.Decoration.UNDERGROUND_ORES,
                 ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "ore_pyrolusite"))
         );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(BiomeTags.IS_OVERWORLD),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "ore_limestone"))
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(BiomeTags.IS_OVERWORLD),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "ore_phosphorite"))
+        );
     }
 
 }
