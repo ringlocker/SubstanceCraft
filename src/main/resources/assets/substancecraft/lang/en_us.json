@@ -29,6 +29,8 @@
   "block.substancecraft.limestone_block": "Limestone",
   "block.substancecraft.phosphorite_block": "Phosphorite Block",
   "block.substancecraft.grapevine": "Grapevine Seeds",
+  "block.substancecraft.peyote_cactus": "Peyote Cactus",
+  "block.substancecraft.psilocybin": "Psilocybin",
 
   "effect.substancecraft.fast": "Zoomies",
   "effect.substancecraft.slow": "Slow",
@@ -170,8 +172,8 @@
   "item.substancecraft.magnesium": "Magnesium",
   "item.substancecraft.magnesium_sulfate": "Magnesium Sulfate",
   "item.substancecraft.lysergic_acid_diethylamine": "LSD",
-  "item.substancecraft.psilocybin": "Psilocybin",
   "item.substancecraft.mescaline": "Mescaline",
   "item.substancecraft.grapes": "Grapes",
-  "item.substancecraft.red_wine": "Red Wine"
+  "item.substancecraft.red_wine": "Red Wine",
+  "item.substancecraft.xylene": "Xylene"
 }

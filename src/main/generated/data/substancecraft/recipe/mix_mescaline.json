@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:peyote_cactus",
+    "substancecraft:xylene",
+    "substancecraft:sodium_hydroxide",
+    "substancecraft:sulfuric_acid"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:mescaline"
+  },
+  "time": 800
+}

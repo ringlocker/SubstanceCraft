@@ -70,7 +70,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.AMPHETAMINE);
         entries.accept(SubstanceCraftItems.COCAINE);
         entries.accept(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE);
-        entries.accept(SubstanceCraftItems.PSILOCYBIN);
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PSILOCYBIN));
         entries.accept(SubstanceCraftItems.MESCALINE);
         entries.accept(SubstanceCraftItems.RED_WINE);
         entries.accept(SubstanceCraftItems.CASH);
@@ -120,6 +120,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.GRAPEVINE));
         entries.accept(SubstanceCraftItems.GRAPES);
         entries.accept(SubstanceCraftItems.WINE_LEES);
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PEYOTE_CACTUS));
     }
 
     private static void addSubstanceItems(CreativeModeTab.Output entries) {
@@ -202,6 +203,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.D_LYSERGIC_ACID_HYDRATE);
         entries.accept(SubstanceCraftItems.MAGNESIUM);
         entries.accept(SubstanceCraftItems.MAGNESIUM_SULFATE);
+        entries.accept(SubstanceCraftItems.XYLENE);
     }
 
 }

@@ -26,4 +26,5 @@ public class DrugItem extends Item {
         if (!level.isClientSide()) SubstanceEffectTicker.playerConsumeDrug((ServerPlayer) player, drug);
         return stack;
     }
+
 }

@@ -1,10 +1,10 @@
 package com.github.ringlocker.substancecraft.block;
 
-import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -27,11 +27,13 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
 
     private final IntegerProperty AGE;
     private final int maxAge;
+    private final boolean doSpread;
 
-    public MushroomWithGrowthStages(BlockBehaviour.Properties properties, int maxAge, IntegerProperty age) {
+    public MushroomWithGrowthStages(BlockBehaviour.Properties properties, int maxAge, IntegerProperty age, boolean doSpread) {
         super(properties);
         this.AGE = age;
         this.maxAge = maxAge;
+        this.doSpread = doSpread;
         registerDefaultState(defaultBlockState().setValue(AGE, 0));
     }
 
@@ -40,9 +42,11 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
         return SHAPE;
     }
 
+    public abstract Item getDropItem();
+
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        trySpread(state, level, pos, random);
+        if (doSpread) trySpread(state, level, pos, random);
         int rand = (level.getBlockState(pos.below()).is(BlockTags.MUSHROOM_GROW_BLOCK)) ? random.nextInt(21) : random.nextInt(36);
         if (rand == 0) {
             if (state.getValue(AGE) < maxAge) {
@@ -82,7 +86,7 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
 
     @Override
     protected List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
-        return List.of(new ItemStack(SubstanceCraftItems.PSILOCYBIN, state.getValue(AGE) + 1));
+        return List.of(new ItemStack(getDropItem(), state.getValue(AGE) + 1));
     }
 
     private void trySpread(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {

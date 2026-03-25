@@ -302,6 +302,15 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.PETROLEUM_NAPHTHA))
                         .save(recipeOutput, key("reform_toluene"));
 
+                RefineryRecipeBuilder.refine(
+                                List.of(Ingredient.of(SubstanceCraftItems.BENZENE), Ingredient.of(SubstanceCraftItems.TOLUENE)),
+                                SubstanceCraftItems.XYLENE,
+                                REFINE_TIME
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.BENZENE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.TOLUENE))
+                        .save(recipeOutput, key("reform_xylene"));
+
                 OxidizerRecipeBuilder.oxidize(
                                 List.of(Ingredient.of(SubstanceCraftItems.METHANOL)),
                                 SubstanceCraftItems.FORMALDEHYDE,
@@ -898,6 +907,17 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.MAGNESIUM_SULFATE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.PHOSPHORYL_CHLORIDE))
                         .save(recipeOutput, key("mix_lysergic_acid_diethylamide"));
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PEYOTE_CACTUS)), Ingredient.of(SubstanceCraftItems.XYLENE), Ingredient.of(SubstanceCraftItems.SODIUM_HYDROXIDE), Ingredient.of(SubstanceCraftItems.SULFURIC_ACID)),
+                                SubstanceCraftItems.MESCALINE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PEYOTE_CACTUS)))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.XYLENE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_HYDROXIDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .save(recipeOutput, key("mix_mescaline"));
 
                 FermentationTankRecipeBuilder.ferment(
                                 List.of(Ingredient.of(SubstanceCraftItems.YEAST), Ingredient.of(SubstanceCraftItems.CORN)),

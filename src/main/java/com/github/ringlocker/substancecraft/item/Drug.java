@@ -41,20 +41,20 @@ public enum Drug {
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     ),
     LSD(
-            milligrams(25), milligrams(5), minutes(4), seconds(40), seconds(70), fromID("lsd"),
+            milligrams(25), milligrams(5), minutes(4), seconds(30), seconds(70), fromID("lsd"),
             List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
                     new DrugSideEffect(fromID("dynamic_color"), milligrams(20), milligrams(20), 6, 9),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     ),
     PSILOCYBIN(
-            milligrams(25), milligrams(5), seconds(200), seconds(30), seconds(60), fromID("psilocybin"),
-            List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(8), 9, 19),
-                    new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(25), 4, 19),
+            milligrams(25), milligrams(5), seconds(200), seconds(20), seconds(60), fromID("psilocybin"),
+            List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(10), 9, 19),
+                    new DrugSideEffect(fromID("color_enhancement"), milligrams(15), milligrams(15), 4, 19),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
-                    new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(20), 3))
+                    new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(15), 3))
     ),
     MESCALINE(
-            milligrams(25), milligrams(5), minutes(3), seconds(10), seconds(45), fromID("mescaline"),
+            milligrams(25), milligrams(5), minutes(3), seconds(20), seconds(70), fromID("mescaline"),
             List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
                     new DrugSideEffect(fromID("color_resolution"), milligrams(10), milligrams(10), 15, 18),
                     new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),

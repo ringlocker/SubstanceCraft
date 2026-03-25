@@ -10,18 +10,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
-public class PsilocybinMushroom extends MushroomWithGrowthStages {
+public class PeyoteCactus extends MushroomWithGrowthStages {
 
     public static IntegerProperty AGE = IntegerProperty.create("age", 0, 2);
-    public static final MapCodec<MushroomWithGrowthStages> CODEC = simpleCodec(PsilocybinMushroom::new);
+    public static final MapCodec<PeyoteCactus> CODEC = simpleCodec(PeyoteCactus::new);
 
-    public PsilocybinMushroom(Properties properties) {
-        super(properties, 2, AGE, true);
-    }
-
-    @Override
-    public Item getDropItem() {
-        return SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PSILOCYBIN);
+    public PeyoteCactus(Properties properties) {
+        super(properties, 2, AGE, false);
     }
 
     @Override
@@ -32,6 +27,11 @@ public class PsilocybinMushroom extends MushroomWithGrowthStages {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE);
+    }
+
+    @Override
+    public Item getDropItem() {
+        return SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PEYOTE_CACTUS);
     }
 
 }
