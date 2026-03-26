@@ -3,7 +3,10 @@ package com.github.ringlocker.substancecraft.block.blocks;
 import com.github.ringlocker.substancecraft.block.MushroomWithGrowthStages;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,6 +25,13 @@ public class PeyoteCactus extends MushroomWithGrowthStages {
     @Override
     protected MapCodec<? extends VegetationBlock> codec() {
         return CODEC;
+    }
+
+    @Override
+    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        BlockPos belowPos = pos.below();
+        BlockState below = level.getBlockState(belowPos);
+        return below.is(BlockTags.SAND);
     }
 
     @Override

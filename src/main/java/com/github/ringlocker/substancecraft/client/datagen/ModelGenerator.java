@@ -1,5 +1,6 @@
 package com.github.ringlocker.substancecraft.client.datagen;
 
+import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
@@ -30,6 +31,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 @Environment(EnvType.CLIENT)
 public class ModelGenerator extends FabricModelProvider {
@@ -62,13 +64,28 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PHOSPHORITE);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.GRAPEVINE, BlockModelGenerators.PlantType.TINTED, Grapevine.AGE_PROPERTY, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
-        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PEYOTE_CACTUS, BlockModelGenerators.PlantType.TINTED, PeyoteCactus.AGE, 0, 1, 2);
+        createSeaPickleLike(blockStateModelGenerator, SubstanceCraftBlocks.PEYOTE_CACTUS, PeyoteCactus.AGE, "peyote_stage");
     }
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
         SubstanceCraftItems.substances.forEach(substance -> generateSubstanceItem(substance, itemModelGenerator));
         SubstanceCraftItems.flatTextureItems.forEach(flatTextureItem -> itemModelGenerator.generateFlatItem(flatTextureItem, ModelTemplates.FLAT_ITEM));
+    }
+
+    private void createSeaPickleLike(BlockModelGenerators blockStateModelGenerator, Block block, IntegerProperty ages, String modelName) {
+        blockStateModelGenerator.registerSimpleFlatItemModel(SubstanceCraftBlocks.getBlockItem(block));
+        PropertyDispatch.C1<MultiVariant, Integer> variants = PropertyDispatch.initial(ages);
+        for (int i = 0; i <= ages.getPossibleValues().getLast(); i++) {
+            variants.select(i, BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "block/" + modelName + i))));
+        }
+        blockStateModelGenerator.blockStateOutput
+                .accept(
+                        MultiVariantGenerator.dispatch(block)
+                                .with(
+                                        variants
+                                )
+                );
     }
 
     public final void generateSubstanceItem(SubstanceItem substance, ItemModelGenerators itemModelGenerator) {

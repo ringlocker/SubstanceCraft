@@ -1,13 +1,55 @@
 {
   "variants": {
-    "age=0": {
-      "model": "substancecraft:block/peyote_cactus_stage0"
-    },
-    "age=1": {
-      "model": "substancecraft:block/peyote_cactus_stage1"
-    },
-    "age=2": {
-      "model": "substancecraft:block/peyote_cactus_stage2"
-    }
+    "age=0": [
+      {
+        "model": "substancecraft:block/peyote_stage0"
+      },
+      {
+        "model": "substancecraft:block/peyote_stage0",
+        "y": 90
+      },
+      {
+        "model": "substancecraft:block/peyote_stage0",
+        "y": 180
+      },
+      {
+        "model": "substancecraft:block/peyote_stage0",
+        "y": 270
+      }
+    ],
+    "age=1": [
+      {
+        "model": "substancecraft:block/peyote_stage1"
+      },
+      {
+        "model": "substancecraft:block/peyote_stage1",
+        "y": 90
+      },
+      {
+        "model": "substancecraft:block/peyote_stage1",
+        "y": 180
+      },
+      {
+        "model": "substancecraft:block/peyote_stage1",
+        "y": 270
+      }
+    ],
+    "age=2": [
+      {
+        "model": "substancecraft:block/peyote_stage2"
+      },
+      {
+        "model": "substancecraft:block/peyote_stage2",
+        "y": 90
+      },
+      {
+        "model": "substancecraft:block/peyote_stage2",
+        "y": 180
+      },
+      {
+        "model": "substancecraft:block/peyote_stage2",
+        "y": 270
+      }
+    ]
   }
 }
