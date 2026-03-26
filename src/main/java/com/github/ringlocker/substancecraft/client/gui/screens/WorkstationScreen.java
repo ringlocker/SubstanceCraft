@@ -243,7 +243,8 @@ public abstract class WorkstationScreen<
     protected Component getItemNameString(ItemStack itemStack) {
         if (itemStack == null) return Component.empty();
         if (itemStack.getItem() == Items.POTION) return Component.literal("Water Bottle");
-        else return Component.literal(itemStack.getDisplayName().getString().replace("[", "").replace("]", ""));
+        else return Component.literal(itemStack.getDisplayName().getString().replace("[", "").replace("]", "")
+                + (itemStack.getCount() > 1 ? " x" + itemStack.getCount() : ""));
     }
 
     protected Component getByproductString(ItemStack itemStack, int chance) {

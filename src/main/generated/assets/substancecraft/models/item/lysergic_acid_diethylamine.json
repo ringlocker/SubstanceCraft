@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "substancecraft:item/lysergic_acid_diethylamine"
+    "layer0": "substancecraft:item/liquid_overlay",
+    "layer1": "substancecraft:item/liquid"
   }
 }

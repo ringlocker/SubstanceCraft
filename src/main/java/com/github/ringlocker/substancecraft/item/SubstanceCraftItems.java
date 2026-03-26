@@ -129,7 +129,8 @@ public class SubstanceCraftItems {
     public static final Item D_LYSERGIC_ACID_HYDRATE = registerItem("d_lysergic_acid_hydrate", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item MAGNESIUM = registerItem("magnesium", properties -> new SubstanceItem(properties, SubstanceTintColors.METALLIC_SOLID, MatterState.SOLID), new Item.Properties());
     public static final Item MAGNESIUM_SULFATE = registerItem("magnesium_sulfate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
-    public static final Item LYSERGIC_ACID_DIETHYLAMINE = registerItem("lysergic_acid_diethylamine", properties -> new DrugItem(properties, Drug.LSD), alwaysEatProperties());
+    public static final Item LYSERGIC_ACID_DIETHYLAMINE = registerItem("lysergic_acid_diethylamine", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), alwaysEatProperties());
+    public static final Item LYSERGIC_ACID_DIETHYLAMINE_TAB = registerItem("lysergic_acid_diethylamine_tab", properties -> new DrugItem(properties, Drug.LSD), alwaysEatProperties());
     public static final Item XYLENE = registerItem("xylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item MESCALINE = registerItem("mescaline", properties -> new DrugItem(properties, Drug.MESCALINE), alwaysEatProperties());
 

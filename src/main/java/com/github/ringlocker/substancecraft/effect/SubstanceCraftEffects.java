@@ -24,7 +24,7 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> KETAMINE = register("ketamine", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> AMPHETAMINE = register("amphetamine", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> TWO_CB = register("two_cb", new BasicEffect(MobEffectCategory.NEUTRAL));
-    public static final Holder<MobEffect> LSD = register("lsd", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> LSD = register("lysergic_acid_diethylamine", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> PSILOCYBIN = register("psilocybin", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> MESCALINE = register("mescaline", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> ALCOHOL = register("alcohol", new BasicEffect(MobEffectCategory.NEUTRAL));

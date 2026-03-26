@@ -725,6 +725,16 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
                         .save(recipeOutput, key("mix_magnesium_sulfate"));
 
+                MixerRecipeBuilder.mix(
+                                        List.of(Ingredient.of(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE), Ingredient.of(Items.PAPER)),
+                                        SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE_TAB,
+                                        1200
+                                )
+                                .unlockedBy("has_item", has(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE))
+                                .unlockedBy("has_item", has(Items.PAPER))
+                                .setOutputCount(4)
+                                .save(recipeOutput, key("mix_lsd_tab"));
+
                 HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.DISTILLED_WATER), Ingredient.of(SubstanceCraftItems.METHANE)),
                                 SubstanceCraftItems.METHANOL,
@@ -955,7 +965,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                                 List.of(new ItemStack(SubstanceCraftItems.WINE_LEES, 50 >> 2)),
                                 2000
                         )
-                        .setOutputCount(2)
                         .unlockedBy("has_item", has(SubstanceCraftItems.GRAPES))
                         .unlockedBy("has_item", has(SubstanceCraftItems.YEAST))
                         .save(recipeOutput, key("ferment_wine"));
