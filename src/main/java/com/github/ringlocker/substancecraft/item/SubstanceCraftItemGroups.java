@@ -69,7 +69,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.TWO_C_B);
         entries.accept(SubstanceCraftItems.AMPHETAMINE);
         entries.accept(SubstanceCraftItems.COCAINE);
-        entries.accept(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE);
+        entries.accept(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE_TAB);
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PSILOCYBIN));
         entries.accept(SubstanceCraftItems.MESCALINE);
         entries.accept(SubstanceCraftItems.RED_WINE);
@@ -204,6 +204,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.MAGNESIUM);
         entries.accept(SubstanceCraftItems.MAGNESIUM_SULFATE);
         entries.accept(SubstanceCraftItems.XYLENE);
+        entries.accept(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE);
     }
 
 }

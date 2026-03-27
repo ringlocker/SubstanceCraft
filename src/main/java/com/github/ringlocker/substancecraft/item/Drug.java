@@ -41,10 +41,12 @@ public enum Drug {
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     ),
     LSD(
-            milligrams(25), milligrams(5), minutes(4), seconds(30), seconds(70), fromID("lsd"),
-            List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
-                    new DrugSideEffect(fromID("dynamic_color"), milligrams(20), milligrams(20), 6, 9),
-                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
+            milligrams(25), milligrams(5), minutes(4), seconds(30), seconds(70), fromID("lysergic_acid_diethylamine"),
+            List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(30), milligrams(15), 9, 19),
+                    new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(9), 9, 19),
+                    new DrugSideEffect(fromID("dynamic_color"), milligrams(20), milligrams(15), 6, 9),
+                    new DrugSideEffect(fromID("time_dilation"), milligrams(10), milligrams(10), 24),
+                    new DrugSideEffect(fromID("double_vision"), milligrams(100), milligrams(20), 3))
     ),
     PSILOCYBIN(
             milligrams(25), milligrams(5), seconds(200), seconds(20), seconds(60), fromID("psilocybin"),
