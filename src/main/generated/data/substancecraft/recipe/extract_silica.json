@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "minecraft:quartz"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:silica"
+  },
+  "time": 1200
+}

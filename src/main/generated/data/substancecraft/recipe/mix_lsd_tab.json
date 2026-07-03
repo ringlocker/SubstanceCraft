@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:lysergic_acid_diethylamine",
+    "minecraft:paper"
+  ],
+  "result": {
+    "count": 4,
+    "id": "substancecraft:lysergic_acid_diethylamine_tab"
+  },
+  "time": 1200
+}

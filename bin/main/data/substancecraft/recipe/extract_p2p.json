@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:p2np"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:p2p"
+  },
+  "time": 1200
+}

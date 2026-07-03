@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:phosphorite"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:flouroapatite"
+  },
+  "time": 1200
+}

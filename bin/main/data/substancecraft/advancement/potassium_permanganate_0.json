@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:coca_paste_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Heated Mixer",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:potassium_permanganate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.potassium_permanganate"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

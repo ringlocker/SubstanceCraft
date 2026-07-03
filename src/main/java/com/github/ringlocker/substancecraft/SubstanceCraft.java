@@ -9,11 +9,13 @@ import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
 import com.github.ringlocker.substancecraft.effect.damagesource.SubstanceCraftDamageSources;
 import com.github.ringlocker.substancecraft.gui.SubstanceCraftMenus;
+import com.github.ringlocker.substancecraft.item.SubstanceCraftItemGroups;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftFeatures;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftLootTables;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +27,7 @@ public class SubstanceCraft implements ModInitializer {
     @Override
     public void onInitialize() {
         SubstanceCraftItems.registerItems();
+        SubstanceCraftItemGroups.registerItemGroups();
         SubstanceCraftBlocks.registerBlocks();
         SubstanceCraftBlockEntities.registerBlockEntities();
         SubstanceCraftRecipes.registerRecipes();

@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrogen_2",
+  "parent": "substancecraft:bromide_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

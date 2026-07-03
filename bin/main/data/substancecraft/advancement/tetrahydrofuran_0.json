@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:2c_h_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Mixer",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:tetrahydrofuran"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.tetrahydrofuran"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

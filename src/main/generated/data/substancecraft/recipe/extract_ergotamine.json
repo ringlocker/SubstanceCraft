@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:ergot"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:ergotamine"
+  },
+  "time": 1200
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:workstations",
+  "criteria": {
+    "got_mixer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:mixer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Used for mixing substances. Crafted with 4 copper blocks, 1 cauldron, 3 iron ingots, and 1 iron shovel",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:mixer"
+    },
+    "show_toast": false,
+    "title": "Mixer"
+  },
+  "requirements": [
+    [
+      "got_mixer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

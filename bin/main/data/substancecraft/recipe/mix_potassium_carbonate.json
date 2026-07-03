@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:potassium_hydroxide",
+    "substancecraft:carbon_dioxide"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:potassium_carbonate"
+  },
+  "time": 800
+}

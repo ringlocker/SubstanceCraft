@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrogen_3",
+  "parent": "substancecraft:sodium_hydroxide_1",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

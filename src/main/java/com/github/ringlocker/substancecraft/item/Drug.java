@@ -1,22 +1,16 @@
 package com.github.ringlocker.substancecraft.item;
 
-
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffect;
 
-import java.util.HashMap;
 import java.util.List;
 
 public enum Drug {
     HASH(
-            milligrams(25), micrograms(400), minutes(1), seconds(3), seconds(20), fromID("stoned"),
-            List.of(new DrugSideEffect(fromID("slow"), milligrams(30), milligrams(35), 9),
-                    new DrugSideEffect(fromID("hungry"), milligrams(10), milligrams(25), 9),
-                    new DrugSideEffect(fromID("color_enhancement"), milligrams(100), milligrams(50), 3),
-                    new DrugSideEffect(fromID("color_resolution"), milligrams(100), milligrams(40), 5))
+            milligrams(25), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
     ),
     DIPHENHYDRAMINE(
             milligrams(300), milligrams(25), minutes(3), seconds(10), seconds(45), fromID("dph"),
@@ -45,9 +39,32 @@ public enum Drug {
                     new DrugSideEffect(fromID("mosaic"), milligrams(25), milligrams(10), 9, 9),
                     new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
+    ),
+    LSD(
+            milligrams(25), milligrams(5), minutes(4), seconds(30), seconds(70), fromID("lysergic_acid_diethylamine"),
+            List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(30), milligrams(15), 9, 19),
+                    new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(9), 9, 19),
+                    new DrugSideEffect(fromID("dynamic_color"), milligrams(20), milligrams(15), 6, 9),
+                    new DrugSideEffect(fromID("time_dilation"), milligrams(10), milligrams(10), 24),
+                    new DrugSideEffect(fromID("double_vision"), milligrams(100), milligrams(20), 3))
+    ),
+    PSILOCYBIN(
+            milligrams(25), milligrams(5), seconds(200), seconds(20), seconds(60), fromID("psilocybin"),
+            List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(10), 9, 19),
+                    new DrugSideEffect(fromID("color_enhancement"), milligrams(15), milligrams(15), 4, 19),
+                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
+                    new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(15), 3))
+    ),
+    MESCALINE(
+            milligrams(25), milligrams(5), minutes(3), seconds(20), seconds(70), fromID("mescaline"),
+            List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
+                    new DrugSideEffect(fromID("color_resolution"), milligrams(10), milligrams(10), 15, 18),
+                    new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
+                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
+    ),
+    WINE(
+            grams(25), grams(10), minutes(3), seconds(10), seconds(60), fromID("alcohol"), DrugSideEffect.ETHANOL_EFFECTS
     );
-
-    private static final HashMap<Drug, Float> decayFactorCache = new HashMap<>();
 
     private final float dose;
     private final float threshold;
@@ -56,6 +73,7 @@ public enum Drug {
     private final int comeUp;
     private final Identifier baseEffect;
     private final List<DrugSideEffect> sideEffects;
+    private final float decayFactor;
 
     Drug(float dose, float threshold, int halfLife, int offset, int comeUp, Identifier baseEffect, List<DrugSideEffect> sideEffects) {
         this.dose = dose;
@@ -65,6 +83,7 @@ public enum Drug {
         this.comeUp = comeUp;
         this.baseEffect = baseEffect;
         this.sideEffects = sideEffects;
+        this.decayFactor = computeDecayFactor();
     }
 
     public float getDose() {
@@ -92,13 +111,11 @@ public enum Drug {
     }
 
     public float getDecayFactor() {
-        if (decayFactorCache.containsKey(this)) {
-            return decayFactorCache.get(this);
-        } else {
-            float decay = (float) Math.pow(0.5D, 1.0D / (double) halfLife);
-            decayFactorCache.put(this, decay);
-            return decay;
-        }
+        return decayFactor;
+    }
+
+    private float computeDecayFactor() {
+        return (float) Math.pow(0.5D, 1.0D / (double) halfLife);
     }
 
     private static Identifier fromID(String id) {
@@ -146,7 +163,19 @@ public enum Drug {
         return minutes * 1200;
     }
 
-    public record DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier, int hardAmplifierLimit) {
+    public record DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier,
+                                 int hardAmplifierLimit) {
+
+        private static final List<DrugSideEffect> THC_EFFECTS = List.of(
+                new DrugSideEffect(fromID("hungry"), milligrams(10), milligrams(25), 9),
+                new DrugSideEffect(fromID("color_enhancement"), milligrams(100), milligrams(50), 3),
+                new DrugSideEffect(fromID("color_resolution"), milligrams(100), milligrams(40), 5)
+        );
+
+        private static final List<DrugSideEffect> ETHANOL_EFFECTS = List.of(
+                new DrugSideEffect(fromID("double_vision"), grams(50), grams(15), 9),
+                new DrugSideEffect(fromID("alcohol_poisoning"), grams(250), grams(50), 9)
+        );
 
         public DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier) {
             this(effect, threshold, amplifyEvery, maxAmplifier, 255);
@@ -160,6 +189,6 @@ public enum Drug {
             return Math.clamp(amplifier, 0, maxAmplifier);
         }
 
-    }
 
+    }
 }

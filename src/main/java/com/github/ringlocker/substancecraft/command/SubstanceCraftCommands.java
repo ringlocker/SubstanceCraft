@@ -19,8 +19,6 @@ public class SubstanceCraftCommands {
                     List<Component> components = new ArrayList<>();
                     msgs.forEach(string -> components.add(Component.literal(string)));
                     components.forEach(c -> context.getSource().getPlayer().sendSystemMessage(c));
-
-
                     return 1;
                 })));
     }

@@ -4,6 +4,7 @@ import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
+import com.github.ringlocker.substancecraft.recipe.recipes.FermentationTankRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.Advancement;
@@ -390,13 +391,15 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         generateSynthesisTree(SubstanceCraftItems.COCAINE, writer, syntheses, counts);
         generateSynthesisTree(SubstanceCraftItems.AMPHETAMINE, writer, syntheses, counts);
         generateSynthesisTree(SubstanceCraftItems.TWO_C_B, writer, syntheses, counts);
+        generateSynthesisTree(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE, writer, syntheses, counts);
 
         RecipeCache.clear();
     }
 
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {
-        Recipe<?> recipe = getRecipeForItem(toSynthesize);
-        Component recipeType = recipe == null ? Component.literal("") : ((ByproductRecipe) recipe).getLabel();
+        System.out.println("generate for " + toSynthesize.toString());
+        ByproductRecipe recipe = getRecipeForItem(toSynthesize);
+        Component recipeType = recipe == null ? Component.literal("") : recipe.getLabel();
 
         AdvancementHolder itemAdvancement = Advancement.Builder.advancement()
                 .parent(parent)
@@ -407,6 +410,8 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         if (recipe == null) return;
 
         List<Ingredient> ingredients = getIngredients(recipe);
+        Ingredient result = Ingredient.of(recipe.getResult().getItem());
+        if (ingredients.contains(result)) return;
         for (Ingredient ingredient : ingredients) {
             Item item = getItemFromIngredient(ingredient);
             if (item == null) {
@@ -429,30 +434,44 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     @Nullable
-    private static Recipe<?> getRecipeForItem(Item item) {
+    private static ByproductRecipe getRecipeForItem(Item item) {
         HashMap<RecipeType<?>, List<Recipe<?>>> recipes = RecipeCache.getRecipesByType();
-        List<Recipe<?>> matches = new ArrayList<>();
+        List<ByproductRecipe> matches = new ArrayList<>();
         for (RecipeType<?> type : recipes.keySet()) {
             for (Recipe<?> recipe : recipes.get(type)) {
                 appendIfMatch(item, recipe, matches);
             }
         }
+        sortRecipes(item, matches);
         return matches.isEmpty() ? null : matches.getFirst();
     }
 
-    private static void appendIfMatch(Item item, Recipe<?> checkIfMatchItem, List<Recipe<?>> matches) {
+    private static void appendIfMatch(Item item, Recipe<?> checkIfMatchItem, List<ByproductRecipe> matches) {
         ByproductRecipe byproductRecipe = (ByproductRecipe) checkIfMatchItem;
         if (byproductRecipe.getResult().getItem() == item) {
-            matches.add(checkIfMatchItem);
+            matches.add(byproductRecipe);
             return;
         }
         List<ItemStack> byproduct = byproductRecipe.getByproducts();
         for (ItemStack stack : byproduct) {
             if (stack.getItem() == item) {
-                matches.add(checkIfMatchItem);
+                matches.add(byproductRecipe);
                 return;
             }
         }
+    }
+
+    private static void sortRecipes(Item item, List<ByproductRecipe> recipes) {
+        List<ByproductRecipe> sorted = new ArrayList<>();
+        for (ByproductRecipe recipe : recipes) {
+            if (recipe.getResult().getItem() == item && !(recipe instanceof FermentationTankRecipe)) {
+                sorted.addFirst(recipe);
+            } else {
+                sorted.add(recipe);
+            }
+        }
+        recipes.clear();
+        recipes.addAll(sorted);
     }
 
     private static String createKey(Item item, HashMap<String, Integer> counts) {
