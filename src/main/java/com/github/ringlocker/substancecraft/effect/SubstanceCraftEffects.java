@@ -1,12 +1,8 @@
 package com.github.ringlocker.substancecraft.effect;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.effect.effects.ColorResolution;
-import com.github.ringlocker.substancecraft.effect.effects.Mosaic;
 import com.github.ringlocker.substancecraft.effect.effects.BasicEffect;
-import com.github.ringlocker.substancecraft.effect.effects.ColorEnhancement;
 import com.github.ringlocker.substancecraft.effect.effects.SimpleEffects;
-import com.github.ringlocker.substancecraft.effect.effects.DynamicColor;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -28,6 +24,10 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> KETAMINE = register("ketamine", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> AMPHETAMINE = register("amphetamine", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> TWO_CB = register("two_cb", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> LSD = register("lysergic_acid_diethylamine", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> PSILOCYBIN = register("psilocybin", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> MESCALINE = register("mescaline", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> ALCOHOL = register("alcohol", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     public static final Holder<MobEffect> FAST = register("fast", new BasicEffect(MobEffectCategory.BENEFICIAL)
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, Identifier.withDefaultNamespace("effect.fast"), 0.12F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -40,12 +40,15 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> HUNGRY = register("hungry", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> ELEVATED_HEART_RATE = register("elevated_heart_rate", new SimpleEffects.Hungry());
     public static final Holder<MobEffect> CARDIAC_ARREST = register("cardiac_arrest", new SimpleEffects.CardiacArrest());
-    public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new ColorEnhancement());
-    public static final Holder<MobEffect> MOSAIC = register("mosaic", new Mosaic());
-    public static final Holder<MobEffect> COLOR_RESOLUTION = register("color_resolution", new ColorResolution());
-    public static final Holder<MobEffect> DYNAMIC_COLOR = register("dynamic_color", new DynamicColor());
+    public static final Holder<MobEffect> COLOR_ENHANCEMENT = register("color_enhancement", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> MOSAIC = register("mosaic", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> COLOR_RESOLUTION = register("color_resolution", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> DYNAMIC_COLOR = register("dynamic_color", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> TIME_COMPRESSION = register("time_compression", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> TIME_DILATION = register("time_dilation", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> SURFACE_WARP = register("surface_warp", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> DOUBLE_VISION = register("double_vision", new BasicEffect(MobEffectCategory.NEUTRAL));
+    public static final Holder<MobEffect> ALCOHOL_POISONING = register("alcohol_poisoning", new SimpleEffects.AlcoholPoisoning());
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         Identifier identifier = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);
@@ -55,6 +58,7 @@ public class SubstanceCraftEffects {
     }
 
     public static void registerEffects() {
+
     }
 
     public static Holder<MobEffect> getEffect(Identifier id) {

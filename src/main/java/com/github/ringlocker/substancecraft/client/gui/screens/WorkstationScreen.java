@@ -1,7 +1,7 @@
 package com.github.ringlocker.substancecraft.client.gui.screens;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.block.entity.entities.WorkstationBlockEntity;
+import com.github.ringlocker.substancecraft.block.entity.WorkstationBlockEntity;
 import com.github.ringlocker.substancecraft.gui.menus.WorkstationMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.fabricmc.api.EnvType;
@@ -243,7 +243,8 @@ public abstract class WorkstationScreen<
     protected Component getItemNameString(ItemStack itemStack) {
         if (itemStack == null) return Component.empty();
         if (itemStack.getItem() == Items.POTION) return Component.literal("Water Bottle");
-        else return Component.literal(itemStack.getDisplayName().getString().replace("[", "").replace("]", ""));
+        else return Component.literal(itemStack.getDisplayName().getString().replace("[", "").replace("]", "")
+                + (itemStack.getCount() > 1 ? " x" + itemStack.getCount() : ""));
     }
 
     protected Component getByproductString(ItemStack itemStack, int chance) {

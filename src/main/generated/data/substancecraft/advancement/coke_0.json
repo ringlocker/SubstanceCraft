@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:white_phosphorus_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Refine",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:coke"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.coke"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

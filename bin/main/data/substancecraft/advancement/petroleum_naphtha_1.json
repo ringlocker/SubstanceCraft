@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:toluene_1",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Refine",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:petroleum_naphtha"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.petroleum_naphtha"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

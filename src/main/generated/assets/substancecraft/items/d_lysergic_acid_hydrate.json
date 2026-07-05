@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "substancecraft:item/d_lysergic_acid_hydrate",
+    "tints": [
+      {
+        "type": "substancecraft:substance_item_tint",
+        "default": -2095121
+      }
+    ]
+  }
+}

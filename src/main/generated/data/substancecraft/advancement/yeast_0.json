@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:wine_lees_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Ferment",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:yeast"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.yeast"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

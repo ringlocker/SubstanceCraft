@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:oxidizer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:benzene"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:maleic_anhydride"
+  },
+  "time": 1000
+}

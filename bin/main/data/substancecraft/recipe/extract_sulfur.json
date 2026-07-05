@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:raw_sulfur"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:sulfur"
+  },
+  "time": 1200
+}

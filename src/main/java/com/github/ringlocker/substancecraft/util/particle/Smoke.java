@@ -15,7 +15,6 @@ public class Smoke {
     private static final float SMOKE_POSITION_Y_RANDOMNESS = 0.4F;
     private static final Vector3f UP_VECTOR = new Vector3f(0.0f, 1.6f, 0.0f);
 
-
     public static void generateSmokeParticles(Player player, Level level, float smokeVelocityMultiplier, int widthInEighthBlocks, int minRollsPerSection, int maxRollsPerSection) {
 
         Vector3f positionVector = new Vector3f((float) player.getX(), (float) player.getY(), (float) player.getZ())

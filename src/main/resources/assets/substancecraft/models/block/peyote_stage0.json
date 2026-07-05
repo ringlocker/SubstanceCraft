@@ -1,0 +1,21 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "substancecraft:block/peyote_cactus",
+    "all": "substancecraft:block/peyote_cactus"
+  },
+  "elements": [
+    {
+      "from": [ 6, 0, 6 ],
+      "to": [ 9, 3, 9 ],
+      "faces": {
+        "down":  { "uv": [  8, 1,  11, 4 ], "texture": "#all", "cullface": "down" },
+        "up":    { "uv": [  4, 1,  8, 5 ], "texture": "#all" },
+        "north": { "uv": [ 4, 5, 7, 8 ], "texture": "#all" },
+        "south": { "uv": [ 0, 5, 3, 8 ], "texture": "#all" },
+        "west":  { "uv": [ 8, 5, 11, 8 ], "texture": "#all" },
+        "east":  { "uv": [ 12, 5, 15, 8 ], "texture": "#all" }
+      }
+    }
+  ]
+}

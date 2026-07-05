@@ -89,4 +89,21 @@ public class SimpleEffects {
 
     }
 
+    public static class AlcoholPoisoning extends TickingEffect {
+
+        public AlcoholPoisoning() {
+            super(MobEffectCategory.HARMFUL, TickFrequency.PER_SECOND);
+        }
+
+        @Override
+        protected void tick(ServerLevel level, LivingEntity entity, int amplifier) {
+            entity.hurtServer(level, getDamageSource(level), 1.0F * (amplifier + 1));
+        }
+
+        private static DamageSource getDamageSource(ServerLevel level) {
+            return SubstanceCraftDamageSources.getDamageSource(level, SubstanceCraftDamageSources.ALCOHOL_POISONING);
+        }
+
+    }
+
 }

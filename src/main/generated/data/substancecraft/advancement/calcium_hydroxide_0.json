@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:calcium_tartrate_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Mixer",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:calcium_hydroxide"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.calcium_hydroxide"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

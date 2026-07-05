@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:lysergic_acid_diethylamine_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Mixer",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:d_lysergic_acid_hydrate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.d_lysergic_acid_hydrate"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

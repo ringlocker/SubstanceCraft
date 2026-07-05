@@ -58,6 +58,31 @@ public class SubstanceCraftFeatures {
                 GenerationStep.Decoration.UNDERGROUND_ORES,
                 ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "ore_pyrolusite"))
         );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(BiomeTags.IS_OVERWORLD),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "ore_limestone"))
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(BiomeTags.IS_OVERWORLD),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "ore_phosphorite"))
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(Biomes.DARK_FOREST),
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "patch_psilocybin"))
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(Biomes.PALE_GARDEN),
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "patch_pale_psilocybin"))
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(Biomes.DESERT, Biomes.BADLANDS),
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "patch_peyote"))
+        );
     }
 
 }

@@ -1,0 +1,17 @@
+{
+  "type": "substancecraft:refinery",
+  "byproducts": [
+    {
+      "count": 25,
+      "id": "substancecraft:carbon_monoxide"
+    }
+  ],
+  "ingredients": [
+    "minecraft:coal"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:coke"
+  },
+  "time": 800
+}

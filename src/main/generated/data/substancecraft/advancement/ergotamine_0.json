@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:ergotamine_tartrate_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Extract",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:ergotamine"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.ergotamine"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

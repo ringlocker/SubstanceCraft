@@ -1,9 +1,13 @@
 package com.github.ringlocker.substancecraft.client.datagen;
 
+import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
+import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
+import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
+import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
 import com.github.ringlocker.substancecraft.item.items.SubstanceItem;
@@ -25,9 +29,9 @@ import net.minecraft.client.renderer.block.model.Variant;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.random.WeightedList;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 @Environment(EnvType.CLIENT)
 public class ModelGenerator extends FabricModelProvider {
@@ -38,7 +42,7 @@ public class ModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, BlockModelGenerators.PlantType.TINTED, MarijuanaPlant.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, BlockModelGenerators.PlantType.TINTED, MarijuanaPlant.AGE_PROPERTY, 0, 1, 2, 3, 4, 5, 6, 7);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.REFINERY, blockStateModelGenerator);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.OIL_SHALE);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE, blockStateModelGenerator);
@@ -49,48 +53,47 @@ public class ModelGenerator extends FabricModelProvider {
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.HEATED_MIXER, blockStateModelGenerator);
         createTopBottomSideFrontAndFrontOnTexture(SubstanceCraftBlocks.FERMENTATION_TANK, blockStateModelGenerator);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.CORN_CROP, BlockModelGenerators.PlantType.TINTED, CornCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.COCA_CROP, BlockModelGenerators.PlantType.TINTED, CocaCrop.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.COCA_CROP, BlockModelGenerators.PlantType.TINTED, CocaCrop.AGE_PROPERTY, 0, 1, 2, 3, 4, 5);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SYLVITE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SULFUR_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.TRONA);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PYROLUSITE_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.LIMESTONE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PHOSPHORITE);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.GRAPEVINE, BlockModelGenerators.PlantType.TINTED, Grapevine.AGE_PROPERTY, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PALE_PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
+        createSeaPickleLike(blockStateModelGenerator, SubstanceCraftBlocks.PEYOTE_CACTUS, PeyoteCactus.AGE, "peyote_stage");
     }
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
-        SubstanceCraftItems.substances.forEach((substance) -> generateSubstanceItem(substance, itemModelGenerator));
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.MARIJUANA_TRIM, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.MARIJUANA, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.HASH, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.DAB_RIG, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.EMPTY_DAB_RIG, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.DIPHENHYDRAMINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.KETAMINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.OIL_SHALE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.HALITE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.CORN, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.YEAST, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.ERGOT, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.TWO_C_B, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.AMPHETAMINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.COCA_LEAVES, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.RAW_SULFUR, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.TRONA, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.SYLVITE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.PYROLUSITE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.COCAINE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.CASH, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(SubstanceCraftItems.BAND, ModelTemplates.FLAT_ITEM);
+        SubstanceCraftItems.substances.forEach(substance -> generateSubstanceItem(substance, itemModelGenerator));
+        SubstanceCraftItems.flatTextureItems.forEach(flatTextureItem -> itemModelGenerator.generateFlatItem(flatTextureItem, ModelTemplates.FLAT_ITEM));
     }
 
-    public final void generateSubstanceItem(Item substance, ItemModelGenerators itemModelGenerator) {
-        SubstanceItem item = (SubstanceItem) substance;
-        Identifier overlay = item.getState().getOverlayTexture();
-        Identifier base = item.getState().getBaseTexture();
-        Identifier Identifier = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
-        itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(Identifier, new SubstanceTintColor()));
+    private void createSeaPickleLike(BlockModelGenerators blockStateModelGenerator, Block block, IntegerProperty ages, String modelName) {
+        blockStateModelGenerator.registerSimpleFlatItemModel(SubstanceCraftBlocks.getBlockItem(block));
+        PropertyDispatch.C1<MultiVariant, Integer> variants = PropertyDispatch.initial(ages);
+        for (int i = 0; i <= ages.getPossibleValues().getLast(); i++) {
+            variants.select(i, BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "block/" + modelName + i))));
+        }
+        blockStateModelGenerator.blockStateOutput
+                .accept(
+                        MultiVariantGenerator.dispatch(block)
+                                .with(
+                                        variants
+                                )
+                );
+    }
+
+    public final void generateSubstanceItem(SubstanceItem substance, ItemModelGenerators itemModelGenerator) {
+        Identifier overlay = substance.getState().getOverlayTexture();
+        Identifier base = substance.getState().getBaseTexture();
+        Identifier resourceLocation = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
+        itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(resourceLocation, new SubstanceTintColor()));
     }
 
     private static void createTopBottomSideFrontAndFrontOnTexture(Block block, BlockModelGenerators blockModelGenerators) {

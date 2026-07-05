@@ -6,17 +6,23 @@ import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
 import com.github.ringlocker.substancecraft.block.blocks.ElectrolysisMachine;
 import com.github.ringlocker.substancecraft.block.blocks.Extractor;
 import com.github.ringlocker.substancecraft.block.blocks.FermentationTank;
+import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
 import com.github.ringlocker.substancecraft.block.blocks.HashPress;
 import com.github.ringlocker.substancecraft.block.blocks.HeatedMixer;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
 import com.github.ringlocker.substancecraft.block.blocks.Mixer;
 import com.github.ringlocker.substancecraft.block.blocks.Oxidizer;
+import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
+import com.github.ringlocker.substancecraft.block.blocks.PotentPsilocybinMushroom;
+import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.block.blocks.Refinery;
+import com.github.ringlocker.substancecraft.item.Drug;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -50,8 +56,14 @@ public class SubstanceCraftBlocks {
     public static final Block SULFUR_ORE = registerBlock("sulfur_ore", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block DEEPSLATE_SULFUR_ORE = registerBlock("deepslate_sulfur_ore", Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.CALCITE));
     public static final Block TRONA = registerBlock("trona_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
-    public static final Block PYROLUSITE_ORE = registerBlock("pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
+    public static final Block PYROLUSITE_ORE = registerBlock("pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
     public static final Block DEEPSLATE_PYROLUSITE_ORE = registerBlock("deepslate_pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.STONE));
+    public static final Block LIMESTONE = registerBlock("limestone_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
+    public static final Block PHOSPHORITE = registerBlock("phosphorite_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
+    public static final Block GRAPEVINE = registerBlock("grapevine", Grapevine::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
+    public static final Block PSILOCYBIN = registerPlaceableDrugBlock("psilocybin", PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_1);
+    public static final Block PEYOTE_CACTUS = registerBlock("peyote_cactus", PeyoteCactus::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.4F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
+    public static final Block PALE_PSILOCYBIN = registerPlaceableDrugBlock("pale_psilocybin", PotentPsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_2);
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);
@@ -61,6 +73,18 @@ public class SubstanceCraftBlocks {
         ResourceKey<Block> key = key(name);
         Block block = factory.apply(properties.setId(key));
         BLOCK_ITEMS.put(block, registerBlockItem(name, block));
+        return Registry.register(BuiltInRegistries.BLOCK, key, block);
+    }
+
+    private static Block registerPlaceableDrugBlock(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties, Drug drug) {
+        ResourceKey<Block> key = key(name);
+        ResourceKey<Item> itemKey = itemKey(name);
+        Block block = factory.apply(properties.setId(key));
+        BLOCK_ITEMS.put(block, Registry.register(BuiltInRegistries.ITEM, itemKey,
+                new PlaceableDrugItem(
+                        block, new Item.Properties().useBlockDescriptionPrefix().setId(itemKey).food(new FoodProperties.Builder().alwaysEdible().build()), drug)
+                )
+        );
         return Registry.register(BuiltInRegistries.BLOCK, key, block);
     }
 

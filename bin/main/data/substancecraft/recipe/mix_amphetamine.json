@@ -1,0 +1,14 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:p2p",
+    "substancecraft:formic_acid",
+    "substancecraft:ammonia"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:amphetamine"
+  },
+  "time": 800
+}

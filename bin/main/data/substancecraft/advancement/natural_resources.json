@@ -1,0 +1,24 @@
+{
+  "parent": "substancecraft:welcome",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Look at advancement descriptions for where to find each resource",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:iron_ore"
+    },
+    "show_toast": false,
+    "title": "Natural Resources"
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

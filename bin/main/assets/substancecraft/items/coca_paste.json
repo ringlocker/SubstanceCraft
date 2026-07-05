@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "substancecraft:item/coca_paste",
+    "tints": [
+      {
+        "type": "substancecraft:substance_item_tint",
+        "default": -2095121
+      }
+    ]
+  }
+}

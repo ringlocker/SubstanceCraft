@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:lysergic_acid_diethylamine_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Oxidize",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:phosphoryl_chloride"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.phosphoryl_chloride"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

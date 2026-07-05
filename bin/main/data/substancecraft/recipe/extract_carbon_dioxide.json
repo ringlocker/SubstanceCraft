@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "minecraft:charcoal"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:carbon_dioxide"
+  },
+  "time": 1200
+}

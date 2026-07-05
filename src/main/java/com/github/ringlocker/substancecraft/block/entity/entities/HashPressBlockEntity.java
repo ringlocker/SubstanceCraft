@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.block.entity.entities;
 
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
+import com.github.ringlocker.substancecraft.block.entity.WorkstationBlockEntity;
 import com.github.ringlocker.substancecraft.gui.menus.HashPressMenu;
 import com.github.ringlocker.substancecraft.recipe.recipes.HashPressRecipe;
 import net.minecraft.core.BlockPos;
