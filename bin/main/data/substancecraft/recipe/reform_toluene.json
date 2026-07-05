@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:refinery",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:petroleum_naphtha"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:toluene"
+  },
+  "time": 800
+}

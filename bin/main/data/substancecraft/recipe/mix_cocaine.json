@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:acetone",
+    "substancecraft:potassium_carbonate",
+    "substancecraft:coca_paste",
+    "substancecraft:hydrochloric_acid"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:cocaine"
+  },
+  "time": 1200
+}

@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:limestone"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:calcium_oxide"
+  },
+  "time": 1200
+}

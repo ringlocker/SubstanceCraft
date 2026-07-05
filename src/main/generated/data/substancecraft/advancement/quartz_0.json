@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:silica_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:quartz"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.minecraft.quartz"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

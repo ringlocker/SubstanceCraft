@@ -1,0 +1,14 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:coke",
+    "substancecraft:silica",
+    "substancecraft:flouroapatite"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:white_phosphorus"
+  },
+  "time": 800
+}

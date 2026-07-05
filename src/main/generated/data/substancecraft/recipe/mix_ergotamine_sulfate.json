@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:sulfuric_acid",
+    "substancecraft:ergotamine_tartrate",
+    "substancecraft:diethyl_ether",
+    "substancecraft:distilled_water"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:ergotamine_sulfate"
+  },
+  "time": 1200
+}

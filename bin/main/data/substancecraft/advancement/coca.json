@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:agriculture",
+  "criteria": {
+    "got_coca": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:coca_leaves"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Coca Plants can naturally occur in jungle biomes. Harvested by right clicking, grows twice as fast on farmland",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:coca_leaves"
+    },
+    "show_toast": false,
+    "title": "Coca Plant"
+  },
+  "requirements": [
+    [
+      "got_coca"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

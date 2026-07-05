@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:calcium_hydroxide",
+    "substancecraft:potassium_bitartrate"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:calcium_tartrate"
+  },
+  "time": 1200
+}

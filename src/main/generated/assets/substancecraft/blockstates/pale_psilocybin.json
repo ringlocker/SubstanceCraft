@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "substancecraft:block/pale_psilocybin_stage0"
+    },
+    "age=1": {
+      "model": "substancecraft:block/pale_psilocybin_stage1"
+    },
+    "age=2": {
+      "model": "substancecraft:block/pale_psilocybin_stage2"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:sulfuric_acid",
+    "substancecraft:ergotamine_sulfate",
+    "substancecraft:ammonia",
+    "substancecraft:ethanol"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:d_lysergic_acid_hydrate"
+  },
+  "time": 1200
+}

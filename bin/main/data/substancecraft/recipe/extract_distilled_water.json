@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "minecraft:potion"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:distilled_water"
+  },
+  "time": 800
+}

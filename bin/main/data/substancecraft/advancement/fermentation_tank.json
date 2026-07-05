@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:workstations",
+  "criteria": {
+    "got_fermentation_tank": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:fermentation_tank"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Used for fermenting substances. Crafted with 4 copper blocks, 1 cauldron, and 4 iron ingots",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:fermentation_tank"
+    },
+    "show_toast": false,
+    "title": "Fermentation Tank"
+  },
+  "requirements": [
+    [
+      "got_fermentation_tank"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

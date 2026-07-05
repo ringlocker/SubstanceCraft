@@ -27,7 +27,9 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE)
                 .add(SubstanceCraftBlocks.TRONA)
                 .add(SubstanceCraftBlocks.PYROLUSITE_ORE)
-                .add(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE);
+                .add(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE)
+                .add(SubstanceCraftBlocks.LIMESTONE)
+                .add(SubstanceCraftBlocks.PHOSPHORITE);
 
         valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(SubstanceCraftBlocks.OIL_SHALE);

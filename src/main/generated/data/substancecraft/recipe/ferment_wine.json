@@ -1,0 +1,18 @@
+{
+  "type": "substancecraft:fermentation_tank",
+  "byproducts": [
+    {
+      "count": 12,
+      "id": "substancecraft:wine_lees"
+    }
+  ],
+  "ingredients": [
+    "substancecraft:grapes",
+    "substancecraft:yeast"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:red_wine"
+  },
+  "time": 2000
+}

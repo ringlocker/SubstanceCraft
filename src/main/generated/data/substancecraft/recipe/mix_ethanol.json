@@ -1,0 +1,19 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [
+    {
+      "count": 8,
+      "id": "substancecraft:diethyl_ether"
+    }
+  ],
+  "ingredients": [
+    "substancecraft:sulfuric_acid",
+    "substancecraft:ethylene",
+    "substancecraft:distilled_water"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:ethanol"
+  },
+  "time": 1200
+}

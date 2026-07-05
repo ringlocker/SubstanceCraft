@@ -31,7 +31,7 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         HolderLookup.RegistryLookup<@NotNull Enchantment> registryLookup = registries.lookupOrThrow(Registries.ENCHANTMENT);
-        
+
         add(SubstanceCraftBlocks.HASH_PRESS, createNameableBlockEntityTable(SubstanceCraftBlocks.HASH_PRESS));
         add(SubstanceCraftBlocks.REFINERY, createNameableBlockEntityTable(SubstanceCraftBlocks.REFINERY));
         add(SubstanceCraftBlocks.OXIDATION_MACHINE, createNameableBlockEntityTable(SubstanceCraftBlocks.OXIDATION_MACHINE));
@@ -41,13 +41,18 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         add(SubstanceCraftBlocks.MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.MIXER));
         add(SubstanceCraftBlocks.HEATED_MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.HEATED_MIXER));
 
+
         add(SubstanceCraftBlocks.CORN_CROP, createCropDrops(
                 SubstanceCraftBlocks.CORN_CROP, SubstanceCraftItems.CORN, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP),
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.CORN_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
 
         add(SubstanceCraftBlocks.COCA_CROP, createCropDrops(
                 SubstanceCraftBlocks.COCA_CROP, SubstanceCraftItems.COCA_LEAVES, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.COCA_CROP),
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.COCA_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CocaCrop.AGE, 5))));
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.COCA_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CocaCrop.AGE_PROPERTY, 5))));
+
+        add(SubstanceCraftBlocks.GRAPEVINE, createCropDrops(
+                SubstanceCraftBlocks.GRAPEVINE, SubstanceCraftItems.GRAPES, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.GRAPEVINE),
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.GRAPEVINE).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CocaCrop.AGE_PROPERTY, 5))));
 
         add(SubstanceCraftBlocks.OIL_SHALE, block -> createSilkTouchDispatchTable(
                 block,
@@ -55,7 +60,7 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
-        
+
         add(SubstanceCraftBlocks.HALITE, block -> createSilkTouchDispatchTable(
                 block,
                 applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.HALITE)
@@ -69,15 +74,15 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
-        
-        
+
+
         add(SubstanceCraftBlocks.SULFUR_ORE, block -> createSilkTouchDispatchTable(
                 block,
                 applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.RAW_SULFUR)
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
-        
+
         add(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE, block -> createSilkTouchDispatchTable(
                 block,
                 applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.RAW_SULFUR)
@@ -105,6 +110,22 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.LIMESTONE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.LIMESTONE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.PHOSPHORITE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.PHOSPHORITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+
     }
 
 }

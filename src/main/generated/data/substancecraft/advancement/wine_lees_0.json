@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:potassium_bitartrate_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Ferment",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:wine_lees"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.wine_lees"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

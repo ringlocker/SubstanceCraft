@@ -1,0 +1,31 @@
+{
+  "parent": "substancecraft:agriculture",
+  "criteria": {
+    "got_corn": {
+      "conditions": {
+        "items": [
+          {
+            "items": "substancecraft:corn"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Corn seeds can be found in some village chests",
+    "icon": {
+      "count": 1,
+      "id": "substancecraft:corn"
+    },
+    "show_toast": false,
+    "title": "Corn"
+  },
+  "requirements": [
+    [
+      "got_corn"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

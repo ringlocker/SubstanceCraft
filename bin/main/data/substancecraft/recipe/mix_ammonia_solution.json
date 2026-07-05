@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:ammonia",
+    "substancecraft:distilled_water"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:ammonia_solution"
+  },
+  "time": 800
+}
