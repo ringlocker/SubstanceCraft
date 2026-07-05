@@ -15,7 +15,6 @@ import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftFeatures;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftLootTables;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

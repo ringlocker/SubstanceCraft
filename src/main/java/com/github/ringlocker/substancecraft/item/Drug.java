@@ -63,8 +63,15 @@ public enum Drug {
                     new DrugSideEffect(fromID("time_dilation"), milligrams(10), milligrams(10), 24),
                     new DrugSideEffect(fromID("double_vision"), milligrams(100), milligrams(20), 3))
     ),
-    PSILOCYBIN(
+    PSILOCYBIN_1(
             milligrams(25), milligrams(5), seconds(200), seconds(20), seconds(60), fromID("psilocybin"),
+            List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(10), 9, 19),
+                    new DrugSideEffect(fromID("color_enhancement"), milligrams(15), milligrams(15), 4, 19),
+                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
+                    new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(15), 3))
+    ),
+    PSILOCYBIN_2(
+            milligrams(50), milligrams(5), seconds(200), seconds(16), seconds(90), fromID("psilocybin"),
             List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(10), 9, 19),
                     new DrugSideEffect(fromID("color_enhancement"), milligrams(15), milligrams(15), 4, 19),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),

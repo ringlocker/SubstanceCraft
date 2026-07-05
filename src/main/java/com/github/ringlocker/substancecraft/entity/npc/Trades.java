@@ -25,6 +25,7 @@ public class Trades {
                     new ItemForItemOffer(SubstanceCraftItems.AMPHETAMINE, 1, stack(SubstanceCraftItems.BAND, 6), MAX_DRUG_SELL_QUANTITY, 2),
                     new ItemForItemOffer(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE_TAB, 1, stack(SubstanceCraftItems.BAND, 10), MAX_DRUG_SELL_QUANTITY, 2),
                     new ItemForItemOffer(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PSILOCYBIN), 1, stack(SubstanceCraftItems.BAND, 2), MAX_DRUG_SELL_QUANTITY, 2),
+                    new ItemForItemOffer(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PALE_PSILOCYBIN), 1, stack(SubstanceCraftItems.BAND, 4), MAX_DRUG_SELL_QUANTITY, 4),
                     new ItemForItemOffer(SubstanceCraftItems.MESCALINE, 1, stack(SubstanceCraftItems.BAND, 2), MAX_DRUG_SELL_QUANTITY, 2),
             }, 3))
 
@@ -48,6 +49,7 @@ public class Trades {
                     new ItemForItemOffer(SubstanceCraftItems.BAND, 6, 7, stack(SubstanceCraftItems.AMPHETAMINE, 1), MAX_DRUG_BUY_QUANTITY, 2),
                     new ItemForItemOffer(SubstanceCraftItems.BAND, 10, 13, stack(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE_TAB, 2), MAX_DRUG_BUY_QUANTITY, 2),
                     new ItemForItemOffer(SubstanceCraftItems.BAND, 2, 3, stack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PSILOCYBIN), 1), MAX_DRUG_BUY_QUANTITY, 2),
+                    new ItemForItemOffer(SubstanceCraftItems.BAND, 14, 21, stack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PALE_PSILOCYBIN), 1), MAX_DRUG_BUY_QUANTITY, 2),
                     new ItemForItemOffer(SubstanceCraftItems.BAND, 2, 3, stack(SubstanceCraftItems.MESCALINE, 1), MAX_DRUG_BUY_QUANTITY, 2),
             }, 2))
 
