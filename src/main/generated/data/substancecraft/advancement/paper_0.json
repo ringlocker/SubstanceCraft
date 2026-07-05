@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:lysergic_acid_diethylamine_tab_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:paper"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.minecraft.paper"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

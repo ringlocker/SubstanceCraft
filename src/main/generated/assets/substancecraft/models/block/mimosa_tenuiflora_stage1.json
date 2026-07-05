@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "substancecraft:block/mimosa_tenuiflora_stage1"
+  }
+}

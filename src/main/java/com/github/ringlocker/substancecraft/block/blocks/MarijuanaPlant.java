@@ -35,7 +35,7 @@ public class MarijuanaPlant extends TwoBlockTallBushCrop {
     };
 
     public MarijuanaPlant(Properties properties) {
-        super(properties, 7, AGE_PROPERTY, 4);
+        super(properties, AGE_PROPERTY, 4);
     }
 
     @Override

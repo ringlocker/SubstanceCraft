@@ -10,6 +10,7 @@ import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
 import com.github.ringlocker.substancecraft.block.blocks.HashPress;
 import com.github.ringlocker.substancecraft.block.blocks.HeatedMixer;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
+import com.github.ringlocker.substancecraft.block.blocks.MimosaTenuifloraPlant;
 import com.github.ringlocker.substancecraft.block.blocks.Mixer;
 import com.github.ringlocker.substancecraft.block.blocks.Oxidizer;
 import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
@@ -62,6 +63,7 @@ public class SubstanceCraftBlocks {
     public static final Block GRAPEVINE = registerBlock("grapevine", Grapevine::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
     public static final Block PSILOCYBIN = registerPlaceableDrugBlock("psilocybin", PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN);
     public static final Block PEYOTE_CACTUS = registerBlock("peyote_cactus", PeyoteCactus::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.4F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
+    public static final Block MIMOSA_TENUIFLORA = registerBlock("mimosa_tenuiflora", MimosaTenuifloraPlant::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);

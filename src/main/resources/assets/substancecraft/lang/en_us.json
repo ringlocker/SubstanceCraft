@@ -31,6 +31,7 @@
   "block.substancecraft.grapevine": "Grapevine Seeds",
   "block.substancecraft.peyote_cactus": "Peyote Cactus",
   "block.substancecraft.psilocybin": "Psilocybin",
+  "block.substancecraft.mimosa_tenuiflora": "Mimosa Tenuiflora",
 
   "effect.substancecraft.fast": "Zoomies",
   "effect.substancecraft.slow": "Slow",
@@ -176,5 +177,24 @@
   "item.substancecraft.mescaline": "Mescaline",
   "item.substancecraft.grapes": "Grapes",
   "item.substancecraft.red_wine": "Red Wine",
-  "item.substancecraft.xylene": "Xylene"
+  "item.substancecraft.xylene": "Xylene",
+  "item.substancecraft.live_resin": "Live Resin",
+  "item.substancecraft.rosin": "Rosin",
+  "item.substancecraft.joint": "Joint",
+  "item.substancecraft.bong": "Bong",
+  "item.substancecraft.empty_bong": "Empty Bong",
+  "item.substancecraft.edible": "Edible",
+  "item.substancecraft.vinegar": "Vinegar",
+  "item.substancecraft.propylene_oixide": "Propylene Oxide",
+  "item.substancecraft.propylene_glycol": "Propylene Glycol",
+  "item.substancecraft.mimosa_tenuiflora_root_bark": "Mimosa Tenuiflora Root Bark",
+  "item.substancecraft.n_n_dimethyltryptamine": "DMT",
+  "item.substancecraft.empty_cart": "Empty Cart",
+  "item.substancecraft.resin_cart": "Resin Cart",
+  "item.substancecraft.rosin_cart": "Rosin Cart",
+  "item.substancecraft.dmt_cart": "DMT Cart",
+  "item.substancecraft.pen_battery": "Pen  Battery",
+  "item.substancecraft.resin_pen": "Penjamin (Resin)",
+  "item.substancecraft.rosin_pen": "Penjamin (Rosin)",
+  "item.substancecraft.dmt_pen": "Penjamin (DMT)"
 }

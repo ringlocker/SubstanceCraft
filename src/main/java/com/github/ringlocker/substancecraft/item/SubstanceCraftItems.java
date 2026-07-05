@@ -3,6 +3,7 @@ package com.github.ringlocker.substancecraft.item;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.item.items.DrugConsumerItem;
 import com.github.ringlocker.substancecraft.item.items.DrugItem;
+import com.github.ringlocker.substancecraft.item.items.PenjaminItem;
 import com.github.ringlocker.substancecraft.item.items.SubstanceItem;
 import com.github.ringlocker.substancecraft.item.items.WaterFillableItem;
 import net.minecraft.core.Registry;
@@ -105,7 +106,7 @@ public class SubstanceCraftItems {
     public static final Item CARBON_DIOXIDE = registerItem("carbon_dioxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item CASH = registerItem("cash", Item::new, new Item.Properties());
     public static final Item BAND = registerItem("band", Item::new, new Item.Properties());
-    public static final Item GRAPES = registerItem("grapes", Item::new, new Item.Properties());
+    public static final Item GRAPES = registerItem("grapes", Item::new, new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2F).build()));
     public static final Item RED_WINE = registerItem("red_wine", properties -> new DrugItem(properties, Drug.WINE), alwaysEatProperties());
     public static final Item WINE_LEES = registerItem("wine_lees", Item::new, new Item.Properties());
     public static final Item POTASSIUM_BITARTRATE = registerItem("potassium_bitartrate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, MatterState.SOLID), new Item.Properties());
@@ -133,6 +134,26 @@ public class SubstanceCraftItems {
     public static final Item LYSERGIC_ACID_DIETHYLAMINE_TAB = registerItem("lysergic_acid_diethylamine_tab", properties -> new DrugItem(properties, Drug.LSD), alwaysEatProperties());
     public static final Item XYLENE = registerItem("xylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item MESCALINE = registerItem("mescaline", properties -> new DrugItem(properties, Drug.MESCALINE), alwaysEatProperties());
+    public static final Item EDIBLE = registerItem("edible", properties -> new DrugItem(properties, Drug.EDIBLE), alwaysEatProperties());
+    public static final Item JOINT = registerItem("joint", properties -> new DrugItem(properties, Drug.JOINT, smoke(0.8F, 5, 0, 2)), alwaysEatProperties());
+    public static final Item BONG = registerItem("bong", properties -> new DrugConsumerItem(properties, List.of(consumable(MARIJUANA, Drug.FLOWER)), smoke(0.8F, 4, 1, 2)), alwaysEatProperties());
+    public static final Item EMPTY_BONG = registerItem("empty_bong", properties -> new WaterFillableItem(properties, BONG), new Item.Properties());
+    public static final Item LIVE_RESIN = registerItem("live_resin", Item::new, new Item.Properties());
+    public static final Item ROSIN = registerItem("rosin",  Item::new, new Item.Properties());
+    public static final Item EMPTY_CART = registerItem("empty_cart", Item::new, new Item.Properties().stacksTo(1));
+    public static final Item PROPYLENE_OXIDE = registerItem("propylene_oxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item PROPYLENE_GLYCOL = registerItem("propylene_glycol", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item PEN_BATTERY = registerItem("pen_battery", Item::new, new Item.Properties().stacksTo(1));
+    public static final Item RESIN_PEN = registerItem("resin_pen", properties -> new PenjaminItem(properties, Drug.LIVE_RESIN, smoke(0.8F, 4, 0, 1)), alwaysEatProperties().durability(10).stacksTo(1));
+    public static final Item RESIN_CART = registerItem("resin_cart", Item::new, new Item.Properties());
+    public static final Item ROSIN_PEN = registerItem("rosin_pen", properties -> new PenjaminItem(properties, Drug.ROSIN, smoke(0.8F, 4, 0, 1)), alwaysEatProperties().durability(10).stacksTo(1));
+    public static final Item ROSIN_CART = registerItem("rosin_cart", Item::new, new Item.Properties());
+    public static final Item DMT_PEN = registerItem("dmt_pen", properties -> new PenjaminItem(properties, Drug.DMT, smoke(0.8F, 4, 0, 1)), alwaysEatProperties().durability(10).stacksTo(1));
+    public static final Item DMT_CART = registerItem("dmt_cart", Item::new, new Item.Properties());
+    // TODO: battery (lithium or lead or redstone?), empty cart, empty cart * 8 of (dmt, rosin, etc) = full cart, durability system
+    public static final Item VINEGAR = registerItem("vinegar", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
+    public static final Item MIMOSA_TENUIFLORA_ROOT_BARK = registerItem("mimosa_tenuiflora_root_bark", Item::new, new Item.Properties());
+    public static final Item N_N_DIMETHYLTRYPTAMINE = registerItem("n_n_dimethyltryptamine", properties -> new DrugItem(properties, Drug.DMT), new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));

@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:marijuana",
+    "substancecraft:butane"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:live_resin"
+  },
+  "time": 1500
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "substancecraft:rosin",
+    "1": "minecraft:wheat",
+    "2": "minecraft:cocoa_beans"
+  },
+  "pattern": [
+    "000",
+    "121"
+  ],
+  "result": {
+    "count": 8,
+    "id": "substancecraft:edible"
+  }
+}

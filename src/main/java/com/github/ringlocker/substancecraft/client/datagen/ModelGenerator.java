@@ -6,6 +6,7 @@ import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
 import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
+import com.github.ringlocker.substancecraft.block.blocks.MimosaTenuifloraPlant;
 import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
 import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
@@ -65,6 +66,8 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.GRAPEVINE, BlockModelGenerators.PlantType.TINTED, Grapevine.AGE_PROPERTY, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
         createSeaPickleLike(blockStateModelGenerator, SubstanceCraftBlocks.PEYOTE_CACTUS, PeyoteCactus.AGE, "peyote_stage");
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.MIMOSA_TENUIFLORA, BlockModelGenerators.PlantType.TINTED, MimosaTenuifloraPlant.AGE_PROPERTY, 0, 1, 2, 3, 4);
+
     }
 
     @Override

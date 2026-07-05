@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "substancecraft:n_n_dimethyltryptamine",
+    "1": "substancecraft:empty_cart",
+    "2": "substancecraft:propylene_glycol"
+  },
+  "pattern": [
+    "000",
+    "010",
+    "020"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:dmt_cart"
+  }
+}

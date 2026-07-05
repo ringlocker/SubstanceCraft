@@ -36,7 +36,7 @@ public class Grapevine extends TwoBlockTallBushCrop {
     };
 
     public Grapevine(Properties properties) {
-        super(properties, 7, AGE_PROPERTY, 4);
+        super(properties, AGE_PROPERTY, 4);
     }
 
     @Override

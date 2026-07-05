@@ -110,10 +110,8 @@ public class DrugConsumerItem extends Item {
         return null;
     }
 
-    public record Consumable(Item item, Drug effect) {
-    }
+    public record Consumable(Item item, Drug effect) {}
 
-    public record SmokeSettings(float smokeVelocityMultiplier, int widthInEighthBlocks, int minRollsPerSection, int maxRollsPerSection) {
-    }
+    public record SmokeSettings(float smokeVelocityMultiplier, int widthInEighthBlocks, int minRollsPerSection, int maxRollsPerSection) {}
 
 }

@@ -1,0 +1,13 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:propylene_oxide",
+    "substancecraft:distilled_water"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:propylene_glycol"
+  },
+  "time": 1200
+}

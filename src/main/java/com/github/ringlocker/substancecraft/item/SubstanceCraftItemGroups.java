@@ -8,6 +8,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
@@ -59,11 +60,17 @@ public class SubstanceCraftItemGroups {
     }
 
     private static void addDrugItems(CreativeModeTab.Output entries) {
-        entries.accept(SubstanceCraftItems.MARIJUANA);
         entries.accept(SubstanceCraftItems.MARIJUANA_TRIM);
+        entries.accept(SubstanceCraftItems.MARIJUANA);
         entries.accept(SubstanceCraftItems.HASH);
+        entries.accept(SubstanceCraftItems.LIVE_RESIN);
+        entries.accept(SubstanceCraftItems.ROSIN);
         entries.accept(SubstanceCraftItems.EMPTY_DAB_RIG);
         entries.accept(SubstanceCraftItems.DAB_RIG);
+        entries.accept(SubstanceCraftItems.EMPTY_BONG);
+        entries.accept(SubstanceCraftItems.BONG);
+        entries.accept(SubstanceCraftItems.JOINT);
+        entries.accept(SubstanceCraftItems.EDIBLE);
         entries.accept(SubstanceCraftItems.DIPHENHYDRAMINE);
         entries.accept(SubstanceCraftItems.KETAMINE);
         entries.accept(SubstanceCraftItems.TWO_C_B);
@@ -124,87 +131,9 @@ public class SubstanceCraftItemGroups {
     }
 
     private static void addSubstanceItems(CreativeModeTab.Output entries) {
-        entries.accept(SubstanceCraftItems.DISTILLED_WATER);
-        entries.accept(SubstanceCraftItems.OIL);
-        entries.accept(SubstanceCraftItems.DIESEL);
-        entries.accept(SubstanceCraftItems.GASOLINE);
-        entries.accept(SubstanceCraftItems.KEROSENE);
-        entries.accept(SubstanceCraftItems.PETROLEUM_NAPHTHA);
-        entries.accept(SubstanceCraftItems.ETHANOL);
-        entries.accept(SubstanceCraftItems.METHANOL);
-        entries.accept(SubstanceCraftItems.CHLOROFORM);
-        entries.accept(SubstanceCraftItems.TOLUENE);
-        entries.accept(SubstanceCraftItems.BENZENE);
-        entries.accept(SubstanceCraftItems.BRINE);
-        entries.accept(SubstanceCraftItems.CHLORINE);
-        entries.accept(SubstanceCraftItems.HYDROGEN);
-        entries.accept(SubstanceCraftItems.METHANE);
-        entries.accept(SubstanceCraftItems.NITROGEN);
-        entries.accept(SubstanceCraftItems.OXYGEN);
-        entries.accept(SubstanceCraftItems.NATURAL_GAS);
-        entries.accept(SubstanceCraftItems.PROPANE);
-        entries.accept(SubstanceCraftItems.ETHANE);
-        entries.accept(SubstanceCraftItems.BUTANE);
-        entries.accept(SubstanceCraftItems.METHYLAMINE);
-        entries.accept(SubstanceCraftItems.PROPYLENE);
-        entries.accept(SubstanceCraftItems.ETHYLENE);
-        entries.accept(SubstanceCraftItems.FORMALDEHYDE);
-        entries.accept(SubstanceCraftItems.AMMONIA);
-        entries.accept(SubstanceCraftItems.BENZALDEHYDE);
-        entries.accept(SubstanceCraftItems.HYDROCHLORIC_ACID);
-        entries.accept(SubstanceCraftItems.AMMONIUM_ACETATE);
-        entries.accept(SubstanceCraftItems.MALEIC_ANHYDRIDE);
-        entries.accept(SubstanceCraftItems.SALT);
-        entries.accept(SubstanceCraftItems.ACETIC_ACID);
-        entries.accept(SubstanceCraftItems.NITRIC_ACID);
-        entries.accept(SubstanceCraftItems.NITROMETHANE);
-        entries.accept(SubstanceCraftItems.NITROETHANE);
-        entries.accept(SubstanceCraftItems.SODIUM_HYDROXIDE);
-        entries.accept(SubstanceCraftItems.BROMIDE);
-        entries.accept(SubstanceCraftItems.BROMINE);
-        entries.accept(SubstanceCraftItems.CARBON_MONOXIDE);
-        entries.accept(SubstanceCraftItems.METHYL_FORMATE);
-        entries.accept(SubstanceCraftItems.FORMIC_ACID);
-        entries.accept(SubstanceCraftItems.COKE);
-        entries.accept(SubstanceCraftItems.TETRAHYDROFURAN);
-        entries.accept(SubstanceCraftItems.BETA_NITROSTYRENE);
-        entries.accept(SubstanceCraftItems.TWO_C_H);
-        entries.accept(SubstanceCraftItems.P2P);
-        entries.accept(SubstanceCraftItems.P2NP);
-        entries.accept(SubstanceCraftItems.CARBON_DIOXIDE);
-        entries.accept(SubstanceCraftItems.SULFUR);
-        entries.accept(SubstanceCraftItems.SULFURIC_ACID);
-        entries.accept(SubstanceCraftItems.AMMONIA_SOLUTION);
-        entries.accept(SubstanceCraftItems.SODIUM_CARBONATE);
-        entries.accept(SubstanceCraftItems.SODIUM_CARBONATE_SOLUTION);
-        entries.accept(SubstanceCraftItems.AGUA_RICA);
-        entries.accept(SubstanceCraftItems.POTASSIUM_CHLORIDE);
-        entries.accept(SubstanceCraftItems.POTASSIUM_HYDROXIDE);
-        entries.accept(SubstanceCraftItems.POTASSIUM_CARBONATE);
-        entries.accept(SubstanceCraftItems.MANGANESE_DIOXIDE);
-        entries.accept(SubstanceCraftItems.POTASSIUM_PERMANGANATE);
-        entries.accept(SubstanceCraftItems.COCA_PASTE);
-        entries.accept(SubstanceCraftItems.ACETONE);
-        entries.accept(SubstanceCraftItems.POTASSIUM_BITARTRATE);
-        entries.accept(SubstanceCraftItems.CALCIUM_OXIDE);
-        entries.accept(SubstanceCraftItems.CALCIUM_HYDROXIDE);
-        entries.accept(SubstanceCraftItems.CALCIUM_TARTRATE);
-        entries.accept(SubstanceCraftItems.TARTARIC_ACID);
-        entries.accept(SubstanceCraftItems.ERGOTAMINE);
-        entries.accept(SubstanceCraftItems.ERGOTAMINE_TARTRATE);
-        entries.accept(SubstanceCraftItems.DIETHYL_ETHER);
-        entries.accept(SubstanceCraftItems.ERGOTAMINE_SULFATE);
-        entries.accept(SubstanceCraftItems.SILICA);
-        entries.accept(SubstanceCraftItems.WHITE_PHOSPHORUS);
-        entries.accept(SubstanceCraftItems.RED_PHOSPHORUS);
-        entries.accept(SubstanceCraftItems.PHOSPHORUS_TRICHLORIDE);
-        entries.accept(SubstanceCraftItems.PHOSPHORYL_CHLORIDE);
-        entries.accept(SubstanceCraftItems.DIETHYLENE);
-        entries.accept(SubstanceCraftItems.D_LYSERGIC_ACID_HYDRATE);
-        entries.accept(SubstanceCraftItems.MAGNESIUM);
-        entries.accept(SubstanceCraftItems.MAGNESIUM_SULFATE);
-        entries.accept(SubstanceCraftItems.XYLENE);
-        entries.accept(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE);
+        for (Item i : SubstanceCraftItems.substances) {
+            entries.accept(i);
+        }
     }
 
 }

@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:hash_press",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:hash"
+  ],
+  "result": {
+    "count": 1,
+    "id": "substancecraft:rosin"
+  },
+  "time": 1200
+}

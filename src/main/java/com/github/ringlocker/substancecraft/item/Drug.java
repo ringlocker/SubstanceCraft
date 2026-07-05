@@ -12,6 +12,21 @@ public enum Drug {
     HASH(
             milligrams(25), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
     ),
+    EDIBLE(
+            milligrams(10), micrograms(400), seconds(180), seconds(15), seconds(75), fromID("stoned"), DrugSideEffect.THC_EFFECTS
+    ),
+    JOINT(
+            milligrams(20), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
+    ),
+    FLOWER(
+            milligrams(20), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
+    ),
+    LIVE_RESIN(
+            milligrams(32), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
+    ),
+    ROSIN(
+            milligrams(40), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
+    ),
     DIPHENHYDRAMINE(
             milligrams(300), milligrams(25), minutes(3), seconds(10), seconds(45), fromID("dph"),
             List.of(new DrugSideEffect(fromID("slow"), milligrams(50), milligrams(25), 9))
@@ -64,6 +79,9 @@ public enum Drug {
     ),
     WINE(
             grams(25), grams(10), minutes(3), seconds(10), seconds(60), fromID("alcohol"), DrugSideEffect.ETHANOL_EFFECTS
+    ),
+    DMT( // TODO: effects
+            milligrams(25), milligrams(2), minutes(1), seconds(10), seconds(60), fromID("alcohol"), DrugSideEffect.ETHANOL_EFFECTS
     );
 
     private final float dose;

@@ -8,7 +8,7 @@ public class SubstanceItem extends Item {
     private final int color;
     private final MatterState state;
 
-    public SubstanceItem(Item.Properties properties, int color, MatterState state) {
+    public SubstanceItem(Item.Properties properties, int color, MatterState state) { // TODO: drink chloroform
         super(properties);
         this.color = color;
         this.state = state;

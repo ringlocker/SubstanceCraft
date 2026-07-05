@@ -11,15 +11,20 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.Property;
+
+import java.util.Comparator;
+import java.util.Optional;
 
 public abstract class BushLikeCrop extends VegetationBlock implements BonemealableBlock {
 
     public final int MAX_AGE;
     public final IntegerProperty AGE;
 
-    protected BushLikeCrop(Properties properties, int maxAge, IntegerProperty age) {
+    protected BushLikeCrop(Properties properties, IntegerProperty age) { // TODO: rework block abstractions
         super(properties);
-        this.MAX_AGE = maxAge;
+        Optional<Property.Value<Integer>> optionalMaxAge = age.getAllValues().max(Comparator.comparingInt(Property.Value::value));
+        this.MAX_AGE = optionalMaxAge.map(Property.Value::value).orElse(-1);
         this.AGE = age;
     }
 
@@ -52,4 +57,5 @@ public abstract class BushLikeCrop extends VegetationBlock implements Bonemealab
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         level.setBlock(pos, state.setValue(AGE, Math.min(state.getValue(AGE) + 1, MAX_AGE)), Block.UPDATE_CLIENTS);
     }
+
 }

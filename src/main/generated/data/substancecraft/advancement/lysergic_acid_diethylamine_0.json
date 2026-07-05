@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:syntheses",
+  "parent": "substancecraft:lysergic_acid_diethylamine_tab_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
