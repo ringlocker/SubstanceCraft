@@ -5,6 +5,7 @@ import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PotatoBlock;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -28,16 +29,17 @@ public class SubstanceCraftLootTables {
     public static void registerLootTables() {
         addMarijuanaPlantSeedsToJungleTempleChestLoot();
         addFungiToCrops();
-        addCornSeedsToVillagerHouseChestLoot();
+        addItemToVillagerHouseChestLoot(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP));
+        addItemToVillagerHouseChestLoot(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.GRAPEVINE));
     }
 
-    private static void addCornSeedsToVillagerHouseChestLoot() {
+    private static void addItemToVillagerHouseChestLoot(Item item) {
         LootTableEvents.MODIFY.register((lootTable, tableBuilder, lootTableSource, provider) -> {
             List<ResourceKey<@NotNull LootTable>> chests = List.of(BuiltInLootTables.VILLAGE_PLAINS_HOUSE, BuiltInLootTables.VILLAGE_SAVANNA_HOUSE, BuiltInLootTables.VILLAGE_DESERT_HOUSE, BuiltInLootTables.VILLAGE_SNOWY_HOUSE);
             if (lootTableSource.isBuiltin() && chests.contains(lootTable)) {
                 LootPool.Builder lootPool = new LootPool.Builder();
                 lootPool.setRolls(ConstantValue.exactly(1.0F))
-                        .add(LootItem.lootTableItem(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP))
+                        .add(LootItem.lootTableItem(item)
                                 .setWeight(7))
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)));
                 tableBuilder.withPool(lootPool);
@@ -45,6 +47,7 @@ public class SubstanceCraftLootTables {
         });
 
     }
+
 
     private static void addFungiToCrops() {
         Optional<ResourceKey<@NotNull LootTable>> POTATO_LOOT_TABLE = Blocks.POTATOES.getLootTable();
