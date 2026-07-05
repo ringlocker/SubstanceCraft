@@ -13,6 +13,8 @@
     "substancecraft:deepslate_sulfur_ore",
     "substancecraft:trona_block",
     "substancecraft:pyrolusite_ore",
-    "substancecraft:deepslate_pyrolusite_ore"
+    "substancecraft:deepslate_pyrolusite_ore",
+    "substancecraft:limestone_block",
+    "substancecraft:phosphorite_block"
   ]
 }

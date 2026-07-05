@@ -71,6 +71,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.COCAINE);
         entries.accept(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE_TAB);
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PSILOCYBIN));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PALE_PSILOCYBIN));
         entries.accept(SubstanceCraftItems.MESCALINE);
         entries.accept(SubstanceCraftItems.RED_WINE);
         entries.accept(SubstanceCraftItems.CASH);

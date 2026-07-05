@@ -1,9 +1,9 @@
 {
-  "feature": "substancecraft:patch_psilocybin",
+  "feature": "substancecraft:patch_pale_psilocybin",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 18
+      "chance": 32
     },
     {
       "type": "minecraft:in_square"
