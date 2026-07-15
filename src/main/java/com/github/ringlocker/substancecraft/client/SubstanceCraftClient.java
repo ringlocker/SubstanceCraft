@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.client.block.entity.renderer.HashPressBlockEntityRenderer;
 import com.github.ringlocker.substancecraft.client.datagen.ModelGenerator;
@@ -14,12 +13,10 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.resources.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -28,7 +25,6 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
     @Override
     public void onInitializeClient() {
         registerItemColors();
-        registerRenderLayers();
         registerBlockEntityRenderers();
 
         SubstanceCraftScreens.registerScreens();
@@ -40,16 +36,6 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
 
     private void registerItemColors() {
         ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substance_item_tint"), SubstanceTintColor.MAP_CODEC);
-    }
-
-    private void registerRenderLayers() {
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.CORN_CROP, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.COCA_CROP, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.GRAPEVINE, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PSILOCYBIN, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PALE_PSILOCYBIN, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PEYOTE_CACTUS, ChunkSectionLayer.CUTOUT);
     }
 
     private void registerBlockEntityRenderers() {

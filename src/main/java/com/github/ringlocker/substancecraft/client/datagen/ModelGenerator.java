@@ -14,7 +14,7 @@ import com.github.ringlocker.substancecraft.item.items.SubstanceItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
@@ -25,7 +25,8 @@ import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
-import net.minecraft.client.renderer.block.model.Variant;
+import net.minecraft.client.renderer.block.dispatch.Variant;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.random.WeightedList;
@@ -36,7 +37,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 @Environment(EnvType.CLIENT)
 public class ModelGenerator extends FabricModelProvider {
 
-    public ModelGenerator(FabricDataOutput output) {
+    public ModelGenerator(FabricPackOutput output) {
         super(output);
     }
 
@@ -90,8 +91,10 @@ public class ModelGenerator extends FabricModelProvider {
     }
 
     public final void generateSubstanceItem(SubstanceItem substance, ItemModelGenerators itemModelGenerator) {
-        Identifier overlay = substance.getState().getOverlayTexture();
-        Identifier base = substance.getState().getBaseTexture();
+        Identifier baseIdentifier = substance.getState().getBaseTexture();
+        Identifier overlayIdentifier = substance.getState().getOverlayTexture();
+        Material base = new Material(baseIdentifier);
+        Material overlay = new Material(overlayIdentifier);
         Identifier resourceLocation = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
         itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(resourceLocation, new SubstanceTintColor()));
     }

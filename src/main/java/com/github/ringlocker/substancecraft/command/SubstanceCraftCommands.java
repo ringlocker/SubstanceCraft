@@ -15,9 +15,9 @@ public class SubstanceCraftCommands {
             CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("substancedata")
                 .executes(context -> {
                     String msg = SubstanceWorldData.get(context.getSource().getLevel()).toString();
-                    List<String> msgs = splitString(msg, 250);
+                    List<String> messages = splitString(msg, 250);
                     List<Component> components = new ArrayList<>();
-                    msgs.forEach(string -> components.add(Component.literal(string)));
+                    messages.forEach(string -> components.add(Component.literal(string)));
                     components.forEach(c -> context.getSource().getPlayer().sendSystemMessage(c));
                     return 1;
                 })));

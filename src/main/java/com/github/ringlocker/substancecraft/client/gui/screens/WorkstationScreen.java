@@ -7,7 +7,7 @@ import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
@@ -36,7 +36,7 @@ public abstract class WorkstationScreen<
         R extends ByproductRecipe,
         B extends WorkstationBlockEntity<R>,
         M extends WorkstationMenu<R, B>>
-    extends AbstractContainerScreen<M> {
+        extends AbstractContainerScreen<M> {
 
     protected static final Identifier SCROLLER_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/scroller");
     protected static final Identifier SCROLLER_DISABLED_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/scroller_disabled");
@@ -71,32 +71,31 @@ public abstract class WorkstationScreen<
     @Override
     protected void init() {
         super.init();
-        setBackgroundTexture(menu.getBlockEntity());
         titleLabelY = 5;
         titleLabelX = 10;
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
-        super.render(guiGraphics, mouseX, mouseY, partialTick);
-        this.renderTooltip(guiGraphics, mouseX, mouseY);
+    public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+        super.extractRenderState(graphics, mouseX, mouseY, partialTick);
+        this.extractTooltip(graphics, mouseX, mouseY);
     }
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
         setBackgroundTexture(menu.getBlockEntity());
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
+        graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
         Identifier scrollerTexture = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
-        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, scrollerTexture, leftPos + SCROLLER_X, topPos + SCROLLER_Y + (int) (41.0F * this.scrollOffset), SCROLLER_WIDTH, SCROLLER_HEIGHT);
+        graphics.blitSprite(RenderPipelines.GUI_TEXTURED, scrollerTexture, leftPos + SCROLLER_X, topPos + SCROLLER_Y + (int) (41.0F * this.scrollOffset), SCROLLER_WIDTH, SCROLLER_HEIGHT);
 
-        this.renderProgressArrow(guiGraphics, leftPos, topPos);
-        this.renderButtons(guiGraphics, mouseX, mouseY, leftPos + RECIPES_X, topPos + RECIPES_Y, firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS));
-        this.renderRecipes(guiGraphics, leftPos + RECIPES_X, topPos + RECIPES_Y, firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS));
+        renderProgressArrow(graphics, leftPos, topPos);
+        renderButtons(graphics, mouseX, mouseY, leftPos + RECIPES_X, topPos + RECIPES_Y, firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS));
+        renderRecipes(graphics, leftPos + RECIPES_X, topPos + RECIPES_Y, firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS));
     }
 
     @Override
-    protected void renderTooltip(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        super.renderTooltip(guiGraphics, mouseX, mouseY);
+    protected void extractTooltip(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
+        super.extractTooltip(graphics, mouseX, mouseY);
         int recipeX = this.leftPos + RECIPES_X;
         int recipeY = this.topPos + RECIPES_Y;
         int lastVisibleIndex = this.firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS);
@@ -105,12 +104,12 @@ public abstract class WorkstationScreen<
             int buttonX = recipeX + (relativeIndex % RECIPES_COLUMNS) * RECIPES_IMAGE_SIZE_WIDTH;
             int buttonY = recipeY + (relativeIndex / RECIPES_COLUMNS) * RECIPES_IMAGE_SIZE_HEIGHT + 2;
             if (isMouseInBox(mouseX, mouseY, buttonX, buttonX + RECIPES_IMAGE_SIZE_WIDTH, buttonY, buttonY + RECIPES_IMAGE_SIZE_HEIGHT)) {
-                guiGraphics.setTooltipForNextFrame(this.font, tooltip(index), Optional.empty(), mouseX, mouseY);
+                graphics.setTooltipForNextFrame(this.font, tooltip(index), Optional.empty(), mouseX, mouseY);
             }
         }
     }
 
-    private void renderButtons(GuiGraphics guiGraphics, int mouseX, int mouseY, int recipesX, int recipesY, int lastVisibleElementIndex) {
+    private void renderButtons(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, int recipesX, int recipesY, int lastVisibleElementIndex) {
         for (int index = this.firstVisibleIndex; index < lastVisibleElementIndex && index < this.menu.getNumRecipes(); index++) {
             int relativeIndex = index - this.firstVisibleIndex;
             int row = relativeIndex / RECIPES_COLUMNS;
@@ -199,14 +198,14 @@ public abstract class WorkstationScreen<
         return tooltip;
     }
 
-    protected void renderRecipes(GuiGraphics guiGraphics, int x, int y, int startIndex) {
+    protected void renderRecipes(GuiGraphicsExtractor guiGraphics, int x, int y, int startIndex) {
         List<RecipeHolder<R>> list = this.menu.getRecipes();
         for (int index = this.firstVisibleIndex; index < startIndex && index < this.menu.getNumRecipes(); index++) {
             int relativeIndex = index - this.firstVisibleIndex;
             int renderX = x + relativeIndex % RECIPES_COLUMNS * RECIPES_IMAGE_SIZE_WIDTH;
             int row = relativeIndex / RECIPES_COLUMNS;
             int renderY = y + row * RECIPES_IMAGE_SIZE_HEIGHT + 2;
-            guiGraphics.renderItem(list.get(index).value().getResult(), renderX, renderY);
+            guiGraphics.fakeItem(list.get(index).value().getResult(), renderX, renderY);
         }
     }
 
@@ -226,7 +225,7 @@ public abstract class WorkstationScreen<
         return buttonStateTexture;
     }
 
-    private void renderProgressArrow(GuiGraphics context, int x, int y) {
+    private void renderProgressArrow(GuiGraphicsExtractor context, int x, int y) {
         if (menu.isCrafting()) {
             context.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, 176, 0, 8, menu.getScaledProgress(), 256, 256);
         }
