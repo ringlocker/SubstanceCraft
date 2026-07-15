@@ -11,7 +11,7 @@ import com.github.ringlocker.substancecraft.datagen.recipebuilder.HeatedMixerRec
 import com.github.ringlocker.substancecraft.datagen.recipebuilder.MixerRecipeBuilder;
 import com.github.ringlocker.substancecraft.datagen.recipebuilder.OxidizerRecipeBuilder;
 import com.github.ringlocker.substancecraft.datagen.recipebuilder.RefineryRecipeBuilder;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -35,7 +35,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
     private static final int REFINE_TIME = 800;
     private static final int LONG_REFINE_TIME = 1000;
 
-    public RecipeGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public RecipeGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -72,45 +72,45 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .pattern("323")
                         .define('1', Items.CAULDRON)
                         .define('2', Items.IRON_INGOT)
-                        .define('3', Items.COPPER_BLOCK)
+                        .define('3', Items.COPPER_BLOCK.weathering().unaffected())
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("refinery"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIXER))
                         .pattern("121")
                         .pattern("343")
                         .pattern("131")
-                        .define('1', Items.COPPER_BLOCK)
+                        .define('1', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('2', Items.IRON_SHOVEL)
                         .define('3', Items.IRON_INGOT)
                         .define('4', Items.CAULDRON)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("mixer"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HEATED_MIXER))
                         .pattern("121")
                         .pattern("343")
                         .pattern("151")
-                        .define('1', Items.COPPER_BLOCK)
+                        .define('1', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('2', Items.IRON_SHOVEL)
                         .define('3', Items.IRON_INGOT)
                         .define('4', Items.CAULDRON)
                         .define('5', Items.LAVA_BUCKET)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("heated_mixer"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK))
                         .pattern("121")
                         .pattern("222")
                         .pattern("131")
-                        .define('1', Items.COPPER_BLOCK)
+                        .define('1', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('2', Items.IRON_INGOT)
                         .define('3', Items.CAULDRON)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("fermentation_tank"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE))
@@ -119,9 +119,9 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .pattern("323")
                         .define('1', Items.CAULDRON)
                         .define('2', Items.IRON_INGOT)
-                        .define('3', Items.COPPER_BLOCK)
+                        .define('3', Items.COPPER_BLOCK.weathering().unaffected())
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("oxidizer"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR))
@@ -130,23 +130,23 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .pattern("323")
                         .define('1', Items.CAULDRON)
                         .define('2', Items.IRON_INGOT)
-                        .define('3', Items.COPPER_BLOCK)
+                        .define('3', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('4', Items.HOPPER)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("extractor"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE))
                         .pattern("121")
                         .pattern("343")
                         .pattern("151")
-                        .define('1', Items.COPPER_BLOCK)
+                        .define('1', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('2', Items.LEVER)
                         .define('3', Items.REDSTONE)
                         .define('4', Items.CAULDRON)
                         .define('5', Items.IRON_INGOT)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("electrolysis_machine"));
 
                 nineBlockStorageRecipesWithCustomPacking(

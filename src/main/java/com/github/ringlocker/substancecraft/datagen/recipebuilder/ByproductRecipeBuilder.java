@@ -6,8 +6,8 @@ import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
+import net.minecraft.advancements.triggers.Criterion;
+import net.minecraft.advancements.triggers.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceKey;
@@ -44,12 +44,6 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
         this.factory = factory;
     }
 
-    @Override
-    public @NotNull ByproductRecipeBuilder unlockedBy(@NotNull String string, @NotNull Criterion<?> advancementCriterion) {
-        this.criteria.put(string, advancementCriterion);
-        return this;
-    }
-
     public ByproductRecipeBuilder setOutputCount(int outputCount) {
         if (outputCount < 1 || outputCount > 64) {
             SubstanceCraft.LOGGER.warn("Invalid outputCount in recipe: {} not in range [1,64]", outputCount);
@@ -60,13 +54,19 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
+    public ByproductRecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
+        this.criteria.put(name, criterion);
+        return this;
+    }
+
+    @Override
     public @NotNull RecipeBuilder group(@Nullable String group) {
         return this;
     }
 
     @Override
-    public @NotNull Item getResult() {
-        return this.result;
+    public ResourceKey<Recipe<?>> defaultId() {
+        return RecipeBuilder.getDefaultRecipeId(new ItemStack(this.result));
     }
 
     @Override

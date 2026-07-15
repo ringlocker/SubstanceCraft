@@ -1,38 +1,38 @@
 package com.github.ringlocker.substancecraft.datagen;
 
-import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import com.github.ringlocker.substancecraft.block.SubstanceCraftBlockItemIds;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
+public class BlockTagGenerator extends FabricTagsProvider.BlockTagsProvider {
 
-    public BlockTagGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public BlockTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(SubstanceCraftBlocks.HASH_PRESS).add(SubstanceCraftBlocks.REFINERY)
-                .add(SubstanceCraftBlocks.OXIDATION_MACHINE).add(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE)
-                .add(SubstanceCraftBlocks.MIXER).add(SubstanceCraftBlocks.HEATED_MIXER)
-                .add(SubstanceCraftBlocks.FERMENTATION_TANK)
-                .add(SubstanceCraftBlocks.HALITE)
-                .add(SubstanceCraftBlocks.SYLVITE)
-                .add(SubstanceCraftBlocks.SULFUR_ORE)
-                .add(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE)
-                .add(SubstanceCraftBlocks.TRONA)
-                .add(SubstanceCraftBlocks.PYROLUSITE_ORE)
-                .add(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE)
-                .add(SubstanceCraftBlocks.LIMESTONE)
-                .add(SubstanceCraftBlocks.PHOSPHORITE);
+        builder(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(SubstanceCraftBlockItemIds.HASH_PRESS).add(SubstanceCraftBlockItemIds.REFINERY)
+                .add(SubstanceCraftBlockItemIds.OXIDATION_MACHINE).add(SubstanceCraftBlockItemIds.ELECTROLYSIS_MACHINE)
+                .add(SubstanceCraftBlockItemIds.MIXER).add(SubstanceCraftBlockItemIds.HEATED_MIXER)
+                .add(SubstanceCraftBlockItemIds.FERMENTATION_TANK)
+                .add(SubstanceCraftBlockItemIds.HALITE)
+                .add(SubstanceCraftBlockItemIds.SYLVITE)
+                .add(SubstanceCraftBlockItemIds.SULFUR_ORE)
+                .add(SubstanceCraftBlockItemIds.DEEPSLATE_SULFUR_ORE)
+                .add(SubstanceCraftBlockItemIds.TRONA)
+                .add(SubstanceCraftBlockItemIds.PYROLUSITE_ORE)
+                .add(SubstanceCraftBlockItemIds.DEEPSLATE_PYROLUSITE_ORE)
+                .add(SubstanceCraftBlockItemIds.LIMESTONE)
+                .add(SubstanceCraftBlockItemIds.PHOSPHORITE);
 
-        valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(SubstanceCraftBlocks.OIL_SHALE);
+        builder(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(SubstanceCraftBlockItemIds.OIL_SHALE);
     }
 
 }
