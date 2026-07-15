@@ -15,6 +15,7 @@ import com.github.ringlocker.substancecraft.recipe.SubstanceCraftRecipes;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftFeatures;
 import com.github.ringlocker.substancecraft.world.SubstanceCraftLootTables;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,6 +40,16 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftEntities.registerEntities();
         SubstanceEffectTicker.init();
         SubstanceCraftEntitySpawners.init();
+
+        addFlammableBlocks();
+    }
+
+    private void addFlammableBlocks() {
+        FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, 30, 60);
+        FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WOOD, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_WOOD, 5, 5);
     }
 
 }

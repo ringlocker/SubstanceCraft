@@ -6,7 +6,6 @@ import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
 import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
 import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
-import com.github.ringlocker.substancecraft.block.blocks.MimosaTenuifloraPlant;
 import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
 import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
@@ -67,8 +66,10 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PALE_PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
         createSeaPickleLike(blockStateModelGenerator, SubstanceCraftBlocks.PEYOTE_CACTUS, PeyoteCactus.AGE, "peyote_stage");
-        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.MIMOSA_TENUIFLORA, BlockModelGenerators.PlantType.TINTED, MimosaTenuifloraPlant.AGE_PROPERTY, 0, 1, 2, 3, 4);
-
+        blockStateModelGenerator.woodProvider(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LOG).logWithHorizontal(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LOG).wood(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WOOD);
+        blockStateModelGenerator.woodProvider(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG).logWithHorizontal(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG).wood(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_WOOD);
+        blockStateModelGenerator.createTintedLeaves(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, TexturedModel.LEAVES, -12012264);
+        blockStateModelGenerator.createPlantWithDefaultItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING, SubstanceCraftBlocks.POTTED_MIMOSA_HOSTILIS_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
     }
 
     @Override
@@ -76,6 +77,7 @@ public class ModelGenerator extends FabricModelProvider {
         SubstanceCraftItems.substances.forEach(substance -> generateSubstanceItem(substance, itemModelGenerator));
         SubstanceCraftItems.flatTextureItems.forEach(flatTextureItem -> itemModelGenerator.generateFlatItem(flatTextureItem, ModelTemplates.FLAT_ITEM));
     }
+
 
     private void createSeaPickleLike(BlockModelGenerators blockStateModelGenerator, Block block, IntegerProperty ages, String modelName) {
         blockStateModelGenerator.registerSimpleFlatItemModel(SubstanceCraftBlocks.getBlockItem(block));

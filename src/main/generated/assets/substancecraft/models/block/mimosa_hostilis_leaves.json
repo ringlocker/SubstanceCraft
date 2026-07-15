@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "substancecraft:block/mimosa_hostilis_leaves"
+  }
+}

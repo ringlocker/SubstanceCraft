@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "substancecraft:block/mimosa_hostilis_sapling"
+  }
+}

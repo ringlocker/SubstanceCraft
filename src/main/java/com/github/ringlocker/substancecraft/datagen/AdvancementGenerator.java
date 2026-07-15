@@ -397,7 +397,6 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {
-        System.out.println("generate for " + toSynthesize.toString());
         ByproductRecipe recipe = getRecipeForItem(toSynthesize);
         Component recipeType = recipe == null ? Component.literal("") : recipe.getLabel();
 

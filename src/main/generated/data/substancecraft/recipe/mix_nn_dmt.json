@@ -2,13 +2,13 @@
   "type": "substancecraft:heated_mixer",
   "byproducts": [],
   "ingredients": [
-    "substancecraft:mimosa_tenuiflora_root_bark",
+    "substancecraft:mimosa_hostilis_root_bark",
     "substancecraft:petroleum_naphtha",
     "substancecraft:vinegar",
     "substancecraft:sodium_hydroxide"
   ],
   "result": {
-    "count": 1,
+    "count": 3,
     "id": "substancecraft:n_n_dimethyltryptamine"
   },
   "time": 800

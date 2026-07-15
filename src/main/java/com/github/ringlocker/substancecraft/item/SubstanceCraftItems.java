@@ -26,8 +26,6 @@ public class SubstanceCraftItems {
     public static final Item MARIJUANA = registerItem("marijuana", Item::new, new Item.Properties());
     public static final Item MARIJUANA_TRIM = registerItem("marijuana_trim", Item::new, new Item.Properties());
     public static final Item HASH = registerItem("hash", Item::new, new Item.Properties());
-    public static final Item DAB_RIG = registerItem("dab_rig", properties -> new DrugConsumerItem(properties, List.of(consumable(HASH, Drug.HASH)), smoke(1.0F, 5, 0, 3)), alwaysEatProperties());
-    public static final Item EMPTY_DAB_RIG = registerItem("empty_dab_rig", properties -> new WaterFillableItem(properties, DAB_RIG), new Item.Properties());
     public static final Item DIPHENHYDRAMINE = registerItem("diphenhydramine", properties -> new DrugItem(properties, Drug.DIPHENHYDRAMINE), alwaysEatProperties());
     public static final Item KETAMINE = registerItem("ketamine", properties -> new DrugItem(properties, Drug.KETAMINE), alwaysEatProperties());
     public static final Item OIL = registerItem("oil", properties -> new SubstanceItem(properties, SubstanceTintColors.THICK_BLACK_LIQUID, MatterState.LIQUID), new Item.Properties());
@@ -140,6 +138,8 @@ public class SubstanceCraftItems {
     public static final Item EMPTY_BONG = registerItem("empty_bong", properties -> new WaterFillableItem(properties, BONG), new Item.Properties());
     public static final Item LIVE_RESIN = registerItem("live_resin", Item::new, new Item.Properties());
     public static final Item ROSIN = registerItem("rosin",  Item::new, new Item.Properties());
+    public static final Item DAB_RIG = registerItem("dab_rig", properties -> new DrugConsumerItem(properties, List.of(consumable(HASH, Drug.HASH), consumable(LIVE_RESIN, Drug.LIVE_RESIN), consumable(ROSIN, Drug.ROSIN)), smoke(1.0F, 5, 0, 3)), alwaysEatProperties());
+    public static final Item EMPTY_DAB_RIG = registerItem("empty_dab_rig", properties -> new WaterFillableItem(properties, DAB_RIG), new Item.Properties());
     public static final Item EMPTY_CART = registerItem("empty_cart", Item::new, new Item.Properties().stacksTo(1));
     public static final Item PROPYLENE_OXIDE = registerItem("propylene_oxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item PROPYLENE_GLYCOL = registerItem("propylene_glycol", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
@@ -150,10 +150,9 @@ public class SubstanceCraftItems {
     public static final Item ROSIN_CART = registerItem("rosin_cart", Item::new, new Item.Properties());
     public static final Item DMT_PEN = registerItem("dmt_pen", properties -> new PenjaminItem(properties, Drug.DMT, smoke(0.8F, 4, 0, 1)), alwaysEatProperties().durability(10).stacksTo(1));
     public static final Item DMT_CART = registerItem("dmt_cart", Item::new, new Item.Properties());
-    // TODO: battery (lithium or lead or redstone?), empty cart, empty cart * 8 of (dmt, rosin, etc) = full cart, durability system
     public static final Item VINEGAR = registerItem("vinegar", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
-    public static final Item MIMOSA_TENUIFLORA_ROOT_BARK = registerItem("mimosa_tenuiflora_root_bark", Item::new, new Item.Properties());
-    public static final Item N_N_DIMETHYLTRYPTAMINE = registerItem("n_n_dimethyltryptamine", properties -> new DrugItem(properties, Drug.DMT), new Item.Properties());
+    public static final Item MIMOSA_HOSTILIS_ROOT_BARK = registerItem("mimosa_hostilis_root_bark", Item::new, new Item.Properties());
+    public static final Item N_N_DIMETHYLTRYPTAMINE = registerItem("n_n_dimethyltryptamine", properties -> new DrugItem(properties, Drug.DMT), alwaysEatProperties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "substancecraft:item/mimosa_tenuiflora_root_bark"
-  }
-}

@@ -15,12 +15,15 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.client.color.block.BlockTintCache;
 import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.state.BlockState;
 
 @Environment(EnvType.CLIENT)
 public class SubstanceCraftClient implements ClientModInitializer, DataGeneratorEntrypoint {
@@ -28,6 +31,8 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
     @Override
     public void onInitializeClient() {
         registerItemColors();
+        registerBlockColors();
+        registerBlockColors();
         registerRenderLayers();
         registerBlockEntityRenderers();
 
@@ -36,6 +41,10 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
         SubstanceCraftRecipes.synchronizeRecipes();
 
         ClientTickEvents.START_CLIENT_TICK.register(ShaderEffectTicker::clientTick);
+    }
+
+    private void registerBlockColors() {
+        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> -12012264, SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES);
     }
 
     private void registerItemColors() {
@@ -50,7 +59,8 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
         BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PSILOCYBIN, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PALE_PSILOCYBIN, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PEYOTE_CACTUS, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MIMOSA_TENUIFLORA, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, ChunkSectionLayer.CUTOUT);
     }
 
     private void registerBlockEntityRenderers() {

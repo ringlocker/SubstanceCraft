@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "substancecraft:block/mimosa_hostilis_sapling"
+  }
+}

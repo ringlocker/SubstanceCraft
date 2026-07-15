@@ -10,6 +10,7 @@ import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
 import com.github.ringlocker.substancecraft.block.blocks.HashPress;
 import com.github.ringlocker.substancecraft.block.blocks.HeatedMixer;
 import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
+import com.github.ringlocker.substancecraft.block.blocks.MimosaHostilisLog;
 import com.github.ringlocker.substancecraft.block.blocks.Mixer;
 import com.github.ringlocker.substancecraft.block.blocks.Oxidizer;
 import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
@@ -17,6 +18,7 @@ import com.github.ringlocker.substancecraft.block.blocks.PotentPsilocybinMushroo
 import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.block.blocks.Refinery;
 import com.github.ringlocker.substancecraft.item.Drug;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -27,12 +29,19 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.TintedParticleLeavesBlock;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.function.Function;
 
 public class SubstanceCraftBlocks {
@@ -64,6 +73,15 @@ public class SubstanceCraftBlocks {
     public static final Block PSILOCYBIN = registerPlaceableDrugBlock("psilocybin", PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_1);
     public static final Block PEYOTE_CACTUS = registerBlock("peyote_cactus", PeyoteCactus::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.4F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
     public static final Block PALE_PSILOCYBIN = registerPlaceableDrugBlock("pale_psilocybin", PotentPsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_2);
+    public static final Block MIMOSA_HOSTILIS_LOG = registerBlock("mimosa_hostilis_log", MimosaHostilisLog::new, BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MapColor.WOOD : MapColor.PODZOL).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
+    public static final Block MIMOSA_HOSTILIS_WOOD = registerBlock("mimosa_hostilis_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
+    public static final Block STRIPPED_MIMOSA_HOSTILIS_WOOD = registerBlock("stripped_mimosa_hostilis_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
+    public static final Block MIMOSA_HOSTILIS_LEAVES = registerBlock("mimosa_hostilis_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
+    public static final Block STRIPPED_MIMOSA_HOSTILIS_LOG = registerBlock("stripped_mimosa_hostilis_log", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
+    private static final TreeGrower MIMOSA_HOSTILIS = new TreeGrower("acacia", Optional.empty(), Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis"))), Optional.empty());
+    public static final Block MIMOSA_HOSTILIS_SAPLING = registerBlock("mimosa_hostilis_sapling", properties -> new SaplingBlock(MIMOSA_HOSTILIS, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
+    public static final Block POTTED_MIMOSA_HOSTILIS_SAPLING = registerBlock("potted_mimosa_hostilis_sapling", properties -> new FlowerPotBlock(MIMOSA_HOSTILIS_SAPLING, properties), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
+
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "substancecraft:block/stripped_mimosa_hostilis_log",
+    "side": "substancecraft:block/stripped_mimosa_hostilis_log"
+  }
+}

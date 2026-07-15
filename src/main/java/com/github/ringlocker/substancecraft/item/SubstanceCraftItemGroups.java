@@ -71,6 +71,14 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.BONG);
         entries.accept(SubstanceCraftItems.JOINT);
         entries.accept(SubstanceCraftItems.EDIBLE);
+        entries.accept(SubstanceCraftItems.PEN_BATTERY);
+        entries.accept(SubstanceCraftItems.EMPTY_CART);
+        entries.accept(SubstanceCraftItems.RESIN_CART);
+        entries.accept(SubstanceCraftItems.ROSIN_CART);
+        entries.accept(SubstanceCraftItems.DMT_CART);
+        entries.accept(SubstanceCraftItems.RESIN_PEN);
+        entries.accept(SubstanceCraftItems.ROSIN_PEN);
+        entries.accept(SubstanceCraftItems.DMT_PEN);
         entries.accept(SubstanceCraftItems.DIPHENHYDRAMINE);
         entries.accept(SubstanceCraftItems.KETAMINE);
         entries.accept(SubstanceCraftItems.TWO_C_B);
@@ -80,6 +88,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PSILOCYBIN));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PALE_PSILOCYBIN));
         entries.accept(SubstanceCraftItems.MESCALINE);
+        entries.accept(SubstanceCraftItems.N_N_DIMETHYLTRYPTAMINE);
         entries.accept(SubstanceCraftItems.RED_WINE);
         entries.accept(SubstanceCraftItems.CASH);
         entries.accept(SubstanceCraftItems.BAND);

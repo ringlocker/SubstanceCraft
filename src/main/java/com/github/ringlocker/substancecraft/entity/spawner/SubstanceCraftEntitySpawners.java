@@ -21,7 +21,7 @@ public class SubstanceCraftEntitySpawners {
     public static void serverStart(MinecraftServer server) {
         ServerLevel level = server.getLevel(ServerLevel.OVERWORLD);
         if (level == null) {
-            System.out.println("Overworld loading failed!");
+            System.err.println("Overworld loading failed!");
             return;
         }
         overworld = level;
