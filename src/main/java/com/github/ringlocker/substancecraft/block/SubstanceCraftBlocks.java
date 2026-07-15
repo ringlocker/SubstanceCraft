@@ -17,6 +17,7 @@ import com.github.ringlocker.substancecraft.block.blocks.PotentPsilocybinMushroo
 import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.block.blocks.Refinery;
 import com.github.ringlocker.substancecraft.item.Drug;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -25,10 +26,12 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
@@ -61,9 +64,9 @@ public class SubstanceCraftBlocks {
     public static final Block LIMESTONE = registerBlock("limestone_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
     public static final Block PHOSPHORITE = registerBlock("phosphorite_block", Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block GRAPEVINE = registerBlock("grapevine", Grapevine::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
-    public static final Block PSILOCYBIN = registerPlaceableDrugBlock("psilocybin", PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_1);
+    public static final Block PSILOCYBIN = registerPlaceableDrugBlock("psilocybin", PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_1);
     public static final Block PEYOTE_CACTUS = registerBlock("peyote_cactus", PeyoteCactus::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.4F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
-    public static final Block PALE_PSILOCYBIN = registerPlaceableDrugBlock("pale_psilocybin", PotentPsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).hasPostProcess(Blocks::always).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_2);
+    public static final Block PALE_PSILOCYBIN = registerPlaceableDrugBlock("pale_psilocybin", PotentPsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_2);
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);
@@ -99,6 +102,10 @@ public class SubstanceCraftBlocks {
 
     private static ResourceKey<Item> itemKey(String name) {
         return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
+    }
+
+    private static BlockPos postProcessSelf(final BlockState state, final BlockGetter blockGetter, final BlockPos blockPos) {
+        return blockPos;
     }
 
     public static void registerBlocks() {

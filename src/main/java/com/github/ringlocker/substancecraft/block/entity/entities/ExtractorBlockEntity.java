@@ -21,4 +21,5 @@ public class ExtractorBlockEntity extends WorkstationBlockEntity<ExtractorRecipe
     public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
         return new ExtractorMenu(i, inventory, this, data);
     }
+
 }

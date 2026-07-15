@@ -71,7 +71,7 @@ public abstract class TwoBlockTallBushCrop extends BushLikeCrop {
         }
         if (harvest) {
            harvest(level, pos);
-            level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+            level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
             if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
                 level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
                 level.setBlock(pos, state.setValue(this.AGE, oneBlockMaxAge - 1), Block.UPDATE_CLIENTS);
@@ -152,7 +152,5 @@ public abstract class TwoBlockTallBushCrop extends BushLikeCrop {
         }
         return state;
     }
-
-
 
 }

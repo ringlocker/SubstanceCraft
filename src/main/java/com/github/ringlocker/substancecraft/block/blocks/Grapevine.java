@@ -64,7 +64,7 @@ public class Grapevine extends TwoBlockTallBushCrop {
     @Override
     protected void harvest(Level level, BlockPos pos) {
         popResource(level, pos, new ItemStack(SubstanceCraftItems.GRAPES, 1));
-        popResource(level, pos, new ItemStack(SubstanceCraftItems.GRAPES, 1 + level.random.nextInt(2) == 1 ? 1 : 0));
+        popResource(level, pos, new ItemStack(SubstanceCraftItems.GRAPES, 1 + level.getRandom().nextInt(2) == 1 ? 1 : 0));
     }
 
 }

@@ -142,7 +142,7 @@ public class CornCrop extends CropBlock {
         if (top.is(this)) {
             BonemealableBlock growable = (BonemealableBlock) level.getBlockState(pos.above()).getBlock();
             if (growable.isValidBonemealTarget(level, pos.above(), top)) {
-                growable.performBonemeal(level, level.random, pos.above(), top);
+                growable.performBonemeal(level, level.getRandom(), pos.above(), top);
             }
         } else {
             if (this.defaultBlockState().canSurvive(level, pos.above()) && level.isEmptyBlock(pos.above())) {

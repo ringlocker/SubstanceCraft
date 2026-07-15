@@ -63,8 +63,8 @@ public class MarijuanaPlant extends TwoBlockTallBushCrop {
     protected void harvest(Level level, BlockPos pos) {
         popResource(level, pos, new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT), 1));
         popResource(level, pos, new ItemStack(SubstanceCraftItems.MARIJUANA, 1));
-        popResource(level, pos, new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM, 1 + level.random.nextInt(2) == 1 ? 1 : 0));
-        popResource(level, pos, new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM, 1 + level.random.nextInt(2) == 1 ? 1 : 0));
+        popResource(level, pos, new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM, 1 + level.getRandom().nextInt(2) == 1 ? 1 : 0));
+        popResource(level, pos, new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM, 1 + level.getRandom().nextInt(2) == 1 ? 1 : 0));
     }
 
 }
