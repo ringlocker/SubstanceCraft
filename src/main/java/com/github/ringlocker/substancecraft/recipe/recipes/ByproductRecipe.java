@@ -95,8 +95,18 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
     }
 
     @Override
-    public @NotNull ItemStack assemble(MultipleItemInput input, HolderLookup.Provider registries) {
+    public ItemStack assemble(MultipleItemInput input) {
         return result.copy();
+    }
+
+    @Override
+    public boolean showNotification() {
+        return true;
+    }
+
+    @Override
+    public String group() {
+        return "";
     }
 
     @Override

@@ -27,7 +27,8 @@ public class ExtractorRecipe extends ByproductRecipe {
     }
 
     public static class Serializer {
-        public static final RecipeSerializer<ExtractorRecipe> INSTANCE = new ByproductRecipeSerializer<>(ExtractorRecipe::new);
+        private static final ByproductRecipeSerializer<ExtractorRecipe> SERIALIZER = new ByproductRecipeSerializer<>(ExtractorRecipe::new);
+        public static final RecipeSerializer<ExtractorRecipe> INSTANCE = new RecipeSerializer<>(SERIALIZER.codec(), SERIALIZER.streamCodec());
     }
 
 }

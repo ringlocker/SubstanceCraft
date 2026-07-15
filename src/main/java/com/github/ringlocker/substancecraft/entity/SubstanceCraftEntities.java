@@ -14,6 +14,7 @@ import net.minecraft.world.entity.MobCategory;
 public class SubstanceCraftEntities {
 
     private static final Identifier DEALER_LOCATION = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "dealer");
+
     public static final EntityType<Dealer> DEALER = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             DEALER_LOCATION,

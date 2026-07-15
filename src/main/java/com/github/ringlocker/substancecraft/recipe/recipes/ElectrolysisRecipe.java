@@ -27,7 +27,8 @@ public class ElectrolysisRecipe extends ByproductRecipe {
     }
 
     public static class Serializer {
-        public static final RecipeSerializer<ElectrolysisRecipe> INSTANCE = new ByproductRecipeSerializer<>(ElectrolysisRecipe::new);
+        private static final ByproductRecipeSerializer<ElectrolysisRecipe> SERIALIZER = new ByproductRecipeSerializer<>(ElectrolysisRecipe::new);
+        public static final RecipeSerializer<ElectrolysisRecipe> INSTANCE = new RecipeSerializer<>(SERIALIZER.codec(), SERIALIZER.streamCodec());
     }
 
 }

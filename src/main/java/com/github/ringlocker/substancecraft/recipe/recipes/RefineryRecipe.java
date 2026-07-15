@@ -27,7 +27,8 @@ public class RefineryRecipe extends ByproductRecipe {
     }
 
     public static class Serializer {
-        public static final RecipeSerializer<RefineryRecipe> INSTANCE = new ByproductRecipeSerializer<>(RefineryRecipe::new);
+        private static final ByproductRecipeSerializer<RefineryRecipe> SERIALIZER = new ByproductRecipeSerializer<>(RefineryRecipe::new);
+        public static final RecipeSerializer<RefineryRecipe> INSTANCE = new RecipeSerializer<>(SERIALIZER.codec(), SERIALIZER.streamCodec());
     }
 
 }

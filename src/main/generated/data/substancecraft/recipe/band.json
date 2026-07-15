@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "cash",
   "key": {
     "#": "substancecraft:cash"
@@ -11,7 +10,6 @@
     "###"
   ],
   "result": {
-    "count": 1,
     "id": "substancecraft:band"
   }
 }

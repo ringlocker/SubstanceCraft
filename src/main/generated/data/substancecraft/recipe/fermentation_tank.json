@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "1": "minecraft:copper_block",
     "2": "minecraft:iron_ingot",
@@ -12,7 +11,6 @@
     "131"
   ],
   "result": {
-    "count": 1,
     "id": "substancecraft:fermentation_tank"
   }
 }

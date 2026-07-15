@@ -3,6 +3,7 @@ package com.github.ringlocker.substancecraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.entity.SubstanceCraftEntities;
+import com.github.ringlocker.substancecraft.entity.npc.SubstanceCraftTradeTags;
 import com.github.ringlocker.substancecraft.entity.spawner.SubstanceCraftEntitySpawners;
 import com.github.ringlocker.substancecraft.command.SubstanceCraftCommands;
 import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
@@ -37,6 +38,7 @@ public class SubstanceCraft implements ModInitializer {
         SubstanceCraftCommands.registerCommands();
         SubstanceCraftDamageSources.registerDamageSources();
         SubstanceCraftEntities.registerEntities();
+        SubstanceCraftTradeTags.registerVillagerTradeTags();
         SubstanceEffectTicker.init();
         SubstanceCraftEntitySpawners.init();
     }

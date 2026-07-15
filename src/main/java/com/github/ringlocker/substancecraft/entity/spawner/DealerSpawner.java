@@ -8,7 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
@@ -97,14 +97,14 @@ public class DealerSpawner implements Spawner {
     @Nullable
     private BlockPos findSpawnPositionNear(LevelReader levelReader, BlockPos pos) {
         BlockPos blockpos = null;
-        SpawnPlacementType spawnplacementtype = SpawnPlacements.getPlacementType(EntityType.WANDERING_TRADER);
+        SpawnPlacementType spawnplacementtype = SpawnPlacements.getPlacementType(EntityTypes.WANDERING_TRADER);
 
         for (int i = 0; i < 10; i++) {
             int randX = pos.getX() + this.random.nextInt(DealerSpawner.maxDistance * 2) - DealerSpawner.maxDistance;
             int randZ = pos.getZ() + this.random.nextInt(DealerSpawner.maxDistance * 2) - DealerSpawner.maxDistance;
             int randY = levelReader.getHeight(Heightmap.Types.WORLD_SURFACE, randX, randZ);
             BlockPos randomPos = new BlockPos(randX, randY, randZ);
-            if (spawnplacementtype.isSpawnPositionOk(levelReader, randomPos, EntityType.WANDERING_TRADER)) {
+            if (spawnplacementtype.isSpawnPositionOk(levelReader, randomPos, EntityTypes.WANDERING_TRADER)) {
                 blockpos = randomPos;
                 break;
             }

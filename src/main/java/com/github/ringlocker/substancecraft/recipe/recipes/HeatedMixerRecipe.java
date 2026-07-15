@@ -27,7 +27,8 @@ public class HeatedMixerRecipe extends ByproductRecipe {
     }
 
     public static class Serializer {
-        public static final RecipeSerializer<HeatedMixerRecipe> INSTANCE = new ByproductRecipeSerializer<>(HeatedMixerRecipe::new);
+        private static final ByproductRecipeSerializer<HeatedMixerRecipe> SERIALIZER = new ByproductRecipeSerializer<>(HeatedMixerRecipe::new);
+        public static final RecipeSerializer<HeatedMixerRecipe> INSTANCE = new RecipeSerializer<>(SERIALIZER.codec(), SERIALIZER.streamCodec());
     }
 
 }

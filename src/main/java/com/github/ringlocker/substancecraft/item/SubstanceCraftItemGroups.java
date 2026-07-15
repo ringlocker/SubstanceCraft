@@ -2,7 +2,7 @@ package com.github.ringlocker.substancecraft.item;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -21,11 +21,13 @@ public class SubstanceCraftItemGroups {
     public static CreativeModeTab ALL_ITEM_GROUP;
 
     public static void registerItemGroups() {
-        DRUGS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "drugs"),
-                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.drugs"))
-                        .icon(() -> new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM)).displayItems((displayContext, entries) -> addDrugItems(entries)).build());
+        DRUGS_ITEM_GROUP = FabricCreativeModeTab.builder()
+                .icon(() -> new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM))
+                .title(Component.translatable("itemgroup.substancecraft.drugs"))
+                .displayItems((displayContext, entries) -> addDrugItems(entries))
+                .build();
 
+        /*
         BLOCKS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "blocks"),
                 FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.blocks"))
@@ -56,6 +58,8 @@ public class SubstanceCraftItemGroups {
                             addAgricultureItems(entries);
                             addSubstanceItems(entries);
                         }).build());
+
+         */
     }
 
     private static void addDrugItems(CreativeModeTab.Output entries) {

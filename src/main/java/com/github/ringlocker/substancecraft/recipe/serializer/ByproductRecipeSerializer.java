@@ -9,13 +9,12 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ByproductRecipeSerializer<R extends ByproductRecipe> implements RecipeSerializer<R> {
+public class ByproductRecipeSerializer<R extends ByproductRecipe> {
 
     private final ByproductRecipe.Factory<R> factory;
     private final MapCodec<R> codec;
@@ -26,19 +25,17 @@ public class ByproductRecipeSerializer<R extends ByproductRecipe> implements Rec
         this.codec = RecordCodecBuilder.mapCodec(
                 (instance) -> instance.group(
                         Ingredient.CODEC.listOf().fieldOf("ingredients").forGetter(ByproductRecipe::getInputs),
-                        ItemStack.STRICT_CODEC.fieldOf("result").forGetter(ByproductRecipe::getResult),
+                        ItemStack.CODEC.fieldOf("result").forGetter(ByproductRecipe::getResult),
                         ItemStack.CODEC.listOf().fieldOf("byproducts").forGetter(ByproductRecipe::getByproducts),
                         Codec.INT.fieldOf("time").orElse(200).forGetter(ByproductRecipe::getTime)
                 ).apply(instance, factory::create));
         packetCodec = StreamCodec.of(this::write, this::read);
     }
 
-    @Override
     public @NotNull MapCodec<R> codec() {
         return codec;
     }
 
-    @Override
     public @NotNull StreamCodec<RegistryFriendlyByteBuf, R> streamCodec() {
         return packetCodec;
     }

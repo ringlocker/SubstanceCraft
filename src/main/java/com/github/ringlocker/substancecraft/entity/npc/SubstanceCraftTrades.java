@@ -1,21 +1,56 @@
 package com.github.ringlocker.substancecraft.entity.npc;
 
-import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
+import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
-import com.google.common.collect.ImmutableList;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
-import net.minecraft.world.item.Item;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
-import org.apache.commons.lang3.tuple.Pair;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.trading.TradeCost;
+import net.minecraft.world.item.trading.VillagerTrade;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
-public class Trades {
+import java.util.List;
+import java.util.Optional;
+
+public class SubstanceCraftTrades {
 
     private static final int MAX_DRUG_BUY_QUANTITY = 16;
     private static final int MAX_DRUG_SELL_QUANTITY = 16;
     private static final int MAX_PLANT_BUY_QUANTITY = 4;
     private static final int MAX_PLANT_BULK_SELL_QUANTITY = 16;
-    
+
+    public static final ResourceKey<VillagerTrade> DEALER_BUY_2CB = resourceKey("dealer/buy_2cb");
+    public static final ResourceKey<VillagerTrade> DEALER_BUY_HASH = resourceKey("dealer/buy_hash");
+
+    public static ResourceKey<VillagerTrade> resourceKey(String path) {
+        return ResourceKey.create(Registries.VILLAGER_TRADE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, path));
+    }
+
+    public static void bootstrap(BootstrapContext<VillagerTrade> context) {
+        register(context, DEALER_BUY_2CB, new VillagerTrade(
+                new TradeCost(SubstanceCraftItems.BAND, UniformGenerator.between(8.0F, 10.0F)),
+                new ItemStackTemplate(SubstanceCraftItems.TWO_C_B),
+                MAX_DRUG_BUY_QUANTITY,
+                2, 0.05F, Optional.empty(), List.of()
+        ));
+        register(context, DEALER_BUY_HASH, new VillagerTrade(
+                new TradeCost(SubstanceCraftItems.CASH, UniformGenerator.between(10.0F, 10.0F)),
+                new ItemStackTemplate(SubstanceCraftItems.HASH),
+                MAX_DRUG_BUY_QUANTITY,
+                2, 0.05F, Optional.empty(), List.of()
+        ));
+    }
+
+    public static Holder.Reference<VillagerTrade> register(BootstrapContext<VillagerTrade> context, ResourceKey<VillagerTrade> resourceKey, VillagerTrade villagerTrade) {
+        return context.register(resourceKey, villagerTrade);
+    }
+
+
+    /*
     public static final ImmutableList<@NotNull Pair<VillagerTrades.ItemListing[], Integer>> DEALER_TRADES = ImmutableList.<Pair<VillagerTrades.ItemListing[], Integer>>builder()
             // Buys 3 unique synthesizable drugs from player
             .add(Pair.of(new VillagerTrades.ItemListing[]{
@@ -73,5 +108,7 @@ public class Trades {
     private static ItemStack stack(Item item, int count) {
         return new ItemStack(item, count);
     }
+
+     */
 
 }

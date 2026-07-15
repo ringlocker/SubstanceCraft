@@ -2,7 +2,7 @@ package com.github.ringlocker.substancecraft.entity.entities;
 
 import java.util.EnumSet;
 
-import com.github.ringlocker.substancecraft.entity.npc.Trades;
+import com.github.ringlocker.substancecraft.entity.npc.SubstanceCraftTradeSets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -26,7 +26,6 @@ import net.minecraft.world.entity.ai.goal.TradeWithPlayerGoal;
 import net.minecraft.world.entity.ai.goal.UseItemGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -35,11 +34,11 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
+import net.minecraft.world.item.trading.TradeSets;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -117,12 +116,14 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
     }
 
     @Override
-    protected void updateTrades(@NotNull ServerLevel serverLevel) {
-        MerchantOffers merchantoffers = this.getOffers();
-        for (Pair<VillagerTrades.ItemListing[], Integer> pair : Trades.DEALER_TRADES) {
-            VillagerTrades.ItemListing[] avillagertrades$itemlisting = pair.getLeft();
-            this.addOffersFromItemListings(serverLevel, merchantoffers, avillagertrades$itemlisting, pair.getRight());
-        }
+    protected void updateTrades(ServerLevel level) {
+        MerchantOffers offers = this.getOffers();
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.DEALER_SELL_DRUG);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.DEALER_SELL_UNOBTAINABLE_DRUG);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.DEALER_BUY_DRUG);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.DEALER_BUY_UNOBTAINABLE_DRUG);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.DEALER_SELL_CROP);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.DEALER_BUY_HARVEST);
     }
 
     @Override

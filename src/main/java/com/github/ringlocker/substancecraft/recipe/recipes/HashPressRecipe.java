@@ -28,7 +28,8 @@ public class HashPressRecipe extends ByproductRecipe {
     }
 
     public static class Serializer {
-        public static final RecipeSerializer<HashPressRecipe> INSTANCE = new ByproductRecipeSerializer<>(HashPressRecipe::new);
+        private static final ByproductRecipeSerializer<HashPressRecipe> SERIALIZER = new ByproductRecipeSerializer<>(HashPressRecipe::new);
+        public static final RecipeSerializer<HashPressRecipe> INSTANCE = new RecipeSerializer<>(SERIALIZER.codec(), SERIALIZER.streamCodec());
     }
 
 }

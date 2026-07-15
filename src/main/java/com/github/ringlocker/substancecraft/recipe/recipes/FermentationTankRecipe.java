@@ -27,7 +27,8 @@ public class FermentationTankRecipe extends ByproductRecipe {
     }
 
     public static class Serializer {
-        public static final RecipeSerializer<FermentationTankRecipe> INSTANCE = new ByproductRecipeSerializer<>(FermentationTankRecipe::new);
+        private static final ByproductRecipeSerializer<FermentationTankRecipe> SERIALIZER = new ByproductRecipeSerializer<>(FermentationTankRecipe::new);
+        public static final RecipeSerializer<FermentationTankRecipe> INSTANCE = new RecipeSerializer<>(SERIALIZER.codec(), SERIALIZER.streamCodec());
     }
 
 }
