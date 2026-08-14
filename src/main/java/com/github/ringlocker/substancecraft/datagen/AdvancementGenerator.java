@@ -17,7 +17,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -397,7 +397,6 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {
-        System.out.println("generate for " + toSynthesize.toString());
         ByproductRecipe recipe = getRecipeForItem(toSynthesize);
         Component recipeType = recipe == null ? Component.literal("") : recipe.getLabel();
 
@@ -410,7 +409,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         if (recipe == null) return;
 
         List<Ingredient> ingredients = getIngredients(recipe);
-        Ingredient result = Ingredient.of(recipe.getResult().getItem());
+        Ingredient result = Ingredient.of(recipe.getResult().item().value());
         if (ingredients.contains(result)) return;
         for (Ingredient ingredient : ingredients) {
             Item item = getItemFromIngredient(ingredient);
@@ -448,13 +447,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     private static void appendIfMatch(Item item, Recipe<?> checkIfMatchItem, List<ByproductRecipe> matches) {
         ByproductRecipe byproductRecipe = (ByproductRecipe) checkIfMatchItem;
-        if (byproductRecipe.getResult().getItem() == item) {
+        if (byproductRecipe.getResult().item().value() == item) {
             matches.add(byproductRecipe);
             return;
         }
-        List<ItemStack> byproduct = byproductRecipe.getByproducts();
-        for (ItemStack stack : byproduct) {
-            if (stack.getItem() == item) {
+        List<ItemStackTemplate> byproduct = byproductRecipe.getByproducts();
+        for (ItemStackTemplate stack : byproduct) {
+            if (stack.item().value() == item) {
                 matches.add(byproductRecipe);
                 return;
             }
@@ -464,7 +463,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     private static void sortRecipes(Item item, List<ByproductRecipe> recipes) {
         List<ByproductRecipe> sorted = new ArrayList<>();
         for (ByproductRecipe recipe : recipes) {
-            if (recipe.getResult().getItem() == item && !(recipe instanceof FermentationTankRecipe)) {
+            if (recipe.getResult().item().value() == item && !(recipe instanceof FermentationTankRecipe)) {
                 sorted.addFirst(recipe);
             } else {
                 sorted.add(recipe);
@@ -475,7 +474,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     private static String createKey(Item item, HashMap<String, Integer> counts) {
-        String id = item.getName(new ItemStack(item)).getString();
+        String id = getNameFromItem(item).getString();
         String name;
         if (id.contains("substancecraft")) {
             name = id.split("\\.")[2];
@@ -493,7 +492,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     private static Component getNameFromItem(Item item) {
         return item == Items.POTION
                 ? Component.literal("Water Bottle")
-                : new ItemStack(item).getItemName();
+                : Component.literal(item.getDescriptionId());
     }
 
     public static class RecipeCache {

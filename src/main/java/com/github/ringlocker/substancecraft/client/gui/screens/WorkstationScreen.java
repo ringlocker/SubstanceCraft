@@ -21,6 +21,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -180,7 +181,7 @@ public abstract class WorkstationScreen<
     protected List<Component> tooltip(int index) {
         ByproductRecipe recipe = this.menu.getRecipes().get(index).value();
         List<Ingredient> inputs = recipe.getInputs();
-        ItemStack resultItem = recipe.getResult();
+        ItemStack resultItem = recipe.getResult().create();
         List<Component> tooltip = new ArrayList<>();
         tooltip.add(getItemNameString(resultItem));
         tooltip.add(Component.literal("Requires: "));
@@ -190,9 +191,9 @@ public abstract class WorkstationScreen<
         }
         if (!recipe.getByproducts().isEmpty()) {
             tooltip.add(Component.literal("Byproducts: "));
-            List<ItemStack> byproducts = recipe.getByproducts();
-            for (ItemStack byproduct : byproducts) {
-                tooltip.add(getByproductString(byproduct, byproduct.getCount() << 1));
+            List<ItemStackTemplate> byproducts = recipe.getByproducts();
+            for (ItemStackTemplate byproduct : byproducts) {
+                tooltip.add(getByproductString(byproduct.create(), byproduct.count() << 1));
             }
         }
         return tooltip;
@@ -205,7 +206,7 @@ public abstract class WorkstationScreen<
             int renderX = x + relativeIndex % RECIPES_COLUMNS * RECIPES_IMAGE_SIZE_WIDTH;
             int row = relativeIndex / RECIPES_COLUMNS;
             int renderY = y + row * RECIPES_IMAGE_SIZE_HEIGHT + 2;
-            guiGraphics.fakeItem(list.get(index).value().getResult(), renderX, renderY);
+            guiGraphics.fakeItem(list.get(index).value().getResult().create(), renderX, renderY);
         }
     }
 

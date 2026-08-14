@@ -4,10 +4,9 @@ import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,8 +24,8 @@ public class ByproductRecipeSerializer<R extends ByproductRecipe> {
         this.codec = RecordCodecBuilder.mapCodec(
                 (instance) -> instance.group(
                         Ingredient.CODEC.listOf().fieldOf("ingredients").forGetter(ByproductRecipe::getInputs),
-                        ItemStack.CODEC.fieldOf("result").forGetter(ByproductRecipe::getResult),
-                        ItemStack.CODEC.listOf().fieldOf("byproducts").forGetter(ByproductRecipe::getByproducts),
+                        ItemStackTemplate.CODEC.fieldOf("result").forGetter(ByproductRecipe::getResult),
+                        ItemStackTemplate.CODEC.listOf().fieldOf("byproducts").forGetter(ByproductRecipe::getByproducts),
                         Codec.INT.fieldOf("time").orElse(200).forGetter(ByproductRecipe::getTime)
                 ).apply(instance, factory::create));
         packetCodec = StreamCodec.of(this::write, this::read);
@@ -46,9 +45,12 @@ public class ByproductRecipeSerializer<R extends ByproductRecipe> {
         for (int i = 0; i < size; i++) {
             input.add(Ingredient.CONTENTS_STREAM_CODEC.decode(buf));
         }
-        ItemStack output = ItemStack.STREAM_CODEC.decode(buf);
-        NonNullList<ItemStack> byproducts =  NonNullList.withSize(buf.readVarInt(), ItemStack.EMPTY);
-        byproducts.replaceAll(ingredient -> ItemStack.STREAM_CODEC.decode(buf));
+        ItemStackTemplate output = ItemStackTemplate.STREAM_CODEC.decode(buf);
+        ArrayList<ItemStackTemplate> byproducts = new ArrayList<>();
+        size = buf.readVarInt();
+        for (int i = 0; i < size; i++) {
+            byproducts.add(ItemStackTemplate.STREAM_CODEC.decode(buf));
+        }
         return this.factory.create(input, output, byproducts, buf.readInt());
     }
 
@@ -57,10 +59,10 @@ public class ByproductRecipeSerializer<R extends ByproductRecipe> {
         for (Ingredient ingredient : recipe.getInputs()) {
             Ingredient.CONTENTS_STREAM_CODEC.encode(buf, ingredient);
         }
-        ItemStack.STREAM_CODEC.encode(buf, recipe.getResult());
+        ItemStackTemplate.STREAM_CODEC.encode(buf, recipe.getResult());
         buf.writeVarInt(recipe.getByproducts().size());
-        for (ItemStack byproduct : recipe.getByproducts()) {
-            ItemStack.STREAM_CODEC.encode(buf, byproduct);
+        for (ItemStackTemplate byproduct : recipe.getByproducts()) {
+            ItemStackTemplate.STREAM_CODEC.encode(buf, byproduct);
         }
         buf.writeInt(recipe.getTime());
     }

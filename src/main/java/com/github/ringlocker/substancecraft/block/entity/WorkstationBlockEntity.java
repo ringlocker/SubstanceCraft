@@ -17,6 +17,7 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -199,7 +200,7 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         this.recipes.clear();
         List<RecipeHolder<T>> allRecipes = getRecipeList(type, level);
         recipes.addAll(allRecipes);
-        recipes.sort(Comparator.comparing(recipe -> recipe.value().getResult().getDisplayName().getString()));
+        recipes.sort(Comparator.comparing(recipe -> recipe.value().getResult().create().getDisplayName().getString()));
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
@@ -209,7 +210,7 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
             if (hasRecipe()) {
                 T recipe = getRecipes().get(getSelectedRecipeIndex()).value();
                 if (recipe.matches(new MultipleItemInput(noAirInputs()), level)) {
-                    if ((inventory.get(OUTPUT_SLOT).getCount() == 0) || inventory.get(OUTPUT_SLOT).getItem() == recipe.getResult().getItem()) {
+                    if ((inventory.get(OUTPUT_SLOT).getCount() == 0) || inventory.get(OUTPUT_SLOT).getItem() == recipe.getResult().item().value()) {
                         progress++;
                         setChanged(level, pos, state);
                         if (progress >= maxProgress) {
@@ -272,10 +273,11 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
     }
 
     protected void byproduct(ByproductRecipe recipe) {
-        List<ItemStack> byproducts = recipe.getByproducts();
+        List<ItemStackTemplate> byproducts = recipe.getByproducts();
         if (byproducts.isEmpty()) { return; }
         int index = 0;
-        for (ItemStack byproduct : byproducts) {
+        for (ItemStackTemplate byproductTemplate : byproducts) {
+            ItemStack byproduct = byproductTemplate.create();
             if (getLevel() == null) return;
             if (getLevel().getRandom().nextInt(100) > byproduct.getCount() << 1) {
                 index++;
@@ -346,16 +348,16 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         for (int i = 0; i < 4; i++) {
             this.removeItem(FIRST_INPUT_SLOT + i, 1);
         }
-        ItemStack result = recipe.getResult();
+        ItemStack result = recipe.getResult().create();
         if (canInsertAmountIntoSlot(result, OUTPUT_SLOT)) {
-            this.setItem(OUTPUT_SLOT, new ItemStack(result.getItem(), getItem(OUTPUT_SLOT).getCount() + recipe.getResult().getCount()));
+            this.setItem(OUTPUT_SLOT, new ItemStack(result.getItem(), getItem(OUTPUT_SLOT).getCount() + recipe.getResult().create().getCount()));
         }
         byproduct(recipe);
     }
 
     private boolean hasRecipe() {
         Optional<RecipeHolder<T>> recipe = getCurrentRecipe();
-        return recipe.isPresent() && canInsertAmountIntoSlot(recipe.get().value().getResult(), OUTPUT_SLOT) && canInsertItemIntoSlot(recipe.get().value().getResult().getItem(), OUTPUT_SLOT);
+        return recipe.isPresent() && canInsertAmountIntoSlot(recipe.get().value().getResult().create(), OUTPUT_SLOT) && canInsertItemIntoSlot(recipe.get().value().getResult().item().value(), OUTPUT_SLOT);
     }
 
     private int getCookTime() {

@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
@@ -28,7 +29,7 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
 
     private final List<Ingredient> ingredients;
     private final Item result;
-    private final List<ItemStack> byproducts;
+    private final List<ItemStackTemplate> byproducts;
     private final int time;
 
     private int outputCount = 1;
@@ -36,7 +37,7 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
     protected final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
     private final ByproductRecipe.Factory<? extends ByproductRecipe> factory;
 
-    protected ByproductRecipeBuilder(final List<Ingredient> ingredients, final ItemLike result, List<ItemStack> byproducts, int time, ByproductRecipe.Factory<? extends ByproductRecipe> factory) {
+    protected ByproductRecipeBuilder(final List<Ingredient> ingredients, final ItemLike result, List<ItemStackTemplate> byproducts, int time, ByproductRecipe.Factory<? extends ByproductRecipe> factory) {
         this.ingredients = ingredients;
         this.result = result.asItem();
         this.byproducts = byproducts != null ? byproducts : List.of();
@@ -75,7 +76,7 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
         Advancement.Builder advancementBuilder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(advancementBuilder);
         this.criteria.forEach(advancementBuilder::addCriterion);
-        ByproductRecipe recipe = this.factory.create(this.ingredients, new ItemStack(this.result, outputCount), this.byproducts, this.time);
+        ByproductRecipe recipe = this.factory.create(this.ingredients, new ItemStackTemplate(this.result, outputCount), this.byproducts, this.time);
         AdvancementGenerator.RecipeCache.cacheRecipe(recipe);
         exporter.accept(resourceKey, recipe, advancementBuilder.build(resourceKey.identifier().withPrefix("recipes/")));
     }

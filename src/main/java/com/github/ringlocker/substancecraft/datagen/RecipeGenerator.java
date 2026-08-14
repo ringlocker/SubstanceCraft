@@ -21,6 +21,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -175,7 +176,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 List.of(Ingredient.of(SubstanceCraftItems.OIL_SHALE)),
                                 SubstanceCraftItems.OIL,
-                                List.of(new ItemStack(SubstanceCraftItems.NATURAL_GAS, 40 >> 1)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.NATURAL_GAS, 40 >> 1)),
                                 SHORT_REFINE_TIME
                         )
                         .unlockedBy("has_item", has(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE)))
@@ -280,7 +281,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 List.of(Ingredient.of(Items.COAL)),
                                 SubstanceCraftItems.COKE,
-                                List.of(new ItemStack(SubstanceCraftItems.CARBON_MONOXIDE, 50 >> 1)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.CARBON_MONOXIDE, 50 >> 1)),
                                 REFINE_TIME
                         )
                         .unlockedBy("has_item", has(Items.COAL))
@@ -370,7 +371,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 ElectrolysisRecipeBuilder.electrolysis(
                                 List.of(Ingredient.of(SubstanceCraftItems.BRINE)),
                                 SubstanceCraftItems.SODIUM_HYDROXIDE,
-                                List.of(new ItemStack(SubstanceCraftItems.CHLORINE, 30 >> 1), new ItemStack(SubstanceCraftItems.HYDROGEN, 30 >> 1)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.CHLORINE, 30 >> 1), new ItemStackTemplate(SubstanceCraftItems.HYDROGEN, 30 >> 1)),
                                 1000
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.BRINE))
@@ -379,7 +380,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 ElectrolysisRecipeBuilder.electrolysis(
                                 List.of(Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
                                 SubstanceCraftItems.HYDROGEN,
-                                List.of(new ItemStack(SubstanceCraftItems.OXYGEN, 50 >> 1)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.OXYGEN, 50 >> 1)),
                                 1000
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
@@ -420,7 +421,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 ExtractorRecipeBuilder.extract(
                                 List.of(Ingredient.of(SubstanceCraftItems.BRINE)),
                                 SubstanceCraftItems.BROMIDE,
-                                List.of(new ItemStack(SubstanceCraftItems.MAGNESIUM, 50 >> 2)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.MAGNESIUM, 50 >> 2)),
                                 1200
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.BRINE))
@@ -677,7 +678,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SULFURIC_ACID), Ingredient.of(SubstanceCraftItems.ETHYLENE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
                                 SubstanceCraftItems.ETHANOL,
-                                List.of(new ItemStack(SubstanceCraftItems.DIETHYL_ETHER, 33 >> 2)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.DIETHYL_ETHER, 33 >> 2)),
                                 1200
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
@@ -962,7 +963,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 FermentationTankRecipeBuilder.ferment(
                                 List.of(Ingredient.of(SubstanceCraftItems.GRAPES), Ingredient.of(SubstanceCraftItems.YEAST)),
                                 SubstanceCraftItems.RED_WINE,
-                                List.of(new ItemStack(SubstanceCraftItems.WINE_LEES, 50 >> 2)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.WINE_LEES, 50 >> 2)),
                                 2000
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.GRAPES))
