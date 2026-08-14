@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Refine",
     "icon": {
-      "count": 1,
       "id": "substancecraft:oil"
     },
     "show_toast": false,

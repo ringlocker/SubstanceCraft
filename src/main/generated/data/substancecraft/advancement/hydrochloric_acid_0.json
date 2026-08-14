@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Heated Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:hydrochloric_acid"
     },
     "show_toast": false,

@@ -16,7 +16,6 @@
     "announce_to_chat": false,
     "description": "Halite is found under oceans between y=0 and y=48 and any anywhere in dripstone caves",
     "icon": {
-      "count": 1,
       "id": "substancecraft:salt_block"
     },
     "show_toast": false,

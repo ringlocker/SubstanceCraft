@@ -1,0 +1,13 @@
+{
+  "gives": {
+    "count": 12,
+    "id": "substancecraft:cash"
+  },
+  "max_uses": 16.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 16.0,
+    "id": "substancecraft:corn"
+  },
+  "xp": 2.0
+}

@@ -16,7 +16,6 @@
     "announce_to_chat": false,
     "description": "Marijuana can naturally occur in jungle biomes and marijuana seeds can be found in jungle pyramid chests. Harvested by right clicking, grows twice as fast on farmland",
     "icon": {
-      "count": 1,
       "id": "substancecraft:marijuana_trim"
     },
     "show_toast": false,

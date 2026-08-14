@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/acacia_planks",
+    "east": "substancecraft:block/plant_research_station_side",
+    "north": "substancecraft:block/plant_research_station_front",
+    "particle": "substancecraft:block/plant_research_station_front",
+    "south": "substancecraft:block/plant_research_station_front",
+    "up": "substancecraft:block/plant_research_station_top",
+    "west": "substancecraft:block/plant_research_station_side"
+  }
+}

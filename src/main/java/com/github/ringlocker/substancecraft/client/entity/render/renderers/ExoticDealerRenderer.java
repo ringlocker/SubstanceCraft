@@ -1,7 +1,7 @@
 package com.github.ringlocker.substancecraft.client.entity.render.renderers;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.entity.entities.Dealer;
+import com.github.ringlocker.substancecraft.entity.entities.ExoticDealer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -16,25 +16,25 @@ import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 @Environment(EnvType.CLIENT)
-public class DealerRenderer extends MobRenderer<Dealer, VillagerRenderState, net.minecraft.client.model.npc.VillagerModel> {
+public class ExoticDealerRenderer extends MobRenderer<ExoticDealer, VillagerRenderState, VillagerModel> {
 
-    private static final Identifier DEALER_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/entity/dealer.png");
+    private static final Identifier EXOTIC_DEALER_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/entity/villager/exotic_dealer.png");
 
-    public DealerRenderer(EntityRendererProvider.Context context) {
+    public ExoticDealerRenderer(EntityRendererProvider.Context context) {
         super(context, new VillagerModel(context.bakeLayer(ModelLayers.WANDERING_TRADER)), 0.5F);
         this.addLayer(new CustomHeadLayer<>(this, context.getModelSet(), context.getPlayerSkinRenderCache()));
         this.addLayer(new CrossedArmsItemLayer<>(this));
     }
 
     public @NotNull Identifier getTextureLocation(VillagerRenderState villagerRenderState) {
-        return DEALER_TEXTURE;
+        return EXOTIC_DEALER_TEXTURE;
     }
 
     public @NotNull VillagerRenderState createRenderState() {
         return new VillagerRenderState();
     }
 
-    public void extractRenderState(Dealer dealer, VillagerRenderState villagerRenderState, float f) {
+    public void extractRenderState(ExoticDealer dealer, VillagerRenderState villagerRenderState, float f) {
         super.extractRenderState(dealer, villagerRenderState, f);
         HoldingEntityRenderState.extractHoldingEntityRenderState(dealer, villagerRenderState, this.itemModelResolver);
         villagerRenderState.isUnhappy = dealer.getUnhappyCounter() > 0;

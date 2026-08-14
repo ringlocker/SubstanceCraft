@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:calcium_hydroxide"
     },
     "show_toast": false,

@@ -1,13 +1,14 @@
 package com.github.ringlocker.substancecraft.data;
 
+import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.data.component.SubstanceData;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.UUID;
 
 public class SubstanceWorldData extends SavedData {
 
-    private static final String FILE_NAME = "substance_data";
+    private static final Identifier FILE_NAME = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substance_data");
     private static final Codec<Map<UUID, SubstanceData>> MAP_CODEC = Codec.unboundedMap(Codec.STRING.xmap(UUID::fromString, UUID::toString), SubstanceData.CODEC);
     private static final Codec<SubstanceWorldData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                     MAP_CODEC.fieldOf("playerData").forGetter(SubstanceWorldData::getPlayerData),
@@ -23,7 +24,7 @@ public class SubstanceWorldData extends SavedData {
                     Codec.INT.fieldOf("dealerSpawnChance").forGetter(SubstanceWorldData::getDealerSpawnChance)
             ).apply(instance, SubstanceWorldData::new)
     );
-    private static final SavedDataType<@NotNull SubstanceWorldData> TYPE = new SavedDataType<>(FILE_NAME, SubstanceWorldData::new, SubstanceWorldData.CODEC, DataFixTypes.LEVEL);
+    private static final SavedDataType<SubstanceWorldData> TYPE = new SavedDataType<>(FILE_NAME, SubstanceWorldData::new, SubstanceWorldData.CODEC, DataFixTypes.LEVEL);
 
     private final Map<UUID, SubstanceData> playerData = new HashMap<>();
     private int dealerSpawnDelay;
@@ -39,7 +40,7 @@ public class SubstanceWorldData extends SavedData {
         this.dealerSpawnChance = dealerSpawnChance;
     }
 
-    public static SavedDataType<@NotNull SubstanceWorldData> type() {
+    public static SavedDataType<SubstanceWorldData> type() {
         return TYPE;
     }
 

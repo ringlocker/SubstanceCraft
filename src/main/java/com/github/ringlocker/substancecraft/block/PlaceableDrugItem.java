@@ -36,7 +36,7 @@ public class PlaceableDrugItem extends BlockItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         InteractionResult placeResult = this.place(new BlockPlaceContext(context));
-        if (placeResult == InteractionResult.SUCCESS && context.getLevel().getBlockState(context.getClickedPos()).is(BlockTags.MUSHROOM_GROW_BLOCK)) {
+        if (placeResult == InteractionResult.SUCCESS && context.getLevel().getBlockState(context.getClickedPos()).is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT)) {
             return placeResult;
         } else {
             return super.use(context.getLevel(), context.getPlayer(), context.getHand());

@@ -2,12 +2,13 @@ package com.github.ringlocker.substancecraft.entity.entities;
 
 import java.util.EnumSet;
 
-import com.github.ringlocker.substancecraft.entity.npc.Trades;
+import com.github.ringlocker.substancecraft.entity.trading.SubstanceCraftTradeSets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -26,7 +27,6 @@ import net.minecraft.world.entity.ai.goal.TradeWithPlayerGoal;
 import net.minecraft.world.entity.ai.goal.UseItemGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -39,16 +39,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class Dealer extends AbstractVillager implements Consumable.OverrideConsumeSound {
+public class ExoticDealer extends AbstractVillager implements Consumable.OverrideConsumeSound {
 
     private BlockPos wanderTarget;
     private int despawnDelay = 0;
 
-    public Dealer(EntityType<? extends Dealer> entityType, Level level) {
+    public ExoticDealer(EntityType<? extends ExoticDealer> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -60,7 +59,7 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
         this.goalSelector.addGoal(1, new TradeWithPlayerGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 0.5));
         this.goalSelector.addGoal(1, new LookAtTradingPlayerGoal(this));
-        this.goalSelector.addGoal(2, new Dealer.WanderToPositionGoal(this, 2.0, 0.35));
+        this.goalSelector.addGoal(2, new ExoticDealer.WanderToPositionGoal(this, 2.0, 0.35));
         this.goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, 0.35));
         this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 0.35));
         this.goalSelector.addGoal(9, new InteractGoal(this, Player.class, 3.0F, 1.0F));
@@ -117,12 +116,19 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
     }
 
     @Override
-    protected void updateTrades(@NotNull ServerLevel serverLevel) {
-        MerchantOffers merchantoffers = this.getOffers();
-        for (Pair<VillagerTrades.ItemListing[], Integer> pair : Trades.DEALER_TRADES) {
-            VillagerTrades.ItemListing[] avillagertrades$itemlisting = pair.getLeft();
-            this.addOffersFromItemListings(serverLevel, merchantoffers, avillagertrades$itemlisting, pair.getRight());
-        }
+    protected void updateTrades(ServerLevel level) {
+        MerchantOffers offers = this.getOffers();
+        RandomSource rs = level.getRandom();
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.SELL_DRUG);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.SELL_UNOBTAINABLE_DRUG);
+        if (rs.nextInt(4) == 0) this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.SELL_RARE_DRUG);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.BUY_DRUG);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.BUY_UNOBTAINABLE_DRUG);
+        if (rs.nextInt(4) == 0) this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.BUY_RARE_DRUG);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.SELL_CROP);
+        if (rs.nextInt(3) == 0) this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.SELL_RARE_CROP);
+        this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.BUY_HARVEST);
+        if (rs.nextInt(3) == 0) this.addOffersFromTradeSet(level, offers, SubstanceCraftTradeSets.BUY_RARE_HARVEST);
     }
 
     @Override
@@ -197,11 +203,11 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
 
     private class WanderToPositionGoal extends Goal {
 
-        final Dealer dealer;
+        final ExoticDealer dealer;
         final double stopDistance;
         final double speedModifier;
 
-        WanderToPositionGoal(final Dealer dealer, final double stopDistance, final double speedModifier) {
+        WanderToPositionGoal(final ExoticDealer dealer, final double stopDistance, final double speedModifier) {
             this.dealer = dealer;
             this.stopDistance = stopDistance;
             this.speedModifier = speedModifier;
@@ -211,7 +217,7 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
         @Override
         public void stop() {
             this.dealer.setWanderTarget(null);
-            Dealer.this.navigation.stop();
+            ExoticDealer.this.navigation.stop();
         }
 
         @Override
@@ -223,13 +229,13 @@ public class Dealer extends AbstractVillager implements Consumable.OverrideConsu
         @Override
         public void tick() {
             BlockPos blockpos = this.dealer.getWanderTarget();
-            if (blockpos != null && Dealer.this.navigation.isDone()) {
+            if (blockpos != null && ExoticDealer.this.navigation.isDone()) {
                 if (this.isTooFarAway(blockpos, 10.0)) {
                     Vec3 vec3 = new Vec3(blockpos.getX() - this.dealer.getX(), blockpos.getY() - this.dealer.getY(), blockpos.getZ() - this.dealer.getZ()).normalize();
                     Vec3 vec31 = vec3.scale(10.0).add(this.dealer.getX(), this.dealer.getY(), this.dealer.getZ());
-                    Dealer.this.navigation.moveTo(vec31.x, vec31.y, vec31.z, this.speedModifier);
+                    ExoticDealer.this.navigation.moveTo(vec31.x, vec31.y, vec31.z, this.speedModifier);
                 } else {
-                    Dealer.this.navigation.moveTo(blockpos.getX(), blockpos.getY(), blockpos.getZ(), this.speedModifier);
+                    ExoticDealer.this.navigation.moveTo(blockpos.getX(), blockpos.getY(), blockpos.getZ(), this.speedModifier);
                 }
             }
         }

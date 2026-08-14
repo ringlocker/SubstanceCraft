@@ -1,0 +1,13 @@
+{
+  "gives": {
+    "count": 32,
+    "id": "substancecraft:cash"
+  },
+  "max_uses": 16.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 8.0,
+    "id": "substancecraft:peyote_cactus"
+  },
+  "xp": 6.0
+}

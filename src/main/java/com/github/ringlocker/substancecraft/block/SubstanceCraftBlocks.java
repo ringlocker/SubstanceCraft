@@ -18,15 +18,16 @@ import com.github.ringlocker.substancecraft.block.blocks.PotentPsilocybinMushroo
 import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.block.blocks.Refinery;
 import com.github.ringlocker.substancecraft.item.Drug;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -36,6 +37,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -78,7 +80,7 @@ public class SubstanceCraftBlocks {
     public static final Block STRIPPED_MIMOSA_HOSTILIS_WOOD = registerBlock("stripped_mimosa_hostilis_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
     public static final Block MIMOSA_HOSTILIS_LEAVES = registerBlock("mimosa_hostilis_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
     public static final Block STRIPPED_MIMOSA_HOSTILIS_LOG = registerBlock("stripped_mimosa_hostilis_log", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
-    private static final TreeGrower MIMOSA_HOSTILIS = new TreeGrower("acacia", Optional.empty(), Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis"))), Optional.empty());
+    private static final TreeGrower MIMOSA_HOSTILIS = new TreeGrower("mimosa_hostilis_tree_grower", Optional.empty(), Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis"))), Optional.empty());
     public static final Block MIMOSA_HOSTILIS_SAPLING = registerBlock("mimosa_hostilis_sapling", properties -> new SaplingBlock(MIMOSA_HOSTILIS, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
     public static final Block POTTED_MIMOSA_HOSTILIS_SAPLING = registerBlock("potted_mimosa_hostilis_sapling", properties -> new FlowerPotBlock(MIMOSA_HOSTILIS_SAPLING, properties), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
 
@@ -87,36 +89,28 @@ public class SubstanceCraftBlocks {
         return BLOCK_ITEMS.get(block);
     }
 
-    private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
-        ResourceKey<Block> key = key(name);
-        Block block = factory.apply(properties.setId(key));
-        BLOCK_ITEMS.put(block, registerBlockItem(name, block));
-        return Registry.register(BuiltInRegistries.BLOCK, key, block);
+    private static Block register(BlockItemId id, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
+        Block block = factory.apply(properties.setId(id.block()));
+        BLOCK_ITEMS.put(block, registerBlockItem(id.item(), block));
+        return Registry.register(BuiltInRegistries.BLOCK, id.block(), block);
     }
 
-    private static Block registerPlaceableDrugBlock(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties, Drug drug) {
-        ResourceKey<Block> key = key(name);
-        ResourceKey<Item> itemKey = itemKey(name);
-        Block block = factory.apply(properties.setId(key));
-        BLOCK_ITEMS.put(block, Registry.register(BuiltInRegistries.ITEM, itemKey,
-                new PlaceableDrugItem(
-                        block, new Item.Properties().useBlockDescriptionPrefix().setId(itemKey).food(new FoodProperties.Builder().alwaysEdible().build()), drug)
+    private static Block registerPlaceableDrug(BlockItemId id, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties, Drug drug) {
+        Block block = factory.apply(properties.setId(id.block()));
+        BLOCK_ITEMS.put(block, Registry.register(BuiltInRegistries.ITEM, id.item(),
+                        new PlaceableDrugItem(
+                                block, new Item.Properties().useBlockDescriptionPrefix().setId(id.item()).food(new FoodProperties.Builder().alwaysEdible().build()), drug)
                 )
         );
-        return Registry.register(BuiltInRegistries.BLOCK, key, block);
+        return Registry.register(BuiltInRegistries.BLOCK, id.block(), block);
     }
 
-    private static Item registerBlockItem(String name, Block block) {
-        ResourceKey<Item> key = itemKey(name);
+    private static Item registerBlockItem(ResourceKey<Item> key, Block block) {
         return Registry.register(BuiltInRegistries.ITEM, key, new BlockItem(block, new Item.Properties().useBlockDescriptionPrefix().setId(key)));
     }
 
-    private static ResourceKey<Block> key(String name) {
-        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
-    }
-
-    private static ResourceKey<Item> itemKey(String name) {
-        return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));
+    private static BlockPos postProcessSelf(final BlockState state, final BlockGetter blockGetter, final BlockPos blockPos) {
+        return blockPos;
     }
 
     public static void registerBlocks() {

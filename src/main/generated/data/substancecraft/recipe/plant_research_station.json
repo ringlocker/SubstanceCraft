@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "1": "minecraft:leaf_litter",
+    "2": "minecraft:iron_ingot",
+    "3": "minecraft:acacia_planks"
+  },
+  "pattern": [
+    "111",
+    "232",
+    "222"
+  ],
+  "result": {
+    "id": "substancecraft:plant_research_station"
+  }
+}

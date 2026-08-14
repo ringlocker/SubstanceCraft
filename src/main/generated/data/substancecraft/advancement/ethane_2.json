@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Refine",
     "icon": {
-      "count": 1,
       "id": "substancecraft:ethane"
     },
     "show_toast": false,

@@ -47,10 +47,10 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (doSpread) trySpread(state, level, pos, random);
-        int rand = (level.getBlockState(pos.below()).is(BlockTags.MUSHROOM_GROW_BLOCK)) ? random.nextInt(21) : random.nextInt(36);
+        int rand = (level.getBlockState(pos.below()).is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT)) ? random.nextInt(21) : random.nextInt(36);
         if (rand == 0) {
             if (state.getValue(AGE) < maxAge) {
-                this.performBonemeal(level, level.random, pos, state);
+                this.performBonemeal(level, level.getRandom(), pos, state);
             }
         }
     }
@@ -64,7 +64,7 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         BlockPos belowPos = pos.below();
         BlockState below = level.getBlockState(belowPos);
-        if (below.is(BlockTags.MUSHROOM_GROW_BLOCK)) return true;
+        if (below.is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT)) return true;
         return level.getRawBrightness(pos, 0) < 13 && this.mayPlaceOn(below, level, belowPos);
     }
 

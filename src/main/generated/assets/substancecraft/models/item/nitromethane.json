@@ -1,7 +1,13 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "substancecraft:item/liquid_overlay",
-    "layer1": "substancecraft:item/liquid"
+    "layer0": {
+      "force_translucent": true,
+      "sprite": "substancecraft:item/liquid_overlay"
+    },
+    "layer1": {
+      "force_translucent": true,
+      "sprite": "substancecraft:item/liquid"
+    }
   }
 }

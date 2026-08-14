@@ -22,5 +22,4 @@ public class HeatedMixerBlockEntity extends WorkstationBlockEntity<HeatedMixerRe
         return new HeatedMixerMenu(i, inventory, this, data);
     }
 
-
 }

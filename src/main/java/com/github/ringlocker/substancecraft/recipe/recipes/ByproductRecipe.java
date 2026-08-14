@@ -1,9 +1,9 @@
 package com.github.ringlocker.substancecraft.recipe.recipes;
 
 import com.github.ringlocker.substancecraft.recipe.MultipleItemInput;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.PlacementInfo;
 import net.minecraft.world.item.crafting.Recipe;
@@ -23,8 +23,8 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
     private final RecipeSerializer<? extends ByproductRecipe> serializer;
 
     protected final List<Ingredient> ingredients;
-    protected final ItemStack result;
-    protected final List<ItemStack> byproducts;
+    protected final ItemStackTemplate result;
+    protected final List<ItemStackTemplate> byproducts;
     protected final int time;
 
     @Nullable
@@ -34,8 +34,8 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
             RecipeType<? extends ByproductRecipe> type,
             RecipeSerializer<? extends ByproductRecipe> serializer,
             List<Ingredient> ingredients,
-            ItemStack result,
-            List<ItemStack> byproducts,
+            ItemStackTemplate result,
+            List<ItemStackTemplate> byproducts,
             int time)
     {
         this.type = type;
@@ -54,12 +54,12 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
     }
 
     @NotNull
-    public ItemStack getResult() {
+    public ItemStackTemplate getResult() {
         return result;
     }
 
     @NotNull
-    public List<ItemStack> getByproducts() {
+    public List<ItemStackTemplate> getByproducts() {
         return byproducts;
     }
 
@@ -95,8 +95,18 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
     }
 
     @Override
-    public @NotNull ItemStack assemble(MultipleItemInput input, HolderLookup.Provider registries) {
-        return result.copy();
+    public ItemStack assemble(MultipleItemInput input) {
+        return result.create();
+    }
+
+    @Override
+    public boolean showNotification() {
+        return true;
+    }
+
+    @Override
+    public String group() {
+        return "";
     }
 
     @Override
@@ -123,7 +133,7 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
     }
 
     public interface Factory<T extends ByproductRecipe> {
-        T create(List<Ingredient> ingredient, ItemStack result, List<ItemStack> byproducts, int time);
+        T create(List<Ingredient> ingredient, ItemStackTemplate result, List<ItemStackTemplate> byproducts, int time);
     }
 
 }

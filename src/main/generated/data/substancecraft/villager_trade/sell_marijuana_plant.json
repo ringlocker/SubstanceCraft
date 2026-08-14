@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "substancecraft:marijuana_plant"
+  },
+  "max_uses": 8.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 14.0,
+    "id": "substancecraft:band"
+  },
+  "xp": 4.0
+}

@@ -25,7 +25,7 @@ public class SubstanceCraftEntitySpawners {
             return;
         }
         overworld = level;
-        spawners.add(new DealerSpawner(level));
+        spawners.add(new ExoticDealerSpawner(level));
     }
 
     public static void tick(MinecraftServer server) {

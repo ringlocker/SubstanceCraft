@@ -2,7 +2,7 @@ package com.github.ringlocker.substancecraft.item;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -22,34 +22,38 @@ public class SubstanceCraftItemGroups {
     public static CreativeModeTab ALL_ITEM_GROUP;
 
     public static void registerItemGroups() {
-        DRUGS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "drugs"),
-                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.drugs"))
-                        .icon(() -> new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM)).displayItems((displayContext, entries) -> addDrugItems(entries)).build());
+        DRUGS_ITEM_GROUP = Registry.register(
+                BuiltInRegistries.CREATIVE_MODE_TAB, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "drugs"),
+                FabricCreativeModeTab.builder()
+                    .icon(() -> new ItemStack(SubstanceCraftItems.MARIJUANA_TRIM))
+                    .title(Component.translatable("itemgroup.substancecraft.drugs"))
+                    .displayItems((displayContext, entries) -> addDrugItems(entries))
+                    .build());
+
 
         BLOCKS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "blocks"),
-                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.blocks"))
+                FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.substancecraft.blocks"))
                         .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY))).displayItems((displayContext, entries) -> addBlockItems(entries)).build());
 
         MATERIALS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "materials"),
-                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.materials"))
+                FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.substancecraft.materials"))
                         .icon(() -> new ItemStack(SubstanceCraftItems.HALITE)).displayItems((displayContext, entries) -> addMaterialItems(entries)).build());
 
         AGRICULTURE_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "agriculture"),
-                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.agriculture"))
+                FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.substancecraft.agriculture"))
                         .icon(() -> new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT))).displayItems((displayContext, entries) -> addAgricultureItems(entries)).build());
 
         SUBSTANCES_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substances"),
-                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.substances"))
+                FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.substancecraft.substances"))
                         .icon(() -> new ItemStack(SubstanceCraftItems.SALT)).displayItems((displayContext, entries) -> addSubstanceItems(entries)).build());
 
         ALL_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "all"),
-                FabricItemGroup.builder().title(Component.translatable("itemgroup.substancecraft.all"))
+                FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.substancecraft.all"))
                         .icon(() -> new ItemStack(Items.OMINOUS_BOTTLE)).displayItems((displayContext, entries) -> {
                             addDrugItems(entries);
                             addBlockItems(entries);
@@ -57,6 +61,8 @@ public class SubstanceCraftItemGroups {
                             addAgricultureItems(entries);
                             addSubstanceItems(entries);
                         }).build());
+
+
     }
 
     private static void addDrugItems(CreativeModeTab.Output entries) {
@@ -113,6 +119,8 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.LIMESTONE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PHOSPHORITE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CHEMIST_WORKSTATION));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PLANT_RESEARCH_STATION));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {

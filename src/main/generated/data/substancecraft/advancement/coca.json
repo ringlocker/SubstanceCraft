@@ -16,7 +16,6 @@
     "announce_to_chat": false,
     "description": "Coca Plants can naturally occur in jungle biomes. Harvested by right clicking, grows twice as fast on farmland",
     "icon": {
-      "count": 1,
       "id": "substancecraft:coca_leaves"
     },
     "show_toast": false,

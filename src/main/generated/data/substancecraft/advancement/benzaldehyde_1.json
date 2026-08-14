@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Oxidize",
     "icon": {
-      "count": 1,
       "id": "substancecraft:benzaldehyde"
     },
     "show_toast": false,

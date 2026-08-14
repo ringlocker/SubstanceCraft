@@ -22,5 +22,4 @@ public class MixerBlockEntity extends WorkstationBlockEntity<MixerRecipe> {
         return new MixerMenu(i, inventory, this, data);
     }
 
-
 }

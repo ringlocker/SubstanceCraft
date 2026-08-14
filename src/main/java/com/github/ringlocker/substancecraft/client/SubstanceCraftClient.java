@@ -1,7 +1,6 @@
 package com.github.ringlocker.substancecraft.client;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.block.entity.SubstanceCraftBlockEntities;
 import com.github.ringlocker.substancecraft.client.block.entity.renderer.HashPressBlockEntityRenderer;
 import com.github.ringlocker.substancecraft.client.datagen.ModelGenerator;
@@ -21,7 +20,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.client.color.block.BlockTintCache;
 import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -31,9 +29,6 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
     @Override
     public void onInitializeClient() {
         registerItemColors();
-        registerBlockColors();
-        registerBlockColors();
-        registerRenderLayers();
         registerBlockEntityRenderers();
 
         SubstanceCraftScreens.registerScreens();
@@ -43,26 +38,9 @@ public class SubstanceCraftClient implements ClientModInitializer, DataGenerator
         ClientTickEvents.START_CLIENT_TICK.register(ShaderEffectTicker::clientTick);
     }
 
-    private void registerBlockColors() {
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> -12012264, SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES);
-    }
-
     private void registerItemColors() {
         ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "substance_item_tint"), SubstanceTintColor.MAP_CODEC);
     }
-
-    private void registerRenderLayers() {
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MARIJUANA_PLANT, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.CORN_CROP, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.COCA_CROP, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.GRAPEVINE, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PSILOCYBIN, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PALE_PSILOCYBIN, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.PEYOTE_CACTUS, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, ChunkSectionLayer.CUTOUT);
-    }
-
     private void registerBlockEntityRenderers() {
         BlockEntityRenderers.register(SubstanceCraftBlockEntities.HASH_PRESS, HashPressBlockEntityRenderer::new);
     }

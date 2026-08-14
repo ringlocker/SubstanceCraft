@@ -11,7 +11,7 @@ import com.github.ringlocker.substancecraft.datagen.recipebuilder.HeatedMixerRec
 import com.github.ringlocker.substancecraft.datagen.recipebuilder.MixerRecipeBuilder;
 import com.github.ringlocker.substancecraft.datagen.recipebuilder.OxidizerRecipeBuilder;
 import com.github.ringlocker.substancecraft.datagen.recipebuilder.RefineryRecipeBuilder;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +20,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -38,7 +39,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
     private static final int REFINE_TIME = 800;
     private static final int LONG_REFINE_TIME = 1000;
 
-    public RecipeGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public RecipeGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -75,45 +76,45 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .pattern("323")
                         .define('1', Items.CAULDRON)
                         .define('2', Items.IRON_INGOT)
-                        .define('3', Items.COPPER_BLOCK)
+                        .define('3', Items.COPPER_BLOCK.weathering().unaffected())
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("refinery"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIXER))
                         .pattern("121")
                         .pattern("343")
                         .pattern("131")
-                        .define('1', Items.COPPER_BLOCK)
+                        .define('1', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('2', Items.IRON_SHOVEL)
                         .define('3', Items.IRON_INGOT)
                         .define('4', Items.CAULDRON)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("mixer"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HEATED_MIXER))
                         .pattern("121")
                         .pattern("343")
                         .pattern("151")
-                        .define('1', Items.COPPER_BLOCK)
+                        .define('1', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('2', Items.IRON_SHOVEL)
                         .define('3', Items.IRON_INGOT)
                         .define('4', Items.CAULDRON)
                         .define('5', Items.LAVA_BUCKET)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("heated_mixer"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK))
                         .pattern("121")
                         .pattern("222")
                         .pattern("131")
-                        .define('1', Items.COPPER_BLOCK)
+                        .define('1', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('2', Items.IRON_INGOT)
                         .define('3', Items.CAULDRON)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("fermentation_tank"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE))
@@ -122,9 +123,9 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .pattern("323")
                         .define('1', Items.CAULDRON)
                         .define('2', Items.IRON_INGOT)
-                        .define('3', Items.COPPER_BLOCK)
+                        .define('3', Items.COPPER_BLOCK.weathering().unaffected())
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("oxidizer"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR))
@@ -133,24 +134,48 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .pattern("323")
                         .define('1', Items.CAULDRON)
                         .define('2', Items.IRON_INGOT)
-                        .define('3', Items.COPPER_BLOCK)
+                        .define('3', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('4', Items.HOPPER)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("extractor"));
 
                 shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE))
                         .pattern("121")
                         .pattern("343")
                         .pattern("151")
-                        .define('1', Items.COPPER_BLOCK)
+                        .define('1', Items.COPPER_BLOCK.weathering().unaffected())
                         .define('2', Items.LEVER)
                         .define('3', Items.REDSTONE)
                         .define('4', Items.CAULDRON)
                         .define('5', Items.IRON_INGOT)
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
-                        .unlockedBy("has_item", has(Items.COPPER_BLOCK))
+                        .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("electrolysis_machine"));
+
+        shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CHEMIST_WORKSTATION))
+                        .pattern("111")
+                        .pattern("232")
+                        .pattern("222")
+                        .define('1', Items.IRON_INGOT)
+                        .define('2', Items.GLASS_BOTTLE)
+                        .define('3', Items.SPRUCE_PLANKS)
+                        .unlockedBy("has_item", has(Items.IRON_INGOT))
+                        .unlockedBy("has_item", has(Items.GLASS_BOTTLE))
+                        .unlockedBy("has_item", has(Items.SPRUCE_PLANKS))
+                        .save(recipeOutput, key("chemist_workstation"));
+
+        shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PLANT_RESEARCH_STATION))
+                        .pattern("111")
+                        .pattern("232")
+                        .pattern("222")
+                        .define('1', Items.LEAF_LITTER)
+                        .define('2', Items.IRON_INGOT)
+                        .define('3', Items.ACACIA_PLANKS)
+                        .unlockedBy("has_item", has(Items.IRON_INGOT))
+                        .unlockedBy("has_item", has(Items.LEAF_LITTER))
+                        .unlockedBy("has_item", has(Items.ACACIA_PLANKS))
+                        .save(recipeOutput, key("plant_research_station"));
 
                 shaped(RecipeCategory.FOOD, SubstanceCraftItems.EDIBLE, 5)
                         .pattern("000")
@@ -251,7 +276,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 List.of(Ingredient.of(SubstanceCraftItems.OIL_SHALE)),
                                 SubstanceCraftItems.OIL,
-                                List.of(new ItemStack(SubstanceCraftItems.NATURAL_GAS, 40 >> 1)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.NATURAL_GAS, 40 >> 1)),
                                 SHORT_REFINE_TIME
                         )
                         .unlockedBy("has_item", has(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE)))
@@ -340,7 +365,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 RefineryRecipeBuilder.refine(
                                 List.of(Ingredient.of(Items.COAL)),
                                 SubstanceCraftItems.COKE,
-                                List.of(new ItemStack(SubstanceCraftItems.CARBON_MONOXIDE, 50 >> 1)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.CARBON_MONOXIDE, 50 >> 1)),
                                 REFINE_TIME
                         )
                         .unlockedBy("has_item", has(Items.COAL))
@@ -430,7 +455,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 ElectrolysisRecipeBuilder.electrolysis(
                                 List.of(Ingredient.of(SubstanceCraftItems.BRINE)),
                                 SubstanceCraftItems.SODIUM_HYDROXIDE,
-                                List.of(new ItemStack(SubstanceCraftItems.CHLORINE, 30 >> 1), new ItemStack(SubstanceCraftItems.HYDROGEN, 30 >> 1)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.CHLORINE, 30 >> 1), new ItemStackTemplate(SubstanceCraftItems.HYDROGEN, 30 >> 1)),
                                 1000
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.BRINE))
@@ -439,7 +464,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 ElectrolysisRecipeBuilder.electrolysis(
                                 List.of(Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
                                 SubstanceCraftItems.HYDROGEN,
-                                List.of(new ItemStack(SubstanceCraftItems.OXYGEN, 50 >> 1)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.OXYGEN, 50 >> 1)),
                                 1000
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
@@ -480,7 +505,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 ExtractorRecipeBuilder.extract(
                                 List.of(Ingredient.of(SubstanceCraftItems.BRINE)),
                                 SubstanceCraftItems.BROMIDE,
-                                List.of(new ItemStack(SubstanceCraftItems.MAGNESIUM, 50 >> 2)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.MAGNESIUM, 50 >> 2)),
                                 1200
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.BRINE))
@@ -492,7 +517,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                                 800
                         )
                         .unlockedBy("has_item", has(Items.POTION))
-                        .setOutputCount(4)
                         .save(recipeOutput, key("extract_distilled_water"));
 
                 ExtractorRecipeBuilder.extract(
@@ -753,7 +777,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SULFURIC_ACID), Ingredient.of(SubstanceCraftItems.ETHYLENE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
                                 SubstanceCraftItems.ETHANOL,
-                                List.of(new ItemStack(SubstanceCraftItems.DIETHYL_ETHER, 33 >> 2)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.DIETHYL_ETHER, 33 >> 2)),
                                 1200
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
@@ -879,7 +903,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.CHLORINE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.HYDROCHLORIC_ACID))
                         .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
-                        .setOutputCount(2)
                         .save(recipeOutput, key("mix_hcl"));
 
                 HeatedMixerRecipeBuilder.mix(
@@ -916,7 +939,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.PROPANE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.NITRIC_ACID))
-                        .setOutputCount(2)
                         .save(recipeOutput, key("mix_beta_nitrostyrene"));
 
 
@@ -957,7 +979,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.P2P))
                         .unlockedBy("has_item", has(SubstanceCraftItems.FORMIC_ACID))
                         .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIA))
-                        .setOutputCount(3)
                         .save(recipeOutput, key("mix_amphetamine"));
 
                 HeatedMixerRecipeBuilder.mix(
@@ -968,7 +989,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.SULFUR))
                         .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
                         .unlockedBy("has_item", has(SubstanceCraftItems.OXYGEN))
-                        .setOutputCount(2)
                         .save(recipeOutput, key("mix_sulfuric_acid"));
 
 
@@ -980,7 +1000,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.OXYGEN))
                         .unlockedBy("has_item", has(SubstanceCraftItems.MANGANESE_DIOXIDE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.POTASSIUM_HYDROXIDE))
-                        .setOutputCount(2)
                         .save(recipeOutput, key("mix_potassium_permanganate"));
 
 
@@ -1001,7 +1020,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.COKE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.SILICA))
                         .unlockedBy("has_item", has(SubstanceCraftItems.FLOUROAPATITE))
-                        .setOutputCount(2)
                         .save(recipeOutput, key("mix_white_phosphorus"));
 
                 HeatedMixerRecipeBuilder.mix(
@@ -1031,7 +1049,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.D_LYSERGIC_ACID_HYDRATE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.MAGNESIUM_SULFATE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.PHOSPHORYL_CHLORIDE))
-                        .setOutputCount(2)
                         .save(recipeOutput, key("mix_lysergic_acid_diethylamide"));
 
                 HeatedMixerRecipeBuilder.mix(
@@ -1043,20 +1060,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.XYLENE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_HYDROXIDE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
-                        .setOutputCount(3)
                         .save(recipeOutput, key("mix_mescaline"));
-
-                HeatedMixerRecipeBuilder.mix(
-                                List.of(Ingredient.of(SubstanceCraftItems.MIMOSA_HOSTILIS_ROOT_BARK), Ingredient.of(SubstanceCraftItems.PETROLEUM_NAPHTHA), Ingredient.of(SubstanceCraftItems.VINEGAR), Ingredient.of(SubstanceCraftItems.SODIUM_HYDROXIDE)),
-                                SubstanceCraftItems.N_N_DIMETHYLTRYPTAMINE,
-                                800
-                        )
-                        .unlockedBy("has_item", has(SubstanceCraftItems.MIMOSA_HOSTILIS_ROOT_BARK))
-                        .unlockedBy("has_item", has(SubstanceCraftItems.PETROLEUM_NAPHTHA))
-                        .unlockedBy("has_item", has(SubstanceCraftItems.VINEGAR))
-                        .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_HYDROXIDE))
-                        .setOutputCount(3)
-                        .save(recipeOutput, key("mix_nn_dmt"));
 
                 FermentationTankRecipeBuilder.ferment(
                                 List.of(Ingredient.of(SubstanceCraftItems.YEAST), Ingredient.of(SubstanceCraftItems.CORN)),
@@ -1091,7 +1095,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 FermentationTankRecipeBuilder.ferment(
                                 List.of(Ingredient.of(SubstanceCraftItems.GRAPES), Ingredient.of(SubstanceCraftItems.YEAST)),
                                 SubstanceCraftItems.RED_WINE,
-                                List.of(new ItemStack(SubstanceCraftItems.WINE_LEES, 50 >> 2)),
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.WINE_LEES, 50 >> 2)),
                                 2000
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.GRAPES))

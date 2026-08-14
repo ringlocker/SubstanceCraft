@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:coca_paste"
     },
     "show_toast": false,

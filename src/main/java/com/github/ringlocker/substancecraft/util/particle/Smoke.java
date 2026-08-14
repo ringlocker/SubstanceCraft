@@ -31,7 +31,7 @@ public class Smoke {
         int rollCount1 = Math.round(minRollsPerSection + increment);
         int rollCount2 = Math.round(maxRollsPerSection - increment);
 
-        RandomSource randomSource = level.random;
+        RandomSource randomSource = level.getRandom();
         for (int x = min; x < max; x++) {
             for (int z = min; z < max; z++) {
                 float chance = randomSource.nextFloat();

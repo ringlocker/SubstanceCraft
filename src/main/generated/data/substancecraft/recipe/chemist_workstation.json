@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "1": "minecraft:iron_ingot",
+    "2": "minecraft:glass_bottle",
+    "3": "minecraft:spruce_planks"
+  },
+  "pattern": [
+    "111",
+    "232",
+    "222"
+  ],
+  "result": {
+    "id": "substancecraft:chemist_station"
+  }
+}

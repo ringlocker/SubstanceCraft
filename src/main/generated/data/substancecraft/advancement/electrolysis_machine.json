@@ -16,7 +16,6 @@
     "announce_to_chat": false,
     "description": "Used for electrolysis reactions with substances. Crafted with 4 copper blocks, 1 cauldron, 2 redstone, 1 lever, and 1 iron ingot",
     "icon": {
-      "count": 1,
       "id": "substancecraft:electrolysis"
     },
     "show_toast": false,

@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Oxidize",
     "icon": {
-      "count": 1,
       "id": "substancecraft:maleic_anhydride"
     },
     "show_toast": false,

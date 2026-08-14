@@ -38,7 +38,7 @@ public abstract class BushLikeCrop extends VegetationBlock implements Bonemealab
         int rand = (level.getBlockState(pos.below()).is(Blocks.FARMLAND)) ? random.nextInt(7) : random.nextInt(12);
         if (rand == 0) {
             if (state.getValue(AGE) < MAX_AGE) {
-                this.performBonemeal(level, level.random, pos, state);
+                this.performBonemeal(level, level.getRandom(), pos, state);
             }
         }
     }

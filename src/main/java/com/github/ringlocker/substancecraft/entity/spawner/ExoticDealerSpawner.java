@@ -2,13 +2,13 @@ package com.github.ringlocker.substancecraft.entity.spawner;
 
 import com.github.ringlocker.substancecraft.data.SubstanceWorldData;
 import com.github.ringlocker.substancecraft.entity.SubstanceCraftEntities;
-import com.github.ringlocker.substancecraft.entity.entities.Dealer;
+import com.github.ringlocker.substancecraft.entity.entities.ExoticDealer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class DealerSpawner implements Spawner {
+public class ExoticDealerSpawner implements Spawner {
 
     private final RandomSource random = RandomSource.create();
     private static final int maxDistance = 48;
@@ -32,11 +32,11 @@ public class DealerSpawner implements Spawner {
     private int spawnDelay;
     private int spawnChance;
 
-    public DealerSpawner(ServerLevel overworld) {
+    public ExoticDealerSpawner(ServerLevel overworld) {
         SubstanceWorldData data = SubstanceWorldData.get(overworld);
         this.data = data;
 
-        this.tickDelay = 1000;
+        this.tickDelay = 2000;
         this.spawnDelay = data.getDealerSpawnDelay();
         this.spawnChance = data.getDealerSpawnChance();
 
@@ -82,7 +82,7 @@ public class DealerSpawner implements Spawner {
             BlockPos foundPos = optional.orElse(playerPos);
             BlockPos spawnPos = this.findSpawnPositionNear(level, foundPos);
             if (spawnPos != null && this.hasEnoughSpace(level, spawnPos)) {
-                Dealer dealer = SubstanceCraftEntities.DEALER.spawn(level, spawnPos, EntitySpawnReason.EVENT);
+                ExoticDealer dealer = SubstanceCraftEntities.EXOTIC_DEALER.spawn(level, spawnPos, EntitySpawnReason.EVENT);
                 if (dealer != null) {
                     dealer.setDespawnDelay(48000);
                     dealer.setWanderTarget(foundPos);
@@ -97,14 +97,14 @@ public class DealerSpawner implements Spawner {
     @Nullable
     private BlockPos findSpawnPositionNear(LevelReader levelReader, BlockPos pos) {
         BlockPos blockpos = null;
-        SpawnPlacementType spawnplacementtype = SpawnPlacements.getPlacementType(EntityType.WANDERING_TRADER);
+        SpawnPlacementType spawnplacementtype = SpawnPlacements.getPlacementType(EntityTypes.WANDERING_TRADER);
 
         for (int i = 0; i < 10; i++) {
-            int randX = pos.getX() + this.random.nextInt(DealerSpawner.maxDistance * 2) - DealerSpawner.maxDistance;
-            int randZ = pos.getZ() + this.random.nextInt(DealerSpawner.maxDistance * 2) - DealerSpawner.maxDistance;
+            int randX = pos.getX() + this.random.nextInt(ExoticDealerSpawner.maxDistance * 2) - ExoticDealerSpawner.maxDistance;
+            int randZ = pos.getZ() + this.random.nextInt(ExoticDealerSpawner.maxDistance * 2) - ExoticDealerSpawner.maxDistance;
             int randY = levelReader.getHeight(Heightmap.Types.WORLD_SURFACE, randX, randZ);
             BlockPos randomPos = new BlockPos(randX, randY, randZ);
-            if (spawnplacementtype.isSpawnPositionOk(levelReader, randomPos, EntityType.WANDERING_TRADER)) {
+            if (spawnplacementtype.isSpawnPositionOk(levelReader, randomPos, EntityTypes.WANDERING_TRADER)) {
                 blockpos = randomPos;
                 break;
             }

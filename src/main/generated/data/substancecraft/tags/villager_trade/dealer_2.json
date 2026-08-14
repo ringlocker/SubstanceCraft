@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#substancecraft:buy_drug",
+    "#substancecraft:sell_drug",
+    "#substancecraft:buy_unobtainable_drug",
+    "#substancecraft:sell_unobtainable_drug"
+  ]
+}

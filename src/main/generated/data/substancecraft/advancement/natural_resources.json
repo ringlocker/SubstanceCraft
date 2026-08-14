@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Look at advancement descriptions for where to find each resource",
     "icon": {
-      "count": 1,
       "id": "minecraft:iron_ore"
     },
     "show_toast": false,

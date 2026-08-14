@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "substancecraft:peyote_cactus"
+  },
+  "max_uses": 8.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 21.0,
+    "id": "substancecraft:band"
+  },
+  "xp": 6.0
+}

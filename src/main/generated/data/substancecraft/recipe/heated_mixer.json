@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "1": "minecraft:copper_block",
     "2": "minecraft:iron_shovel",
@@ -14,7 +13,6 @@
     "151"
   ],
   "result": {
-    "count": 1,
     "id": "substancecraft:heated_mixer"
   }
 }

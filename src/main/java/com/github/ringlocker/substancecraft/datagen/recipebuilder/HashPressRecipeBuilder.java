@@ -2,6 +2,7 @@ package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 
 import com.github.ringlocker.substancecraft.recipe.recipes.HashPressRecipe;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
@@ -9,11 +10,11 @@ import java.util.List;
 
 public class HashPressRecipeBuilder extends ByproductRecipeBuilder {
 
-    private HashPressRecipeBuilder(final ItemLike result, final List<Ingredient> ingredients, List<ItemStack> byproducts, int time) {
+    private HashPressRecipeBuilder(final ItemLike result, final List<Ingredient> ingredients, List<ItemStackTemplate> byproducts, int time) {
         super(ingredients, result, byproducts, time, HashPressRecipe::new);
     }
 
-    public static HashPressRecipeBuilder press(List<Ingredient> ingredients, ItemLike result, List<ItemStack> byproducts, int time) {
+    public static HashPressRecipeBuilder press(List<Ingredient> ingredients, ItemLike result, List<ItemStackTemplate> byproducts, int time) {
         return new HashPressRecipeBuilder(result, ingredients, byproducts, time);
     }
 

@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Refine",
     "icon": {
-      "count": 1,
       "id": "substancecraft:natural_gas"
     },
     "show_toast": false,

@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "substancecraft:corn_crop"
+  },
+  "max_uses": 8.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 2.0,
+    "id": "substancecraft:band"
+  },
+  "xp": 2.0
+}

@@ -3,6 +3,7 @@ package com.github.ringlocker.substancecraft.recipe.recipes;
 import com.github.ringlocker.substancecraft.recipe.serializer.ByproductRecipeSerializer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -13,7 +14,7 @@ public class OxidizerRecipe extends ByproductRecipe {
 
     public static final String ID = "oxidizer";
 
-    public OxidizerRecipe(List<Ingredient> ingredient, ItemStack result, List<ItemStack> byproducts, int time) {
+    public OxidizerRecipe(List<Ingredient> ingredient, ItemStackTemplate result, List<ItemStackTemplate> byproducts, int time) {
         super(Type.INSTANCE, Serializer.INSTANCE, ingredient, result, byproducts, time);
     }
 
@@ -27,7 +28,8 @@ public class OxidizerRecipe extends ByproductRecipe {
     }
 
     public static class Serializer {
-        public static final RecipeSerializer<OxidizerRecipe> INSTANCE = new ByproductRecipeSerializer<>(OxidizerRecipe::new);
+        private static final ByproductRecipeSerializer<OxidizerRecipe> SERIALIZER = new ByproductRecipeSerializer<>(OxidizerRecipe::new);
+        public static final RecipeSerializer<OxidizerRecipe> INSTANCE = new RecipeSerializer<>(SERIALIZER.codec(), SERIALIZER.streamCodec());
     }
 
 }

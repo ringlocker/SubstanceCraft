@@ -16,7 +16,6 @@
     "announce_to_chat": false,
     "description": "Corn seeds can be found in some village chests",
     "icon": {
-      "count": 1,
       "id": "substancecraft:corn"
     },
     "show_toast": false,
