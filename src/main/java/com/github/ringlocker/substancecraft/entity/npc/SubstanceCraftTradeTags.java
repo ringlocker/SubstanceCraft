@@ -20,6 +20,7 @@ public class SubstanceCraftTradeTags {
     }
 
     public static void registerVillagerTradeTags() {
+
     }
 
 }

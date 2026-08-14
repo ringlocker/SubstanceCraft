@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.datagen;
 
-import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.entity.npc.SubstanceCraftTradeSets;
 import com.github.ringlocker.substancecraft.entity.npc.SubstanceCraftTrades;
 import net.fabricmc.api.EnvType;
@@ -21,6 +20,7 @@ public class SubstanceCraftDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(RecipeGenerator::new);
         pack.addProvider(AdvancementGenerator::new);
         pack.addProvider(VillagerTradeGenerator::new);
+        pack.addProvider(TradeProvider::new);
 
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
             try {

@@ -21,5 +21,11 @@ public class VillagerTradeGenerator extends FabricTagsProvider<VillagerTrade> {
         tag(SubstanceCraftTradeTags.DEALER_BUY_DRUG)
                 .add(SubstanceCraftTrades.DEALER_BUY_2CB)
                 .add(SubstanceCraftTrades.DEALER_BUY_HASH);
+
+        tag(SubstanceCraftTradeTags.DEALER_BUY_UNOBTAINABLE_DRUG);
+        tag(SubstanceCraftTradeTags.DEALER_SELL_DRUG);
+        tag(SubstanceCraftTradeTags.DEALER_SELL_UNOBTAINABLE_DRUG);
+        tag(SubstanceCraftTradeTags.DEALER_BUY_HARVEST);
+        tag(SubstanceCraftTradeTags.DEALER_SELL_CROP);
     }
 }
