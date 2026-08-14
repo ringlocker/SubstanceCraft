@@ -12,7 +12,9 @@
       "id": "minecraft:coal"
     },
     "show_toast": false,
-    "title": "item.minecraft.coal"
+    "title": {
+      "translate": "item.minecraft.coal"
+    }
   },
   "requirements": [
     [

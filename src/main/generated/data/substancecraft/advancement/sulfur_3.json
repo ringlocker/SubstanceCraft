@@ -12,7 +12,9 @@
       "id": "substancecraft:sulfur"
     },
     "show_toast": false,
-    "title": "item.substancecraft.sulfur"
+    "title": {
+      "translate": "item.substancecraft.sulfur"
+    }
   },
   "requirements": [
     [

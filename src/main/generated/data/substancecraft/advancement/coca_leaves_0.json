@@ -12,7 +12,9 @@
       "id": "substancecraft:coca_leaves"
     },
     "show_toast": false,
-    "title": "item.substancecraft.coca_leaves"
+    "title": {
+      "translate": "item.substancecraft.coca_leaves"
+    }
   },
   "requirements": [
     [

@@ -12,7 +12,9 @@
       "id": "substancecraft:tetrahydrofuran"
     },
     "show_toast": false,
-    "title": "item.substancecraft.tetrahydrofuran"
+    "title": {
+      "translate": "item.substancecraft.tetrahydrofuran"
+    }
   },
   "requirements": [
     [

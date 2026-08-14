@@ -12,7 +12,9 @@
       "id": "substancecraft:nitroethane"
     },
     "show_toast": false,
-    "title": "item.substancecraft.nitroethane"
+    "title": {
+      "translate": "item.substancecraft.nitroethane"
+    }
   },
   "requirements": [
     [

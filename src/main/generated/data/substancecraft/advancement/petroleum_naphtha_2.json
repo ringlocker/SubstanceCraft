@@ -12,7 +12,9 @@
       "id": "substancecraft:petroleum_naphtha"
     },
     "show_toast": false,
-    "title": "item.substancecraft.petroleum_naphtha"
+    "title": {
+      "translate": "item.substancecraft.petroleum_naphtha"
+    }
   },
   "requirements": [
     [

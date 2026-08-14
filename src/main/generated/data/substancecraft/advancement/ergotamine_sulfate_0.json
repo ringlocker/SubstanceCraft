@@ -12,7 +12,9 @@
       "id": "substancecraft:ergotamine_sulfate"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ergotamine_sulfate"
+    "title": {
+      "translate": "item.substancecraft.ergotamine_sulfate"
+    }
   },
   "requirements": [
     [

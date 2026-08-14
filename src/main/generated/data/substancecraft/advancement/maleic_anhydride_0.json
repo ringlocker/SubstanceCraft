@@ -12,7 +12,9 @@
       "id": "substancecraft:maleic_anhydride"
     },
     "show_toast": false,
-    "title": "item.substancecraft.maleic_anhydride"
+    "title": {
+      "translate": "item.substancecraft.maleic_anhydride"
+    }
   },
   "requirements": [
     [

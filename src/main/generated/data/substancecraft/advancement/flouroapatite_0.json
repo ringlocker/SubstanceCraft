@@ -12,7 +12,9 @@
       "id": "substancecraft:flouroapatite"
     },
     "show_toast": false,
-    "title": "item.substancecraft.flouroapatite"
+    "title": {
+      "translate": "item.substancecraft.flouroapatite"
+    }
   },
   "requirements": [
     [

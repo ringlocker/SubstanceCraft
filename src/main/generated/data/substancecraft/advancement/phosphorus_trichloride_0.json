@@ -12,7 +12,9 @@
       "id": "substancecraft:phosphorus_trichloride"
     },
     "show_toast": false,
-    "title": "item.substancecraft.phosphorus_trichloride"
+    "title": {
+      "translate": "item.substancecraft.phosphorus_trichloride"
+    }
   },
   "requirements": [
     [

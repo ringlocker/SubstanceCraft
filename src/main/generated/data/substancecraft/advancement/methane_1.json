@@ -12,7 +12,9 @@
       "id": "substancecraft:methane"
     },
     "show_toast": false,
-    "title": "item.substancecraft.methane"
+    "title": {
+      "translate": "item.substancecraft.methane"
+    }
   },
   "requirements": [
     [

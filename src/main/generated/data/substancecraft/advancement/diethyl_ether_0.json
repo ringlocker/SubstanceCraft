@@ -12,7 +12,9 @@
       "id": "substancecraft:diethyl_ether"
     },
     "show_toast": false,
-    "title": "item.substancecraft.diethyl_ether"
+    "title": {
+      "translate": "item.substancecraft.diethyl_ether"
+    }
   },
   "requirements": [
     [

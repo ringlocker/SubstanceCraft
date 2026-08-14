@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "substancecraft:coca_plant"
+  },
+  "max_uses": 8.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 16.0,
+    "id": "substancecraft:band"
+  },
+  "xp": 6.0
+}

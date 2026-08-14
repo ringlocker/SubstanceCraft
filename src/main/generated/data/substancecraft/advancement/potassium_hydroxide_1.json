@@ -12,7 +12,9 @@
       "id": "substancecraft:potassium_hydroxide"
     },
     "show_toast": false,
-    "title": "item.substancecraft.potassium_hydroxide"
+    "title": {
+      "translate": "item.substancecraft.potassium_hydroxide"
+    }
   },
   "requirements": [
     [

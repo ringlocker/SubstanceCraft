@@ -12,7 +12,9 @@
       "id": "substancecraft:ammonia"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ammonia"
+    "title": {
+      "translate": "item.substancecraft.ammonia"
+    }
   },
   "requirements": [
     [

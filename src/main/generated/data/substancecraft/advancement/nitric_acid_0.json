@@ -12,7 +12,9 @@
       "id": "substancecraft:nitric_acid"
     },
     "show_toast": false,
-    "title": "item.substancecraft.nitric_acid"
+    "title": {
+      "translate": "item.substancecraft.nitric_acid"
+    }
   },
   "requirements": [
     [

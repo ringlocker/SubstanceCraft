@@ -12,7 +12,9 @@
       "id": "substancecraft:pyrolusite"
     },
     "show_toast": false,
-    "title": "item.substancecraft.pyrolusite"
+    "title": {
+      "translate": "item.substancecraft.pyrolusite"
+    }
   },
   "requirements": [
     [

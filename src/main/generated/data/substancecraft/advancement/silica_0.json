@@ -12,7 +12,9 @@
       "id": "substancecraft:silica"
     },
     "show_toast": false,
-    "title": "item.substancecraft.silica"
+    "title": {
+      "translate": "item.substancecraft.silica"
+    }
   },
   "requirements": [
     [

@@ -12,7 +12,9 @@
       "id": "substancecraft:yeast"
     },
     "show_toast": false,
-    "title": "item.substancecraft.yeast"
+    "title": {
+      "translate": "item.substancecraft.yeast"
+    }
   },
   "requirements": [
     [

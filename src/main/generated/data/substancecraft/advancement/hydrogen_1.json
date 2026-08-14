@@ -12,7 +12,9 @@
       "id": "substancecraft:hydrogen"
     },
     "show_toast": false,
-    "title": "item.substancecraft.hydrogen"
+    "title": {
+      "translate": "item.substancecraft.hydrogen"
+    }
   },
   "requirements": [
     [

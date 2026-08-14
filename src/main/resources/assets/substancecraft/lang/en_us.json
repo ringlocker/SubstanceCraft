@@ -32,6 +32,8 @@
   "block.substancecraft.peyote_cactus": "Peyote Cactus",
   "block.substancecraft.psilocybin": "Psilocybin",
   "block.substancecraft.pale_psilocybin": "Pale Psilocybin",
+  "block.substancecraft.chemist_station": "Chemist Station",
+  "block.substancecraft.plant_research_station": "Plant Research Station",
 
   "effect.substancecraft.fast": "Zoomies",
   "effect.substancecraft.slow": "Slow",
@@ -65,7 +67,10 @@
   "death.attack.cardiac_arrest": "%1$s died from cardiac arrest",
   "death.attack.alcohol_poisoning": "%1$s died from alcohol poisoning",
 
-  "entity.substancecraft.dealer": "Dealer",
+  "entity.substancecraft.exotic_dealer": "Exotic Dealer",
+
+  "entity.substancecraft.villager.dealer": "Dealer",
+  "entity.substancecraft.villager.exotic_farmer": "Exotic Farmer",
 
   "item.substancecraft.marijuana": "Marijuana",
   "item.substancecraft.marijuana_trim": "Marijuana Trim",

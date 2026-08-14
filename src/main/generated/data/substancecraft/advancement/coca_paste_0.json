@@ -12,7 +12,9 @@
       "id": "substancecraft:coca_paste"
     },
     "show_toast": false,
-    "title": "item.substancecraft.coca_paste"
+    "title": {
+      "translate": "item.substancecraft.coca_paste"
+    }
   },
   "requirements": [
     [

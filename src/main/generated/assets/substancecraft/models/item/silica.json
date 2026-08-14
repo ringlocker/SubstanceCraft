@@ -1,7 +1,13 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "substancecraft:item/solid_overlay",
-    "layer1": "substancecraft:item/solid"
+    "layer0": {
+      "force_translucent": true,
+      "sprite": "substancecraft:item/solid_overlay"
+    },
+    "layer1": {
+      "force_translucent": true,
+      "sprite": "substancecraft:item/solid"
+    }
   }
 }

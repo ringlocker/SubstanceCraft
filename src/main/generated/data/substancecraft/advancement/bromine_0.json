@@ -12,7 +12,9 @@
       "id": "substancecraft:bromine"
     },
     "show_toast": false,
-    "title": "item.substancecraft.bromine"
+    "title": {
+      "translate": "item.substancecraft.bromine"
+    }
   },
   "requirements": [
     [

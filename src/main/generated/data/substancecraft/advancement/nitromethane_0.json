@@ -12,7 +12,9 @@
       "id": "substancecraft:nitromethane"
     },
     "show_toast": false,
-    "title": "item.substancecraft.nitromethane"
+    "title": {
+      "translate": "item.substancecraft.nitromethane"
+    }
   },
   "requirements": [
     [

@@ -20,7 +20,6 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -149,6 +148,30 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(Items.IRON_INGOT))
                         .unlockedBy("has_item", has(Items.COPPER_BLOCK.weathering().unaffected()))
                         .save(recipeOutput, key("electrolysis_machine"));
+
+        shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CHEMIST_WORKSTATION))
+                        .pattern("111")
+                        .pattern("232")
+                        .pattern("222")
+                        .define('1', Items.IRON_INGOT)
+                        .define('2', Items.GLASS_BOTTLE)
+                        .define('3', Items.SPRUCE_PLANKS)
+                        .unlockedBy("has_item", has(Items.IRON_INGOT))
+                        .unlockedBy("has_item", has(Items.GLASS_BOTTLE))
+                        .unlockedBy("has_item", has(Items.SPRUCE_PLANKS))
+                        .save(recipeOutput, key("chemist_workstation"));
+
+        shaped(RecipeCategory.MISC, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PLANT_RESEARCH_STATION))
+                        .pattern("111")
+                        .pattern("232")
+                        .pattern("222")
+                        .define('1', Items.LEAF_LITTER)
+                        .define('2', Items.IRON_INGOT)
+                        .define('3', Items.ACACIA_PLANKS)
+                        .unlockedBy("has_item", has(Items.IRON_INGOT))
+                        .unlockedBy("has_item", has(Items.LEAF_LITTER))
+                        .unlockedBy("has_item", has(Items.ACACIA_PLANKS))
+                        .save(recipeOutput, key("plant_research_station"));
 
                 nineBlockStorageRecipesWithCustomPacking(
                         RecipeCategory.MISC,

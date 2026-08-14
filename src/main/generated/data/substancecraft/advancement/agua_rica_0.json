@@ -12,7 +12,9 @@
       "id": "substancecraft:agua_rica"
     },
     "show_toast": false,
-    "title": "item.substancecraft.agua_rica"
+    "title": {
+      "translate": "item.substancecraft.agua_rica"
+    }
   },
   "requirements": [
     [

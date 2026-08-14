@@ -12,7 +12,9 @@
       "id": "substancecraft:salt"
     },
     "show_toast": false,
-    "title": "item.substancecraft.salt"
+    "title": {
+      "translate": "item.substancecraft.salt"
+    }
   },
   "requirements": [
     [

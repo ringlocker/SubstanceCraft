@@ -12,7 +12,9 @@
       "id": "substancecraft:potassium_bitartrate"
     },
     "show_toast": false,
-    "title": "item.substancecraft.potassium_bitartrate"
+    "title": {
+      "translate": "item.substancecraft.potassium_bitartrate"
+    }
   },
   "requirements": [
     [

@@ -12,7 +12,9 @@
       "id": "substancecraft:magnesium"
     },
     "show_toast": false,
-    "title": "item.substancecraft.magnesium"
+    "title": {
+      "translate": "item.substancecraft.magnesium"
+    }
   },
   "requirements": [
     [

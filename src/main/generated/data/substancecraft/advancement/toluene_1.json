@@ -12,7 +12,9 @@
       "id": "substancecraft:toluene"
     },
     "show_toast": false,
-    "title": "item.substancecraft.toluene"
+    "title": {
+      "translate": "item.substancecraft.toluene"
+    }
   },
   "requirements": [
     [

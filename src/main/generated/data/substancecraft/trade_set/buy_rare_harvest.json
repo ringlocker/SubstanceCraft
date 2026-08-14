@@ -1,0 +1,5 @@
+{
+  "amount": 1.0,
+  "random_sequence": "substancecraft:trade_set/buy_rare_harvest",
+  "trades": "#substancecraft:buy_rare_harvest"
+}

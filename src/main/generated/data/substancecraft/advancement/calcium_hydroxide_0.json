@@ -12,7 +12,9 @@
       "id": "substancecraft:calcium_hydroxide"
     },
     "show_toast": false,
-    "title": "item.substancecraft.calcium_hydroxide"
+    "title": {
+      "translate": "item.substancecraft.calcium_hydroxide"
+    }
   },
   "requirements": [
     [

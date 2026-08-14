@@ -12,7 +12,9 @@
       "id": "minecraft:glass_bottle"
     },
     "show_toast": false,
-    "title": "item.minecraft.glass_bottle"
+    "title": {
+      "translate": "item.minecraft.glass_bottle"
+    }
   },
   "requirements": [
     [

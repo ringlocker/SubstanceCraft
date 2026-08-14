@@ -12,7 +12,9 @@
       "id": "substancecraft:nitrogen"
     },
     "show_toast": false,
-    "title": "item.substancecraft.nitrogen"
+    "title": {
+      "translate": "item.substancecraft.nitrogen"
+    }
   },
   "requirements": [
     [

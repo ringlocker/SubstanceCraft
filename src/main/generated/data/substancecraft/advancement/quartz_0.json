@@ -12,7 +12,9 @@
       "id": "minecraft:quartz"
     },
     "show_toast": false,
-    "title": "item.minecraft.quartz"
+    "title": {
+      "translate": "item.minecraft.quartz"
+    }
   },
   "requirements": [
     [

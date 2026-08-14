@@ -12,7 +12,9 @@
       "id": "substancecraft:2c_h"
     },
     "show_toast": false,
-    "title": "item.substancecraft.2c_h"
+    "title": {
+      "translate": "item.substancecraft.2c_h"
+    }
   },
   "requirements": [
     [

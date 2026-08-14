@@ -12,7 +12,9 @@
       "id": "substancecraft:ergotamine"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ergotamine"
+    "title": {
+      "translate": "item.substancecraft.ergotamine"
+    }
   },
   "requirements": [
     [

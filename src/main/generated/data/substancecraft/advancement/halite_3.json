@@ -12,7 +12,9 @@
       "id": "substancecraft:halite"
     },
     "show_toast": false,
-    "title": "item.substancecraft.halite"
+    "title": {
+      "translate": "item.substancecraft.halite"
+    }
   },
   "requirements": [
     [

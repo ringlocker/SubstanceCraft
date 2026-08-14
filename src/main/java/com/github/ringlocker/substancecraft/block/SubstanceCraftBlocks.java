@@ -65,6 +65,8 @@ public class SubstanceCraftBlocks {
     public static final Block PSILOCYBIN = registerPlaceableDrug(SubstanceCraftBlockItemIds.PSILOCYBIN, PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_1);
     public static final Block PEYOTE_CACTUS = register(SubstanceCraftBlockItemIds.PEYOTE_CACTUS, PeyoteCactus::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.4F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
     public static final Block PALE_PSILOCYBIN = registerPlaceableDrug(SubstanceCraftBlockItemIds.PALE_PSILOCYBIN, PotentPsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_2);
+    public static final Block CHEMIST_WORKSTATION = register(SubstanceCraftBlockItemIds.CHEMIST_WORKSTATION, Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SMITHING_TABLE));
+    public static final Block PLANT_RESEARCH_STATION = register(SubstanceCraftBlockItemIds.PLANT_RESEARCH_STATION, Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.FLETCHING_TABLE));
 
     public static Item getBlockItem(Block block) {
         return BLOCK_ITEMS.get(block);

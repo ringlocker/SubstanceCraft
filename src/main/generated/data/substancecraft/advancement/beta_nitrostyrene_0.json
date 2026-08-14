@@ -12,7 +12,9 @@
       "id": "substancecraft:beta_nitrostyrene"
     },
     "show_toast": false,
-    "title": "item.substancecraft.beta_nitrostyrene"
+    "title": {
+      "translate": "item.substancecraft.beta_nitrostyrene"
+    }
   },
   "requirements": [
     [

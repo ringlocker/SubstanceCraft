@@ -12,7 +12,9 @@
       "id": "substancecraft:p2np"
     },
     "show_toast": false,
-    "title": "item.substancecraft.p2np"
+    "title": {
+      "translate": "item.substancecraft.p2np"
+    }
   },
   "requirements": [
     [

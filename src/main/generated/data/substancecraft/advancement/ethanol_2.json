@@ -12,7 +12,9 @@
       "id": "substancecraft:ethanol"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ethanol"
+    "title": {
+      "translate": "item.substancecraft.ethanol"
+    }
   },
   "requirements": [
     [

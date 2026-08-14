@@ -12,7 +12,9 @@
       "id": "substancecraft:magnesium_sulfate"
     },
     "show_toast": false,
-    "title": "item.substancecraft.magnesium_sulfate"
+    "title": {
+      "translate": "item.substancecraft.magnesium_sulfate"
+    }
   },
   "requirements": [
     [

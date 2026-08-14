@@ -12,7 +12,9 @@
       "id": "substancecraft:benzene"
     },
     "show_toast": false,
-    "title": "item.substancecraft.benzene"
+    "title": {
+      "translate": "item.substancecraft.benzene"
+    }
   },
   "requirements": [
     [

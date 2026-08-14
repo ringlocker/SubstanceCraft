@@ -12,7 +12,9 @@
       "id": "substancecraft:diethylene"
     },
     "show_toast": false,
-    "title": "item.substancecraft.diethylene"
+    "title": {
+      "translate": "item.substancecraft.diethylene"
+    }
   },
   "requirements": [
     [

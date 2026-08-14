@@ -12,7 +12,9 @@
       "id": "substancecraft:ergot"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ergot"
+    "title": {
+      "translate": "item.substancecraft.ergot"
+    }
   },
   "requirements": [
     [

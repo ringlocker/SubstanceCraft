@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "substancecraft:block/chemist_station_bottom",
+    "east": "substancecraft:block/chemist_station_side",
+    "north": "substancecraft:block/chemist_station_front",
+    "particle": "substancecraft:block/chemist_station_front",
+    "south": "substancecraft:block/chemist_station_front",
+    "up": "substancecraft:block/chemist_station_top",
+    "west": "substancecraft:block/chemist_station_side"
+  }
+}

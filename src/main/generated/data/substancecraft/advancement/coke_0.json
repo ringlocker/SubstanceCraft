@@ -12,7 +12,9 @@
       "id": "substancecraft:coke"
     },
     "show_toast": false,
-    "title": "item.substancecraft.coke"
+    "title": {
+      "translate": "item.substancecraft.coke"
+    }
   },
   "requirements": [
     [

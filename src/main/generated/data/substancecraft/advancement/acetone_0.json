@@ -12,7 +12,9 @@
       "id": "substancecraft:acetone"
     },
     "show_toast": false,
-    "title": "item.substancecraft.acetone"
+    "title": {
+      "translate": "item.substancecraft.acetone"
+    }
   },
   "requirements": [
     [

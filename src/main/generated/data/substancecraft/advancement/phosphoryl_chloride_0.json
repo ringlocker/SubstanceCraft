@@ -12,7 +12,9 @@
       "id": "substancecraft:phosphoryl_chloride"
     },
     "show_toast": false,
-    "title": "item.substancecraft.phosphoryl_chloride"
+    "title": {
+      "translate": "item.substancecraft.phosphoryl_chloride"
+    }
   },
   "requirements": [
     [

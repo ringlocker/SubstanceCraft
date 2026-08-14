@@ -12,7 +12,9 @@
       "id": "substancecraft:phosphorite"
     },
     "show_toast": false,
-    "title": "item.substancecraft.phosphorite"
+    "title": {
+      "translate": "item.substancecraft.phosphorite"
+    }
   },
   "requirements": [
     [

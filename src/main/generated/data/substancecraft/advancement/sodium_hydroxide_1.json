@@ -12,7 +12,9 @@
       "id": "substancecraft:sodium_hydroxide"
     },
     "show_toast": false,
-    "title": "item.substancecraft.sodium_hydroxide"
+    "title": {
+      "translate": "item.substancecraft.sodium_hydroxide"
+    }
   },
   "requirements": [
     [

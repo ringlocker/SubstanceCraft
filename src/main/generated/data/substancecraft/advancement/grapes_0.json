@@ -12,7 +12,9 @@
       "id": "substancecraft:grapes"
     },
     "show_toast": false,
-    "title": "item.substancecraft.grapes"
+    "title": {
+      "translate": "item.substancecraft.grapes"
+    }
   },
   "requirements": [
     [

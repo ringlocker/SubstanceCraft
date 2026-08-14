@@ -12,7 +12,9 @@
       "id": "substancecraft:white_phosphorus"
     },
     "show_toast": false,
-    "title": "item.substancecraft.white_phosphorus"
+    "title": {
+      "translate": "item.substancecraft.white_phosphorus"
+    }
   },
   "requirements": [
     [

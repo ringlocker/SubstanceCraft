@@ -12,7 +12,9 @@
       "id": "substancecraft:sulfuric_acid"
     },
     "show_toast": false,
-    "title": "item.substancecraft.sulfuric_acid"
+    "title": {
+      "translate": "item.substancecraft.sulfuric_acid"
+    }
   },
   "requirements": [
     [

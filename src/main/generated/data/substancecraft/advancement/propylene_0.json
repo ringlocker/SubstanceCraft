@@ -12,7 +12,9 @@
       "id": "substancecraft:propylene"
     },
     "show_toast": false,
-    "title": "item.substancecraft.propylene"
+    "title": {
+      "translate": "item.substancecraft.propylene"
+    }
   },
   "requirements": [
     [

@@ -12,7 +12,9 @@
       "id": "substancecraft:carbon_dioxide"
     },
     "show_toast": false,
-    "title": "item.substancecraft.carbon_dioxide"
+    "title": {
+      "translate": "item.substancecraft.carbon_dioxide"
+    }
   },
   "requirements": [
     [

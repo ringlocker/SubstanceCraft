@@ -12,7 +12,9 @@
       "id": "substancecraft:methyl_formate"
     },
     "show_toast": false,
-    "title": "item.substancecraft.methyl_formate"
+    "title": {
+      "translate": "item.substancecraft.methyl_formate"
+    }
   },
   "requirements": [
     [

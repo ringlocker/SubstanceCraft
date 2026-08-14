@@ -12,7 +12,9 @@
       "id": "substancecraft:benzaldehyde"
     },
     "show_toast": false,
-    "title": "item.substancecraft.benzaldehyde"
+    "title": {
+      "translate": "item.substancecraft.benzaldehyde"
+    }
   },
   "requirements": [
     [

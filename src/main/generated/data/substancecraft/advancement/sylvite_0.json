@@ -12,7 +12,9 @@
       "id": "substancecraft:sylvite"
     },
     "show_toast": false,
-    "title": "item.substancecraft.sylvite"
+    "title": {
+      "translate": "item.substancecraft.sylvite"
+    }
   },
   "requirements": [
     [

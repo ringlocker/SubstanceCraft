@@ -31,8 +31,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+
+import java.util.function.BiFunction;
 
 @Environment(EnvType.CLIENT)
 public class ModelGenerator extends FabricModelProvider {
@@ -67,6 +70,8 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.PALE_PSILOCYBIN, BlockModelGenerators.PlantType.TINTED, PsilocybinMushroom.AGE, 0, 1, 2);
         createSeaPickleLike(blockStateModelGenerator, SubstanceCraftBlocks.PEYOTE_CACTUS, PeyoteCactus.AGE, "peyote_stage");
+        createSmithingTable(SubstanceCraftBlocks.CHEMIST_WORKSTATION, blockStateModelGenerator);
+        createCraftingTableLike(SubstanceCraftBlocks.PLANT_RESEARCH_STATION, Blocks.ACACIA_PLANKS, TextureMapping::fletchingTable, blockStateModelGenerator);
     }
 
     @Override
@@ -90,16 +95,16 @@ public class ModelGenerator extends FabricModelProvider {
                 );
     }
 
-    public final void generateSubstanceItem(SubstanceItem substance, ItemModelGenerators itemModelGenerator) {
+    private void generateSubstanceItem(SubstanceItem substance, ItemModelGenerators itemModelGenerator) {
         Identifier baseIdentifier = substance.getState().getBaseTexture();
         Identifier overlayIdentifier = substance.getState().getOverlayTexture();
-        Material base = new Material(baseIdentifier);
-        Material overlay = new Material(overlayIdentifier);
+        Material base = new Material(baseIdentifier, true);
+        Material overlay = new Material(overlayIdentifier, true);
         Identifier resourceLocation = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
         itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(resourceLocation, new SubstanceTintColor()));
     }
 
-    private static void createTopBottomSideFrontAndFrontOnTexture(Block block, BlockModelGenerators blockModelGenerators) {
+    private void createTopBottomSideFrontAndFrontOnTexture(Block block, BlockModelGenerators blockModelGenerators) {
         Identifier texture = TexturedModel.ORIENTABLE.create(block, blockModelGenerators.modelOutput);
         Identifier frontOn = TexturedModel.ORIENTABLE.get(block)
                 .updateTextures(textureMapping -> textureMapping.put(TextureSlot.FRONT, TextureMapping.getBlockTexture(block, "_front_on")))
@@ -119,6 +124,30 @@ public class ModelGenerator extends FabricModelProvider {
                                 .select(Direction.NORTH, BlockModelGenerators.NOP)
                         )
         );
+    }
+
+    private void createSmithingTable(Block block, BlockModelGenerators blockModelGenerators) {
+        TextureMapping mapping = new TextureMapping()
+                .put(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(block, "_front"))
+                .put(TextureSlot.DOWN, TextureMapping.getBlockTexture(block, "_bottom"))
+                .put(TextureSlot.UP, TextureMapping.getBlockTexture(block, "_top"))
+                .put(TextureSlot.NORTH, TextureMapping.getBlockTexture(block, "_front"))
+                .put(TextureSlot.SOUTH, TextureMapping.getBlockTexture(block, "_front"))
+                .put(TextureSlot.EAST, TextureMapping.getBlockTexture(block, "_side"))
+                .put(TextureSlot.WEST, TextureMapping.getBlockTexture(block, "_side"));
+        blockModelGenerators.blockStateOutput.accept(
+                BlockModelGenerators.createSimpleBlock(
+                        block,
+                        BlockModelGenerators.plainVariant(ModelTemplates.CUBE.create(block, mapping, blockModelGenerators.modelOutput))
+                )
+        );
+    }
+
+    private void createCraftingTableLike(Block block, Block bottomBlock, BiFunction<Block, Block, TextureMapping> mappingProvider, BlockModelGenerators blockModelGenerators) {
+        TextureMapping mapping = mappingProvider.apply(block, bottomBlock);
+        blockModelGenerators.blockStateOutput.accept(
+                BlockModelGenerators.createSimpleBlock(block,
+                        BlockModelGenerators.plainVariant(ModelTemplates.CUBE.create(block, mapping, blockModelGenerators.modelOutput))));
     }
 
 }

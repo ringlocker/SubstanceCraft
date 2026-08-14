@@ -12,7 +12,9 @@
       "id": "substancecraft:manganese_dioxide"
     },
     "show_toast": false,
-    "title": "item.substancecraft.manganese_dioxide"
+    "title": {
+      "translate": "item.substancecraft.manganese_dioxide"
+    }
   },
   "requirements": [
     [

@@ -12,7 +12,9 @@
       "id": "substancecraft:acetic_acid"
     },
     "show_toast": false,
-    "title": "item.substancecraft.acetic_acid"
+    "title": {
+      "translate": "item.substancecraft.acetic_acid"
+    }
   },
   "requirements": [
     [

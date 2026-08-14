@@ -12,7 +12,9 @@
       "id": "substancecraft:formic_acid"
     },
     "show_toast": false,
-    "title": "item.substancecraft.formic_acid"
+    "title": {
+      "translate": "item.substancecraft.formic_acid"
+    }
   },
   "requirements": [
     [

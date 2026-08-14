@@ -12,7 +12,9 @@
       "id": "substancecraft:sodium_carbonate"
     },
     "show_toast": false,
-    "title": "item.substancecraft.sodium_carbonate"
+    "title": {
+      "translate": "item.substancecraft.sodium_carbonate"
+    }
   },
   "requirements": [
     [

@@ -12,7 +12,9 @@
       "id": "minecraft:charcoal"
     },
     "show_toast": false,
-    "title": "item.minecraft.charcoal"
+    "title": {
+      "translate": "item.minecraft.charcoal"
+    }
   },
   "requirements": [
     [

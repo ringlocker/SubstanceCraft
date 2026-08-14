@@ -12,7 +12,9 @@
       "id": "substancecraft:ammonium_acetate"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ammonium_acetate"
+    "title": {
+      "translate": "item.substancecraft.ammonium_acetate"
+    }
   },
   "requirements": [
     [

@@ -34,6 +34,8 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId PSILOCYBIN = create("psilocybin");
     public static final BlockItemId PEYOTE_CACTUS = create("peyote_cactus");
     public static final BlockItemId PALE_PSILOCYBIN = create("pale_psilocybin");
+    public static final BlockItemId CHEMIST_WORKSTATION = create("chemist_station");
+    public static final BlockItemId PLANT_RESEARCH_STATION = create("plant_research_station");
 
     private static BlockItemId create(String name) {
         return new BlockItemId(

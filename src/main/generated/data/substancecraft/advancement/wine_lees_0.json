@@ -12,7 +12,9 @@
       "id": "substancecraft:wine_lees"
     },
     "show_toast": false,
-    "title": "item.substancecraft.wine_lees"
+    "title": {
+      "translate": "item.substancecraft.wine_lees"
+    }
   },
   "requirements": [
     [

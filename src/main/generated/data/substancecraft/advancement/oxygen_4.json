@@ -12,7 +12,9 @@
       "id": "substancecraft:oxygen"
     },
     "show_toast": false,
-    "title": "item.substancecraft.oxygen"
+    "title": {
+      "translate": "item.substancecraft.oxygen"
+    }
   },
   "requirements": [
     [

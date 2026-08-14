@@ -12,7 +12,9 @@
       "id": "substancecraft:ergotamine_tartrate"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ergotamine_tartrate"
+    "title": {
+      "translate": "item.substancecraft.ergotamine_tartrate"
+    }
   },
   "requirements": [
     [

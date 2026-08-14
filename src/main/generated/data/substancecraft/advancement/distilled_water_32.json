@@ -12,7 +12,9 @@
       "id": "substancecraft:distilled_water"
     },
     "show_toast": false,
-    "title": "item.substancecraft.distilled_water"
+    "title": {
+      "translate": "item.substancecraft.distilled_water"
+    }
   },
   "requirements": [
     [

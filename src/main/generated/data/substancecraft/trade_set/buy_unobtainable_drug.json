@@ -1,0 +1,5 @@
+{
+  "amount": 1.0,
+  "random_sequence": "substancecraft:trade_set/buy_unobtainable_drug",
+  "trades": "#substancecraft:buy_unobtainable_drug"
+}

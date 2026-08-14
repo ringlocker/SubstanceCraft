@@ -12,7 +12,9 @@
       "id": "substancecraft:kerosene"
     },
     "show_toast": false,
-    "title": "item.substancecraft.kerosene"
+    "title": {
+      "translate": "item.substancecraft.kerosene"
+    }
   },
   "requirements": [
     [

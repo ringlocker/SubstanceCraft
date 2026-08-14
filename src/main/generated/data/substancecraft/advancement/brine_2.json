@@ -12,7 +12,9 @@
       "id": "substancecraft:brine"
     },
     "show_toast": false,
-    "title": "item.substancecraft.brine"
+    "title": {
+      "translate": "item.substancecraft.brine"
+    }
   },
   "requirements": [
     [

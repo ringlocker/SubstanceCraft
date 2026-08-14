@@ -12,7 +12,9 @@
       "id": "substancecraft:ethane"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ethane"
+    "title": {
+      "translate": "item.substancecraft.ethane"
+    }
   },
   "requirements": [
     [

@@ -103,6 +103,8 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.LIMESTONE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PHOSPHORITE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CHEMIST_WORKSTATION));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PLANT_RESEARCH_STATION));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {

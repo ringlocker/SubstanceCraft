@@ -12,7 +12,9 @@
       "id": "substancecraft:lysergic_acid_diethylamine"
     },
     "show_toast": false,
-    "title": "item.substancecraft.lysergic_acid_diethylamine"
+    "title": {
+      "translate": "item.substancecraft.lysergic_acid_diethylamine"
+    }
   },
   "requirements": [
     [

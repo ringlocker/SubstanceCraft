@@ -12,7 +12,9 @@
       "id": "substancecraft:carbon_monoxide"
     },
     "show_toast": false,
-    "title": "item.substancecraft.carbon_monoxide"
+    "title": {
+      "translate": "item.substancecraft.carbon_monoxide"
+    }
   },
   "requirements": [
     [

@@ -12,7 +12,9 @@
       "id": "substancecraft:potassium_chloride"
     },
     "show_toast": false,
-    "title": "item.substancecraft.potassium_chloride"
+    "title": {
+      "translate": "item.substancecraft.potassium_chloride"
+    }
   },
   "requirements": [
     [

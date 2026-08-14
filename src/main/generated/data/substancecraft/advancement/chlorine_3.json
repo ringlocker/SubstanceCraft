@@ -12,7 +12,9 @@
       "id": "substancecraft:chlorine"
     },
     "show_toast": false,
-    "title": "item.substancecraft.chlorine"
+    "title": {
+      "translate": "item.substancecraft.chlorine"
+    }
   },
   "requirements": [
     [

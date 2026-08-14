@@ -12,7 +12,9 @@
       "id": "substancecraft:red_phosphorus"
     },
     "show_toast": false,
-    "title": "item.substancecraft.red_phosphorus"
+    "title": {
+      "translate": "item.substancecraft.red_phosphorus"
+    }
   },
   "requirements": [
     [

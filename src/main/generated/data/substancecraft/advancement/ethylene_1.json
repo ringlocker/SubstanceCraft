@@ -12,7 +12,9 @@
       "id": "substancecraft:ethylene"
     },
     "show_toast": false,
-    "title": "item.substancecraft.ethylene"
+    "title": {
+      "translate": "item.substancecraft.ethylene"
+    }
   },
   "requirements": [
     [

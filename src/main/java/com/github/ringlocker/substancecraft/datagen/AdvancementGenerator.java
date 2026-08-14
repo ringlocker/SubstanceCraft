@@ -492,7 +492,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     private static Component getNameFromItem(Item item) {
         return item == Items.POTION
                 ? Component.literal("Water Bottle")
-                : Component.literal(item.getDescriptionId());
+                : Component.translatable(item.getDescriptionId());
     }
 
     public static class RecipeCache {

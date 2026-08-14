@@ -12,7 +12,9 @@
       "id": "substancecraft:oil"
     },
     "show_toast": false,
-    "title": "item.substancecraft.oil"
+    "title": {
+      "translate": "item.substancecraft.oil"
+    }
   },
   "requirements": [
     [

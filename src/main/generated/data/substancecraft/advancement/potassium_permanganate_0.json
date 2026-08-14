@@ -12,7 +12,9 @@
       "id": "substancecraft:potassium_permanganate"
     },
     "show_toast": false,
-    "title": "item.substancecraft.potassium_permanganate"
+    "title": {
+      "translate": "item.substancecraft.potassium_permanganate"
+    }
   },
   "requirements": [
     [

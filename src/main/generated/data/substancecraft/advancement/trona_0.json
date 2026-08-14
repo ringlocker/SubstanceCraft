@@ -12,7 +12,9 @@
       "id": "substancecraft:trona"
     },
     "show_toast": false,
-    "title": "item.substancecraft.trona"
+    "title": {
+      "translate": "item.substancecraft.trona"
+    }
   },
   "requirements": [
     [
