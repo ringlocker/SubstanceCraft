@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "",
     "icon": {
-      "count": 1,
       "id": "substancecraft:pyrolusite"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.pyrolusite"
-    }
+    "title": "item.substancecraft.pyrolusite"
   },
   "requirements": [
     [

@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Extract",
     "icon": {
-      "count": 1,
       "id": "substancecraft:potassium_bitartrate"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.potassium_bitartrate"
-    }
+    "title": "item.substancecraft.potassium_bitartrate"
   },
   "requirements": [
     [

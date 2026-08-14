@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:calcium_tartrate"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.calcium_tartrate"
-    }
+    "title": "item.substancecraft.calcium_tartrate"
   },
   "requirements": [
     [

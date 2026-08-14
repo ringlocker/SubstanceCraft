@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "",
     "icon": {
-      "count": 1,
       "id": "minecraft:charcoal"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.minecraft.charcoal"
-    }
+    "title": "item.minecraft.charcoal"
   },
   "requirements": [
     [

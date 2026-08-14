@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Oxidize",
     "icon": {
-      "count": 1,
       "id": "substancecraft:acetone"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.acetone"
-    }
+    "title": "item.substancecraft.acetone"
   },
   "requirements": [
     [

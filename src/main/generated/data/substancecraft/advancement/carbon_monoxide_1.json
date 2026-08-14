@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Refine",
     "icon": {
-      "count": 1,
       "id": "substancecraft:carbon_monoxide"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.carbon_monoxide"
-    }
+    "title": "item.substancecraft.carbon_monoxide"
   },
   "requirements": [
     [

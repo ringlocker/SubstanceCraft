@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:ammonia_solution"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.ammonia_solution"
-    }
+    "title": "item.substancecraft.ammonia_solution"
   },
   "requirements": [
     [

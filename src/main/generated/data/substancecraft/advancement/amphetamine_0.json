@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Heated Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:amphetamine"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.amphetamine"
-    }
+    "title": "item.substancecraft.amphetamine"
   },
   "requirements": [
     [

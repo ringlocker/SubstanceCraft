@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "",
     "icon": {
-      "count": 1,
       "id": "substancecraft:grapes"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.grapes"
-    }
+    "title": "item.substancecraft.grapes"
   },
   "requirements": [
     [

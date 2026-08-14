@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Heated Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:lysergic_acid_diethylamine"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.lysergic_acid_diethylamine"
-    }
+    "title": "item.substancecraft.lysergic_acid_diethylamine"
   },
   "requirements": [
     [

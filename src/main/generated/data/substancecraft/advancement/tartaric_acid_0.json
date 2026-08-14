@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:tartaric_acid"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.tartaric_acid"
-    }
+    "title": "item.substancecraft.tartaric_acid"
   },
   "requirements": [
     [

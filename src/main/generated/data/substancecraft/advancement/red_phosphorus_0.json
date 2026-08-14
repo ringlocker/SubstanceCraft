@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Heated Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:red_phosphorus"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.red_phosphorus"
-    }
+    "title": "item.substancecraft.red_phosphorus"
   },
   "requirements": [
     [

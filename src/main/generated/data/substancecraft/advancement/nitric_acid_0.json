@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Oxidize",
     "icon": {
-      "count": 1,
       "id": "substancecraft:nitric_acid"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.nitric_acid"
-    }
+    "title": "item.substancecraft.nitric_acid"
   },
   "requirements": [
     [

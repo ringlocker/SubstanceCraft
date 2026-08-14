@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:formic_acid"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.formic_acid"
-    }
+    "title": "item.substancecraft.formic_acid"
   },
   "requirements": [
     [

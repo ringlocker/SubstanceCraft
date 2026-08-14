@@ -16,7 +16,6 @@
     "announce_to_chat": false,
     "description": "Used for pressing hash. Crafted with 1 redstone block, 1 piston, and 5 smooth stone slabs",
     "icon": {
-      "count": 1,
       "id": "substancecraft:hash_press"
     },
     "show_toast": false,

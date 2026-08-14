@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Refine",
     "icon": {
-      "count": 1,
       "id": "substancecraft:methane"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.methane"
-    }
+    "title": "item.substancecraft.methane"
   },
   "requirements": [
     [

@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "",
     "icon": {
-      "count": 1,
       "id": "minecraft:coal"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.minecraft.coal"
-    }
+    "title": "item.minecraft.coal"
   },
   "requirements": [
     [

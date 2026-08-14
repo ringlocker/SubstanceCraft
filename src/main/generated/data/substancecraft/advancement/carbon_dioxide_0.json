@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Extract",
     "icon": {
-      "count": 1,
       "id": "substancecraft:carbon_dioxide"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.carbon_dioxide"
-    }
+    "title": "item.substancecraft.carbon_dioxide"
   },
   "requirements": [
     [

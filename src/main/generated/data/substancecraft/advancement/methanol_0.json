@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Heated Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:methanol"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.methanol"
-    }
+    "title": "item.substancecraft.methanol"
   },
   "requirements": [
     [

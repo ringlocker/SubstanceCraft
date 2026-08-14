@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Electrolysis",
     "icon": {
-      "count": 1,
       "id": "substancecraft:sodium_hydroxide"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.sodium_hydroxide"
-    }
+    "title": "item.substancecraft.sodium_hydroxide"
   },
   "requirements": [
     [

@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Ferment",
     "icon": {
-      "count": 1,
       "id": "substancecraft:ergot"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.ergot"
-    }
+    "title": "item.substancecraft.ergot"
   },
   "requirements": [
     [

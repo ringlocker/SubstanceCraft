@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "",
     "icon": {
-      "count": 1,
       "id": "substancecraft:halite"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.halite"
-    }
+    "title": "item.substancecraft.halite"
   },
   "requirements": [
     [

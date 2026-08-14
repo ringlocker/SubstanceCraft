@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:ethanol"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.ethanol"
-    }
+    "title": "item.substancecraft.ethanol"
   },
   "requirements": [
     [

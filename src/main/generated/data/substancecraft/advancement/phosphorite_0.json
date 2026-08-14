@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "",
     "icon": {
-      "count": 1,
       "id": "substancecraft:phosphorite"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.phosphorite"
-    }
+    "title": "item.substancecraft.phosphorite"
   },
   "requirements": [
     [

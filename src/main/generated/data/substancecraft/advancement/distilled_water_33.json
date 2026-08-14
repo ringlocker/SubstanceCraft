@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Extract",
     "icon": {
-      "count": 1,
       "id": "substancecraft:distilled_water"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.distilled_water"
-    }
+    "title": "item.substancecraft.distilled_water"
   },
   "requirements": [
     [

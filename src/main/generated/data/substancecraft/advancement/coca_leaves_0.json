@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "",
     "icon": {
-      "count": 1,
       "id": "substancecraft:coca_leaves"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.coca_leaves"
-    }
+    "title": "item.substancecraft.coca_leaves"
   },
   "requirements": [
     [

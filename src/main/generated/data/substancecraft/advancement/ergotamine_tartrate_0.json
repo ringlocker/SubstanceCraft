@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:ergotamine_tartrate"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.ergotamine_tartrate"
-    }
+    "title": "item.substancecraft.ergotamine_tartrate"
   },
   "requirements": [
     [

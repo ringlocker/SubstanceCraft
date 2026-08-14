@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Refine",
     "icon": {
-      "count": 1,
       "id": "substancecraft:ethylene"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.ethylene"
-    }
+    "title": "item.substancecraft.ethylene"
   },
   "requirements": [
     [

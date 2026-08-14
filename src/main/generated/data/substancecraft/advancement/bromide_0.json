@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Extract",
     "icon": {
-      "count": 1,
       "id": "substancecraft:bromide"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.bromide"
-    }
+    "title": "item.substancecraft.bromide"
   },
   "requirements": [
     [

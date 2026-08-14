@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "",
     "icon": {
-      "count": 1,
       "id": "substancecraft:limestone"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.limestone"
-    }
+    "title": "item.substancecraft.limestone"
   },
   "requirements": [
     [

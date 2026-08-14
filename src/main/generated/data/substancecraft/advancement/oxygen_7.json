@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Extract",
     "icon": {
-      "count": 1,
       "id": "substancecraft:oxygen"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.oxygen"
-    }
+    "title": "item.substancecraft.oxygen"
   },
   "requirements": [
     [

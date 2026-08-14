@@ -9,7 +9,6 @@
     "announce_to_chat": false,
     "description": "Look at advancement descriptions for useful information",
     "icon": {
-      "count": 1,
       "id": "minecraft:crafting_table"
     },
     "show_toast": false,

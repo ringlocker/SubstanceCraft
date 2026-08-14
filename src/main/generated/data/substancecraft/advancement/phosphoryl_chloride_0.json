@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Oxidize",
     "icon": {
-      "count": 1,
       "id": "substancecraft:phosphoryl_chloride"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.phosphoryl_chloride"
-    }
+    "title": "item.substancecraft.phosphoryl_chloride"
   },
   "requirements": [
     [

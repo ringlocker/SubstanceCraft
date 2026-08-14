@@ -1,0 +1,16 @@
+{
+  "gives": {
+    "id": "substancecraft:hash"
+  },
+  "max_uses": 16.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": {
+      "type": "minecraft:uniform",
+      "max": 10.0,
+      "min": 10.0
+    },
+    "id": "substancecraft:cash"
+  },
+  "xp": 2.0
+}

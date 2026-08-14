@@ -16,7 +16,6 @@
     "announce_to_chat": false,
     "description": "Sylvite is found in deserts and badlands between y=8 and y=96",
     "icon": {
-      "count": 1,
       "id": "substancecraft:sylvite_block"
     },
     "show_toast": false,

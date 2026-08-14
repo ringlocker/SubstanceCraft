@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Heated Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:nitromethane"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.nitromethane"
-    }
+    "title": "item.substancecraft.nitromethane"
   },
   "requirements": [
     [

@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Extract",
     "icon": {
-      "count": 1,
       "id": "substancecraft:sulfur"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.sulfur"
-    }
+    "title": "item.substancecraft.sulfur"
   },
   "requirements": [
     [

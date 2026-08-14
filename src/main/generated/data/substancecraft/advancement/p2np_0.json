@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Heated Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:p2np"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.p2np"
-    }
+    "title": "item.substancecraft.p2np"
   },
   "requirements": [
     [

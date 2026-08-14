@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Oxidize",
     "icon": {
-      "count": 1,
       "id": "substancecraft:bromine"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.bromine"
-    }
+    "title": "item.substancecraft.bromine"
   },
   "requirements": [
     [

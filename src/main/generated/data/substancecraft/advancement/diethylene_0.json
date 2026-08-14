@@ -9,13 +9,10 @@
     "announce_to_chat": false,
     "description": "Heated Mixer",
     "icon": {
-      "count": 1,
       "id": "substancecraft:diethylene"
     },
     "show_toast": false,
-    "title": {
-      "translate": "item.substancecraft.diethylene"
-    }
+    "title": "item.substancecraft.diethylene"
   },
   "requirements": [
     [
