@@ -140,6 +140,7 @@ public class LootTableGenerator extends FabricBlockLootSubProvider {
         dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_ROOT);
         dropSelf(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_ROOT);
 
+        createLeavesDrops(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING, 0.075F, 0.1F, 0.125F, 0.15F);
     }
 
 }

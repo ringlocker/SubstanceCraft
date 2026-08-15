@@ -38,6 +38,8 @@ public class SubstanceCraftTrades {
 
     public static final ResourceKey<VillagerTrade> BUY_MARIJUANA = resourceKey("buy_marijuana");
     public static final ResourceKey<VillagerTrade> BUY_HASH = resourceKey("buy_hash");
+    public static final ResourceKey<VillagerTrade> BUY_RESIN = resourceKey("buy_resin");
+    public static final ResourceKey<VillagerTrade> BUY_ROSIN = resourceKey("buy_rosin");
     public static final ResourceKey<VillagerTrade> BUY_2CB = resourceKey("buy_2cb");
     public static final ResourceKey<VillagerTrade> BUY_AMPHETAMINE = resourceKey("buy_amphetamine");
     public static final ResourceKey<VillagerTrade> BUY_COCAINE = resourceKey("buy_cocaine");
@@ -45,14 +47,18 @@ public class SubstanceCraftTrades {
     public static final ResourceKey<VillagerTrade> BUY_PSILOCYBIN = resourceKey("buy_psilocybin");
     public static final ResourceKey<VillagerTrade> BUY_MESCALINE = resourceKey("buy_mescaline");
     public static final ResourceKey<VillagerTrade> BUY_RED_WINE = resourceKey("buy_red_wine");
+    public static final ResourceKey<VillagerTrade> BUY_DMT = resourceKey("buy_dmt");
 
     public static final ResourceKey<VillagerTrade> BUY_DPH = resourceKey("buy_dph");
     public static final ResourceKey<VillagerTrade> BUY_KETAMINE = resourceKey("buy_ketamine");
+    public static final ResourceKey<VillagerTrade> BUY_5_MEO_DMT = resourceKey("buy_5_meo_dmt");
 
     public static final ResourceKey<VillagerTrade> BUY_PALE_PSILOCYBIN = resourceKey("buy_pale_psilocybin");
 
     public static final ResourceKey<VillagerTrade> SELL_MARIJUANA = resourceKey("sell_marijuana");
     public static final ResourceKey<VillagerTrade> SELL_HASH = resourceKey("sell_hash");
+    public static final ResourceKey<VillagerTrade> SELL_RESIN = resourceKey("sell_resin");
+    public static final ResourceKey<VillagerTrade> SELL_ROSIN = resourceKey("sell_rosin");
     public static final ResourceKey<VillagerTrade> SELL_2CB = resourceKey("sell_2cb");
     public static final ResourceKey<VillagerTrade> SELL_AMPHETAMINE = resourceKey("sell_amphetamine");
     public static final ResourceKey<VillagerTrade> SELL_COCAINE = resourceKey("sell_cocaine");
@@ -60,9 +66,11 @@ public class SubstanceCraftTrades {
     public static final ResourceKey<VillagerTrade> SELL_PSILOCYBIN = resourceKey("sell_psilocybin");
     public static final ResourceKey<VillagerTrade> SELL_MESCALINE = resourceKey("sell_mescaline");
     public static final ResourceKey<VillagerTrade> SELL_RED_WINE = resourceKey("sell_red_wine");
+    public static final ResourceKey<VillagerTrade> SELL_DMT = resourceKey("sell_dmt");
 
     public static final ResourceKey<VillagerTrade> SELL_DPH = resourceKey("sell_dph");
     public static final ResourceKey<VillagerTrade> SELL_KETAMINE = resourceKey("sell_ketamine");
+    public static final ResourceKey<VillagerTrade> SELL_5_MEO_DMT = resourceKey("sell_5_meo_dmt");
 
     public static final ResourceKey<VillagerTrade> SELL_PALE_PSILOCYBIN = resourceKey("sell_pale_psilocybin");
 
@@ -94,6 +102,12 @@ public class SubstanceCraftTrades {
         registerBuyAndSellDrug(context, BUY_HASH, SELL_HASH,
                 SubstanceCraftItems.HASH, SubstanceCraftItems.CASH, 6, 9);
 
+        registerBuyAndSellDrug(context, BUY_RESIN, SELL_RESIN,
+                SubstanceCraftItems.LIVE_RESIN, SubstanceCraftItems.CASH, 11, 15);
+
+        registerBuyAndSellDrug(context, BUY_ROSIN, SELL_ROSIN,
+                SubstanceCraftItems.ROSIN, SubstanceCraftItems.CASH, 12, 20);
+
         registerBuyAndSellDrug(context, BUY_2CB, SELL_2CB,
                 SubstanceCraftItems.TWO_C_B, SubstanceCraftItems.CASH, 32, 48);
 
@@ -115,12 +129,18 @@ public class SubstanceCraftTrades {
         registerBuyAndSellDrug(context, BUY_RED_WINE, SELL_RED_WINE,
                 SubstanceCraftItems.RED_WINE, SubstanceCraftItems.CASH, 18, 24);
 
+        registerBuyAndSellDrug(context, BUY_DMT, SELL_DMT,
+                SubstanceCraftItems.RED_WINE, SubstanceCraftItems.CASH, 18, 24);
+
 
         registerBuyAndSellDrug(context, BUY_DPH, SELL_DPH,
                 SubstanceCraftItems.DIPHENHYDRAMINE, SubstanceCraftItems.CASH, 12, 16, UNOBTAINABLE_DRUG_TRADE_XP_MULTIPLIER);
 
         registerBuyAndSellDrug(context, BUY_KETAMINE, SELL_KETAMINE,
                 SubstanceCraftItems.KETAMINE, SubstanceCraftItems.BAND, 3, 5, UNOBTAINABLE_DRUG_TRADE_XP_MULTIPLIER);
+
+        registerBuyAndSellDrug(context, BUY_5_MEO_DMT, SELL_5_MEO_DMT,
+                SubstanceCraftItems.FIVE_METHOXY_N_N_DIMETHYLTRYPTAMINE, SubstanceCraftItems.BAND, 4, 6, UNOBTAINABLE_DRUG_TRADE_XP_MULTIPLIER);
 
 
         registerBuyAndSellRareDrug(context, BUY_PALE_PSILOCYBIN, SELL_PALE_PSILOCYBIN,

@@ -2,12 +2,15 @@
   "values": [
     "substancecraft:sell_marijuana",
     "substancecraft:sell_hash",
+    "substancecraft:sell_resin",
+    "substancecraft:sell_rosin",
     "substancecraft:sell_2cb",
     "substancecraft:sell_amphetamine",
     "substancecraft:sell_cocaine",
     "substancecraft:sell_lsd",
     "substancecraft:sell_psilocybin",
     "substancecraft:sell_mescaline",
-    "substancecraft:sell_red_wine"
+    "substancecraft:sell_red_wine",
+    "substancecraft:sell_dmt"
   ]
 }
