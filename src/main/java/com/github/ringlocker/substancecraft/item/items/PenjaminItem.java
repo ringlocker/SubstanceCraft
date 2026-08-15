@@ -40,13 +40,9 @@ public class PenjaminItem extends Item {
 
             player.getCooldowns().addCooldown(itemStack, 5 * 20);
 
-            Vector3f positionVector = new Vector3f((float) player.getX(), (float) player.getY(), (float) player.getZ())
-                    .add(player.getLookAngle().normalize().toVector3f().mul(0.8f))
-                    .add(new Vector3f(0.0f, 1.5f, 0.0f));
-
             level.playSound(
                     player,
-                    new BlockPos(new Vec3i(Math.round(positionVector.x), Math.round(positionVector.y), Math.round(positionVector.z))),
+                    player,
                     SoundEvents.BREWING_STAND_BREW,
                     SoundSource.BLOCKS,
                     1.0F,
@@ -62,6 +58,14 @@ public class PenjaminItem extends Item {
                     smokeSettings.minRollsPerSection(),
                     smokeSettings.maxRollsPerSection()
             );
+
+            if (itemStack.getDamageValue() >= itemStack.getMaxDamage()) {
+                livingEntity.drop(new ItemStack(SubstanceCraftItems.EMPTY_CART), true, false);
+                livingEntity.drop(new ItemStack(SubstanceCraftItems.PEN_BATTERY), true, false);
+                return new ItemStack(Items.AIR);
+            }
+
+
             return itemStack;
         }
 

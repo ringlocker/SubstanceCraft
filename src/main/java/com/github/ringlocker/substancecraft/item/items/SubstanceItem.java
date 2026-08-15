@@ -1,25 +1,32 @@
 package com.github.ringlocker.substancecraft.item.items;
 
 import com.github.ringlocker.substancecraft.item.MatterState;
+import com.github.ringlocker.substancecraft.item.SubstanceItemModelProvider;
+import com.github.ringlocker.substancecraft.item.Transparency;
 import net.minecraft.world.item.Item;
 
 public class SubstanceItem extends Item {
 
     private final int color;
-    private final MatterState state;
+    private final SubstanceItemModelProvider modelProvider;
 
-    public SubstanceItem(Item.Properties properties, int color, MatterState state) { // TODO: drink chloroform
+    public SubstanceItem(Item.Properties properties, int color, MatterState matterState, Transparency transparency) { // TODO: drink chloroform
         super(properties);
         this.color = color;
-        this.state = state;
+        this.modelProvider = new SubstanceItemModelProvider(matterState, transparency);
+
+    }
+
+    public SubstanceItem(Item.Properties properties, int color, MatterState matterState) {
+        this(properties, color, matterState, matterState == MatterState.SOLID ? Transparency.OPAQUE : Transparency.TRANSLUCENT);
     }
 
     public int getColor() {
         return color;
     }
 
-    public MatterState getState() {
-        return state;
+    public SubstanceItemModelProvider getModelProvider() {
+        return modelProvider;
     }
 
 }

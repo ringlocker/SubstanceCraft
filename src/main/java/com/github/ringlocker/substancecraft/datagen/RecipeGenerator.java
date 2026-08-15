@@ -200,6 +200,25 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(Items.COCOA_BEANS))
                         .save(recipeOutput, key("edible_rosin"));
 
+                shaped(RecipeCategory.TOOLS, SubstanceCraftItems.PEN_BATTERY)
+                        .pattern("0")
+                        .pattern("1")
+                        .pattern("0")
+                        .define('0', Items.IRON_INGOT)
+                        .define('1', Items.REDSTONE_BLOCK)
+                        .unlockedBy("has_item", has(Items.IRON_INGOT))
+                        .unlockedBy("has_item", has(Items.REDSTONE_BLOCK))
+                        .save(recipeOutput, key("pen_battery"));
+
+                shaped(RecipeCategory.TOOLS, SubstanceCraftItems.EMPTY_CART)
+                        .pattern("101")
+                        .pattern(" 1 ")
+                        .define('0', Items.GLASS_BOTTLE)
+                        .define('1', Items.IRON_INGOT)
+                        .unlockedBy("has_item", has(Items.IRON_INGOT))
+                        .unlockedBy("has_item", has(Items.GLASS_BOTTLE))
+                        .save(recipeOutput, key("empty_cart"));
+
                 HashMap<Item, Item> PENS = new HashMap<>(Map.of(
                         SubstanceCraftItems.RESIN_CART, SubstanceCraftItems.RESIN_PEN,
                         SubstanceCraftItems.ROSIN_CART, SubstanceCraftItems.ROSIN_PEN,
@@ -211,6 +230,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         SubstanceCraftItems.ROSIN_CART, SubstanceCraftItems.ROSIN,
                         SubstanceCraftItems.DMT_CART, SubstanceCraftItems.N_N_DIMETHYLTRYPTAMINE
                 ));
+
 
                 for (Item cart : PENS.keySet()) {
                     shaped(RecipeCategory.FOOD, cart)

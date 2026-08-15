@@ -103,9 +103,9 @@ public class ModelGenerator extends FabricModelProvider {
     }
 
     private void generateSubstanceItem(SubstanceItem substance, ItemModelGenerators itemModelGenerator) {
-        Identifier baseIdentifier = substance.getState().getBaseTexture();
-        Identifier overlayIdentifier = substance.getState().getOverlayTexture();
-        Material base = new Material(baseIdentifier, true);
+        Identifier baseIdentifier = substance.getModelProvider().getBaseTexture();
+        Identifier overlayIdentifier = substance.getModelProvider().getOverlayTexture();
+        Material base = new Material(baseIdentifier, false);
         Material overlay = new Material(overlayIdentifier, true);
         Identifier resourceLocation = ModelTemplates.TWO_LAYERED_ITEM.create(substance, TextureMapping.layered(overlay, base), itemModelGenerator.modelOutput);
         itemModelGenerator.itemModelOutput.accept(substance, ItemModelUtils.tintedModel(resourceLocation, new SubstanceTintColor()));

@@ -3,11 +3,8 @@
   "textures": {
     "layer0": {
       "force_translucent": true,
-      "sprite": "substancecraft:item/liquid_overlay"
+      "sprite": "substancecraft:item/opaque_liquid_overlay"
     },
-    "layer1": {
-      "force_translucent": true,
-      "sprite": "substancecraft:item/liquid"
-    }
+    "layer1": "substancecraft:item/liquid"
   }
 }

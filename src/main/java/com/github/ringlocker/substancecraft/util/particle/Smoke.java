@@ -9,7 +9,7 @@ import org.joml.Vector3f;
 
 public class Smoke {
 
-    private static final float BASE_SMOKE_VELOCITY = 0.01F;
+    private static final float BASE_SMOKE_VELOCITY = 0.03F;
     private static final float SMOKE_VELOCITY_XZ_RANDOMNESS = 0.07F;
     private static final float SMOKE_VELOCITY_Y_RANDOMNESS = 0.05F;
     private static final float SMOKE_POSITION_Y_RANDOMNESS = 0.4F;
@@ -17,11 +17,11 @@ public class Smoke {
 
     public static void generateSmokeParticles(Player player, Level level, float smokeVelocityMultiplier, int widthInEighthBlocks, int minRollsPerSection, int maxRollsPerSection) {
 
-        Vector3f positionVector = new Vector3f((float) player.getX(), (float) player.getY(), (float) player.getZ())
-                .add(player.getLookAngle().normalize().toVector3f().mul(0.8f))
-                .add(UP_VECTOR);
+        Vector3f positionVector = new Vector3f((float) player.getX(), (float) player.getY() + 1.6f, (float) player.getZ())
+                .add(player.getLookAngle().normalize().toVector3f().mul(0.8f));
+
         Vector3f smokeVelocity = player.getLookAngle().normalize().toVector3f()
-                .add(UP_VECTOR.mul(0.5F))
+                .add(UP_VECTOR.mul(0.25F))
                 .mul(BASE_SMOKE_VELOCITY * smokeVelocityMultiplier);
 
         boolean even = widthInEighthBlocks % 2 == 0;
