@@ -95,6 +95,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PALE_PSILOCYBIN));
         entries.accept(SubstanceCraftItems.MESCALINE);
         entries.accept(SubstanceCraftItems.N_N_DIMETHYLTRYPTAMINE);
+        entries.accept(SubstanceCraftItems.FIVE_METHOXY_N_N_DIMETHYLTRYPTAMINE);
         entries.accept(SubstanceCraftItems.RED_WINE);
         entries.accept(SubstanceCraftItems.CASH);
         entries.accept(SubstanceCraftItems.BAND);
@@ -120,6 +121,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.LIMESTONE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PHOSPHORITE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CHEMIST_WORKSTATION));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PLANT_RESEARCH_STATION));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LOG));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WOOD));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG));

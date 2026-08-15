@@ -80,18 +80,48 @@ vec4 applyDynamicColor(vec4 value) {
 }
 
 vec2 applySurfaceWarpUV(vec2 pixelCoord) {
+    float intensity = warpIntensity;
+    float centeredX = (pixelCoord.x - InSize.x * 0.5) / InSize.x;
+    float centeredY = (pixelCoord.y - InSize.y * 0.5) / InSize.y;
+    float breath = (sin(time * 0.014) * 0.7 + sin(time * 0.021 + 1.7) * 0.3) * 0.5 + 0.5;
+    float bandSize = mix(3.0, 3.65, breath * intensity);
+    float bandCoord =pixelCoord.y / bandSize;
+    float swell = sin(time * 0.025 + centeredX * 3.0 + centeredY * 1.5);
+    float wave = sin(time * 0.060 + bandCoord * 0.16) * 1.05;
+    float pulse = 1.0 + 0.08 * sin(time * 0.03);
+    float strength = intensity * bandSize;
+
+    wave += sin(time * 0.036 + centeredX * 7.0 + bandCoord * 0.05) * 0.50;
+    wave += swell * 0.35;
+    wave *= pulse;
+    wave =  tanh(wave * 0.9);
+
+    pixelCoord.y += wave * intensity * bandSize;
+    pixelCoord.x += wave * intensity * 0.8;
+
+    return pixelCoord;
+}
+
+
+/*
+vec2 applySurfaceWarpUV(vec2 pixelCoord) {
+
     float bandSize = 3.0 + (1.45 * warpIntensity);
     float bandIndex = floor(pixelCoord.y / bandSize);
     float centeredX = (pixelCoord.x - InSize.x * 0.5) / InSize.x;
-    float pulse = 1.0 + 0.15 * sin(time * 0.03 * warpIntensity);
+    float pulse = 1.0 + 0.15 * sin(time * 0.03);
     float yOffset =
-        sin(time * 0.06 * warpIntensity + bandIndex * 0.16) * 1.05 +
-        sin(time * 0.036 * warpIntensity+ centeredX * 7.0 + bandIndex * 0.05) * 0.50;
+        sin(time * 0.060 + bandIndex * 0.16) * 1.05 +
+        sin(time * 0.036 + centeredX * 7.00  + bandIndex * 0.05) * 0.50;
+
     yOffset *= pulse;
+    yOffset *= warpIntensity;
     yOffset = tanh(yOffset * 0.9) * bandSize;
+
     pixelCoord.y += yOffset;
     return pixelCoord;
 }
+*/
 
 vec2 applyMosaicUV(vec2 pixelCoord) {
     float blockSize = max(1.0, floor(mosaicSize + 0.5));
@@ -101,8 +131,8 @@ vec2 applyMosaicUV(vec2 pixelCoord) {
 
 vec4 applyDoubleVision(vec4 value) {
     vec3 newColor = value.rgb * max(0.2, 1.0 - (0.05 * doubleVisionIntensity));
-    newColor += texture(InSampler, vec2(0.5 + (texCoord.s - 0.5) / doubleVisionStretch + doubleVisionDistance, texCoord.t)).rgb * min(0.4, (0.05 * doubleVisionIntensity));
-    newColor += texture(InSampler, vec2(0.5 + (texCoord.s - 0.5) / doubleVisionStretch - doubleVisionDistance, texCoord.t)).rgb * min(0.4, (0.05 * doubleVisionIntensity));
+    newColor += texture(InSampler, vec2(0.5 + (texCoord.s - 0.5) / doubleVisionStretch + doubleVisionDistance, texCoord.t)).rgb * min(0.4, (0.025 * doubleVisionIntensity));
+    newColor += texture(InSampler, vec2(0.5 + (texCoord.s - 0.5) / doubleVisionStretch - doubleVisionDistance, texCoord.t)).rgb * min(0.4, (0.025 * doubleVisionIntensity));
     return vec4(mix(value.rgb, newColor, 0.95), value.a);
 }
 

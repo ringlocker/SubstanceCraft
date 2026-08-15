@@ -153,6 +153,7 @@ public class SubstanceCraftItems {
     public static final Item VINEGAR = registerItem("vinegar", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item MIMOSA_HOSTILIS_ROOT_BARK = registerItem("mimosa_hostilis_root_bark", Item::new, new Item.Properties());
     public static final Item N_N_DIMETHYLTRYPTAMINE = registerItem("n_n_dimethyltryptamine", properties -> new DrugItem(properties, Drug.DMT), alwaysEatProperties());
+    public static final Item FIVE_METHOXY_N_N_DIMETHYLTRYPTAMINE = registerItem("five_methoxy_n_n_dimethyltryptamine", properties -> new DrugItem(properties, Drug.FIVE_MEO_DMT), alwaysEatProperties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));

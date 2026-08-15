@@ -14,7 +14,7 @@ import java.util.Map;
 public class PlayerEffectState {
 
     private static final Map<Holder<MobEffect>, Integer> effectAmplifiers = new HashMap<>(Map.of(
-            SubstanceCraftEffects.MOSAIC, -1,
+            SubstanceCraftEffects.BLUR, -1,
             SubstanceCraftEffects.COLOR_ENHANCEMENT, -1,
             SubstanceCraftEffects.COLOR_RESOLUTION, -1,
             SubstanceCraftEffects.DYNAMIC_COLOR, -1,
@@ -23,7 +23,7 @@ public class PlayerEffectState {
     ));
 
     private static final Map<Holder<MobEffect>, Float> transitionState = new HashMap<>(Map.of(
-            SubstanceCraftEffects.MOSAIC, 0.0F,
+            SubstanceCraftEffects.BLUR, 0.0F,
             SubstanceCraftEffects.COLOR_ENHANCEMENT, 0.0F,
             SubstanceCraftEffects.COLOR_RESOLUTION, 0.0F,
             SubstanceCraftEffects.DYNAMIC_COLOR, 0.0F,
@@ -31,7 +31,7 @@ public class PlayerEffectState {
             SubstanceCraftEffects.DOUBLE_VISION, 0.0F
     ));
 
-    private static final int secondsToTransition = 5;
+    private static final int secondsToTransition = 3;
     private static final float transitionPerTick = 1.0F / ((float) secondsToTransition * 20F);
 
     private static boolean updateUniforms = true;

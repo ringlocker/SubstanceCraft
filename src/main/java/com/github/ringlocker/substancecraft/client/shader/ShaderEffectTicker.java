@@ -56,18 +56,18 @@ public class ShaderEffectTicker {
         builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.COLOR_ENHANCEMENT) ? 1 : 0);
         builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.COLOR_RESOLUTION) ? 1 : 0);
         builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.DYNAMIC_COLOR) ? 1 : 0);
-        builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.MOSAIC) ? 1 : 0);
+        builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.BLUR) ? 1 : 0);
         builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.SURFACE_WARP) ? 1 : 0);
         builder.putInt(PlayerEffectState.isEnabled(SubstanceCraftEffects.DOUBLE_VISION) ? 1 : 0);
         builder.putFloat(1.0F + ((PlayerEffectState.strength(SubstanceCraftEffects.COLOR_ENHANCEMENT) + 1) * 0.2F));
         builder.putFloat(23F - (PlayerEffectState.strength(SubstanceCraftEffects.COLOR_RESOLUTION) + 1));
         builder.putFloat((float) getTime());
         builder.putFloat(0.05F * (PlayerEffectState.strength(SubstanceCraftEffects.DYNAMIC_COLOR) + 1.0F));
-        builder.putFloat(1.0F + (0.2F * (PlayerEffectState.strength(SubstanceCraftEffects.MOSAIC) + 1.0F)));
-        builder.putFloat(0.33F * (PlayerEffectState.strength(SubstanceCraftEffects.SURFACE_WARP) + 1.0F));
+        builder.putFloat(1.0F + (0.2F * (PlayerEffectState.strength(SubstanceCraftEffects.BLUR) + 1.0F)));
+        builder.putFloat(0.33F * (PlayerEffectState.strength(SubstanceCraftEffects.SURFACE_WARP)));
         builder.putFloat(PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION) + 1.0F);
         builder.putFloat(0.005f * (1.0F + Math.max(8.0F, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION))));
-        builder.putFloat(1.1f + (Math.max(8.0F, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION))) / 6.66f);
+        builder.putFloat(0.8f + (Math.max(8.0F, PlayerEffectState.strength(SubstanceCraftEffects.DOUBLE_VISION))) / 10.0f);
     }
 
     private static int getTime() {

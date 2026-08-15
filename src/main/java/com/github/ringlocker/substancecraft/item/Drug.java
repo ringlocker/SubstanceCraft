@@ -51,44 +51,39 @@ public enum Drug {
             milligrams(25), milligrams(5), minutes(3), seconds(10), seconds(45), fromID("two_cb"),
             List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
                     new DrugSideEffect(fromID("color_resolution"), milligrams(10), milligrams(10), 15, 18),
-                    new DrugSideEffect(fromID("mosaic"), milligrams(25), milligrams(10), 9, 9),
-                    new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
+                    new DrugSideEffect(fromID("blur"), milligrams(25), milligrams(10), 9, 9),
+                    new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 12),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     ),
     LSD(
             milligrams(25), milligrams(5), minutes(4), seconds(30), seconds(70), fromID("lysergic_acid_diethylamine"),
             List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(30), milligrams(15), 9, 19),
                     new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(9), 9, 19),
-                    new DrugSideEffect(fromID("dynamic_color"), milligrams(20), milligrams(15), 6, 9),
+                    new DrugSideEffect(fromID("dynamic_color"), milligrams(20), milligrams(15), 6, 12),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(10), milligrams(10), 24),
-                    new DrugSideEffect(fromID("double_vision"), milligrams(100), milligrams(20), 3))
+                    new DrugSideEffect(fromID("double_vision"), milligrams(100), milligrams(20), 3, 15))
     ),
     PSILOCYBIN_1(
-            milligrams(25), milligrams(5), seconds(200), seconds(20), seconds(60), fromID("psilocybin"),
-            List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(10), 9, 19),
-                    new DrugSideEffect(fromID("color_enhancement"), milligrams(15), milligrams(15), 4, 19),
-                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
-                    new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(15), 3))
+            milligrams(25), milligrams(5), seconds(200), seconds(20), seconds(60), fromID("psilocybin"), DrugSideEffect.PSILOCYBIN_EFFECTS
     ),
     PSILOCYBIN_2(
-            milligrams(50), milligrams(5), seconds(200), seconds(16), seconds(90), fromID("psilocybin"),
-            List.of(new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(10), 9, 19),
-                    new DrugSideEffect(fromID("color_enhancement"), milligrams(15), milligrams(15), 4, 19),
-                    new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
-                    new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(15), 3))
+            milligrams(50), milligrams(5), seconds(200), seconds(16), seconds(90), fromID("psilocybin"),  DrugSideEffect.PSILOCYBIN_EFFECTS
     ),
     MESCALINE(
             milligrams(25), milligrams(5), minutes(3), seconds(20), seconds(70), fromID("mescaline"),
             List.of(new DrugSideEffect(fromID("color_enhancement"), milligrams(10), milligrams(8), 9, 19),
                     new DrugSideEffect(fromID("color_resolution"), milligrams(10), milligrams(10), 15, 18),
-                    new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 9),
+                    new DrugSideEffect(fromID("dynamic_color"), milligrams(75), milligrams(20), 6, 12),
                     new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24))
     ),
     WINE(
             grams(25), grams(10), minutes(3), seconds(10), seconds(60), fromID("alcohol"), DrugSideEffect.ETHANOL_EFFECTS
     ),
-    DMT( // TODO: effects
-            milligrams(25), milligrams(2), minutes(1), seconds(10), seconds(60), fromID("alcohol"), DrugSideEffect.ETHANOL_EFFECTS
+    DMT(
+            milligrams(40), milligrams(2), seconds(70), seconds(10), seconds(45), fromID("dmt"), DrugSideEffect.DMT_EFFECTS
+    ),
+    FIVE_MEO_DMT(
+            milligrams(75), milligrams(2), seconds(70), seconds(10), seconds(45), fromID("five_meo_dmt"), DrugSideEffect.DMT_EFFECTS
     );
 
     private final float dose;
@@ -188,18 +183,34 @@ public enum Drug {
         return minutes * 1200;
     }
 
-    public record DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier,
-                                 int hardAmplifierLimit) {
+    public record DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier, int maxAcceptableAmplifier) {
 
         private static final List<DrugSideEffect> THC_EFFECTS = List.of(
                 new DrugSideEffect(fromID("hungry"), milligrams(10), milligrams(25), 9),
                 new DrugSideEffect(fromID("color_enhancement"), milligrams(100), milligrams(50), 3),
-                new DrugSideEffect(fromID("color_resolution"), milligrams(100), milligrams(40), 5)
+                new DrugSideEffect(fromID("color_resolution"), milligrams(100), milligrams(40), 5),
+                new DrugSideEffect(fromID("blur"), milligrams(120), milligrams(40), 2, 15)
+        );
+
+        private static final List<DrugSideEffect> PSILOCYBIN_EFFECTS =  List.of(
+                new DrugSideEffect(fromID("surface_warp"), milligrams(10), milligrams(10), 9, 19),
+                new DrugSideEffect(fromID("color_enhancement"), milligrams(15), milligrams(15), 4, 19),
+                new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
+                new DrugSideEffect(fromID("double_vision"), milligrams(60), milligrams(15), 5, 15),
+                new DrugSideEffect(fromID("blur"), milligrams(40), milligrams(15), 5, 15)
         );
 
         private static final List<DrugSideEffect> ETHANOL_EFFECTS = List.of(
-                new DrugSideEffect(fromID("double_vision"), grams(50), grams(15), 9),
+                new DrugSideEffect(fromID("double_vision"), grams(80), grams(15), 9, 15),
+                new DrugSideEffect(fromID("blur"), grams(50), grams(50), 5, 15),
                 new DrugSideEffect(fromID("alcohol_poisoning"), grams(250), grams(50), 9)
+        );
+
+        private static final List<DrugSideEffect> DMT_EFFECTS = List.of(
+                new DrugSideEffect(fromID("surface_warp"), milligrams(20), milligrams(8), 15, 19),
+                new DrugSideEffect(fromID("color_resolution"), milligrams(30), milligrams(15), 15, 18),
+                new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
+                new DrugSideEffect(fromID("blur"), milligrams(10), milligrams(15), 7, 15)
         );
 
         public DrugSideEffect(Identifier effect, int threshold, int amplifyEvery, int maxAmplifier) {
