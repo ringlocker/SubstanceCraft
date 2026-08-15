@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "substancecraft:block/mimosa_hostilis_planks"
+  }
+}

@@ -36,6 +36,23 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId PALE_PSILOCYBIN = create("pale_psilocybin");
     public static final BlockItemId CHEMIST_WORKSTATION = create("chemist_station");
     public static final BlockItemId PLANT_RESEARCH_STATION = create("plant_research_station");
+    public static final BlockItemId MIMOSA_HOSTILIS_LOG = create("mimosa_hostilis_log");
+    public static final BlockItemId MIMOSA_HOSTILIS_WOOD = create("mimosa_hostilis_wood");
+    public static final BlockItemId MIMOSA_HOSTILIS_PLANKS = create("mimosa_hostilis_planks");
+    public static final BlockItemId MIMOSA_HOSTILIS_STAIRS = create("mimosa_hostilis_stairs");
+    public static final BlockItemId MIMOSA_HOSTILIS_SLAB = create("mimosa_hostilis_slab");
+    public static final BlockItemId MIMOSA_HOSTILIS_FENCE = create("mimosa_hostilis_fence");
+    public static final BlockItemId MIMOSA_HOSTILIS_FENCE_GATE = create("mimosa_hostilis_fence_gate");
+    public static final BlockItemId MIMOSA_HOSTILIS_PRESSURE_PLATE = create("mimosa_hostilis_pressure_plate");
+    public static final BlockItemId MIMOSA_HOSTILIS_BUTTON = create("mimosa_hostilis_button");
+    public static final BlockItemId MIMOSA_HOSTILIS_WALL = create("mimosa_hostilis_wall");
+    public static final BlockItemId STRIPPED_MIMOSA_HOSTILIS_WOOD = create("stripped_mimosa_hostilis_wood");
+    public static final BlockItemId MIMOSA_HOSTILIS_LEAVES = create("mimosa_hostilis_leaves");
+    public static final BlockItemId STRIPPED_MIMOSA_HOSTILIS_LOG = create("stripped_mimosa_hostilis_log");
+    public static final BlockItemId MIMOSA_HOSTILIS_SAPLING = create("mimosa_hostilis_sapling");
+    public static final BlockItemId POTTED_MIMOSA_HOSTILIS_SAPLING = create("potted_mimosa_hostilis_sapling");
+    public static final BlockItemId MIMOSA_HOSTILIS_ROOT = create("mimosa_hostilis_root");
+    public static final BlockItemId STRIPPED_MIMOSA_HOSTILIS_ROOT = create("stripped_mimosa_hostilis_root");
 
     private static BlockItemId create(String name) {
         return new BlockItemId(

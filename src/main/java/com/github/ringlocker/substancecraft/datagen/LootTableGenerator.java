@@ -125,6 +125,20 @@ public class LootTableGenerator extends FabricBlockLootSubProvider {
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
 
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LOG);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WOOD);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_PLANKS);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_STAIRS);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SLAB);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_BUTTON);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_FENCE);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_FENCE_GATE);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WALL);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_PRESSURE_PLATE);
+        dropSelf(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_WOOD);
+        dropSelf(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_ROOT);
+        dropSelf(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_ROOT);
 
     }
 

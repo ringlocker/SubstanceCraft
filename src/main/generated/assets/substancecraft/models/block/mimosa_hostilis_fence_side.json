@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "substancecraft:block/mimosa_hostilis_planks"
+  }
+}

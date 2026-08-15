@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "substancecraft:block/mimosa_hostilis_planks",
+    "side": "substancecraft:block/mimosa_hostilis_planks",
+    "top": "substancecraft:block/mimosa_hostilis_planks"
+  }
+}

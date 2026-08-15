@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "substancecraft:block/mimosa_hostilis_slab"
+    },
+    "type=double": {
+      "model": "substancecraft:block/mimosa_hostilis_planks"
+    },
+    "type=top": {
+      "model": "substancecraft:block/mimosa_hostilis_slab_top"
+    }
+  }
+}

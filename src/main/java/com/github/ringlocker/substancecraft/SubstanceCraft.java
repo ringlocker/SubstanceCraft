@@ -54,6 +54,8 @@ public class SubstanceCraft implements ModInitializer {
         FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WOOD, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_WOOD, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.MIMOSA_HOSTILIS_ROOT, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_ROOT, 5, 20);
     }
 
 }

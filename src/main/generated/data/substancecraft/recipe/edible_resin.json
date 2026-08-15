@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "0": "substancecraft:live_resin",
     "1": "minecraft:wheat",

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "0": "substancecraft:dmt_cart",
     "1": "substancecraft:pen_battery"
@@ -10,7 +9,6 @@
     "1"
   ],
   "result": {
-    "count": 1,
     "id": "substancecraft:dmt_pen"
   }
 }

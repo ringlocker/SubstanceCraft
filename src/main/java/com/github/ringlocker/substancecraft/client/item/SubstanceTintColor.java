@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 public record SubstanceTintColor(int defaultColor) implements ItemTintSource {
 
     public static final MapCodec<SubstanceTintColor> MAP_CODEC = RecordCodecBuilder.mapCodec((instance) -> instance
-            .group(ExtraCodecs.RGB_COLOR_CODEC
+            .group(ExtraCodecs.ARGB_COLOR_CODEC
                     .fieldOf("default")
                     .forGetter(SubstanceTintColor::defaultColor))
             .apply(instance, SubstanceTintColor::new));

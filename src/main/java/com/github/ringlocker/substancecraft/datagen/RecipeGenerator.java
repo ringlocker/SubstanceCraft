@@ -20,9 +20,10 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -256,6 +257,8 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 )
                         .requires(SubstanceCraftItems.MARIJUANA)
                         .requires(Items.PAPER, 3);
+
+                generateRecipes(SubstanceCraftBlocks.MIMOSA_WOOD, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
                 HashPressRecipeBuilder.press(
                                 List.of(Ingredient.of(SubstanceCraftItems.MARIJUANA)),

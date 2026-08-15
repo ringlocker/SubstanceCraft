@@ -76,6 +76,9 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.woodProvider(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG).logWithHorizontal(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG).wood(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_WOOD);
         blockStateModelGenerator.createTintedLeaves(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, TexturedModel.LEAVES, -12012264);
         blockStateModelGenerator.createPlantWithDefaultItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING, SubstanceCraftBlocks.POTTED_MIMOSA_HOSTILIS_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        blockStateModelGenerator.family(SubstanceCraftBlocks.MIMOSA_WOOD.getBaseBlock()).generateFor(SubstanceCraftBlocks.MIMOSA_WOOD);
+        createSideTop(blockStateModelGenerator, SubstanceCraftBlocks.MIMOSA_HOSTILIS_ROOT);
+        createSideTop(blockStateModelGenerator, SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_ROOT);
     }
 
     @Override
@@ -152,6 +155,14 @@ public class ModelGenerator extends FabricModelProvider {
         blockModelGenerators.blockStateOutput.accept(
                 BlockModelGenerators.createSimpleBlock(block,
                         BlockModelGenerators.plainVariant(ModelTemplates.CUBE.create(block, mapping, blockModelGenerators.modelOutput))));
+    }
+
+    private void createSideTop(BlockModelGenerators blockModelGenerator, Block block) {
+        TextureMapping textures = TextureMapping.column(
+                TextureMapping.getBlockTexture(block, "_side"), TextureMapping.getBlockTexture(block, "_top")
+        );
+        MultiVariant model = BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(block, textures, blockModelGenerator.modelOutput));
+        blockModelGenerator.blockStateOutput.accept(BlockModelGenerators.createAxisAlignedPillarBlock(block, model));
     }
 
 }

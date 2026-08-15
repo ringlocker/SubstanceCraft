@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "0": "substancecraft:rosin",
     "1": "minecraft:wheat",

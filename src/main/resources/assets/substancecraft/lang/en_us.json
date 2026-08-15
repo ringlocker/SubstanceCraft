@@ -34,7 +34,10 @@
   "block.substancecraft.pale_psilocybin": "Pale Psilocybin",
   "block.substancecraft.chemist_station": "Chemist Station",
   "block.substancecraft.plant_research_station": "Plant Research Station",
-  "block.substancecraft.mimosa_tenuiflora": "Mimosa Tenuiflora",
+  "block.substancecraft.mimosa_hostilis_log": "Mimosa Hostilis Log",
+  "block.substancecraft.mimosa_hostilis_wood": "Mimosa Hostilis Wood",
+  "block.substancecraft.stripped_mimosa_hostilis_log": "Stripped Mimosa Hostilis Log",
+  "block.substancecraft.stripped_mimosa_hostilis_wood": "Stripped Mimosa Hostilis Wood",
 
   "effect.substancecraft.fast": "Zoomies",
   "effect.substancecraft.slow": "Slow",

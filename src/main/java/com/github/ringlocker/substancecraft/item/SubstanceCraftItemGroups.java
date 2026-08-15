@@ -120,7 +120,21 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.LIMESTONE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PHOSPHORITE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CHEMIST_WORKSTATION));
-        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PLANT_RESEARCH_STATION));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LOG));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WOOD));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_WOOD));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_ROOT));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_ROOT));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_PLANKS));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_STAIRS));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SLAB));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_FENCE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_FENCE_GATE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_BUTTON));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_PRESSURE_PLATE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WALL));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {
@@ -146,6 +160,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.GRAPES);
         entries.accept(SubstanceCraftItems.WINE_LEES);
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PEYOTE_CACTUS));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING));
     }
 
     private static void addSubstanceItems(CreativeModeTab.Output entries) {

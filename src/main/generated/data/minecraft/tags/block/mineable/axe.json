@@ -1,0 +1,20 @@
+{
+  "values": [
+    "substancecraft:chemist_station",
+    "substancecraft:plant_research_station",
+    "substancecraft:mimosa_hostilis_log",
+    "substancecraft:mimosa_hostilis_wood",
+    "substancecraft:mimosa_hostilis_planks",
+    "substancecraft:mimosa_hostilis_stairs",
+    "substancecraft:mimosa_hostilis_slab",
+    "substancecraft:mimosa_hostilis_button",
+    "substancecraft:mimosa_hostilis_fence",
+    "substancecraft:mimosa_hostilis_fence_gate",
+    "substancecraft:mimosa_hostilis_wall",
+    "substancecraft:mimosa_hostilis_pressure_plate",
+    "substancecraft:stripped_mimosa_hostilis_wood",
+    "substancecraft:stripped_mimosa_hostilis_log",
+    "substancecraft:mimosa_hostilis_root",
+    "substancecraft:stripped_mimosa_hostilis_log"
+  ]
+}

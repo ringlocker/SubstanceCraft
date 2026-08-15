@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_planks": {
       "conditions": {
         "items": [
           {
-            "items": "substancecraft:sodium_hydroxide"
+            "items": "substancecraft:mimosa_hostilis_planks"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:mix_nn_dmt"
+        "recipe": "substancecraft:mimosa_hostilis_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_item"
+      "has_planks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "substancecraft:mix_nn_dmt"
+      "substancecraft:mimosa_hostilis_button"
     ]
   }
 }

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    "substancecraft:mimosa_hostilis_planks"
+  ],
+  "result": {
+    "id": "substancecraft:mimosa_hostilis_button"
+  }
+}
