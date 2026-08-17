@@ -56,7 +56,7 @@ public class SubstanceCraftItems {
     public static final Item PROPYLENE = registerItem("propylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
     public static final Item DIESEL = registerItem("diesel", properties -> new SubstanceItem(properties, SubstanceTintColors.RED_LIQUID, MatterState.LIQUID, Transparency.TRANSLUCENT), new Item.Properties());
     public static final Item AMMONIA = registerItem("ammonia", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, MatterState.GAS), new Item.Properties());
-    public static final Item CORN = registerItem("corn", Item::new, new Item.Properties());
+    public static final Item CORN = registerItem("corn", Item::new, new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.33F).build()));
     public static final Item ETHANOL = registerItem("ethanol", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item YEAST = registerItem("yeast", Item::new, new Item.Properties());
     public static final Item HYDROCHLORIC_ACID = registerItem("hydrochloric_acid", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
