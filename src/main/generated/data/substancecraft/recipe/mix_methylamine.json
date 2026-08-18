@@ -1,6 +1,15 @@
 {
   "type": "substancecraft:heated_mixer",
-  "byproducts": [],
+  "byproducts": [
+    {
+      "count": 12,
+      "id": "substancecraft:dimethylamine"
+    },
+    {
+      "count": 6,
+      "id": "substancecraft:trimethylamine"
+    }
+  ],
   "ingredients": [
     "substancecraft:ammonia",
     "substancecraft:methanol"

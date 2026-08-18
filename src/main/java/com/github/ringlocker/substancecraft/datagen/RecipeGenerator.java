@@ -904,6 +904,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.AMMONIA), Ingredient.of(SubstanceCraftItems.METHANOL)),
                                 SubstanceCraftItems.METHYLAMINE, // can produce dimethylamine and trimethylamine as byproducts
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.DIMETHYLAMINE, 50 >> 2), new ItemStackTemplate(SubstanceCraftItems.TRIMETHYLAMINE, 25 >> 2)),
                                 800
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIA))
