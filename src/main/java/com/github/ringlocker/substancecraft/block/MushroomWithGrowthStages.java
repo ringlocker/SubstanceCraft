@@ -49,7 +49,7 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
         if (doSpread) trySpread(state, level, pos, random);
         int rand = (level.getBlockState(pos.below()).is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT)) ? random.nextInt(21) : random.nextInt(36);
         if (rand == 0) {
-            if (state.getValue(AGE) < maxAge) {
+            if (state.getValue(AGE) < maxAge &&  level.getRawBrightness(pos, 0) < 13) {
                 this.performBonemeal(level, level.getRandom(), pos, state);
             }
         }
@@ -65,7 +65,7 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
         BlockPos belowPos = pos.below();
         BlockState below = level.getBlockState(belowPos);
         if (below.is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT)) return true;
-        return level.getRawBrightness(pos, 0) < 13 && this.mayPlaceOn(below, level, belowPos);
+        return this.mayPlaceOn(below, level, belowPos);
     }
 
 
@@ -98,12 +98,12 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
             }
             BlockPos offset = pos.offset(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
             for (int i = 0; i < 4; ++i) {
-                if (level.isEmptyBlock(offset) && state.canSurvive(level, offset)) {
+                if (level.isEmptyBlock(offset) && state.canSurvive(level, offset) && level.getRawBrightness(pos, 0) < 13) {
                     pos = offset;
                 }
                 offset = pos.offset(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
             }
-            if (level.isEmptyBlock(offset) && state.canSurvive(level, offset)) {
+            if (level.isEmptyBlock(offset) && state.canSurvive(level, offset) && level.getRawBrightness(pos, 0) < 13) {
                 level.setBlock(offset, defaultBlockState().setValue(AGE, 0), 2);
             }
         }

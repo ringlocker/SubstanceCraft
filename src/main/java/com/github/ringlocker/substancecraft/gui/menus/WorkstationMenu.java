@@ -21,6 +21,9 @@ public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlo
     protected static final int INPUT_SLOT_X = 98;
     protected static final int INPUT_SLOT_Y = 11;
 
+    protected static final int CATALYST_SLOT_X = INPUT_SLOT_X + (18 * 3);
+    protected static final int CATALYST_SLOT_Y = INPUT_SLOT_Y + 18;
+
     protected static final int OUTPUT_SLOT_X = 98;
     protected static final int OUTPUT_SLOT_Y = 59;
 
@@ -28,11 +31,13 @@ public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlo
     protected static final int BYPRODUCT_SLOT_Y = 59;
 
     protected final int INPUT_SLOT_INDEX = 0;
-    protected final int OUTPUT_SLOT_INDEX = 4;
-    protected final int BYPRODUCT_SLOT_INDEX = 5;
+    protected final int CATALYST_SLOT_INDEX = 7;
+    protected final int OUTPUT_SLOT_INDEX = 8;
+    protected final int BYPRODUCT_SLOT_INDEX = 9;
 
     protected final List<Slot> inputSlots = new ArrayList<>();
     protected final List<Slot> byproductSlots = new ArrayList<>();
+    protected Slot catalystSlot;
 
     protected final B blockEntity;
     protected final Container blockEntityInventory;
@@ -52,9 +57,10 @@ public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlo
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 7; i++) {
             createInputSlot(blockEntity, i);
         }
+        createCatalystSlot(blockEntity);
         createOutputSlot(blockEntity);
         for (int i = 0; i < 3; i++) {
             createByproductSlot(blockEntity, i);
@@ -77,29 +83,35 @@ public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlo
     }
 
     public void updateSlots() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 7; i++) {
             if (i < blockEntity.inputCount()) {
-                if (this.slots.contains(inputSlots.get(i))) continue;
-                this.addSlot(inputSlots.get(i));
+                if (slots.contains(inputSlots.get(i))) continue;
+                addSlot(inputSlots.get(i));
             } else {
-                if (!this.slots.contains(inputSlots.get(i))) continue;
-                this.slots.remove(inputSlots.get(i));
+                if (!slots.contains(inputSlots.get(i))) continue;
+                slots.remove(inputSlots.get(i));
             }
         }
+
+        if (blockEntity.hasCatalyst()) {
+            if (!slots.contains(catalystSlot)) addSlot(catalystSlot);
+        } else slots.remove(catalystSlot);
+
+
         for (int i = 0; i < 3; i++) {
             if (i < blockEntity.byproductCount()) {
-                if (this.slots.contains(byproductSlots.get(i))) continue;
-                this.addSlot(byproductSlots.get(i));
+                if (slots.contains(byproductSlots.get(i))) continue;
+                addSlot(byproductSlots.get(i));
             } else {
-                if (!this.slots.contains(byproductSlots.get(i))) continue;
-                this.slots.remove(byproductSlots.get(i));
+                if (!slots.contains(byproductSlots.get(i))) continue;
+                slots.remove(byproductSlots.get(i));
             }
         }
     }
 
     @Override
     public boolean clickMenuButton(Player player, int id) {
-        if (this.isValidRecipeIndex(id)) {
+        if (isValidRecipeIndex(id)) {
             blockEntity.setSelectedRecipeIndex(id);
             blockEntity.setChanged();
             updateSlots();
@@ -116,37 +128,37 @@ public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlo
     }
 
     public int getScaledProgress() {
-        int progress = this.blockEntityData.get(0);
-        int maxProgress = this.blockEntityData.get(1);
-        int progressArrowSize = 26;
+        int progress = blockEntityData.get(0);
+        int maxProgress = blockEntityData.get(1);
+        int progressArrowSize = blockEntity.inputCount() < 5 ? 26 : 8;
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
     private void addPlayerInventory(Container playerInventory) {
         for (int row = 0; row < 3; ++row) {
             for (int i = 0; i < 9; ++i) {
-                this.addSlot(new Slot(playerInventory, i + row * 9 + 9, 8 + i * 18, 84 + row * 18));
+                addSlot(new Slot(playerInventory, i + row * 9 + 9, 8 + i * 18, 84 + row * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Container playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+            addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
 
     @Override
     public @NotNull ItemStack quickMoveStack(Player player, int index) {
         ItemStack newStack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(index);
+        Slot slot = slots.get(index);
         if (!slot.hasItem()) return newStack;
         ItemStack originalStack = slot.getItem();
         newStack = originalStack.copy();
-        Container source = this.slots.get(index).container;
+        Container source = slots.get(index).container;
 
         if (source == blockEntityInventory) {
-            if (!this.moveItemStackTo(originalStack, 0, 36, true)) {
+            if (!moveItemStackTo(originalStack, 0, 36, true)) {
                 return ItemStack.EMPTY;
             }
         }
@@ -154,9 +166,9 @@ public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlo
         else if (source == playerInventory) {
             boolean success = false;
             for (Slot inputSlot : inputSlots) {
-                if (!this.slots.contains(inputSlot)) break;
-                int inputIndex = this.slots.indexOf(inputSlot);
-                if (this.moveItemStackTo(originalStack, inputIndex, inputIndex + 1, true)) {
+                if (!slots.contains(inputSlot)) break;
+                int inputIndex = slots.indexOf(inputSlot);
+                if (moveItemStackTo(originalStack, inputIndex, inputIndex + 1, true)) {
                     success = true;
                     break;
                 }
@@ -181,8 +193,12 @@ public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlo
     }
 
     public void createInputSlot(Container blockEntityInventory, int index) {
-        Slot slot = new Slot(blockEntityInventory, INPUT_SLOT_INDEX + index, INPUT_SLOT_X + (18 * index), INPUT_SLOT_Y);
+        Slot slot = new Slot(blockEntityInventory, INPUT_SLOT_INDEX + index, INPUT_SLOT_X + (18 * (index % 4)), INPUT_SLOT_Y + 18 * (index / 4));
         inputSlots.add(index, slot);
+    }
+
+    public void createCatalystSlot(Container blockEntityInventory) {
+        catalystSlot = new Slot(blockEntityInventory, CATALYST_SLOT_INDEX, CATALYST_SLOT_X, CATALYST_SLOT_Y);
     }
 
     public void createOutputSlot(Container blockEntityInventory) {

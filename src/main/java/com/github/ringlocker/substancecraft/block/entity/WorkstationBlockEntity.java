@@ -20,35 +20,25 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends BlockEntity implements ExtendedMenuProvider<BlockPos>, ImplementedInventory, RecipeList<T> {
+public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends RecipeTypedBlockEntity<T> implements ExtendedMenuProvider<BlockPos>, ImplementedInventory {
 
     protected final String displayName;
     protected final NonNullList<ItemStack> inventory;
 
     protected int progress;
     protected int maxProgress;
-    protected int selectedRecipeIndex;
-
-    public final RecipeManager.CachedCheck<MultipleItemInput, T> matchGetter;
-    private final RecipeType<T> type;
-    private final List<RecipeHolder<T>> recipes;
 
     protected final int FIRST_INPUT_SLOT = 0;
     protected final int CATALYST_SLOT = 7;
@@ -82,42 +72,9 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
     };
 
     public WorkstationBlockEntity(BlockEntityType<?> type, RecipeType<T> recipeType, BlockPos pos, BlockState blockState, String displayName) {
-        super(type, pos, blockState);
+        super(type, pos, blockState, recipeType);
         this.displayName = displayName;
-        this.inventory = NonNullList.withSize(8, ItemStack.EMPTY);
-        this.matchGetter = RecipeManager.createCheck(recipeType);
-        this.type = recipeType;
-        this.recipes = new ArrayList<>();
-    }
-
-    @Override
-    public void setLevel(Level level) {
-        super.setLevel(level);
-        setupRecipeList(level);
-    }
-
-    @Override
-    public List<RecipeHolder<T>> getRecipes() {
-        return this.recipes;
-    }
-
-    @NotNull
-    protected List<RecipeHolder<T>> getRecipeList(RecipeType<T> type, Level level) {
-        List<RecipeHolder<T>> allRecipes;
-        allRecipes = new ArrayList<>(level.recipeAccess().getSynchronizedRecipes().getAllOfType(type));
-        return allRecipes;
-    }
-
-    @Override
-    public void setItem(int slot, ItemStack stack) {
-        ItemStack itemStack = this.inventory.get(slot);
-        boolean itemsEqual = !stack.isEmpty() && ItemStack.isSameItem(itemStack, stack);
-        this.inventory.set(slot, stack);
-        if (slot >= FIRST_INPUT_SLOT && slot < OUTPUT_SLOT && !itemsEqual) {
-            this.maxProgress = getCookTime();
-            this.progress = 0;
-            this.setChanged();
-        }
+        this.inventory = NonNullList.withSize(12, ItemStack.EMPTY);
     }
 
     @Override
@@ -126,13 +83,77 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
     }
 
     @Override
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        return saveWithFullMetadata(registries);
+    }
+
+    @Override
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        ContainerHelper.loadAllItems(input, inventory);
+        progress = input.getIntOr("Progress", 0);
+        maxProgress = input.getIntOr("MaxProgress", 0);
+        selectedRecipeIndex = input.getIntOr("SelectedRecipeIndex", 0);
+    }
+
+    @Override
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        ContainerHelper.saveAllItems(output, inventory);
+        output.putInt("Progress", progress);
+        output.putInt("MaxProgress", maxProgress);
+        output.putInt("SelectedRecipeIndex", selectedRecipeIndex);
+    }
+
+    @Override
+    protected boolean recipeMatches() {
+        boolean ingredientsMatch = getRecipe().matches(new MultipleItemInput(noAirInputs()), level);
+        if (!ingredientsMatch) return false;
+        T recipe = getRecipe();
+        Optional<ItemStackTemplate> catalyst = recipe.getCatalyst();
+        return catalyst.map(itemStackTemplate -> itemStackTemplate.is(getItem(CATALYST_SLOT).getItem())).orElse(true);
+    }
+
+    @Override
+    protected void onSelectRecipeChange() {
+        if (level == null || level.isClientSide()) return;
+        ByproductRecipe recipe = getRecipes().get(getSelectedRecipeIndex()).value();
+        int inputs = recipe.getInputs().size();
+        int byproducts = recipe.getByproducts().size();
+        for (int i = inputs; i < 7; i++) {
+            moveOrDropItem(i, inputs, byproducts);
+        }
+        if (!recipe.hasCatalyst()) moveOrDropItem(CATALYST_SLOT, inputs, byproducts);
+        for (int i = FIRST_BYPRODUCT_SLOT + byproducts; i < 12; i++) {
+            moveOrDropItem(i, inputs, byproducts);
+        }
+    }
+
+    @Override
     public @NotNull Component getDisplayName() {
         return Component.literal(displayName);
     }
 
     @Override
+    public void setItem(int slot, ItemStack stack) {
+        ItemStack itemStack = inventory.get(slot);
+        boolean itemsEqual = !stack.isEmpty() && ItemStack.isSameItem(itemStack, stack);
+        inventory.set(slot, stack);
+        if (slot >= FIRST_INPUT_SLOT && slot < OUTPUT_SLOT && !itemsEqual) {
+            maxProgress = getCookTime();
+            progress = 0;
+            setChanged();
+        }
+    }
+
+    @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
-        return slot < OUTPUT_SLOT && slot < inputCount();
+        return (slot < OUTPUT_SLOT && slot < inputCount()) || ( getRecipe().hasCatalyst() && slot == CATALYST_SLOT);
     }
 
     @Override
@@ -145,42 +166,6 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         return inventory;
     }
 
-    @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
-
-    @Override
-    public @NotNull CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return this.saveWithFullMetadata(registries);
-    }
-
-    @Override
-    public void setChanged() {
-        if (level != null) {
-            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
-            super.setChanged();
-        }
-    }
-
-    @Override
-    protected void loadAdditional(ValueInput input) {
-        super.loadAdditional(input);
-        ContainerHelper.loadAllItems(input, this.inventory);
-        progress = input.getIntOr("Progress", 0);
-        maxProgress = input.getIntOr("MaxProgress", 0);
-        selectedRecipeIndex = input.getIntOr("SelectedRecipeIndex", 0);
-    }
-
-    @Override
-    protected void saveAdditional(ValueOutput output) {
-        super.saveAdditional(output);
-        ContainerHelper.saveAllItems(output, this.inventory);
-        output.putInt("Progress", progress);
-        output.putInt("MaxProgress", maxProgress);
-        output.putInt("SelectedRecipeIndex", selectedRecipeIndex);
-    }
-
     public ItemStack getRenderStack() {
         if(this.getItem(OUTPUT_SLOT).isEmpty()) {
             return this.getItem(FIRST_INPUT_SLOT);
@@ -189,97 +174,61 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         }
     }
 
-    public int inputCount() {
-        return getCurrentRecipe().map(tRecipeHolder -> tRecipeHolder.value().getInputs().size()).orElse(1);
-    }
-
-    public int byproductCount() {
-        return getCurrentRecipe().map(tRecipeHolder -> tRecipeHolder.value().getByproducts().size()).orElse(0);
-    }
-
-    public void setupRecipeList(Level level) {
-        this.recipes.clear();
-        List<RecipeHolder<T>> allRecipes = getRecipeList(type, level);
-        recipes.addAll(allRecipes);
-        recipes.sort(Comparator.comparing(recipe -> recipe.value().getResult().create().getDisplayName().getString()));
-    }
-
     public void tick(Level level, BlockPos pos, BlockState state) {
         if (level.isClientSide()) return;
         updateState(state, level, pos);
 
-        // Check output slots are free
-        if (!isOutputSlotEmptyOrReceivable()) {
-            resetProgress();
+        if (getRecipe() == null) {
+            progress = 0;
             return;
         }
 
-        if (!hasRecipe()) {
-            resetProgress();
+        if (!isOutputSlotEmptyOrReceivable() || !areByproductSlotsEmptyOrReceivable()) {
+            progress = 0;
             return;
         }
 
-        T recipe = getRecipes().get(getSelectedRecipeIndex()).value();
-        if (recipe.matches(new MultipleItemInput(noAirInputs()), level)) {
-            if ((inventory.get(OUTPUT_SLOT).getCount() == 0) || inventory.get(OUTPUT_SLOT).getItem() == recipe.getResult().item().value()) {
-                progress++;
-                setChanged(level, pos, state);
-                if (progress >= maxProgress) {
-                    craftItem(recipe);
-                    resetProgress();
-                }
-            } else {
-                resetProgress();
-            }
+        if (!recipeMatches()) {
+            progress = 0;
+            return;
         }
 
-
-    }
-
-    public Optional<RecipeHolder<T>> getCurrentRecipe() {
-        List<RecipeHolder<T>> recipes = getRecipes();
-        if (recipes.isEmpty()) {
-            return Optional.empty();
-        } else {
-            int index = getSelectedRecipeIndex();
-            if (index > -1 && index < recipes.size()) {
-                return Optional.of(recipes.get(index));
-            } else return Optional.empty();
+        progress++;
+        setChanged(level, pos, state);
+        if (progress >= maxProgress) {
+            craftItem();
+            progress = 0;
         }
-    }
 
-    public int getSelectedRecipeIndex() {
-        return this.selectedRecipeIndex;
-    }
-
-    public void setSelectedRecipeIndex(int selectedRecipeIndex) {
-        this.selectedRecipeIndex = selectedRecipeIndex;
-        onSelectRecipeChange();
-        setChanged();
     }
 
     protected void updateState(BlockState state, Level level, BlockPos pos) {
         if (progress > 0) {
-            level.setBlockAndUpdate(pos, state.setValue(GenericMenuBlock.LIT, true));
+            if (!state.getValue(GenericMenuBlock.LIT)) level.setBlockAndUpdate(pos, state.setValue(GenericMenuBlock.LIT, true));
         } else if (state.getValue(GenericMenuBlock.LIT)) {
-            level.setBlockAndUpdate(pos, state.setValue(GenericMenuBlock.LIT, false));
+            if (state.getValue(GenericMenuBlock.LIT)) level.setBlockAndUpdate(pos, state.setValue(GenericMenuBlock.LIT, false));
         }
     }
 
     protected boolean canInsertItemIntoSlot(Item item, int slot) {
-        return this.getItem(slot).getItem() == item || getItem(slot).isEmpty();
+        return getItem(slot).getItem() == item || getItem(slot).isEmpty();
     }
 
     protected boolean canInsertAmountIntoSlot(ItemStack result, int slot) {
-            return this.getItem(slot).getCount() + result.getCount() <= result.getMaxStackSize();
+            return getItem(slot).getCount() + result.getCount() <= result.getMaxStackSize();
     }
 
     protected boolean isOutputSlotEmptyOrReceivable() {
-        return this.getItem(OUTPUT_SLOT).isEmpty() || getItem(OUTPUT_SLOT).getCount() < getItem(OUTPUT_SLOT).getMaxStackSize();
+        return getItem(OUTPUT_SLOT).isEmpty() || getItem(OUTPUT_SLOT).getCount() < getItem(OUTPUT_SLOT).getMaxStackSize();
     }
 
     protected boolean areByproductSlotsEmptyOrReceivable() {
-        return this.getItem(OUTPUT_SLOT).isEmpty() || getItem(OUTPUT_SLOT).getCount() < getItem(OUTPUT_SLOT).getMaxStackSize();
+        if (byproductCount() == 0) return true;
+        List<ItemStackTemplate> byproducts = getRecipe().getByproducts();
+        for (int i = 0; i < byproductCount(); i++) {
+            if (!canInsertAmountIntoSlot(byproducts.get(i).create(), i + FIRST_BYPRODUCT_SLOT))  return false;
+        }
+        return true;
     }
 
     protected void byproduct(ByproductRecipe recipe) {
@@ -307,19 +256,6 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         }
     }
 
-    private void onSelectRecipeChange() {
-        if (level == null || level.isClientSide()) return;
-        ByproductRecipe recipe = getRecipes().get(getSelectedRecipeIndex()).value();
-        int inputs = recipe.getInputs().size();
-        int byproducts = recipe.getByproducts().size();
-        for (int i = inputs; i < 4; i++) {
-            moveOrDropItem(i, inputs, byproducts);
-        }
-        for (int i = FIRST_BYPRODUCT_SLOT + byproducts; i < 8; i++) {
-            moveOrDropItem(i, inputs, byproducts);
-        }
-    }
-
     private void moveOrDropItem(int fromIndex, int recipeInputs, int recipeByproducts) {
         if (inventory.get(fromIndex) == ItemStack.EMPTY) return;
         if (moveItemToEmptySlot(fromIndex, recipeInputs, recipeByproducts)) return;
@@ -336,7 +272,7 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
             moveToSlot(fromIndex, i);
             return true;
         }
-        for (int i = 4 + recipeByproducts; i > 3; i--) {
+        for (int i = FIRST_BYPRODUCT_SLOT + recipeByproducts; i >= FIRST_BYPRODUCT_SLOT; i--) {
             if (i == fromIndex) continue;
             if (inventory.get(i) != ItemStack.EMPTY) continue;
             moveToSlot(fromIndex, i);
@@ -350,35 +286,25 @@ public abstract class WorkstationBlockEntity<T extends ByproductRecipe> extends 
         inventory.set(fromIndex, ItemStack.EMPTY);
     }
 
-    private void resetProgress() {
-        this.progress = 0;
-    }
-
-    private void craftItem(T recipe) {
+    private void craftItem() {
+        T recipe = getRecipe();
         for (int i = 0; i < 4; i++) {
-            this.removeItem(FIRST_INPUT_SLOT + i, 1);
+            removeItem(FIRST_INPUT_SLOT + i, 1);
         }
         ItemStack result = recipe.getResult().create();
         if (canInsertAmountIntoSlot(result, OUTPUT_SLOT)) {
-            this.setItem(OUTPUT_SLOT, new ItemStack(result.getItem(), getItem(OUTPUT_SLOT).getCount() + recipe.getResult().create().getCount()));
+            setItem(OUTPUT_SLOT, new ItemStack(result.getItem(), getItem(OUTPUT_SLOT).getCount() + recipe.getResult().create().getCount()));
         }
         byproduct(recipe);
     }
 
-    private boolean hasRecipe() {
-        Optional<RecipeHolder<T>> recipe = getCurrentRecipe();
-        return recipe.isPresent() &&
-                canInsertAmountIntoSlot(recipe.get().value().getResult().create(), OUTPUT_SLOT) &&
-                canInsertItemIntoSlot(recipe.get().value().getResult().item().value(), OUTPUT_SLOT);
-    }
-
     private int getCookTime() {
-        Optional<RecipeHolder<T>> recipe = getCurrentRecipe();
+        Optional<RecipeHolder<T>> recipe = getSelectedRecipe();
         return recipe.map(tRecipeHolder -> tRecipeHolder.value().time()).orElse(200);
     }
 
     private List<ItemStack> noAirInputs() {
-        return inventory.subList(FIRST_INPUT_SLOT, OUTPUT_SLOT).stream().filter(itemStack -> !itemStack.isEmpty() && !itemStack.getItem().equals(Items.AIR)).collect(Collectors.toList());
+        return inventory.subList(FIRST_INPUT_SLOT, CATALYST_SLOT).stream().filter(itemStack -> !itemStack.isEmpty() && !itemStack.getItem().equals(Items.AIR)).collect(Collectors.toList());
     }
 
 }

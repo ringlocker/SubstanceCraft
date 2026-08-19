@@ -72,6 +72,10 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
         return catalyst;
     }
 
+    public boolean hasCatalyst() {
+        return catalyst.isPresent();
+    }
+
     public int getTime() {
         return time;
     }

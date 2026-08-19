@@ -189,6 +189,8 @@ public abstract class WorkstationScreen<
         for (Holder<Item> item : itemInputsSet) {
             tooltip.add(getItemNameString(new ItemStack(item.value())));
         }
+        Optional<ItemStackTemplate> catalyst = recipe.getCatalyst();
+        catalyst.ifPresent(itemStackTemplate -> tooltip.add(Component.literal("Catalyst: " + (getItemNameString(itemStackTemplate.create()).getString()))));
         if (!recipe.getByproducts().isEmpty()) {
             tooltip.add(Component.literal("Byproducts: "));
             List<ItemStackTemplate> byproducts = recipe.getByproducts();
@@ -254,8 +256,8 @@ public abstract class WorkstationScreen<
     }
 
     private void setBackgroundTexture(WorkstationBlockEntity<R> blockEntity) {
-        if (blockEntity.getCurrentRecipe().isEmpty()) return;
-        R recipe = blockEntity.getCurrentRecipe().get().value();
+        if (blockEntity.getSelectedRecipe().isEmpty()) return;
+        R recipe = blockEntity.getSelectedRecipe().get().value();
         String texture = String.format("textures/gui/%d_input_%d_byproduct.png", recipe.getInputs().size(), recipe.getByproducts().size());
         BACKGROUND_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, texture);
     }
