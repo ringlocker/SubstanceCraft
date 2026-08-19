@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
 
@@ -25,6 +26,7 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
     protected final List<Ingredient> ingredients;
     protected final ItemStackTemplate result;
     protected final List<ItemStackTemplate> byproducts;
+    protected final Optional<ItemStackTemplate> catalyst;
     protected final int time;
 
     @Nullable
@@ -36,6 +38,7 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
             List<Ingredient> ingredients,
             ItemStackTemplate result,
             List<ItemStackTemplate> byproducts,
+            Optional<ItemStackTemplate> catalyst,
             int time)
     {
         this.type = type;
@@ -43,6 +46,7 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
         this.ingredients = ingredients != null ? ingredients : List.of();
         this.result = result;
         this.byproducts = byproducts;
+        this.catalyst = catalyst;
         this.time = time;
     }
 
@@ -61,6 +65,11 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
     @NotNull
     public List<ItemStackTemplate> getByproducts() {
         return byproducts;
+    }
+
+    @Nullable
+    public Optional<ItemStackTemplate> getCatalyst() {
+        return catalyst;
     }
 
     public int getTime() {
@@ -133,7 +142,7 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
     }
 
     public interface Factory<T extends ByproductRecipe> {
-        T create(List<Ingredient> ingredient, ItemStackTemplate result, List<ItemStackTemplate> byproducts, int time);
+        T create(List<Ingredient> ingredients, ItemStackTemplate result, List<ItemStackTemplate> byproducts, Optional<ItemStackTemplate> catalyst, int time);
     }
 
 }

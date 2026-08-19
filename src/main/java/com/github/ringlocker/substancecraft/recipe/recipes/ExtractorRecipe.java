@@ -9,13 +9,14 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ExtractorRecipe extends ByproductRecipe {
 
     public static final String ID = "extractor";
 
-    public ExtractorRecipe(List<Ingredient> ingredient, ItemStackTemplate result, List<ItemStackTemplate> byproducts, int time) {
-        super(Type.INSTANCE, Serializer.INSTANCE, ingredient, result, byproducts, time);
+    public ExtractorRecipe(List<Ingredient> ingredient, ItemStackTemplate result, List<ItemStackTemplate> byproducts, Optional<ItemStackTemplate> catalyst, int time) {
+        super(Type.INSTANCE, Serializer.INSTANCE, ingredient, result, byproducts, catalyst, time);
     }
 
     @Override

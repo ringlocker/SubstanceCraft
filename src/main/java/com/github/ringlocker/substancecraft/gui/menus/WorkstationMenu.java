@@ -41,7 +41,6 @@ public class WorkstationMenu<R extends ByproductRecipe, B extends WorkstationBlo
 
     protected WorkstationMenu(MenuType<? extends WorkstationMenu> menu, int syncId, Inventory playerInventory, B entity, SimpleContainerData blockEntityData) {
         super(menu, syncId);
-        entity.setupRecipeList(entity.getLevel());
         checkContainerSize(entity, entity.getContainerSize());
         this.blockEntity = entity;
         this.blockEntityInventory = entity;

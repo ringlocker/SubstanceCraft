@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ByproductRecipeSerializer<R extends ByproductRecipe> {
 
@@ -26,6 +27,7 @@ public class ByproductRecipeSerializer<R extends ByproductRecipe> {
                         Ingredient.CODEC.listOf().fieldOf("ingredients").forGetter(ByproductRecipe::getInputs),
                         ItemStackTemplate.CODEC.fieldOf("result").forGetter(ByproductRecipe::getResult),
                         ItemStackTemplate.CODEC.listOf().fieldOf("byproducts").forGetter(ByproductRecipe::getByproducts),
+                        ItemStackTemplate.CODEC.optionalFieldOf("catalyst").forGetter(ByproductRecipe::getCatalyst),
                         Codec.INT.fieldOf("time").orElse(200).forGetter(ByproductRecipe::getTime)
                 ).apply(instance, factory::create));
         packetCodec = StreamCodec.of(this::write, this::read);
@@ -51,7 +53,10 @@ public class ByproductRecipeSerializer<R extends ByproductRecipe> {
         for (int i = 0; i < size; i++) {
             byproducts.add(ItemStackTemplate.STREAM_CODEC.decode(buf));
         }
-        return this.factory.create(input, output, byproducts, buf.readInt());
+        boolean hasCatalyst = buf.readBoolean();
+        ItemStackTemplate catalyst = null;
+        if (hasCatalyst) catalyst = ItemStackTemplate.STREAM_CODEC.decode(buf);
+        return this.factory.create(input, output, byproducts, Optional.ofNullable(catalyst), buf.readInt());
     }
 
     private void write(RegistryFriendlyByteBuf buf, R recipe) {
@@ -64,6 +69,9 @@ public class ByproductRecipeSerializer<R extends ByproductRecipe> {
         for (ItemStackTemplate byproduct : recipe.getByproducts()) {
             ItemStackTemplate.STREAM_CODEC.encode(buf, byproduct);
         }
+        boolean hasCatalyst = recipe.getCatalyst().isPresent();
+        buf.writeBoolean(hasCatalyst);
+        if (hasCatalyst) ItemStackTemplate.STREAM_CODEC.encode(buf, recipe.getCatalyst().get());
         buf.writeInt(recipe.getTime());
     }
 
