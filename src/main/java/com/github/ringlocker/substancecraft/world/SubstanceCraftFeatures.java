@@ -84,6 +84,11 @@ public class SubstanceCraftFeatures {
                 ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "patch_peyote"))
         );
         BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(Biomes.DESERT),
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "patch_peyote_desert"))
+        );
+        BiomeModifications.addFeature(
                 BiomeSelectors.includeByKey(Biomes.JUNGLE, Biomes.SPARSE_JUNGLE),
                 GenerationStep.Decoration.VEGETAL_DECORATION,
                 ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis"))

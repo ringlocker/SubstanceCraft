@@ -80,7 +80,7 @@ public class SubstanceWorldData extends SavedData {
 
     @Override
     public String toString() {
-        return String.format("SubstanceWorldData{dealerSpawnDelay=%d,dealerSpawnChance=%d,p;ayerData=[%s]}",
+        return String.format("SubstanceWorldData{dealerSpawnDelay=%d,dealerSpawnChance=%d,playerData=[%s]}",
                 dealerSpawnDelay, dealerSpawnChance, playerData);
     }
 

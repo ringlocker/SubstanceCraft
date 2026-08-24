@@ -139,8 +139,12 @@ public class LootTableGenerator extends FabricBlockLootSubProvider {
         dropSelf(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG);
         dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_ROOT);
         dropSelf(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_ROOT);
+        dropSelf(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING);
+        
+        dropSelf(SubstanceCraftBlocks.CHEMIST_WORKSTATION);
+        dropSelf(SubstanceCraftBlocks.PLANT_RESEARCH_STATION);
 
-        createLeavesDrops(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING, 0.075F, 0.1F, 0.125F, 0.15F);
+        add(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, createLeavesDrops(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LEAVES, SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING, 0.075F, 0.1F, 0.125F, 0.15F));
     }
 
 }

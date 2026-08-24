@@ -107,7 +107,7 @@ public abstract class TwoBlockTallBushCrop extends BushLikeCrop {
                 onBreakInCreative(level, pos, state, player);
             } else {
                 if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-                    popResource(level,  pos, new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT), 1));
+                    popResource(level,  pos, new ItemStack(asBlock().asItem(), 1));
                 }
             }
         }

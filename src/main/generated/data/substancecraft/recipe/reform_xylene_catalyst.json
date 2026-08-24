@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:refinery",
+  "byproducts": [],
+  "catalyst": {
+    "id": "substancecraft:acetone"
+  },
+  "ingredients": [
+    "substancecraft:benzene",
+    "substancecraft:toluene"
+  ],
+  "result": {
+    "id": "substancecraft:xylene"
+  },
+  "time": 800
+}

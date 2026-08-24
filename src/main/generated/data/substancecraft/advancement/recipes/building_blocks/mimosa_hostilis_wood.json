@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_log": {
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:copper"
+            "items": "substancecraft:mimosa_hostilis_log"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:refinery"
+        "recipe": "substancecraft:mimosa_hostilis_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_item"
+      "has_log"
     ]
   ],
   "rewards": {
     "recipes": [
-      "substancecraft:refinery"
+      "substancecraft:mimosa_hostilis_wood"
     ]
   }
 }

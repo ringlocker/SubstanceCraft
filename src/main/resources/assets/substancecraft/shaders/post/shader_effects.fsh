@@ -102,26 +102,44 @@ vec2 applySurfaceWarpUV(vec2 pixelCoord) {
     return pixelCoord;
 }
 
+vec2 circles(vec2 pixelCoord) {
+    float intensity = warpIntensity;
 
-/*
-vec2 applySurfaceWarpUV(vec2 pixelCoord) {
+    vec2 centered = (pixelCoord - InSize * 0.5) / InSize;
 
-    float bandSize = 3.0 + (1.45 * warpIntensity);
-    float bandIndex = floor(pixelCoord.y / bandSize);
-    float centeredX = (pixelCoord.x - InSize.x * 0.5) / InSize.x;
-    float pulse = 1.0 + 0.15 * sin(time * 0.03);
-    float yOffset =
-        sin(time * 0.060 + bandIndex * 0.16) * 1.05 +
-        sin(time * 0.036 + centeredX * 7.00  + bandIndex * 0.05) * 0.50;
+    float aspect = InSize.x / InSize.y;
+    vec2 radialCoord = centered;
+    radialCoord.x *= aspect;
 
-    yOffset *= pulse;
-    yOffset *= warpIntensity;
-    yOffset = tanh(yOffset * 0.9) * bandSize;
+    float dist = length(radialCoord);
 
-    pixelCoord.y += yOffset;
-    return pixelCoord;
+    float breath = (sin(time * 0.014) * 0.7
+    + sin(time * 0.021 + 1.7) * 0.3) * 0.5 + 0.5;
+
+    float waveSpeed = 0.055;
+    float waveFrequency = 22.0;
+
+    float wave = sin(dist * waveFrequency - time * waveSpeed);
+
+    float centerReduction = smoothstep(0.05, 0.18, dist);
+    float falloff = centerReduction * (1.0 - smoothstep(0.0, 0.75, dist));
+
+    float pulse = 1.0 + 0.08 * sin(time * 0.03);
+
+    wave *= falloff;
+    wave *= pulse;
+    wave *= (0.75 + breath * 0.25);
+
+    vec2 direction = radialCoord / max(dist, 0.0001);
+
+    float displacement = wave * intensity * 12.0;
+
+    radialCoord += direction * displacement / InSize.y;
+
+    radialCoord.x /= aspect;
+
+    return radialCoord * InSize + InSize * 0.5;
 }
-*/
 
 vec2 applyMosaicUV(vec2 pixelCoord) {
     float blockSize = max(1.0, floor(mosaicSize + 0.5));
@@ -141,6 +159,7 @@ void main() {
     vec2 pixelCoord = texCoord * InSize;
     if (surfaceWarpEnabled == 1) {
         pixelCoord = applySurfaceWarpUV(pixelCoord);
+        pixelCoord = circles(pixelCoord);
     }
     if (mosaicEnabled == 1) {
         pixelCoord = applyMosaicUV(pixelCoord);

@@ -3,7 +3,7 @@
   "key": {
     "1": "minecraft:leaf_litter",
     "2": "minecraft:iron_ingot",
-    "3": "minecraft:acacia_planks"
+    "3": "#minecraft:planks"
   },
   "pattern": [
     "111",

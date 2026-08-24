@@ -76,10 +76,15 @@ public class SubstanceEffectTicker {
     }
 
     private static void refreshBaseEffects(ServerPlayer player, SubstanceInstance instance) {
-        player.removeEffect(instance.drug().getBaseEffect());
         float threshold = instance.drug().getThreshold();
         float amount = instance.amount();
-        if (threshold < amount) {
+        if (player.hasEffect(instance.drug().getBaseEffect())) {
+            MobEffectInstance mobEffectInstance = player.getEffect(instance.drug().getBaseEffect());
+            if (threshold < amount && remainingTime(instance.drug().getDecayFactor(), amount, threshold) > mobEffectInstance.getDuration()) {
+                player.removeEffect(instance.drug().getBaseEffect());
+                player.addEffect(new MobEffectInstance(instance.drug().getBaseEffect(), remainingTime(instance.drug().getDecayFactor(), amount, threshold), 0, false, false, true));
+            }
+        } else {
             player.addEffect(new MobEffectInstance(instance.drug().getBaseEffect(), remainingTime(instance.drug().getDecayFactor(), amount, threshold), 0, false, false, true));
         }
     }

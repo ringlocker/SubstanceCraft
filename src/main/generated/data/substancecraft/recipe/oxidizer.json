@@ -3,7 +3,7 @@
   "key": {
     "1": "minecraft:cauldron",
     "2": "minecraft:iron_ingot",
-    "3": "minecraft:copper_block"
+    "3": "#minecraft:copper"
   },
   "pattern": [
     "323",

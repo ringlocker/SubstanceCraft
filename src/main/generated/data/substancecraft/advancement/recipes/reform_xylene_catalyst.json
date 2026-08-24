@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:copper"
+            "items": "substancecraft:toluene"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:refinery"
+        "recipe": "substancecraft:reform_xylene_catalyst"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "substancecraft:refinery"
+      "substancecraft:reform_xylene_catalyst"
     ]
   }
 }

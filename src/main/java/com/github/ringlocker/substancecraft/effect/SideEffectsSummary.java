@@ -21,8 +21,18 @@ public class SideEffectsSummary {
     }
 
     public void applyTo(ServerPlayer player) {
-        map.values().forEach((instance) -> player.removeEffect(instance.effect.getEffect()));
-        map.values().forEach((instance) -> player.addEffect(instance.build()));
+        for (MobEffectInstanceBuilder builder : map.values()) {
+            MobEffectInstance instance = builder.build();
+            if (player.hasEffect(builder.effect.getEffect())) {
+                MobEffectInstance oldInstance = player.getEffect(builder.effect.getEffect());
+                if (!oldInstance.equals(instance)) {
+                    player.removeEffect(builder.effect.getEffect());
+                    player.addEffect(builder.build());
+                }
+            } else {
+                player.addEffect(builder.build());
+            }
+        }
     }
 
     private static class MobEffectInstanceBuilder {
