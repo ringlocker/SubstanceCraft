@@ -14,6 +14,7 @@ import com.github.ringlocker.substancecraft.block.blocks.MimosaHostilisRoot;
 import com.github.ringlocker.substancecraft.block.blocks.Mixer;
 import com.github.ringlocker.substancecraft.block.blocks.Oxidizer;
 import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
+import com.github.ringlocker.substancecraft.block.blocks.PlaceableDrugItem;
 import com.github.ringlocker.substancecraft.block.blocks.PotentPsilocybinMushroom;
 import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
 import com.github.ringlocker.substancecraft.block.blocks.Refinery;

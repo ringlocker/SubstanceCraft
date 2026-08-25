@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.block;
+package com.github.ringlocker.substancecraft.block.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;

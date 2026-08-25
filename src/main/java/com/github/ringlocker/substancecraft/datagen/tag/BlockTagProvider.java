@@ -73,6 +73,14 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         builder(BlockTags.FENCE_GATES)
                 .add(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_FENCE_GATE);
 
+        builder(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_LOGS.block())
+                .add(
+                        SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_LOG,
+                        SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_WOOD,
+                        SubstanceCraftBlockItemIds.STRIPPED_MIMOSA_HOSTILIS_LOG,
+                        SubstanceCraftBlockItemIds.STRIPPED_MIMOSA_HOSTILIS_WOOD
+                );
+
     }
 
 }

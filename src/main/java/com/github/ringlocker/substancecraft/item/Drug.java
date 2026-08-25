@@ -207,7 +207,7 @@ public enum Drug {
         );
 
         private static final List<DrugSideEffect> DMT_EFFECTS = List.of(
-                new DrugSideEffect(fromID("surface_warp"), milligrams(20), micrograms(600), 40),
+                new DrugSideEffect(fromID("surface_warp"), milligrams(30), milligrams(1), 255),
                 new DrugSideEffect(fromID("color_resolution"), milligrams(30), milligrams(15), 15, 18),
                 new DrugSideEffect(fromID("time_dilation"), milligrams(20), milligrams(10), 24),
                 new DrugSideEffect(fromID("blur"), milligrams(10), milligrams(15), 7, 15)

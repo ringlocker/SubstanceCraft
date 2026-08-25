@@ -1,6 +1,7 @@
 package com.github.ringlocker.substancecraft.datagen;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
+import com.github.ringlocker.substancecraft.block.SubstanceCraftBlockItemIds;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.datagen.recipebuilder.ElectrolysisRecipeBuilder;
@@ -290,7 +291,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .requires(Items.PAPER, 3);
 
                 generateRecipes(SubstanceCraftBlocks.MIMOSA_WOOD, FeatureFlagSet.of(FeatureFlags.VANILLA));
-                //planksFromLogs(SubstanceCraftBlocks.MIMOSA_HOSTILIS_PLANKS, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_LOG), 4);
+                planksFromLogs(SubstanceCraftBlocks.MIMOSA_HOSTILIS_PLANKS, SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_LOGS.item(), 4);
                 woodFromLogs(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WOOD, SubstanceCraftBlocks.MIMOSA_HOSTILIS_LOG);
                 woodFromLogs(SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_WOOD, SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_LOG);
 

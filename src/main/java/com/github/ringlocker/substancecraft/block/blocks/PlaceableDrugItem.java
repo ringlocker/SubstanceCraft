@@ -1,4 +1,4 @@
-package com.github.ringlocker.substancecraft.block;
+package com.github.ringlocker.substancecraft.block.blocks;
 
 import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
 import com.github.ringlocker.substancecraft.item.Drug;

@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockItemTagId;
 
 public class SubstanceCraftBlockItemIds {
 
@@ -53,6 +54,10 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId POTTED_MIMOSA_HOSTILIS_SAPLING = create("potted_mimosa_hostilis_sapling");
     public static final BlockItemId MIMOSA_HOSTILIS_ROOT = create("mimosa_hostilis_root");
     public static final BlockItemId STRIPPED_MIMOSA_HOSTILIS_ROOT = create("stripped_mimosa_hostilis_root");
+
+    private static final Identifier MIMOSA_HOSTILIS_LOGS_LOCATION = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis_logs");
+
+    public static final BlockItemTagId MIMOSA_HOSTILIS_LOGS = BlockItemTagId.create(MIMOSA_HOSTILIS_LOGS_LOCATION, MIMOSA_HOSTILIS_LOGS_LOCATION);
 
     private static BlockItemId create(String name) {
         return new BlockItemId(

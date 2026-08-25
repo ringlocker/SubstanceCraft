@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
-import com.github.ringlocker.substancecraft.block.OneBlockHarvestablePlant;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.mojang.serialization.MapCodec;

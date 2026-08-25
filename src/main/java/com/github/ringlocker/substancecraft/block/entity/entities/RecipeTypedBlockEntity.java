@@ -1,5 +1,6 @@
-package com.github.ringlocker.substancecraft.block.entity;
+package com.github.ringlocker.substancecraft.block.entity.entities;
 
+import com.github.ringlocker.substancecraft.block.entity.RecipeList;
 import com.github.ringlocker.substancecraft.recipe.MultipleItemInput;
 import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
 import net.minecraft.core.BlockPos;
