@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "substancecraft:corn"
+  ],
+  "result": {
+    "id": "substancecraft:corn_crop"
+  }
+}
