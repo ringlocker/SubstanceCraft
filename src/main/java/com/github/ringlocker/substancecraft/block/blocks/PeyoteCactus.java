@@ -3,7 +3,9 @@ package com.github.ringlocker.substancecraft.block.blocks;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -38,9 +40,20 @@ public class PeyoteCactus extends MushroomWithGrowthStages {
         builder.add(AGE);
     }
 
+
     @Override
     public Item getDropItem() {
         return SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PEYOTE_CACTUS);
+    }
+
+    @Override
+    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        int rand = random.nextInt(21);
+        if (rand == 0) {
+            if (state.getValue(AGE) < maxAge) {
+                this.performBonemeal(level, level.getRandom(), pos, state);
+            }
+        }
     }
 
 }

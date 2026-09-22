@@ -285,10 +285,21 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
                 shapeless(
                         RecipeCategory.MISC,
+                        SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP)
+                )
+                        .requires(SubstanceCraftItems.CORN)
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CORN))
+                        .save(recipeOutput, key("corn"));
+
+                shapeless(
+                        RecipeCategory.MISC,
                         SubstanceCraftItems.JOINT
                 )
                         .requires(SubstanceCraftItems.MARIJUANA)
-                        .requires(Items.PAPER, 3);
+                        .requires(Items.PAPER, 3)
+                        .unlockedBy("has_item", has(SubstanceCraftItems.MARIJUANA))
+                        .unlockedBy("has_item", has(Items.PAPER))
+                        .save(recipeOutput, key("joint"));
 
                 generateRecipes(SubstanceCraftBlocks.MIMOSA_WOOD, FeatureFlagSet.of(FeatureFlags.VANILLA));
                 planksFromLogs(SubstanceCraftBlocks.MIMOSA_HOSTILIS_PLANKS, SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_LOGS.item(), 4);
@@ -434,7 +445,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.TOLUENE))
                         .save(recipeOutput, key("reform_xylene"));
 
-            RefineryRecipeBuilder.refine(
+                RefineryRecipeBuilder.refine(
                                 List.of(Ingredient.of(SubstanceCraftItems.BENZENE), Ingredient.of(SubstanceCraftItems.TOLUENE)),
                                 SubstanceCraftItems.XYLENE,
                                 SubstanceCraftItems.ACETONE,

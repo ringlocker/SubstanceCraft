@@ -1,22 +1,18 @@
 package com.github.ringlocker.substancecraft.datagen;
 
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
-import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import org.jetbrains.annotations.NotNull;
 
@@ -40,19 +36,6 @@ public class LootTableGenerator extends FabricBlockLootSubProvider {
         add(SubstanceCraftBlocks.FERMENTATION_TANK, createNameableBlockEntityTable(SubstanceCraftBlocks.FERMENTATION_TANK));
         add(SubstanceCraftBlocks.MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.MIXER));
         add(SubstanceCraftBlocks.HEATED_MIXER, createNameableBlockEntityTable(SubstanceCraftBlocks.HEATED_MIXER));
-
-
-        add(SubstanceCraftBlocks.CORN_CROP, createCropDrops(
-                SubstanceCraftBlocks.CORN_CROP, SubstanceCraftItems.CORN, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CORN_CROP),
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.CORN_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7))));
-
-        add(SubstanceCraftBlocks.COCA_CROP, createCropDrops(
-                SubstanceCraftBlocks.COCA_CROP, SubstanceCraftItems.COCA_LEAVES, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.COCA_CROP),
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.COCA_CROP).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CocaCrop.AGE_PROPERTY, 5))));
-
-        add(SubstanceCraftBlocks.GRAPEVINE, createCropDrops(
-                SubstanceCraftBlocks.GRAPEVINE, SubstanceCraftItems.GRAPES, SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.GRAPEVINE),
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(SubstanceCraftBlocks.GRAPEVINE).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CocaCrop.AGE_PROPERTY, 5))));
 
         add(SubstanceCraftBlocks.OIL_SHALE, block -> createSilkTouchDispatchTable(
                 block,

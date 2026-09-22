@@ -51,6 +51,7 @@ public class SubstanceCraftEffects {
     public static final Holder<MobEffect> SURFACE_WARP = register("surface_warp", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> DOUBLE_VISION = register("double_vision", new BasicEffect(MobEffectCategory.NEUTRAL));
     public static final Holder<MobEffect> ALCOHOL_POISONING = register("alcohol_poisoning", new SimpleEffects.AlcoholPoisoning());
+    public static final Holder<MobEffect> PATTERNS = register("patterns", new BasicEffect(MobEffectCategory.NEUTRAL));
 
     private static Holder<MobEffect> register(String id, MobEffect effect) {
         Identifier identifier = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, id);

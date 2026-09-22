@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class CocaCrop extends OneBlockHarvestablePlant {
+public class CocaCrop extends HarvestablePlant {
 
     private final MapCodec<CocaCrop> CODEC = simpleCodec(CocaCrop::new);
     public static final IntegerProperty AGE_PROPERTY = BlockStateProperties.AGE_5;
@@ -33,20 +33,55 @@ public class CocaCrop extends OneBlockHarvestablePlant {
     }
 
     @Override
+    public @NotNull MapCodec<CocaCrop> codec() {
+        return CODEC;
+    }
+
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE_PROPERTY);
     }
 
     @Override
-    public @NotNull MapCodec<CocaCrop> codec() {
-        return CODEC;
+    protected boolean breakToHarvest() {
+        return false;
     }
 
-    public void harvest(Level level, BlockPos pos) {
+    @Override
+    protected int ageAfterHarvest() {
+        return 1;
+    }
+
+    @Override
+    protected void harvest(Level level, BlockPos pos) {
         int leavesDropped = 1 + level.getRandom().nextInt(4);
         int seedsDropped = 1 + level.getRandom().nextInt(2);
         popResource(level, pos, new ItemStack(SubstanceCraftItems.COCA_LEAVES, leavesDropped));
         popResource(level, pos, new ItemStack(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.COCA_CROP), seedsDropped));
     }
 
+    @Override
+    protected int getMaxBonemealGrowAmount() {
+        return 1;
+    }
+
+    @Override
+    protected int getMinBonemealGrowAmount() {
+        return 1;
+    }
+
+    @Override
+    protected int getOptimalConditionGrowChance() {
+        return 16;
+    }
+
+    @Override
+    protected int getNormalGrowChance() {
+        return 24;
+    }
+
+    @Override
+    protected boolean requiresFarmland() {
+        return false;
+    }
 }

@@ -15,28 +15,29 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LevelEvent;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class TwoBlockTallBushCrop extends BushLikeCrop {
+public abstract class TwoBlockTallPlant extends HarvestablePlant {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
-    public final int oneBlockMaxAge;
 
-    public TwoBlockTallBushCrop(Properties properties, IntegerProperty age, int oneBlockMaxAge) {
-        super(properties, age);
-        this.registerDefaultState(this.defaultBlockState().setValue(this.AGE, 0).setValue(HALF, DoubleBlockHalf.LOWER));
-        this.oneBlockMaxAge = oneBlockMaxAge;
+    public TwoBlockTallPlant(Properties properties, IntegerProperty age, VoxelShape[] ageToShape) {
+        super(properties, age, ageToShape);
+        registerDefaultState(defaultBlockState().setValue(AGE, 0).setValue(HALF, DoubleBlockHalf.LOWER));
     }
+
+    public abstract int oneBlockMaxAge();
+    public abstract boolean synchronizeTopAndBottomAge();
 
     @Override
     protected @NotNull InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
@@ -49,8 +50,6 @@ public abstract class TwoBlockTallBushCrop extends BushLikeCrop {
         boolean isMaxAge = age == MAX_AGE;
         return !isMaxAge && stack.is(Items.BONE_MEAL) ? InteractionResult.PASS : super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }
-
-    protected abstract void harvest(Level level, BlockPos pos);
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
@@ -69,26 +68,20 @@ public abstract class TwoBlockTallBushCrop extends BushLikeCrop {
                 harvest = true;
             }
         }
-        if (harvest) {
-           harvest(level, pos);
+        if (harvest && !breakToHarvest()) {
+            harvest(level, pos);
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
-            if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-                level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                level.setBlock(pos, state.setValue(this.AGE, oneBlockMaxAge - 1), Block.UPDATE_CLIENTS);
-            } else {
-                level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                level.setBlock(pos.below(), state.setValue(this.AGE, oneBlockMaxAge - 1).setValue(HALF, DoubleBlockHalf.LOWER), Block.UPDATE_CLIENTS);
-            }
+            updateBlockStateAfterHarvest(state, level, pos);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
             return InteractionResult.SUCCESS_SERVER;
         } else {
-            return super.useWithoutItem(state, level, pos, player, hitResult);
+            return InteractionResult.PASS;
         }
     }
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        level.setBlock(pos, withWaterloggedState(level, pos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER)), Block.UPDATE_ALL);
+        level.setBlock(pos, withWaterloggedState(level, pos, defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER)), Block.UPDATE_ALL);
     }
 
     @Override
@@ -101,52 +94,92 @@ public abstract class TwoBlockTallBushCrop extends BushLikeCrop {
     }
 
     @Override
-    public @NotNull BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        if (!level.isClientSide()) {
-            if (player.isCreative()) {
-                onBreakInCreative(level, pos, state, player);
-            } else {
-                if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-                    popResource(level,  pos, new ItemStack(asBlock().asItem(), 1));
-                }
-            }
-        }
-        return super.playerWillDestroy(level, pos, state, player);
+    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @org.jspecify.annotations.Nullable BlockEntity blockEntity, ItemStack tool) {
+        if (MAX_AGE == state.getValue(AGE)) {
+            harvest(level, pos);
+            updateBlockStateAfterHarvest(state, level, pos);
+            BlockState air = Blocks.AIR.defaultBlockState();
+            level.setBlock(pos, air, Block.UPDATE_CLIENTS);
+            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, air));
+        } else super.playerDestroy(level, player, pos, state, blockEntity, tool);
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    protected boolean isRandomlyTicking(BlockState state) {
+        return super.isRandomlyTicking(state) && state.getValue(HALF) == DoubleBlockHalf.LOWER;
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+        return switch (state.getValue(HALF)) {
+            case DoubleBlockHalf.LOWER -> {
+                BlockState upper = level.getBlockState(pos.above());
+                if (upper.is(this)) {
+                    yield super.isValidBonemealTarget(level, pos, upper);
+                }
+                else yield super.isValidBonemealTarget(level, pos, state);
+            }
+            case DoubleBlockHalf.UPPER -> super.isValidBonemealTarget(level, pos, state);
+        };
+    }
+
+    private void updateBlockStateAfterHarvest(BlockState state, Level level, BlockPos pos) {
+        BlockState upper, lower;
+        BlockPos upperPos, lowerPos;
+        if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+            lower = state;
+            lowerPos = pos;
+            upper = level.getBlockState(pos.above());
+            upperPos = pos.above();
+        } else {
+            upper = state;
+            upperPos = pos;
+            lower = level.getBlockState(pos.below());
+            lowerPos = pos.below();
+        }
+
+        if (ageAfterHarvest() <= oneBlockMaxAge()) {
+            level.setBlock(lowerPos, lower.setValue(this.AGE, ageAfterHarvest()), Block.UPDATE_CLIENTS);
+            level.setBlock(upperPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
+        } else {
+            level.setBlock(lowerPos, lower.setValue(this.AGE, ageAfterHarvest()), Block.UPDATE_CLIENTS);
+            level.setBlock(upperPos, upper.setValue(this.AGE, ageAfterHarvest()), Block.UPDATE_CLIENTS);
+        }
+
+    }
+
+    @Override
+    protected void grow(ServerLevel level, BlockPos pos, BlockState state) {
         int age = state.getValue(AGE);
         if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-            if (age < oneBlockMaxAge) {
+            if (age < oneBlockMaxAge()) {
                 level.setBlock(pos, state.setValue(AGE, age + 1), Block.UPDATE_CLIENTS);
-            } else if (age == oneBlockMaxAge && level.getBlockState(pos.above(1)).is(Blocks.AIR)) {
+            } else if (age == oneBlockMaxAge() && level.getBlockState(pos.above(1)).is(Blocks.AIR)) {
                 level.setBlock(pos.above(1), state.setValue(AGE, age + 1).setValue(HALF, DoubleBlockHalf.UPPER), Block.UPDATE_CLIENTS);
+                if (synchronizeTopAndBottomAge())
+                    level.setBlock(pos, state.setValue(AGE, age + 1), Block.UPDATE_CLIENTS);
             } else {
                 BlockState upper = level.getBlockState(pos.above());
                 if (!(upper.is(this) && upper.getValue(HALF) == DoubleBlockHalf.UPPER)) return;
                 int upperAge = upper.getValue(AGE);
-                if (upperAge < MAX_AGE) level.setBlock(pos.above(), upper.setValue(AGE, upperAge + 1), Block.UPDATE_CLIENTS);
-                else level.setBlock(pos.above(), upper.setValue(AGE, upperAge), Block.UPDATE_CLIENTS);
+                if (upperAge < MAX_AGE) {
+                    level.setBlock(pos.above(), upper.setValue(AGE, upperAge + 1), Block.UPDATE_CLIENTS);
+                    if (synchronizeTopAndBottomAge())
+                        level.setBlock(pos, state.setValue(AGE, upperAge + 1), Block.UPDATE_CLIENTS);
+                }
             }
-        } else if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
-            if (age < MAX_AGE) level.setBlock(pos, state.setValue(AGE, age + 1), Block.UPDATE_CLIENTS);
-            else level.setBlock(pos, state.setValue(AGE, age), Block.UPDATE_CLIENTS);
         }
     }
 
-    private static void onBreakInCreative(Level level, BlockPos pos, BlockState state, Player player) {
-        BlockPos blockPos;
-        BlockState blockState;
-        DoubleBlockHalf doubleBlockHalf = state.getValue(HALF);
-        if (doubleBlockHalf == DoubleBlockHalf.UPPER && (blockState = level.getBlockState(blockPos = pos.below())).is(state.getBlock()) && blockState.getValue(HALF) == DoubleBlockHalf.LOWER) {
-            BlockState blockState2 = blockState.getFluidState().is(Fluids.WATER) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
-            level.setBlock(blockPos, blockState2, Block.UPDATE_ALL | Block.UPDATE_SUPPRESS_DROPS);
-            level.levelEvent(player, LevelEvent.PARTICLES_DESTROY_BLOCK, blockPos, Block.getId(blockState));
+    @Override
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+        if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+            growCrop(level, pos.below(), level.getBlockState(pos.below()), getRandomGrowAmount(random));
         }
+        else growCrop(level, pos, state, getRandomGrowAmount(random));
     }
 
-    private static BlockState withWaterloggedState(LevelReader levelReader, BlockPos pos, BlockState state) {
+    private BlockState withWaterloggedState(LevelReader levelReader, BlockPos pos, BlockState state) {
         if (state.hasProperty(BlockStateProperties.WATERLOGGED)) {
             return state.setValue(BlockStateProperties.WATERLOGGED, levelReader.isWaterAt(pos));
         }

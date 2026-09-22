@@ -38,7 +38,7 @@ public class PenjaminItem extends Item {
                 itemStack.setDamageValue(itemStack.getDamageValue() + 1);
             }
 
-            player.getCooldowns().addCooldown(itemStack, 5 * 20);
+            player.getCooldowns().addCooldown(itemStack, 50);
 
             level.playSound(
                     player,

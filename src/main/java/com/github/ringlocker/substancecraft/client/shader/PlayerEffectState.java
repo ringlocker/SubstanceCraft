@@ -19,7 +19,8 @@ public class PlayerEffectState {
             SubstanceCraftEffects.COLOR_RESOLUTION, -1,
             SubstanceCraftEffects.DYNAMIC_COLOR, -1,
             SubstanceCraftEffects.SURFACE_WARP, -1,
-            SubstanceCraftEffects.DOUBLE_VISION, -1
+            SubstanceCraftEffects.DOUBLE_VISION, -1,
+            SubstanceCraftEffects.PATTERNS, -1
     ));
 
     private static final Map<Holder<MobEffect>, Float> transitionState = new HashMap<>(Map.of(
@@ -28,7 +29,18 @@ public class PlayerEffectState {
             SubstanceCraftEffects.COLOR_RESOLUTION, 0.0F,
             SubstanceCraftEffects.DYNAMIC_COLOR, 0.0F,
             SubstanceCraftEffects.SURFACE_WARP, 0.0F,
-            SubstanceCraftEffects.DOUBLE_VISION, 0.0F
+            SubstanceCraftEffects.DOUBLE_VISION, 0.0F,
+            SubstanceCraftEffects.PATTERNS, 0.0F
+    ));
+
+    private static final Map<Holder<MobEffect>, Integer> ticksWithoutEffect = new HashMap<>(Map.of(
+            SubstanceCraftEffects.BLUR, -1,
+            SubstanceCraftEffects.COLOR_ENHANCEMENT, -1,
+            SubstanceCraftEffects.COLOR_RESOLUTION, -1,
+            SubstanceCraftEffects.DYNAMIC_COLOR, -1,
+            SubstanceCraftEffects.SURFACE_WARP, -1,
+            SubstanceCraftEffects.DOUBLE_VISION, -1,
+            SubstanceCraftEffects.PATTERNS, -1
     ));
 
     private static final int secondsToTransition = 3;
@@ -55,21 +67,24 @@ public class PlayerEffectState {
                         transitionState.put(mobEffect, Math.max(transitionState.get(mobEffect) - transitionPerTick, 0.0F));
                     }
                     effectAmplifiers.put(mobEffect, instance.getAmplifier());
+                    ticksWithoutEffect.put(mobEffect, -1);
                 }
             } else {
                 if (effectAmplifiers.get(mobEffect) != -1) {
-                    updateUniforms = true;
+                    ticksWithoutEffect.put(mobEffect, ticksWithoutEffect.get(mobEffect) + 1);
+                    if (ticksWithoutEffect.get(mobEffect) > 20) {
+                        updateUniforms = true;
+                        effectAmplifiers.put(mobEffect, -1);
+                        ticksWithoutEffect.put(mobEffect, -1);
+                        transitionState.put(mobEffect, 0.0F);
+                    }
                 }
-                effectAmplifiers.put(mobEffect, -1);
-                transitionState.put(mobEffect, 0.0F);
             }
         }
     }
 
     public static boolean isEnabled(Holder<MobEffect> effect) {
-        if (effectAmplifiers.containsKey(effect)) {
-            return effectAmplifiers.get(effect) != -1;
-        } else return false;
+        return strength(effect) > 0;
     }
 
     public static float strength(Holder<MobEffect> effect) {

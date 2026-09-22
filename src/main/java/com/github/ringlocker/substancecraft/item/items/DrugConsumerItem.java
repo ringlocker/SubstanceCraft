@@ -48,7 +48,7 @@ public class DrugConsumerItem extends Item {
             consumeItem.setCount(consumeItem.getCount() - 1);
             if (!level.isClientSide())
                 SubstanceEffectTicker.playerConsumeDrug((ServerPlayer) player, consumable.effect);
-            player.getCooldowns().addCooldown(itemStack, 8 * 20);
+            player.getCooldowns().addCooldown(itemStack, 100);
 
             level.playSound(
                     player,

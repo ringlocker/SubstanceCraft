@@ -83,7 +83,9 @@
 
   "death.attack.overdose": "%1$s overdosed",
   "death.attack.cardiac_arrest": "%1$s died from cardiac arrest",
+  "death.attack.cardiac_arrest.player": "%1$s died from cardiac arrest whilst fighting %2$s",
   "death.attack.alcohol_poisoning": "%1$s died from alcohol poisoning",
+  "death.attack.alcohol_poisoning.player": "%1$s died from alcohol poisoning whilst fighting %2$s",
 
   "entity.substancecraft.exotic_dealer": "Exotic Dealer",
 

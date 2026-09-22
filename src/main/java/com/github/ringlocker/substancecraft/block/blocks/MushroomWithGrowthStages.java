@@ -26,7 +26,7 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
     private static final VoxelShape SHAPE = Block.column(6.0, 0.0, 6.0);
 
     private final IntegerProperty AGE;
-    private final int maxAge;
+    protected final int maxAge;
     private final boolean doSpread;
 
     public MushroomWithGrowthStages(BlockBehaviour.Properties properties, int maxAge, IntegerProperty age, boolean doSpread) {
@@ -89,7 +89,7 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
         return List.of(new ItemStack(getDropItem(), state.getValue(AGE) + 1));
     }
 
-    private void trySpread(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    protected void trySpread(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (random.nextInt(25) == 0) {
             int max = 5;
             for (BlockPos blockPos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
