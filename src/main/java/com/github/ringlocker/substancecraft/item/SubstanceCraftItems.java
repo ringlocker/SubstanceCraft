@@ -133,7 +133,7 @@ public class SubstanceCraftItems {
     public static final Item XYLENE = registerItem("xylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, MatterState.LIQUID), new Item.Properties());
     public static final Item MESCALINE = registerItem("mescaline", properties -> new DrugItem(properties, Drug.MESCALINE), alwaysEatProperties());
     public static final Item EDIBLE = registerItem("edible", properties -> new DrugItem(properties, Drug.EDIBLE), alwaysEatProperties());
-    public static final Item JOINT = registerItem("joint", properties -> new DrugItem(properties, Drug.JOINT, smoke(0.8F, 5, 0, 2)), alwaysEatProperties());
+    public static final Item JOINT = registerItem("joint", properties -> new DrugItem(properties, Drug.JOINT, smoke(0.8F, 5, 0, 2)), alwaysEatProperties().durability(8).stacksTo(1));
     public static final Item BONG = registerItem("bong", properties -> new DrugConsumerItem(properties, List.of(consumable(MARIJUANA, Drug.FLOWER)), smoke(0.8F, 4, 1, 2)), alwaysEatProperties());
     public static final Item EMPTY_BONG = registerItem("empty_bong", properties -> new WaterFillableItem(properties, BONG), new Item.Properties());
     public static final Item LIVE_RESIN = registerItem("live_resin", Item::new, new Item.Properties());

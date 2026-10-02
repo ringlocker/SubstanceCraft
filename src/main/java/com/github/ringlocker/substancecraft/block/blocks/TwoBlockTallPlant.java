@@ -94,14 +94,21 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
     }
 
     @Override
-    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @org.jspecify.annotations.Nullable BlockEntity blockEntity, ItemStack tool) {
-        if (MAX_AGE == state.getValue(AGE)) {
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        boolean fullyGrown;
+        if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+            fullyGrown = level.getBlockState(pos.above()).getValue(AGE) == MAX_AGE;
+        } else {
+            fullyGrown = state.getValue(AGE) == MAX_AGE;
+        }
+        if (fullyGrown) {
             harvest(level, pos);
             updateBlockStateAfterHarvest(state, level, pos);
             BlockState air = Blocks.AIR.defaultBlockState();
             level.setBlock(pos, air, Block.UPDATE_CLIENTS);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, air));
-        } else super.playerDestroy(level, player, pos, state, blockEntity, tool);
+        } else return super.playerWillDestroy(level, pos, state, player);
+        return level.getBlockState(pos);
     }
 
     @Override
@@ -126,6 +133,7 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
     private void updateBlockStateAfterHarvest(BlockState state, Level level, BlockPos pos) {
         BlockState upper, lower;
         BlockPos upperPos, lowerPos;
+
         if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
             lower = state;
             lowerPos = pos;
@@ -136,6 +144,12 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
             upperPos = pos;
             lower = level.getBlockState(pos.below());
             lowerPos = pos.below();
+        }
+
+        if (breakToHarvest()) {
+            level.setBlock(lowerPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
+            level.setBlock(upperPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
+            return;
         }
 
         if (ageAfterHarvest() <= oneBlockMaxAge()) {

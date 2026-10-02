@@ -674,6 +674,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.MARIJUANA))
                         .unlockedBy("has_item", has(SubstanceCraftItems.BUTANE))
+                        .setOutputCount(4)
                         .save(recipeOutput, key("extract_live_resin"));
 
                 MixerRecipeBuilder.mix(

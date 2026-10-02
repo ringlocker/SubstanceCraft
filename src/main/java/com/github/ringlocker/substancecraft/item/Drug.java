@@ -19,7 +19,7 @@ public enum Drug {
             milligrams(20), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
     ),
     FLOWER(
-            milligrams(20), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
+            milligrams(4), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS
     ),
     LIVE_RESIN(
             milligrams(32), micrograms(400), seconds(75), seconds(3), seconds(20), fromID("stoned"), DrugSideEffect.THC_EFFECTS

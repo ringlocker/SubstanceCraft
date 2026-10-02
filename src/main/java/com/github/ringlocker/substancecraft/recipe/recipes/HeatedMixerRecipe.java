@@ -2,7 +2,6 @@ package com.github.ringlocker.substancecraft.recipe.recipes;
 
 import com.github.ringlocker.substancecraft.recipe.serializer.ByproductRecipeSerializer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;

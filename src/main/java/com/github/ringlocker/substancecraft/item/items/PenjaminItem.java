@@ -4,8 +4,6 @@ import com.github.ringlocker.substancecraft.effect.SubstanceEffectTicker;
 import com.github.ringlocker.substancecraft.item.Drug;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.util.particle.Smoke;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.joml.Vector3f;
 
 public class PenjaminItem extends Item {
 

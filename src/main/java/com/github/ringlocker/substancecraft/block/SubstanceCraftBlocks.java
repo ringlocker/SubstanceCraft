@@ -78,7 +78,7 @@ public class SubstanceCraftBlocks {
     public static final Block HEATED_MIXER = register(SubstanceCraftBlockItemIds.HEATED_MIXER, HeatedMixer::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
     public static final Block FERMENTATION_TANK = register(SubstanceCraftBlockItemIds.FERMENTATION_TANK, FermentationTank::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
     public static final Block CORN_CROP = register(SubstanceCraftBlockItemIds.CORN_CROP, CornCrop::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
-    public static final Block COCA_CROP = register(SubstanceCraftBlockItemIds.COCA_CROP, CocaCrop::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH));
+    public static final Block COCA_CROP = register(SubstanceCraftBlockItemIds.COCA_CROP, CocaCrop::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).sound(SoundType.CROP));
     public static final Block SYLVITE = register(SubstanceCraftBlockItemIds.SYLVITE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block SULFUR_ORE = register(SubstanceCraftBlockItemIds.SULFUR_ORE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block DEEPSLATE_SULFUR_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_SULFUR_ORE, Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.CALCITE));

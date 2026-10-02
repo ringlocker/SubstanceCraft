@@ -10,14 +10,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
 
 public abstract class HarvestablePlant extends GrowingPlantBlock {
 
@@ -31,6 +29,7 @@ public abstract class HarvestablePlant extends GrowingPlantBlock {
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        System.out.println("super usewithout item");
         if (MAX_AGE == state.getValue(AGE) && !breakToHarvest()) {
             harvest(level, pos);
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
@@ -44,7 +43,8 @@ public abstract class HarvestablePlant extends GrowingPlantBlock {
     }
 
     @Override
-    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        System.out.println("super playdestory");
         if (MAX_AGE == state.getValue(AGE)) {
             harvest(level, pos);
             BlockState air = Blocks.AIR.defaultBlockState();
@@ -57,5 +57,6 @@ public abstract class HarvestablePlant extends GrowingPlantBlock {
         }
         player.awardStat(Stats.BLOCK_MINED.get(this));
         player.causeFoodExhaustion(0.005F);
+        return level.getBlockState(pos);
     }
 }
