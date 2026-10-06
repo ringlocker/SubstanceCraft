@@ -1,12 +1,12 @@
 {
   "type": "minecraft:ore",
   "config": {
-    "discard_chance_on_air_exposure": 1.0,
-    "size": 30,
+    "discard_chance_on_air_exposure": 0.6,
+    "size": 16,
     "targets": [
       {
         "state": {
-          "Name": "substancecraft:oil_shale_block"
+          "Name": "substancecraft:salt_block"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

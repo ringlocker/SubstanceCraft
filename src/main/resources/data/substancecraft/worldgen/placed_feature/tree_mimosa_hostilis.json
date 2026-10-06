@@ -1,5 +1,5 @@
 {
-  "feature": "substancecraft:mimosa_hostilis",
+  "feature": "substancecraft:tree_mimosa_hostilis",
   "placement": [
     {
       "type": "minecraft:biome"
@@ -13,7 +13,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 60
+      "chance": 50
     },
     {
       "type": "minecraft:block_predicate_filter",

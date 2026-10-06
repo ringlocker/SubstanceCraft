@@ -1,13 +1,13 @@
 {
-  "feature": "substancecraft:oil_shale_vein",
+  "feature": "substancecraft:ore_halite",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 4
+      "count": 32
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 4
+      "chance": 8
     },
     {
       "type": "minecraft:in_square"
@@ -17,10 +17,10 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 16
+          "absolute": 128
         },
         "min_inclusive": {
-          "absolute": -48
+          "above_bottom": 0
         }
       }
     },

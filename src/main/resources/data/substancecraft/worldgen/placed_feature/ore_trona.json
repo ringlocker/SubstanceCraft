@@ -1,13 +1,13 @@
 {
-  "feature": "substancecraft:halite_vein",
+  "feature": "substancecraft:ore_trona",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": {
-        "type": "minecraft:uniform",
-        "max_inclusive": 5,
-        "min_inclusive": 3
-      }
+      "count": 32
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 16
     },
     {
       "type": "minecraft:in_square"
@@ -17,10 +17,10 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 256
+          "absolute": 48
         },
         "min_inclusive": {
-          "above_bottom": 0
+          "absolute": 0
         }
       }
     },

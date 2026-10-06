@@ -1066,6 +1066,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.OXYGEN))
                         .unlockedBy("has_item", has(SubstanceCraftItems.MANGANESE_DIOXIDE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.POTASSIUM_HYDROXIDE))
+                        .setOutputCount(2)
                         .save(recipeOutput, key("mix_potassium_permanganate"));
 
 

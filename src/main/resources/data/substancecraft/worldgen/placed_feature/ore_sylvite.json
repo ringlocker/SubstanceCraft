@@ -1,9 +1,9 @@
 {
-  "feature": "substancecraft:trona_vein",
+  "feature": "substancecraft:ore_sylvite",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 5
+      "count": 32
     },
     {
       "type": "minecraft:rarity_filter",
@@ -17,7 +17,7 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 72
+          "absolute": 96
         },
         "min_inclusive": {
           "absolute": 0
