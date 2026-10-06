@@ -61,7 +61,8 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SYLVITE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.SULFUR_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE);
-        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.TRONA);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.TRONA_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_TRONA_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PYROLUSITE_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.LIMESTONE);

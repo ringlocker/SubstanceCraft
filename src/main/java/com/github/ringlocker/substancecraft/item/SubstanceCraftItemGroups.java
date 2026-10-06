@@ -115,7 +115,8 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SYLVITE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SULFUR_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_SULFUR_ORE));
-        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_TRONA_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PYROLUSITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_PYROLUSITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.LIMESTONE));

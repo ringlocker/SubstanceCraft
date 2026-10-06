@@ -26,7 +26,8 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId SYLVITE = create("sylvite_block");
     public static final BlockItemId SULFUR_ORE = create("sulfur_ore");
     public static final BlockItemId DEEPSLATE_SULFUR_ORE = create("deepslate_sulfur_ore");
-    public static final BlockItemId TRONA = create("trona_block");
+    public static final BlockItemId TRONA_ORE = create("trona_ore");
+    public static final BlockItemId DEEPSLATE_TRONA_ORE = create("deepslate_trona_ore");
     public static final BlockItemId PYROLUSITE_ORE = create("pyrolusite_ore");
     public static final BlockItemId DEEPSLATE_PYROLUSITE_ORE = create("deepslate_pyrolusite_ore");
     public static final BlockItemId LIMESTONE = create("limestone_block");

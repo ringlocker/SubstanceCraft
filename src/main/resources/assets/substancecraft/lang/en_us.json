@@ -23,7 +23,8 @@
   "block.substancecraft.sylvite_block": "Sylvite Block",
   "block.substancecraft.sulfur_ore": "Sulfur Ore",
   "block.substancecraft.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
-  "block.substancecraft.trona_block": "Trona Block",
+  "block.substancecraft.trona_ore": "Trona Ore",
+  "block.substancecraft.deepslate_trona_ore": "Deepslate Trona Ore",
   "block.substancecraft.pyrolusite_ore": "Pyrolusite Ore",
   "block.substancecraft.deepslate_pyrolusite_ore": "Deepslate Pyrolusite Ore",
   "block.substancecraft.limestone_block": "Limestone",
@@ -222,5 +223,7 @@
   "item.substancecraft.pen_battery": "Pen Battery",
   "item.substancecraft.resin_pen": "Penjamin (Resin)",
   "item.substancecraft.rosin_pen": "Penjamin (Rosin)",
-  "item.substancecraft.dmt_pen": "Penjamin (DMT)"
+  "item.substancecraft.dmt_pen": "Penjamin (DMT)",
+  "item.substancecraft.dimethylamine": "Dimethylamine",
+  "item.substancecraft.trimethylamine": "Trimethylamine"
 }

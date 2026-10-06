@@ -142,7 +142,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         Advancement.Builder.advancement()
                 .parent(naturalResources)
                 .display(
-                        SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA),
+                        SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA_ORE),
                         Component.literal("Trona"),
                         Component.literal("Trona is found underground between y=0 and y=72"),
                         null,

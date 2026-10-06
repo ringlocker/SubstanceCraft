@@ -16,7 +16,7 @@
     "announce_to_chat": false,
     "description": "Trona is found underground between y=0 and y=72",
     "icon": {
-      "id": "substancecraft:trona_block"
+      "id": "substancecraft:trona_ore"
     },
     "show_toast": false,
     "title": "Trona"

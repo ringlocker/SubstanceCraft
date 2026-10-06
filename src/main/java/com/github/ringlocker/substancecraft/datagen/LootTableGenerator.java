@@ -73,7 +73,14 @@ public class LootTableGenerator extends FabricBlockLootSubProvider {
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
 
-        add(SubstanceCraftBlocks.TRONA, block -> createSilkTouchDispatchTable(
+        add(SubstanceCraftBlocks.TRONA_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.TRONA)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.DEEPSLATE_TRONA_ORE, block -> createSilkTouchDispatchTable(
                 block,
                 applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.TRONA)
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))

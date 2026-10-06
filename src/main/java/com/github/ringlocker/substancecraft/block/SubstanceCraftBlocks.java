@@ -82,7 +82,8 @@ public class SubstanceCraftBlocks {
     public static final Block SYLVITE = register(SubstanceCraftBlockItemIds.SYLVITE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block SULFUR_ORE = register(SubstanceCraftBlockItemIds.SULFUR_ORE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
     public static final Block DEEPSLATE_SULFUR_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_SULFUR_ORE, Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.CALCITE));
-    public static final Block TRONA = register(SubstanceCraftBlockItemIds.TRONA, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
+    public static final Block TRONA_ORE = register(SubstanceCraftBlockItemIds.TRONA_ORE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_TRONA_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_TRONA_ORE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
     public static final Block PYROLUSITE_ORE = register(SubstanceCraftBlockItemIds.PYROLUSITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
     public static final Block DEEPSLATE_PYROLUSITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_PYROLUSITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.STONE));
     public static final Block LIMESTONE = register(SubstanceCraftBlockItemIds.LIMESTONE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
