@@ -2,12 +2,7 @@ package com.github.ringlocker.substancecraft.client.datagen;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.block.SubstanceCraftBlocks;
-import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
-import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
-import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
-import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
-import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
-import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
+import com.github.ringlocker.substancecraft.block.blocks.*;
 import com.github.ringlocker.substancecraft.item.SubstanceCraftItems;
 import com.github.ringlocker.substancecraft.client.item.SubstanceTintColor;
 import com.github.ringlocker.substancecraft.item.items.SubstanceItem;
@@ -88,6 +83,8 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_PALLADIUM_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.VANADINITE_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_VANADINITE_ORE);
+        blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.ANISE_PLANT, BlockModelGenerators.PlantType.TINTED, AnisePlant.AGE, 0, 1, 2);
+
     }
 
     @Override

@@ -1,0 +1,120 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "substancecraft:marijuana_plant"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "block": "substancecraft:marijuana_plant",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "substancecraft:marijuana_plant"
+        }
+      ],
+      "functions": [
+        {
+          "enchantment": "minecraft:fortune",
+          "formula": "minecraft:binomial_with_bonus_count",
+          "function": "minecraft:apply_bonus",
+          "parameters": {
+            "extra": 2,
+            "probability": 0.5714286
+          }
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "block": "substancecraft:marijuana_plant",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "substancecraft:marijuana"
+        }
+      ],
+      "functions": [
+        {
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 2.0,
+            "min": 1.0
+          },
+          "function": "minecraft:set_count"
+        },
+        {
+          "enchantment": "minecraft:fortune",
+          "formula": "minecraft:uniform_bonus_count",
+          "function": "minecraft:apply_bonus",
+          "parameters": {
+            "bonusMultiplier": 1
+          }
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "block": "substancecraft:marijuana_plant",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "substancecraft:marijuana_trim"
+        }
+      ],
+      "functions": [
+        {
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 3.0,
+            "min": 1.0
+          },
+          "function": "minecraft:set_count"
+        },
+        {
+          "enchantment": "minecraft:fortune",
+          "formula": "minecraft:uniform_bonus_count",
+          "function": "minecraft:apply_bonus",
+          "parameters": {
+            "bonusMultiplier": 1
+          }
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

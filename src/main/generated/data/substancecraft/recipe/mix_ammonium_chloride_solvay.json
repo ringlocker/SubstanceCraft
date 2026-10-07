@@ -1,6 +1,11 @@
 {
   "type": "substancecraft:mixer",
-  "byproducts": [],
+  "byproducts": [
+    {
+      "count": 25,
+      "id": "substancecraft:sodium_bicarbonate"
+    }
+  ],
   "ingredients": [
     "substancecraft:carbon_dioxide",
     "substancecraft:ammonia",

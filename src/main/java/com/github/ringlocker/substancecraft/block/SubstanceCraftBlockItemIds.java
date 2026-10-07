@@ -63,6 +63,7 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId DEEPSLATE_CRYOLITE_ORE = create("deepslate_cryolite_ore");
     public static final BlockItemId VANADINITE_ORE = create("vanadinite_ore");
     public static final BlockItemId DEEPSLATE_VANADINITE_ORE = create("deepslate_vanadinite_ore");
+    public static final BlockItemId ANISE_PLANT = create("anise");
 
     private static final Identifier MIMOSA_HOSTILIS_LOGS_LOCATION = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis_logs");
 

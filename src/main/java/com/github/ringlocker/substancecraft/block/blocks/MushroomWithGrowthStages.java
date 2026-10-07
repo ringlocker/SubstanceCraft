@@ -7,52 +7,35 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.List;
 
-public abstract class MushroomWithGrowthStages extends VegetationBlock implements BonemealableBlock {
+public abstract class MushroomWithGrowthStages extends GrowingPlantBlock implements BonemealableBlock {
 
-    private static final VoxelShape SHAPE = Block.column(6.0, 0.0, 6.0);
+    protected boolean spreads = true;
 
-    private final IntegerProperty AGE;
-    protected final int maxAge;
-    private final boolean doSpread;
-
-    public MushroomWithGrowthStages(BlockBehaviour.Properties properties, int maxAge, IntegerProperty age, boolean doSpread) {
-        super(properties);
-        this.AGE = age;
-        this.maxAge = maxAge;
-        this.doSpread = doSpread;
+    public MushroomWithGrowthStages(BlockBehaviour.Properties properties, VoxelShape[] shape, IntegerProperty age) {
+        super(properties, shape, age);
         registerDefaultState(defaultBlockState().setValue(AGE, 0));
     }
 
-    @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE;
+    public void setSpreads(boolean spreads) {
+        this.spreads = spreads;
     }
 
     public abstract Item getDropItem();
 
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (doSpread) trySpread(state, level, pos, random);
-        int rand = (level.getBlockState(pos.below()).is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT)) ? random.nextInt(21) : random.nextInt(36);
-        if (rand == 0) {
-            if (state.getValue(AGE) < maxAge &&  level.getRawBrightness(pos, 0) < 13) {
-                this.performBonemeal(level, level.getRandom(), pos, state);
-            }
-        }
+        if (spreads) trySpread(state, level, pos, random);
+        super.randomTick(state, level, pos, random);
     }
 
     @Override
@@ -66,22 +49,6 @@ public abstract class MushroomWithGrowthStages extends VegetationBlock implement
         BlockState below = level.getBlockState(belowPos);
         if (below.is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT)) return true;
         return this.mayPlaceOn(below, level, belowPos);
-    }
-
-
-    @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
-        return state.getValue(AGE) < maxAge;
-    }
-
-    @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
-        return true;
-    }
-
-    @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        level.setBlock(pos, state.setValue(AGE, Math.min(state.getValue(AGE) + 1, maxAge)), Block.UPDATE_CLIENTS);
     }
 
     @Override

@@ -15,13 +15,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
@@ -31,13 +31,30 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
+    private int oneBlockMaxAge = 0;
+    private boolean synchronizeTopAndBottomAge = false;
+
+
     public TwoBlockTallPlant(Properties properties, IntegerProperty age, VoxelShape[] ageToShape) {
         super(properties, age, ageToShape);
         registerDefaultState(defaultBlockState().setValue(AGE, 0).setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
-    public abstract int oneBlockMaxAge();
-    public abstract boolean synchronizeTopAndBottomAge();
+    public int oneBlockMaxAge() {
+        return oneBlockMaxAge;
+    }
+
+    public void setOneBlockMaxAge(int oneBlockMaxAge) {
+        this.oneBlockMaxAge = oneBlockMaxAge;
+    }
+
+    public boolean synchronizeTopAndBottomAge() {
+        return synchronizeTopAndBottomAge;
+    }
+
+    public void setSynchronizeTopAndBottomAge(boolean synchronizeTopAndBottomAge) {
+        this.synchronizeTopAndBottomAge = synchronizeTopAndBottomAge;
+    }
 
     @Override
     protected @NotNull InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
@@ -50,6 +67,7 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
         boolean isMaxAge = age == MAX_AGE;
         return !isMaxAge && stack.is(Items.BONE_MEAL) ? InteractionResult.PASS : super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }
+
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
@@ -69,7 +87,7 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
             }
         }
         if (harvest && !breakToHarvest()) {
-            harvest(level, pos);
+            Block.dropResources(level.getBlockState(pos), level, pos);
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
             updateBlockStateAfterHarvest(state, level, pos);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
@@ -77,6 +95,38 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
         } else {
             return InteractionResult.PASS;
         }
+    }
+
+
+
+    @Override
+    public BlockState playerWillDestroy(final Level level, final BlockPos pos, final BlockState state, final Player player) {
+        BlockState upper;
+        BlockState lower;
+        BlockPos upperPos;
+        BlockPos lowerPos;
+        if (!level.isClientSide()) {
+
+            if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+                upperPos = pos.above();
+                upper = level.getBlockState(upperPos);
+                lowerPos = pos;
+                lower = state;
+            } else {
+                upper = state;
+                lowerPos = pos.below();
+                lower = level.getBlockState(lowerPos);
+            }
+
+            if ((state.getValue(HALF) == DoubleBlockHalf.LOWER && upper.is(state.getBlock()) && upper.getValue(HALF) == DoubleBlockHalf.UPPER) || state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+                BlockState newBlockState = lower.getFluidState().is(Fluids.WATER) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
+                level.setBlock(lowerPos, newBlockState, 35);
+                level.levelEvent(player, 2001, lowerPos, Block.getId(newBlockState));
+            }
+
+        }
+
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
@@ -91,24 +141,6 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
             return blockState.is(this) && blockState.getValue(HALF) == DoubleBlockHalf.LOWER;
         }
         return super.canSurvive(state, level, pos);
-    }
-
-    @Override
-    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        boolean fullyGrown;
-        if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-            fullyGrown = level.getBlockState(pos.above()).getValue(AGE) == MAX_AGE;
-        } else {
-            fullyGrown = state.getValue(AGE) == MAX_AGE;
-        }
-        if (fullyGrown) {
-            harvest(level, pos);
-            updateBlockStateAfterHarvest(state, level, pos);
-            BlockState air = Blocks.AIR.defaultBlockState();
-            level.setBlock(pos, air, Block.UPDATE_CLIENTS);
-            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, air));
-        } else return super.playerWillDestroy(level, pos, state, player);
-        return level.getBlockState(pos);
     }
 
     @Override

@@ -1,23 +1,7 @@
 package com.github.ringlocker.substancecraft.block;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
-import com.github.ringlocker.substancecraft.block.blocks.CocaCrop;
-import com.github.ringlocker.substancecraft.block.blocks.CornCrop;
-import com.github.ringlocker.substancecraft.block.blocks.ElectrolysisMachine;
-import com.github.ringlocker.substancecraft.block.blocks.Extractor;
-import com.github.ringlocker.substancecraft.block.blocks.FermentationTank;
-import com.github.ringlocker.substancecraft.block.blocks.Grapevine;
-import com.github.ringlocker.substancecraft.block.blocks.HashPress;
-import com.github.ringlocker.substancecraft.block.blocks.HeatedMixer;
-import com.github.ringlocker.substancecraft.block.blocks.MarijuanaPlant;
-import com.github.ringlocker.substancecraft.block.blocks.MimosaHostilisRoot;
-import com.github.ringlocker.substancecraft.block.blocks.Mixer;
-import com.github.ringlocker.substancecraft.block.blocks.Oxidizer;
-import com.github.ringlocker.substancecraft.block.blocks.PeyoteCactus;
-import com.github.ringlocker.substancecraft.block.blocks.PlaceableDrugItem;
-import com.github.ringlocker.substancecraft.block.blocks.PotentPsilocybinMushroom;
-import com.github.ringlocker.substancecraft.block.blocks.PsilocybinMushroom;
-import com.github.ringlocker.substancecraft.block.blocks.Refinery;
+import com.github.ringlocker.substancecraft.block.blocks.*;
 import com.github.ringlocker.substancecraft.item.Drug;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -119,6 +103,7 @@ public class SubstanceCraftBlocks {
     public static final Block DEEPSLATE_CRYOLITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_CRYOLITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
     public static final Block VANADINITE_ORE = register(SubstanceCraftBlockItemIds.VANADINITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
     public static final Block DEEPSLATE_VANADINITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_VANADINITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
+    public static final Block ANISE_PLANT = register(SubstanceCraftBlockItemIds.ANISE_PLANT, AnisePlant::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
 
     public static final BlockFamily MIMOSA_WOOD = new BlockFamily.Builder(MIMOSA_HOSTILIS_PLANKS)
             .log(MIMOSA_HOSTILIS_LOG)

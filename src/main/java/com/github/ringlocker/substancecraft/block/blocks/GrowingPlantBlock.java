@@ -26,6 +26,12 @@ public abstract class GrowingPlantBlock extends VegetationBlock implements Bonem
     protected final int MAX_AGE;
     protected final VoxelShape[] SHAPE_BY_AGE;
 
+    private int maxBonemealGrowAmount = 1;
+    private int minBonemealGrowAmount = 1;
+    private int optimalConditionGrowChance = 12;
+    private int normalGrowChance = 18;
+    private boolean requiresFarmland = true;
+
     protected GrowingPlantBlock(Properties properties, VoxelShape[] shapeByAge, IntegerProperty ageProperty) {
         super(properties);
         Optional<Property.Value<Integer>> optionalMaxAge = ageProperty.getAllValues().max(Comparator.comparingInt(Property.Value::value));
@@ -35,15 +41,49 @@ public abstract class GrowingPlantBlock extends VegetationBlock implements Bonem
         registerDefaultState(stateDefinition.any().setValue(AGE, 0));
     }
 
-    protected abstract int getMaxBonemealGrowAmount();
-    protected abstract int getMinBonemealGrowAmount();
-    protected abstract int getOptimalConditionGrowChance();
-    protected abstract int getNormalGrowChance();
-    protected abstract boolean requiresFarmland();
+    public void setMaxBonemealGrowAmount(int maxBonemealGrowAmount) {
+        this.maxBonemealGrowAmount = maxBonemealGrowAmount;
+    }
+
+    public void setMinBonemealGrowAmount(int minBonemealGrowAmount) {
+        this.minBonemealGrowAmount = minBonemealGrowAmount;
+    }
+
+    public void setOptimalConditionGrowChance(int optimalConditionGrowChance) {
+        this.optimalConditionGrowChance = optimalConditionGrowChance;
+    }
+
+    public void setNormalGrowChance(int normalGrowChance) {
+        this.normalGrowChance = normalGrowChance;
+    }
+
+    public void setRequiresFarmland(boolean requiresFarmland) {
+        this.requiresFarmland = requiresFarmland;
+    }
+
+    public int getMaxBonemealGrowAmount() {
+        return maxBonemealGrowAmount;
+    }
+
+    public int getMinBonemealGrowAmount() {
+        return minBonemealGrowAmount;
+    }
+
+    public int getOptimalConditionGrowChance() {
+        return optimalConditionGrowChance;
+    }
+
+    public int getNormalGrowChance() {
+        return normalGrowChance;
+    }
+
+    public boolean requiresFarmland() {
+        return requiresFarmland;
+    }
 
     @Override
     protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE_BY_AGE[state.getValue(AGE)];
+        return SHAPE_BY_AGE == null ? super.getShape(state, level, pos, context) : SHAPE_BY_AGE[state.getValue(AGE)];
     }
 
     @Override
@@ -63,6 +103,13 @@ public abstract class GrowingPlantBlock extends VegetationBlock implements Bonem
             if (state.getValue(AGE) < MAX_AGE) {
                 growCrop(level, pos, state, 1);
             }
+        }
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (!state.canSurvive(level, pos)) {
+            level.destroyBlock(pos, true);
         }
     }
 

@@ -175,6 +175,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.WINE_LEES);
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PEYOTE_CACTUS));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ANISE_PLANT));
     }
 
     private static void addSubstanceItems(CreativeModeTab.Output entries) {
