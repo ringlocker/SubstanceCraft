@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:vanadinite",
+    "substancecraft:ammonium_chloride",
+    "substancecraft:salt",
+    "substancecraft:distilled_water"
+  ],
+  "result": {
+    "count": 2,
+    "id": "substancecraft:vanadium_pentoxide"
+  },
+  "time": 800
+}

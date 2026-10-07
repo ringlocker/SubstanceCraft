@@ -1,7 +1,8 @@
 package com.github.ringlocker.substancecraft.item;
 
-public enum MatterState {
+public enum SubstanceTexture {
     SOLID,
+    INGOT,
     LIQUID,
     GAS
 }

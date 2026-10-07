@@ -21,5 +21,8 @@ public class OxidizerRecipeBuilder extends ByproductRecipeBuilder {
     public static OxidizerRecipeBuilder oxidize(List<Ingredient> ingredients, ItemLike result, int time) {
         return new OxidizerRecipeBuilder(result, ingredients, null, Optional.empty(), time);
     }
+    public static OxidizerRecipeBuilder oxidize(List<Ingredient> ingredients, ItemLike result, ItemStackTemplate catalyst, int time) {
+        return new OxidizerRecipeBuilder(result, ingredients, null, Optional.empty(), time);
+    }
 
 }

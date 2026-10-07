@@ -1,0 +1,11 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:raw_palladium"
+  ],
+  "result": {
+    "id": "substancecraft:palladium"
+  },
+  "time": 500
+}

@@ -22,4 +22,8 @@ public class HeatedMixerRecipeBuilder extends ByproductRecipeBuilder {
         return new HeatedMixerRecipeBuilder(ingredients, result, null, Optional.empty(), time);
     }
 
+    public static HeatedMixerRecipeBuilder mix(List<Ingredient> ingredients, ItemLike result, ItemStackTemplate catalyst, int time) {
+        return new HeatedMixerRecipeBuilder(ingredients, result, null, Optional.empty(), time);
+    }
+
 }

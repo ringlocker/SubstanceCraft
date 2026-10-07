@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:hydrogen",
+    "substancecraft:two_ethylanthraquinone"
+  ],
+  "result": {
+    "id": "substancecraft:hydrogen_peroxide"
+  },
+  "time": 800
+}

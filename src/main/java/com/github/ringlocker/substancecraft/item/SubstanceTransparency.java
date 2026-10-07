@@ -1,6 +1,6 @@
 package com.github.ringlocker.substancecraft.item;
 
-public enum Transparency {
+public enum SubstanceTransparency {
     OPAQUE,
     TRANSLUCENT,
     TRANSPARENT

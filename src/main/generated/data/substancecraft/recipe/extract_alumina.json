@@ -1,0 +1,14 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:bauxite",
+    "substancecraft:sodium_hydroxide",
+    "substancecraft:distilled_water"
+  ],
+  "result": {
+    "count": 2,
+    "id": "substancecraft:alumina"
+  },
+  "time": 1200
+}

@@ -3,12 +3,13 @@ package com.github.ringlocker.substancecraft.item;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import net.minecraft.resources.Identifier;
 
-public record SubstanceItemModelProvider(MatterState matterState, Transparency transparency) {
+public record SubstanceItemModelProvider(SubstanceTexture substanceTexture, SubstanceTransparency transparency) {
 
     private static final Identifier SOLID = identifier("item/solid");
     private static final Identifier LIQUID = identifier("item/liquid");
     private static final Identifier GAS = identifier("item/substance");
-    
+    private static final Identifier INGOT = identifier("item/empty");
+
     private static final Identifier SOLID_OPAQUE = identifier("item/opaque_solid_overlay");
     private static final Identifier SOLID_TRANSLUCENT = identifier("item/translucent_solid_overlay");
     private static final Identifier SOLID_TRANSPARENT = identifier("item/transparent_solid_overlay");
@@ -20,17 +21,20 @@ public record SubstanceItemModelProvider(MatterState matterState, Transparency t
     private static final Identifier GAS_OPAQUE = identifier("item/opaque_substance_overlay");
     private static final Identifier GAS_TRANSLUCENT = identifier("item/translucent_substance_overlay");
     private static final Identifier GAS_TRANSPARENT = identifier("item/transparent_substance_overlay");
+
+    private static final Identifier INGOT_OPAQUE = identifier("item/opaque_ingot_overlay");
     
     public Identifier getBaseTexture() {
-        return switch (matterState) {
+        return switch (substanceTexture) {
             case SOLID -> SOLID;
             case LIQUID -> LIQUID;
             case GAS -> GAS;
+            case INGOT -> INGOT;
         };
     }
 
     public Identifier getOverlayTexture() {
-        return switch (matterState) {
+        return switch (substanceTexture) {
             case SOLID -> switch (transparency) {
                 case OPAQUE -> SOLID_OPAQUE;
                 case TRANSLUCENT -> SOLID_TRANSLUCENT;
@@ -46,6 +50,7 @@ public record SubstanceItemModelProvider(MatterState matterState, Transparency t
                 case TRANSLUCENT -> GAS_TRANSLUCENT;
                 case TRANSPARENT -> GAS_TRANSPARENT;
             };
+            case INGOT -> INGOT_OPAQUE;
         };
     }
 

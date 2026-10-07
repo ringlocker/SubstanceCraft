@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "substancecraft:item/aluminum_chloride",
+    "tints": [
+      {
+        "type": "substancecraft:substance_item_tint",
+        "default": -2095121
+      }
+    ]
+  }
+}

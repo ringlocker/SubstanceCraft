@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:phthalic_anhydride",
+    "substancecraft:ethylbenzene"
+  ],
+  "result": {
+    "id": "substancecraft:two_ethylanthraquinone"
+  },
+  "time": 800
+}

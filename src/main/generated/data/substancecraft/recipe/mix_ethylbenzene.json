@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:ethylene",
+    "substancecraft:benzene"
+  ],
+  "result": {
+    "id": "substancecraft:ethylbenzene"
+  },
+  "time": 800
+}

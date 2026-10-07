@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:carbon_dioxide",
+    "substancecraft:ammonia",
+    "substancecraft:distilled_water",
+    "substancecraft:salt"
+  ],
+  "result": {
+    "count": 2,
+    "id": "substancecraft:ammonium_chloride"
+  },
+  "time": 800
+}

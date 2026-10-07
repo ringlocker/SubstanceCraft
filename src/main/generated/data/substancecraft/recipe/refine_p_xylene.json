@@ -1,0 +1,11 @@
+{
+  "type": "substancecraft:refinery",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:xylene"
+  ],
+  "result": {
+    "id": "substancecraft:p_xylene"
+  },
+  "time": 800
+}

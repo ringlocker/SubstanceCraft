@@ -80,6 +80,14 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.family(SubstanceCraftBlocks.MIMOSA_WOOD.getBaseBlock()).generateFor(SubstanceCraftBlocks.MIMOSA_WOOD);
         createSideTop(blockStateModelGenerator, SubstanceCraftBlocks.MIMOSA_HOSTILIS_ROOT);
         createSideTop(blockStateModelGenerator, SubstanceCraftBlocks.STRIPPED_MIMOSA_HOSTILIS_ROOT);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.BAUXITE_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_BAUXITE_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.CRYOLITE_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_CRYOLITE_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.PALLADIUM_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_PALLADIUM_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.VANADINITE_ORE);
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_VANADINITE_ORE);
     }
 
     @Override

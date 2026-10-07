@@ -18,10 +18,10 @@ public class SubstanceCraftDatagen implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         FabricDataGenerator.Pack pack = generator.createPack();
+        pack.addProvider(RecipeGenerator::new);
         pack.addProvider(BlockTagProvider::new);
         pack.addProvider(ItemTagProvider::new);
         pack.addProvider(LootTableGenerator::new);
-        pack.addProvider(RecipeGenerator::new);
         pack.addProvider(AdvancementGenerator::new);
         pack.addProvider(VillagerTradeProvider::new);
         pack.addProvider(PoiTypesProvider::new);

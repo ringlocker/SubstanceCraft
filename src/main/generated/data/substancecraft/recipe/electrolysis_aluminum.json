@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:electrolysis",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:alumina",
+    "substancecraft:cryolite"
+  ],
+  "result": {
+    "id": "substancecraft:aluminum"
+  },
+  "time": 1000
+}

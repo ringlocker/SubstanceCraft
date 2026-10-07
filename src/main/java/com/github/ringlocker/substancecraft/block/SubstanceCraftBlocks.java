@@ -111,6 +111,14 @@ public class SubstanceCraftBlocks {
     public static final Block POTTED_MIMOSA_HOSTILIS_SAPLING = register(SubstanceCraftBlockItemIds.POTTED_MIMOSA_HOSTILIS_SAPLING, properties -> new FlowerPotBlock(MIMOSA_HOSTILIS_SAPLING, properties), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
     public static final Block MIMOSA_HOSTILIS_ROOT = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_ROOT, MimosaHostilisRoot::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_ROOTS));
     public static final Block STRIPPED_MIMOSA_HOSTILIS_ROOT = register(SubstanceCraftBlockItemIds.STRIPPED_MIMOSA_HOSTILIS_ROOT, RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_ROOTS));
+    public static final Block BAUXITE_ORE = register(SubstanceCraftBlockItemIds.BAUXITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_BAUXITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_BAUXITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
+    public static final Block PALLADIUM_ORE = register(SubstanceCraftBlockItemIds.PALLADIUM_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_PALLADIUM_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_PALLADIUM_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
+    public static final Block CRYOLITE_ORE = register(SubstanceCraftBlockItemIds.CRYOLITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_CRYOLITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_CRYOLITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
+    public static final Block VANADINITE_ORE = register(SubstanceCraftBlockItemIds.VANADINITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_VANADINITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_VANADINITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
 
     public static final BlockFamily MIMOSA_WOOD = new BlockFamily.Builder(MIMOSA_HOSTILIS_PLANKS)
             .log(MIMOSA_HOSTILIS_LOG)

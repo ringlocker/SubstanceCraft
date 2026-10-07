@@ -55,6 +55,14 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId POTTED_MIMOSA_HOSTILIS_SAPLING = create("potted_mimosa_hostilis_sapling");
     public static final BlockItemId MIMOSA_HOSTILIS_ROOT = create("mimosa_hostilis_root");
     public static final BlockItemId STRIPPED_MIMOSA_HOSTILIS_ROOT = create("stripped_mimosa_hostilis_root");
+    public static final BlockItemId BAUXITE_ORE = create("bauxite_ore");
+    public static final BlockItemId DEEPSLATE_BAUXITE_ORE = create("deepslate_bauxite_ore");
+    public static final BlockItemId PALLADIUM_ORE = create("palladium_ore");
+    public static final BlockItemId DEEPSLATE_PALLADIUM_ORE = create("deepslate_palladium_ore");
+    public static final BlockItemId CRYOLITE_ORE = create("cryolite_ore");
+    public static final BlockItemId DEEPSLATE_CRYOLITE_ORE = create("deepslate_cryolite_ore");
+    public static final BlockItemId VANADINITE_ORE = create("vanadinite_ore");
+    public static final BlockItemId DEEPSLATE_VANADINITE_ORE = create("deepslate_vanadinite_ore");
 
     private static final Identifier MIMOSA_HOSTILIS_LOGS_LOCATION = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis_logs");
 

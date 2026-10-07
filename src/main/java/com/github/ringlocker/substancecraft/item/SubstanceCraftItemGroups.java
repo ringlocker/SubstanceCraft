@@ -30,7 +30,6 @@ public class SubstanceCraftItemGroups {
                     .displayItems((displayContext, entries) -> addDrugItems(entries))
                     .build());
 
-
         BLOCKS_ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
                 Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "blocks"),
                 FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.substancecraft.blocks"))
@@ -138,6 +137,14 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_BUTTON));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_PRESSURE_PLATE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_WALL));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.BAUXITE_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_BAUXITE_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PALLADIUM_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_PALLADIUM_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CRYOLITE_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_CRYOLITE_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.VANADINITE_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_VANADINITE_ORE));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {
@@ -150,6 +157,10 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.LIMESTONE);
         entries.accept(SubstanceCraftItems.PHOSPHORITE);
         entries.accept(SubstanceCraftItems.FLOUROAPATITE);
+        entries.accept(SubstanceCraftItems.BAUXITE);
+        entries.accept(SubstanceCraftItems.CRYOLITE);
+        entries.accept(SubstanceCraftItems.RAW_PALLADIUM);
+        entries.accept(SubstanceCraftItems.VANADINITE);
     }
 
     private static void addAgricultureItems(CreativeModeTab.Output entries) {

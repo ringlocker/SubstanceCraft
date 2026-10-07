@@ -2,11 +2,11 @@
   "type": "substancecraft:electrolysis",
   "byproducts": [
     {
-      "count": 15,
+      "count": 25,
       "id": "substancecraft:chlorine"
     },
     {
-      "count": 15,
+      "count": 25,
       "id": "substancecraft:hydrogen"
     }
   ],

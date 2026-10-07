@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:chlorine",
+    "substancecraft:aluminum"
+  ],
+  "result": {
+    "id": "substancecraft:aluminum_chloride"
+  },
+  "time": 800
+}

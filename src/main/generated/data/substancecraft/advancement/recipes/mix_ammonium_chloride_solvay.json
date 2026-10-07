@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "substancecraft:toluene"
+            "items": "substancecraft:distilled_water"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:reform_xylene_catalyst"
+        "recipe": "substancecraft:mix_ammonium_chloride_solvay"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "substancecraft:reform_xylene_catalyst"
+      "substancecraft:mix_ammonium_chloride_solvay"
     ]
   }
 }

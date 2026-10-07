@@ -1,0 +1,11 @@
+{
+  "type": "substancecraft:oxidizer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:o_xylene"
+  ],
+  "result": {
+    "id": "substancecraft:phthalic_anhydride"
+  },
+  "time": 1000
+}

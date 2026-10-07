@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:ammonia",
+    "substancecraft:hydrochloric_acid"
+  ],
+  "result": {
+    "id": "substancecraft:ammonium_chloride"
+  },
+  "time": 800
+}
