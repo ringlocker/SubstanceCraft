@@ -414,7 +414,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         for (Ingredient ingredient : ingredients) {
             Item item = getItemFromIngredient(ingredient);
             if (item == null) {
-                System.err.println("Could not find item for ingredient");
+                SubstanceCraft.LOGGER.warn("Could not find item for ingredient");
                 continue;
             }
             generateSynthesisTree(item, writer, itemAdvancement, counts);

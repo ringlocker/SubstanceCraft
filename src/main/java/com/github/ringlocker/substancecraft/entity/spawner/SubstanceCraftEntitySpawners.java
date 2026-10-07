@@ -1,5 +1,6 @@
 package com.github.ringlocker.substancecraft.entity.spawner;
 
+import com.github.ringlocker.substancecraft.SubstanceCraft;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.server.MinecraftServer;
@@ -21,7 +22,7 @@ public class SubstanceCraftEntitySpawners {
     public static void serverStart(MinecraftServer server) {
         ServerLevel level = server.getLevel(ServerLevel.OVERWORLD);
         if (level == null) {
-            System.err.println("Overworld loading failed!");
+            SubstanceCraft.LOGGER.warn("Could not get overworld instance");
             return;
         }
         overworld = level;

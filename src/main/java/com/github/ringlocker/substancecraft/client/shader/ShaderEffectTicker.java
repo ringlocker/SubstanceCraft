@@ -46,7 +46,7 @@ public class ShaderEffectTicker {
             );
             postPass.customUniforms.put(uniformName, newBuf);
         } catch (Exception e) {
-            System.err.println("Erroring creating Config Buffer: " + e.getMessage());
+            SubstanceCraft.LOGGER.warn("Failed to create config buffer for post effect");
         } finally {
             PlayerEffectState.updated();
         }
