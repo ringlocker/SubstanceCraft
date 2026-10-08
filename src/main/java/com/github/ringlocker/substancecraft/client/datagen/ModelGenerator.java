@@ -84,7 +84,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.VANADINITE_ORE);
         blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.DEEPSLATE_VANADINITE_ORE);
         blockStateModelGenerator.createCrossBlock(SubstanceCraftBlocks.ANISE_PLANT, BlockModelGenerators.PlantType.TINTED, AnisePlant.AGE, 0, 1, 2);
-
+        blockStateModelGenerator.createTrivialCube(SubstanceCraftBlocks.CHROMITITE);
     }
 
     @Override

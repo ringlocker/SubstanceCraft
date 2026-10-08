@@ -1,6 +1,9 @@
 {
   "type": "substancecraft:heated_mixer",
   "byproducts": [],
+  "catalyst": {
+    "id": "substancecraft:ammonium_chloride"
+  },
   "ingredients": [
     "substancecraft:ethylene",
     "substancecraft:benzene"

@@ -7,6 +7,7 @@ import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockItemTagId;
+import net.minecraft.tags.TagKey;
 
 public class SubstanceCraftBlockItemIds {
 
@@ -64,15 +65,27 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId VANADINITE_ORE = create("vanadinite_ore");
     public static final BlockItemId DEEPSLATE_VANADINITE_ORE = create("deepslate_vanadinite_ore");
     public static final BlockItemId ANISE_PLANT = create("anise");
+    public static final BlockItemId CHROMITE = create("chromitite_block");
 
-    private static final Identifier MIMOSA_HOSTILIS_LOGS_LOCATION = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis_logs");
+    private static final Identifier MIMOSA_HOSTILIS_LOGS_ID = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis_logs");
+    private static final Identifier SULFUR_ORES_ID = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "");
+    private static final Identifier PYROLUSITE_ORES_ID = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "");
 
-    public static final BlockItemTagId MIMOSA_HOSTILIS_LOGS = BlockItemTagId.create(MIMOSA_HOSTILIS_LOGS_LOCATION, MIMOSA_HOSTILIS_LOGS_LOCATION);
+    public static final BlockItemTagId MIMOSA_HOSTILIS_LOGS = createTag("mimosa_hostilis_logs");
+    public static final BlockItemTagId SULFUR_ORES = createTag("sulfur_ores");
+    public static final BlockItemTagId PYROLUSITE_ORES = createTag("pyrolusite_ores");
 
     private static BlockItemId create(String name) {
         return new BlockItemId(
                 ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name)),
                 ResourceKey.create(Registries.ITEM,  Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name))
+        );
+    }
+
+    private static BlockItemTagId createTag(String name) {
+        return new BlockItemTagId(
+                TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name)),
+                TagKey.create(Registries.ITEM,  Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name))
         );
     }
     

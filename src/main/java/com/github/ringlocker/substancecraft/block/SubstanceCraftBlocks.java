@@ -104,6 +104,7 @@ public class SubstanceCraftBlocks {
     public static final Block VANADINITE_ORE = register(SubstanceCraftBlockItemIds.VANADINITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
     public static final Block DEEPSLATE_VANADINITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_VANADINITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
     public static final Block ANISE_PLANT = register(SubstanceCraftBlockItemIds.ANISE_PLANT, AnisePlant::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
+    public static final Block CHROMITITE = register(SubstanceCraftBlockItemIds.CHROMITE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
 
     public static final BlockFamily MIMOSA_WOOD = new BlockFamily.Builder(MIMOSA_HOSTILIS_PLANKS)
             .log(MIMOSA_HOSTILIS_LOG)

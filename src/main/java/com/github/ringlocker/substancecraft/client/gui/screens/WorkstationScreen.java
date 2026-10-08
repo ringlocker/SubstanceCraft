@@ -45,6 +45,13 @@ public abstract class WorkstationScreen<
     protected static final Identifier RECIPE_HIGHLIGHTED_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/recipe_highlighted");
     protected static final Identifier RECIPE_SPRITE = Identifier.withDefaultNamespace("container/stonecutter/recipe");
 
+    protected static final Identifier SLOT_SPRITE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "slot");
+    protected static final Identifier CATALYST_SLOT_SPRITE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "catalyst_slot");
+    protected static final Identifier ARROW = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "arrow");
+    protected static final Identifier SHORT_ARROW = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "short_arrow");
+    protected static final Identifier ARROW_BACKGROUND = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "arrow_background");
+    protected static final Identifier SHORT_ARROW_BACKGROUND = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "short_arrow_background");
+
     protected static final int SCROLLER_WIDTH = 12;
     protected static final int SCROLLER_HEIGHT = 15;
     protected static final int RECIPES_COLUMNS = 4;
@@ -58,8 +65,22 @@ public abstract class WorkstationScreen<
     protected static final int SCROLLER_Y = 16;
     protected static final int PROGRESS_ARROW_X = 103;
     protected static final int PROGRESS_ARROW_Y = 30;
+    protected static final int PROGRESS_ARROW_SHORT_Y = 48;
+    protected static final int PROGRESS_ARROW_BACKGROUND_WIDTH = 7;
+    protected static final int PROGRESS_ARROW_HEIGHT = 26;
+    protected static final int SHORT_PROGRESS_ARROW_HEIGHT = 8;
 
-    protected Identifier BACKGROUND_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/1_input_0_byproduct.png");
+    protected static final int SLOT_WIDTH = 18;
+
+    protected static final int SLOT_HEIGHT = 18;
+    protected static final int FIRST_INPUT_X = 97;
+    protected static final int FIRST_INPUT_Y = 10;
+    protected static final int CATALYST_X = 151;
+    protected static final int CATALYST_Y = 28;
+    protected static final int OUTPUT_X = 97;
+    protected static final int OUTPUT_Y = 58;
+
+    protected Identifier BACKGROUND_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "textures/gui/workstation.png");
 
     protected float scrollOffset;
     protected boolean scrolling;
@@ -84,14 +105,14 @@ public abstract class WorkstationScreen<
 
     @Override
     public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
-        setBackgroundTexture(menu.getBlockEntity());
-        graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
+        graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 176, 166);
         Identifier scrollerTexture = this.isScrollBarActive() ? SCROLLER_SPRITE : SCROLLER_DISABLED_SPRITE;
         graphics.blitSprite(RenderPipelines.GUI_TEXTURED, scrollerTexture, leftPos + SCROLLER_X, topPos + SCROLLER_Y + (int) (41.0F * this.scrollOffset), SCROLLER_WIDTH, SCROLLER_HEIGHT);
 
-        renderProgressArrow(graphics, leftPos, topPos);
+        renderProgressArrow(graphics, menu.getBlockEntity().getRecipe(), leftPos, topPos);
         renderButtons(graphics, mouseX, mouseY, leftPos + RECIPES_X, topPos + RECIPES_Y, firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS));
         renderRecipes(graphics, leftPos + RECIPES_X, topPos + RECIPES_Y, firstVisibleIndex + (RECIPES_ROWS * RECIPES_COLUMNS));
+        renderSlots(graphics, menu.getBlockEntity().getRecipe());
     }
 
     @Override
@@ -118,6 +139,19 @@ public abstract class WorkstationScreen<
             int renderY = recipesY + row * RECIPES_IMAGE_SIZE_HEIGHT + 2;
             Identifier buttonStateTexture = getButtonStateTexture(index, mouseX, mouseY, renderX, renderY);
             guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, buttonStateTexture, renderX, renderY - 1, RECIPES_IMAGE_SIZE_WIDTH, RECIPES_IMAGE_SIZE_HEIGHT);
+        }
+    }
+
+    private void renderSlots(GuiGraphicsExtractor guiGraphics, ByproductRecipe recipe)
+    {
+        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, SLOT_SPRITE, leftPos + OUTPUT_X, topPos + OUTPUT_Y, SLOT_WIDTH, SLOT_HEIGHT);
+        if (recipe == null) return;
+        int inputs = recipe.getInputs().size();
+        for (int i = 0; i < inputs; i++) {
+            guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, SLOT_SPRITE, leftPos + FIRST_INPUT_X + (18 * (i % 4)), topPos + FIRST_INPUT_Y + (18 * ((i > 3 ? 1 : 0))), SLOT_WIDTH, SLOT_HEIGHT);
+        }
+        if (recipe.hasCatalyst()) {
+            guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, CATALYST_SLOT_SPRITE, leftPos + CATALYST_X, topPos + CATALYST_Y, SLOT_WIDTH, SLOT_HEIGHT);
         }
     }
 
@@ -228,9 +262,19 @@ public abstract class WorkstationScreen<
         return buttonStateTexture;
     }
 
-    private void renderProgressArrow(GuiGraphicsExtractor context, int x, int y) {
-        if (menu.isCrafting()) {
-            context.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, 176, 0, 8, menu.getScaledProgress(), 256, 256);
+    private void renderProgressArrow(GuiGraphicsExtractor context, ByproductRecipe recipe, int x, int y) {
+        if (recipe == null) return;
+
+        if (recipe.getInputs().size() < 5) {
+            context.blitSprite(RenderPipelines.GUI_TEXTURED, ARROW_BACKGROUND, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, PROGRESS_ARROW_BACKGROUND_WIDTH, PROGRESS_ARROW_HEIGHT);
+            if (menu.isCrafting()) {
+                context.blitSprite(RenderPipelines.GUI_TEXTURED, ARROW, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, 8, menu.getScaledProgress());
+            }
+        } else {
+            context.blitSprite(RenderPipelines.GUI_TEXTURED, SHORT_ARROW_BACKGROUND, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_SHORT_Y, PROGRESS_ARROW_BACKGROUND_WIDTH, SHORT_PROGRESS_ARROW_HEIGHT);
+            if (menu.isCrafting()) {
+                context.blitSprite(RenderPipelines.GUI_TEXTURED, SHORT_ARROW, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, 8, menu.getScaledProgress());
+            }
         }
     }
 
@@ -253,13 +297,6 @@ public abstract class WorkstationScreen<
         if (itemStack == null) return Component.empty();
         if (itemStack.getItem() == Items.POTION) return Component.literal("Water Bottle " + chance + "%");
         else return Component.literal(itemStack.getDisplayName().getString().replace("[", "").replace("]", "") + " " + chance + "%");
-    }
-
-    private void setBackgroundTexture(WorkstationBlockEntity<R> blockEntity) {
-        if (blockEntity.getSelectedRecipe().isEmpty()) return;
-        R recipe = blockEntity.getSelectedRecipe().get().value();
-        String texture = String.format("textures/gui/%d_input_%d_byproduct.png", recipe.getInputs().size(), recipe.getByproducts().size());
-        BACKGROUND_TEXTURE = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, texture);
     }
 
 }

@@ -1040,6 +1040,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.HYDROGEN), Ingredient.of(SubstanceCraftItems.TWO_ETHYLANTHRAQUINONE)),
                                 SubstanceCraftItems.HYDROGEN_PEROXIDE,
+                                new ItemStackTemplate(SubstanceCraftItems.PALLADIUM),
                                 800
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.HYDROGEN))
@@ -1095,8 +1096,20 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("mix_o_formyl_4_methoxyphenol"));
 
                 MixerRecipeBuilder.mix(
-                                List.of(Ingredient.of(SubstanceCraftItems.O_FORMYL_4_METHOXYPHENOL), Ingredient.of(SubstanceCraftItems.CHLOROFORM), Ingredient.of(SubstanceCraftItems.SODIUM_HYDROXIDE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
-                                SubstanceCraftItems.TWO_HYDROXY_5_METHYLBENZALDEHYDE,
+                                List.of(Ingredient.of(SubstanceCraftItems.O_FORMYL_4_METHOXYPHENOL), Ingredient.of(SubstanceCraftItems.METHANOL), Ingredient.of(SubstanceCraftItems.SODIUM_HYDROXIDE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
+                                SubstanceCraftItems.FOUR_METHOXYPHENOL,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.O_FORMYL_4_METHOXYPHENOL))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.METHANOL))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_HYDROXIDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .setOutputCount(2)
+                        .save(recipeOutput, key("mix_4_methoxyphenol"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.FOUR_METHOXYPHENOL), Ingredient.of(SubstanceCraftItems.CHLOROFORM), Ingredient.of(SubstanceCraftItems.SODIUM_HYDROXIDE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
+                                SubstanceCraftItems.TWO_HYDROXY_5_METHOXYBENZALDEHYDE,
                                 800
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.O_FORMYL_4_METHOXYPHENOL))
@@ -1104,14 +1117,14 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_HYDROXIDE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
                         .setOutputCount(2)
-                        .save(recipeOutput, key("mix_2_hydroxy_5_methylbenzaldehyde"));
+                        .save(recipeOutput, key("mix_2_hydroxy_4_methoxybenzaldehyde"));
 
                 MixerRecipeBuilder.mix(
-                                List.of(Ingredient.of(SubstanceCraftItems.TWO_HYDROXY_5_METHYLBENZALDEHYDE), Ingredient.of(SubstanceCraftItems.ACETONE), Ingredient.of(SubstanceCraftItems.POTASSIUM_CARBONATE), Ingredient.of(SubstanceCraftItems.ETHANOL), Ingredient.of(SubstanceCraftItems.DIMETHYL_SULFATE)),
+                                List.of(Ingredient.of(SubstanceCraftItems.TWO_HYDROXY_5_METHOXYBENZALDEHYDE), Ingredient.of(SubstanceCraftItems.ACETONE), Ingredient.of(SubstanceCraftItems.POTASSIUM_CARBONATE), Ingredient.of(SubstanceCraftItems.ETHANOL), Ingredient.of(SubstanceCraftItems.DIMETHYL_SULFATE)),
                                 SubstanceCraftItems.TWO_5_DIMETHOXYBENZALDEHYDE,
                                 800
                         )
-                        .unlockedBy("has_item", has(SubstanceCraftItems.TWO_HYDROXY_5_METHYLBENZALDEHYDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.TWO_HYDROXY_5_METHOXYBENZALDEHYDE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.ACETONE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.POTASSIUM_CARBONATE))
                         .unlockedBy("has_item", has(SubstanceCraftItems.ETHANOL))

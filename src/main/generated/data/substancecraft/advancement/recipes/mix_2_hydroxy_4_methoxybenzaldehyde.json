@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:mix_2_hydroxy_5_methylbenzaldehyde"
+        "recipe": "substancecraft:mix_2_hydroxy_4_methoxybenzaldehyde"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "substancecraft:mix_2_hydroxy_5_methylbenzaldehyde"
+      "substancecraft:mix_2_hydroxy_4_methoxybenzaldehyde"
     ]
   }
 }

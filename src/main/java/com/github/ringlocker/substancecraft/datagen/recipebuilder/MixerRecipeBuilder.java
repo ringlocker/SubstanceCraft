@@ -22,4 +22,8 @@ public class MixerRecipeBuilder extends ByproductRecipeBuilder {
         return new MixerRecipeBuilder(ingredients, result, null, Optional.empty(), time);
     }
 
+    public static MixerRecipeBuilder mix(List<Ingredient> ingredients, ItemLike result, ItemStackTemplate catalyst, int time) {
+        return new MixerRecipeBuilder(ingredients, result, null, Optional.of(catalyst), time);
+    }
+
 }

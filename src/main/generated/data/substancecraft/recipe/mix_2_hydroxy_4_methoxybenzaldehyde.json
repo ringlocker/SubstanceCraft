@@ -2,14 +2,14 @@
   "type": "substancecraft:mixer",
   "byproducts": [],
   "ingredients": [
-    "substancecraft:o_formyl_4_methoxyphenol",
+    "substancecraft:4_methoxyphenol",
     "substancecraft:chloroform",
     "substancecraft:sodium_hydroxide",
     "substancecraft:distilled_water"
   ],
   "result": {
     "count": 2,
-    "id": "substancecraft:2_hydroxy_5_methylbenzaldehyde"
+    "id": "substancecraft:2_hydroxy_5_methoxybenzaldehyde"
   },
   "time": 800
 }

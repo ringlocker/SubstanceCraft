@@ -192,7 +192,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .display(
                         SubstanceCraftItems.MARIJUANA_TRIM,
                         Component.literal("Marijuana"),
-                        Component.literal("Marijuana can naturally occur in jungle biomes and marijuana seeds can be found in jungle pyramid chests. Harvested by right clicking, grows twice as fast on farmland"),
+                        Component.literal("Marijuana can naturally occur in jungle biomes and marijuana seeds can be found in jungle pyramid chests. Harvested by right clicking, grows faster on farmland"),
                         null,
                         AdvancementType.TASK,
                         false,
@@ -394,6 +394,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         generateSynthesisTree(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE_TAB, writer, syntheses, counts);
 
         RecipeCache.clear();
+
     }
 
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {

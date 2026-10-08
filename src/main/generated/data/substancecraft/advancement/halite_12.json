@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:2_5_dimethoxybenzaldehyde_0",
+  "parent": "substancecraft:salt_12",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,13 +7,13 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Mixer",
+    "description": "",
     "icon": {
-      "id": "substancecraft:2_hydroxy_5_methylbenzaldehyde"
+      "id": "substancecraft:halite"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.2_hydroxy_5_methylbenzaldehyde"
+      "translate": "item.substancecraft.halite"
     }
   },
   "requirements": [

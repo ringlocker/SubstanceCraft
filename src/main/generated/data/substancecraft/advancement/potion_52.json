@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:distilled_water_42",
+  "parent": "substancecraft:distilled_water_41",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

@@ -23,7 +23,7 @@ public class HeatedMixerRecipeBuilder extends ByproductRecipeBuilder {
     }
 
     public static HeatedMixerRecipeBuilder mix(List<Ingredient> ingredients, ItemLike result, ItemStackTemplate catalyst, int time) {
-        return new HeatedMixerRecipeBuilder(ingredients, result, null, Optional.empty(), time);
+        return new HeatedMixerRecipeBuilder(ingredients, result, null, Optional.of(catalyst), time);
     }
 
 }

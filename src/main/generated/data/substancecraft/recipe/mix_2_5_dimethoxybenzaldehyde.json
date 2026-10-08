@@ -2,7 +2,7 @@
   "type": "substancecraft:mixer",
   "byproducts": [],
   "ingredients": [
-    "substancecraft:2_hydroxy_5_methylbenzaldehyde",
+    "substancecraft:2_hydroxy_5_methoxybenzaldehyde",
     "substancecraft:acetone",
     "substancecraft:potassium_carbonate",
     "substancecraft:ethanol",

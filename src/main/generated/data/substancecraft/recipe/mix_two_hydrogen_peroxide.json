@@ -1,6 +1,9 @@
 {
   "type": "substancecraft:mixer",
   "byproducts": [],
+  "catalyst": {
+    "id": "substancecraft:palladium"
+  },
   "ingredients": [
     "substancecraft:hydrogen",
     "substancecraft:two_ethylanthraquinone"

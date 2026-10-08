@@ -22,7 +22,7 @@ public class OxidizerRecipeBuilder extends ByproductRecipeBuilder {
         return new OxidizerRecipeBuilder(result, ingredients, null, Optional.empty(), time);
     }
     public static OxidizerRecipeBuilder oxidize(List<Ingredient> ingredients, ItemLike result, ItemStackTemplate catalyst, int time) {
-        return new OxidizerRecipeBuilder(result, ingredients, null, Optional.empty(), time);
+        return new OxidizerRecipeBuilder(result, ingredients, null, Optional.of(catalyst), time);
     }
 
 }

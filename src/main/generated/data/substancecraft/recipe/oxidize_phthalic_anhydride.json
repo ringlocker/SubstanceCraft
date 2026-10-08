@@ -1,6 +1,9 @@
 {
   "type": "substancecraft:oxidizer",
   "byproducts": [],
+  "catalyst": {
+    "id": "substancecraft:vanadium_pentoxide"
+  },
   "ingredients": [
     "substancecraft:o_xylene"
   ],

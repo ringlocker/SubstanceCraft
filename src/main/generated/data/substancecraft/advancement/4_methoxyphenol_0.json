@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:2_hydroxy_5_methoxybenzaldehyde_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Mixer",
+    "icon": {
+      "id": "substancecraft:4_methoxyphenol"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.4_methoxyphenol"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

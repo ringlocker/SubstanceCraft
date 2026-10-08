@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ethane_4",
+  "parent": "substancecraft:ethane_3",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
