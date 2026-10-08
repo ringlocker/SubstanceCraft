@@ -50,29 +50,29 @@ public class SubstanceCraftBlocks {
     private static final TreeGrower MIMOSA_HOSTILIS = new TreeGrower("mimosa_hostilis_tree_grower", Optional.empty(), Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis"))), Optional.empty());
     public static final BlockSetType MIMOSA = new BlockSetType("mimosa");
 
-    public static final Block MARIJUANA_PLANT = register(SubstanceCraftBlockItemIds.MARIJUANA_PLANT, MarijuanaPlant::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
+    public static final Block MARIJUANA_PLANT = register(SubstanceCraftBlockItemIds.MARIJUANA_PLANT, MarijuanaPlant::new, genericBush());
     public static final Block HASH_PRESS = register(SubstanceCraftBlockItemIds.HASH_PRESS, HashPress::new, BlockBehaviour.Properties.of().strength(3.5F));
     public static final Block REFINERY = register(SubstanceCraftBlockItemIds.REFINERY, Refinery::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
-    public static final Block OIL_SHALE = register(SubstanceCraftBlockItemIds.OIL_SHALE, Block::new, BlockBehaviour.Properties.of().strength(0.6F).sound(SoundType.GRAVEL));
+    public static final Block OIL_SHALE = register(SubstanceCraftBlockItemIds.OIL_SHALE, Block::new, genericRock());
     public static final Block ELECTROLYSIS_MACHINE = register(SubstanceCraftBlockItemIds.ELECTROLYSIS_MACHINE, ElectrolysisMachine::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
     public static final Block OXIDATION_MACHINE = register(SubstanceCraftBlockItemIds.OXIDATION_MACHINE, Oxidizer::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
     public static final Block EXTRACTOR = register(SubstanceCraftBlockItemIds.EXTRACTOR, Extractor::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
-    public static final Block HALITE = register(SubstanceCraftBlockItemIds.HALITE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
+    public static final Block HALITE = register(SubstanceCraftBlockItemIds.HALITE, Block::new, genericRock(MapColor.TERRACOTTA_WHITE, SoundType.CALCITE));
     public static final Block MIXER = register(SubstanceCraftBlockItemIds.MIXER, Mixer::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
     public static final Block HEATED_MIXER = register(SubstanceCraftBlockItemIds.HEATED_MIXER, HeatedMixer::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
     public static final Block FERMENTATION_TANK = register(SubstanceCraftBlockItemIds.FERMENTATION_TANK, FermentationTank::new, BlockBehaviour.Properties.of().strength(3.5F).sound(SoundType.STONE));
-    public static final Block CORN_CROP = register(SubstanceCraftBlockItemIds.CORN_CROP, CornCrop::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
-    public static final Block COCA_CROP = register(SubstanceCraftBlockItemIds.COCA_CROP, CocaCrop::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).sound(SoundType.CROP));
-    public static final Block SYLVITE = register(SubstanceCraftBlockItemIds.SYLVITE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
-    public static final Block SULFUR_ORE = register(SubstanceCraftBlockItemIds.SULFUR_ORE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
-    public static final Block DEEPSLATE_SULFUR_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_SULFUR_ORE, Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.CALCITE));
-    public static final Block TRONA_ORE = register(SubstanceCraftBlockItemIds.TRONA_ORE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
-    public static final Block DEEPSLATE_TRONA_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_TRONA_ORE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
-    public static final Block PYROLUSITE_ORE = register(SubstanceCraftBlockItemIds.PYROLUSITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
-    public static final Block DEEPSLATE_PYROLUSITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_PYROLUSITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(4.5F, 3.0F).sound(SoundType.STONE));
-    public static final Block LIMESTONE = register(SubstanceCraftBlockItemIds.LIMESTONE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
-    public static final Block PHOSPHORITE = register(SubstanceCraftBlockItemIds.PHOSPHORITE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.CALCITE));
-    public static final Block GRAPEVINE = register(SubstanceCraftBlockItemIds.GRAPEVINE, Grapevine::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollision().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
+    public static final Block CORN_CROP = register(SubstanceCraftBlockItemIds.CORN_CROP, CornCrop::new, genericCrop());
+    public static final Block COCA_CROP = register(SubstanceCraftBlockItemIds.COCA_CROP, CocaCrop::new, genericCrop());
+    public static final Block SYLVITE = register(SubstanceCraftBlockItemIds.SYLVITE, Block::new, genericRock(MapColor.TERRACOTTA_ORANGE, SoundType.CALCITE));
+    public static final Block SULFUR_ORE = register(SubstanceCraftBlockItemIds.SULFUR_ORE, Block::new, genericOre());
+    public static final Block DEEPSLATE_SULFUR_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_SULFUR_ORE, Block::new, genericDeepslateOre());
+    public static final Block TRONA_ORE = register(SubstanceCraftBlockItemIds.TRONA_ORE, Block::new, genericOre());
+    public static final Block DEEPSLATE_TRONA_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_TRONA_ORE, Block::new, genericDeepslateOre());
+    public static final Block PYROLUSITE_ORE = register(SubstanceCraftBlockItemIds.PYROLUSITE_ORE, Block::new, genericOre());
+    public static final Block DEEPSLATE_PYROLUSITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_PYROLUSITE_ORE, Block::new, genericDeepslateOre());
+    public static final Block LIMESTONE = register(SubstanceCraftBlockItemIds.LIMESTONE, Block::new, genericRock(MapColor.SAND));
+    public static final Block PHOSPHORITE = register(SubstanceCraftBlockItemIds.PHOSPHORITE, Block::new, genericRock());
+    public static final Block GRAPEVINE = register(SubstanceCraftBlockItemIds.GRAPEVINE, Grapevine::new, genericBush());
     public static final Block PSILOCYBIN = registerPlaceableDrug(SubstanceCraftBlockItemIds.PSILOCYBIN, PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_1);
     public static final Block PEYOTE_CACTUS = register(SubstanceCraftBlockItemIds.PEYOTE_CACTUS, PeyoteCactus::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.4F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
     public static final Block PALE_PSILOCYBIN = registerPlaceableDrug(SubstanceCraftBlockItemIds.PALE_PSILOCYBIN, PotentPsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_2);
@@ -95,16 +95,16 @@ public class SubstanceCraftBlocks {
     public static final Block POTTED_MIMOSA_HOSTILIS_SAPLING = register(SubstanceCraftBlockItemIds.POTTED_MIMOSA_HOSTILIS_SAPLING, properties -> new FlowerPotBlock(MIMOSA_HOSTILIS_SAPLING, properties), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
     public static final Block MIMOSA_HOSTILIS_ROOT = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_ROOT, MimosaHostilisRoot::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_ROOTS));
     public static final Block STRIPPED_MIMOSA_HOSTILIS_ROOT = register(SubstanceCraftBlockItemIds.STRIPPED_MIMOSA_HOSTILIS_ROOT, RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_ROOTS));
-    public static final Block BAUXITE_ORE = register(SubstanceCraftBlockItemIds.BAUXITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
-    public static final Block DEEPSLATE_BAUXITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_BAUXITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
-    public static final Block PALLADIUM_ORE = register(SubstanceCraftBlockItemIds.PALLADIUM_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
-    public static final Block DEEPSLATE_PALLADIUM_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_PALLADIUM_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
-    public static final Block CRYOLITE_ORE = register(SubstanceCraftBlockItemIds.CRYOLITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
-    public static final Block DEEPSLATE_CRYOLITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_CRYOLITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
-    public static final Block VANADINITE_ORE = register(SubstanceCraftBlockItemIds.VANADINITE_ORE, Block::new, BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE));
-    public static final Block DEEPSLATE_VANADINITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_VANADINITE_ORE, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE));
-    public static final Block ANISE_PLANT = register(SubstanceCraftBlockItemIds.ANISE_PLANT, AnisePlant::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
-    public static final Block CHROMITITE = register(SubstanceCraftBlockItemIds.CHROMITE, Block::new, BlockBehaviour.Properties.of().strength(1.5F, 6.0F).sound(SoundType.STONE));
+    public static final Block BAUXITE_ORE = register(SubstanceCraftBlockItemIds.BAUXITE_ORE, Block::new, genericOre());
+    public static final Block DEEPSLATE_BAUXITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_BAUXITE_ORE, Block::new, genericDeepslateOre());
+    public static final Block PALLADIUM_ORE = register(SubstanceCraftBlockItemIds.PALLADIUM_ORE, Block::new, genericOre());
+    public static final Block DEEPSLATE_PALLADIUM_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_PALLADIUM_ORE, Block::new, genericDeepslateOre());
+    public static final Block CRYOLITE_ORE = register(SubstanceCraftBlockItemIds.CRYOLITE_ORE, Block::new, genericOre());
+    public static final Block DEEPSLATE_CRYOLITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_CRYOLITE_ORE, Block::new, genericDeepslateOre());
+    public static final Block VANADINITE_ORE = register(SubstanceCraftBlockItemIds.VANADINITE_ORE, Block::new, genericOre());
+    public static final Block DEEPSLATE_VANADINITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_VANADINITE_ORE, Block::new, genericDeepslateOre());
+    public static final Block ANISE_PLANT = register(SubstanceCraftBlockItemIds.ANISE_PLANT, AnisePlant::new, genericFlower());
+    public static final Block CHROMITITE = register(SubstanceCraftBlockItemIds.CHROMITE, Block::new, genericRock());
 
     public static final BlockFamily MIMOSA_WOOD = new BlockFamily.Builder(MIMOSA_HOSTILIS_PLANKS)
             .log(MIMOSA_HOSTILIS_LOG)
@@ -162,6 +162,38 @@ public class SubstanceCraftBlocks {
 
     private static BlockBehaviour.Properties logProperties(MapColor topColor, MapColor sideColor, SoundType soundType) {
         return BlockBehaviour.Properties.of().mapColor(state -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : sideColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(soundType).ignitedByLava();
+    }
+
+    private static BlockBehaviour.Properties genericDeepslateOre() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE).requiresCorrectToolForDrops();
+    }
+
+    private static BlockBehaviour.Properties genericOre() {
+        return BlockBehaviour.Properties.of().strength(3.0F, 3.0F).sound(SoundType.STONE).requiresCorrectToolForDrops().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM);
+    }
+
+    private static BlockBehaviour.Properties genericRock(MapColor mapColor) {
+        return genericRock(mapColor, SoundType.STONE);
+    }
+
+    private static BlockBehaviour.Properties genericRock(MapColor mapColor, SoundType soundType) {
+        return BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F).sound(soundType);
+    }
+
+    private static BlockBehaviour.Properties genericRock() {
+        return genericRock(MapColor.STONE);
+    }
+
+    private static BlockBehaviour.Properties genericCrop() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
+    }
+
+    private static BlockBehaviour.Properties genericBush() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY);
+    }
+
+    private static BlockBehaviour.Properties genericFlower() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().pushReaction(PushReaction.DESTROY);
     }
 
     public static void registerBlocks() {

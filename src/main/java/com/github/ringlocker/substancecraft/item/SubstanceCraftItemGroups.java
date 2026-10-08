@@ -145,6 +145,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_CRYOLITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.VANADINITE_ORE));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.DEEPSLATE_VANADINITE_ORE));
+        entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.CHROMITITE));
     }
 
     private static void addMaterialItems(CreativeModeTab.Output entries) {
@@ -161,6 +162,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.CRYOLITE);
         entries.accept(SubstanceCraftItems.RAW_PALLADIUM);
         entries.accept(SubstanceCraftItems.VANADINITE);
+        entries.accept(SubstanceCraftItems.CHROMITE);
     }
 
     private static void addAgricultureItems(CreativeModeTab.Output entries) {
@@ -175,6 +177,7 @@ public class SubstanceCraftItemGroups {
         entries.accept(SubstanceCraftItems.WINE_LEES);
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PEYOTE_CACTUS));
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIMOSA_HOSTILIS_SAPLING));
+        entries.accept(SubstanceCraftItems.MIMOSA_HOSTILIS_ROOT_BARK);
         entries.accept(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ANISE_PLANT));
     }
 

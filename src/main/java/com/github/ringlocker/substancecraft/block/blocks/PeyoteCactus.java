@@ -16,9 +16,9 @@ public class PeyoteCactus extends GrowingPlantBlock {
     public static IntegerProperty AGE = IntegerProperty.create("age", 0, 2);
     public static final MapCodec<PeyoteCactus> CODEC = simpleCodec(PeyoteCactus::new);
     private static final VoxelShape[] SHAPE = new VoxelShape[]{
-            Block.column(6.0, 0.0, 6.0),
-            Block.column(6.0, 0.0, 6.0),
-            Block.column(6.0, 0.0, 6.0)
+            Block.column(4.0, 0.0, 4.0),
+            Block.column(8.0, 0.0, 6.0),
+            Block.column(10.0, 0.0, 7.0)
     };
 
     public PeyoteCactus(Properties properties) {

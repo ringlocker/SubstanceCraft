@@ -1,0 +1,13 @@
+{
+  "gives": {
+    "count": 16,
+    "id": "substancecraft:cash"
+  },
+  "max_uses": 16.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 8.0,
+    "id": "substancecraft:marijuana_trim"
+  },
+  "xp": 3.0
+}

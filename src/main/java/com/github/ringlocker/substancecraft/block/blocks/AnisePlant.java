@@ -13,9 +13,9 @@ public class AnisePlant extends GrowingPlantBlock {
     public static IntegerProperty AGE = IntegerProperty.create("age", 0, 2);
     public static final MapCodec<AnisePlant> CODEC = simpleCodec(AnisePlant::new);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
-            Block.box(6.0D, 0.0D, 6.0D, 10.0D, 5.0D, 10.0D),
-            Block.box(5.0D, 0.0D, 5.0D, 11.0D, 7.0D, 11.0D),
-            Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D),
+            Block.column(6.0, 0.0, 8.0),
+            Block.column(10.0, 0.0, 13.0),
+            Block.column(14.0, 0.0, 16.0)
     };
 
     public AnisePlant(Properties properties) {

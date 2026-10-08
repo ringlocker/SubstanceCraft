@@ -1,0 +1,12 @@
+{
+  "values": [
+    "substancecraft:salt_block",
+    "substancecraft:sylvite_block",
+    "substancecraft:phosphorite_block",
+    "substancecraft:limestone_block",
+    "substancecraft:oil_shale_block",
+    "#substancecraft:trona_ores",
+    "#substancecraft:pyrolusite_ores",
+    "#substancecraft:bauxite_ores"
+  ]
+}

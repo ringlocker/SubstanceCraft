@@ -34,6 +34,7 @@ public class VillagerTradeProvider extends FabricTagsProvider<VillagerTrade> {
 
         tag(SubstanceCraftTradeTags.SELL_DRUG)
                 .add(SubstanceCraftTrades.SELL_MARIJUANA)
+                .add(SubstanceCraftTrades.SELL_MARIJUANA_TRIM)
                 .add(SubstanceCraftTrades.SELL_HASH)
                 .add(SubstanceCraftTrades.SELL_RESIN)
                 .add(SubstanceCraftTrades.SELL_ROSIN)
@@ -66,7 +67,7 @@ public class VillagerTradeProvider extends FabricTagsProvider<VillagerTrade> {
                 .add(SubstanceCraftTrades.BUY_CORN)
                 .add(SubstanceCraftTrades.BUY_GRAPEVINE)
                 .add(SubstanceCraftTrades.BUY_PEYOTE_CACTUS);
-        
+
         tag(SubstanceCraftTradeTags.BUY_RARE_HARVEST)
                 .add(SubstanceCraftTrades.BUY_MARIJUANA_PLANT)
                 .add(SubstanceCraftTrades.BUY_COCA_PLANT);

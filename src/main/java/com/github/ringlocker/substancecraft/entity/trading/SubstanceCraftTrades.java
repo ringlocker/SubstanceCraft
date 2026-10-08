@@ -87,6 +87,7 @@ public class SubstanceCraftTrades {
     public static final ResourceKey<VillagerTrade> SELL_PEYOTE_CACTUS = resourceKey("sell_peyote_cactus");
 
     public static final ResourceKey<VillagerTrade> SELL_MARIJUANA_PLANT = resourceKey("sell_marijuana_plant");
+    public static final ResourceKey<VillagerTrade> SELL_MARIJUANA_TRIM = resourceKey("sell_marijuana_trim");
     public static final ResourceKey<VillagerTrade> SELL_COCA_PLANT = resourceKey("sell_coca_plant");
 
 
@@ -164,6 +165,14 @@ public class SubstanceCraftTrades {
         registerBuyAndSellPlant(context, BUY_MARIJUANA_PLANT, SELL_MARIJUANA_PLANT,
                 SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MARIJUANA_PLANT), SubstanceCraftItems.MARIJUANA,
                 SubstanceCraftItems.CASH, HARVEST_SELL_QUANTITY, 32, RARE_PLANT_TRADE_XP_MULTIPLIER);
+
+
+        register(context, SELL_MARIJUANA_TRIM, new VillagerTrade(
+                new TradeCost(SubstanceCraftItems.MARIJUANA_TRIM, ConstantValue.exactly(SPECIALITY_HARVEST_SELL_QUANTITY)),
+                new ItemStackTemplate(SubstanceCraftItems.CASH, 16),
+                MAX_PLANT_SELL_QUANTITY,
+                BASE_DRUG_TRADE_XP, 0.05F, Optional.empty(), List.of()
+        ));
 
         registerBuyAndSellPlant(context, BUY_COCA_PLANT, SELL_COCA_PLANT,
                 SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.COCA_CROP), SubstanceCraftItems.COCA_LEAVES,

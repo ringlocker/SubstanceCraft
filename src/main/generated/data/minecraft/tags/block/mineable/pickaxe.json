@@ -8,6 +8,7 @@
     "substancecraft:heated_mixer",
     "substancecraft:extractor",
     "substancecraft:fermentation_tank",
+    "substancecraft:oil_shale_block",
     "substancecraft:salt_block",
     "substancecraft:sylvite_block",
     "substancecraft:sulfur_ore",
@@ -17,6 +18,14 @@
     "substancecraft:pyrolusite_ore",
     "substancecraft:deepslate_pyrolusite_ore",
     "substancecraft:limestone_block",
-    "substancecraft:phosphorite_block"
+    "substancecraft:phosphorite_block",
+    "substancecraft:chromitite_block",
+    "#substancecraft:sulfur_ores",
+    "#substancecraft:pyrolusite_ores",
+    "#substancecraft:cryolite_ores",
+    "#substancecraft:vanadinite_ores",
+    "#substancecraft:cryolite_ores",
+    "#substancecraft:bauxite_ores",
+    "#substancecraft:trona_ores"
   ]
 }

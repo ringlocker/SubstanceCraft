@@ -43,7 +43,7 @@ public class PlayerEffectState {
             SubstanceCraftEffects.PATTERNS, -1
     ));
 
-    private static final int secondsToTransition = 3;
+    private static final int secondsToTransition = 1;
     private static final float transitionPerTick = 1.0F / ((float) secondsToTransition * 20F);
 
     private static boolean updateUniforms = true;

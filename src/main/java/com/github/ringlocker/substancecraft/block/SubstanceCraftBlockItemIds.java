@@ -67,13 +67,14 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId ANISE_PLANT = create("anise");
     public static final BlockItemId CHROMITE = create("chromitite_block");
 
-    private static final Identifier MIMOSA_HOSTILIS_LOGS_ID = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis_logs");
-    private static final Identifier SULFUR_ORES_ID = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "");
-    private static final Identifier PYROLUSITE_ORES_ID = Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "");
-
     public static final BlockItemTagId MIMOSA_HOSTILIS_LOGS = createTag("mimosa_hostilis_logs");
     public static final BlockItemTagId SULFUR_ORES = createTag("sulfur_ores");
     public static final BlockItemTagId PYROLUSITE_ORES = createTag("pyrolusite_ores");
+    public static final BlockItemTagId TRONA_ORES = createTag("trona_ores");
+    public static final BlockItemTagId VANADINITE_ORES = createTag("vanadinite_ores");
+    public static final BlockItemTagId CRYOLITE_ORES = createTag("cryolite_ores");
+    public static final BlockItemTagId PALLADIUM_ORES = createTag("palladium_ores");
+    public static final BlockItemTagId BAUXITE_ORES = createTag("bauxite_ores");
 
     private static BlockItemId create(String name) {
         return new BlockItemId(
