@@ -65,7 +65,7 @@ public class SubstanceCraftBlockItemIds {
     public static final BlockItemId VANADINITE_ORE = create("vanadinite_ore");
     public static final BlockItemId DEEPSLATE_VANADINITE_ORE = create("deepslate_vanadinite_ore");
     public static final BlockItemId ANISE_PLANT = create("anise");
-    public static final BlockItemId CHROMITE = create("chromitite_block");
+    public static final BlockItemId CHROMITITE = create("chromitite_block");
 
     public static final BlockItemTagId MIMOSA_HOSTILIS_LOGS = createTag("mimosa_hostilis_logs");
     public static final BlockItemTagId SULFUR_ORES = createTag("sulfur_ores");

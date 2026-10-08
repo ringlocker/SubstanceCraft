@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ergotamine_sulfate_0",
+  "parent": "substancecraft:calcium_hydroxide_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,6 +7,7 @@
   },
   "display": {
     "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
     "description": "Extract",
     "icon": {
       "id": "substancecraft:distilled_water"

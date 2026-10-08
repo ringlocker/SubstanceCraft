@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ammonia_solution_2",
+  "parent": "substancecraft:ammonium_chloride_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,6 +7,7 @@
   },
   "display": {
     "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
     "description": "Heated Mixer",
     "icon": {
       "id": "substancecraft:ammonia"

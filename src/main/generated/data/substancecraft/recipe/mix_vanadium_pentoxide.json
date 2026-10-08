@@ -1,6 +1,11 @@
 {
   "type": "substancecraft:heated_mixer",
-  "byproducts": [],
+  "byproducts": [
+    {
+      "count": 8,
+      "id": "substancecraft:lead"
+    }
+  ],
   "ingredients": [
     "substancecraft:vanadinite",
     "substancecraft:ammonium_chloride",

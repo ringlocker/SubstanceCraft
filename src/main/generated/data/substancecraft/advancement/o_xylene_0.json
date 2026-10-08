@@ -7,6 +7,7 @@
   },
   "display": {
     "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
     "description": "Refine",
     "icon": {
       "id": "substancecraft:o_xylene"

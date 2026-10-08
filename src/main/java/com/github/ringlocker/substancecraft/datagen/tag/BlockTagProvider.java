@@ -36,7 +36,7 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
                 .add(SubstanceCraftBlockItemIds.DEEPSLATE_PYROLUSITE_ORE)
                 .add(SubstanceCraftBlockItemIds.LIMESTONE)
                 .add(SubstanceCraftBlockItemIds.PHOSPHORITE)
-                .add(SubstanceCraftBlockItemIds.CHROMITE)
+                .add(SubstanceCraftBlockItemIds.CHROMITITE)
                 .addTag(SubstanceCraftBlockItemIds.SULFUR_ORES.block())
                 .addTag(SubstanceCraftBlockItemIds.PYROLUSITE_ORES.block())
                 .addTag(SubstanceCraftBlockItemIds.CRYOLITE_ORES.block())
@@ -74,7 +74,7 @@ public class BlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
                 .addTag(SubstanceCraftBlockItemIds.BAUXITE_ORES.block());
 
         builder(BlockTags.NEEDS_IRON_TOOL)
-                .add(SubstanceCraftBlockItemIds.CHROMITE)
+                .add(SubstanceCraftBlockItemIds.CHROMITITE)
                 .addTag(SubstanceCraftBlockItemIds.CRYOLITE_ORES.block())
                 .addTag(SubstanceCraftBlockItemIds.VANADINITE_ORES.block())
                 .addTag(SubstanceCraftBlockItemIds.SULFUR_ORES.block())

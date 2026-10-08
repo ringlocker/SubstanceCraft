@@ -104,7 +104,7 @@ public class SubstanceCraftBlocks {
     public static final Block VANADINITE_ORE = register(SubstanceCraftBlockItemIds.VANADINITE_ORE, Block::new, genericOre());
     public static final Block DEEPSLATE_VANADINITE_ORE = register(SubstanceCraftBlockItemIds.DEEPSLATE_VANADINITE_ORE, Block::new, genericDeepslateOre());
     public static final Block ANISE_PLANT = register(SubstanceCraftBlockItemIds.ANISE_PLANT, AnisePlant::new, genericFlower());
-    public static final Block CHROMITITE = register(SubstanceCraftBlockItemIds.CHROMITE, Block::new, genericRock());
+    public static final Block CHROMITITE = register(SubstanceCraftBlockItemIds.CHROMITITE, Block::new, genericRock());
 
     public static final BlockFamily MIMOSA_WOOD = new BlockFamily.Builder(MIMOSA_HOSTILIS_PLANKS)
             .log(MIMOSA_HOSTILIS_LOG)

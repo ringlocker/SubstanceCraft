@@ -7,6 +7,7 @@
   },
   "display": {
     "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
     "description": "Oxidize",
     "icon": {
       "id": "substancecraft:phthalic_anhydride"

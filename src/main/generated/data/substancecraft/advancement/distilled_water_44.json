@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:sulfuric_acid_9",
+  "parent": "substancecraft:hydrogen_13",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,6 +7,7 @@
   },
   "display": {
     "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
     "description": "Extract",
     "icon": {
       "id": "substancecraft:distilled_water"

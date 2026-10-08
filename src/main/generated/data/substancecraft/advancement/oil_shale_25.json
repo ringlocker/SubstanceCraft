@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:oil_8",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
+    "description": "",
+    "icon": {
+      "id": "substancecraft:oil_shale"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.oil_shale"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

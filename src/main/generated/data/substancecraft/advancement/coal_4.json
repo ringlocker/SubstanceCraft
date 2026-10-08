@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:carbon_monoxide_3",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
+    "description": "",
+    "icon": {
+      "id": "minecraft:coal"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.minecraft.coal"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

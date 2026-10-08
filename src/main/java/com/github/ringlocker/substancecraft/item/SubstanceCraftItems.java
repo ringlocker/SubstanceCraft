@@ -168,6 +168,7 @@ public class SubstanceCraftItems {
     public static final Item AMMONIUM_CHLORIDE = registerItem("ammonium_chloride", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID, SubstanceTransparency.TRANSLUCENT), new Item.Properties());
     public static final Item VANADINITE = registerItem("vanadinite", Item::new, new Item.Properties());
     public static final Item VANADIUM_PENTOXIDE = registerItem("vanadium_pentoxide", properties -> new SubstanceItem(properties, SubstanceTintColors.FOGGY_ORANGE_LIQUID, SubstanceTexture.SOLID), new Item.Properties());
+    public static final Item LEAD = registerItem("lead", properties -> new SubstanceItem(properties, SubstanceTintColors.METALLIC_LEAD, SubstanceTexture.INGOT), new Item.Properties());
     public static final Item P_XYLENE = registerItem("p_xylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, SubstanceTexture.LIQUID), new Item.Properties());
     public static final Item O_XYLENE = registerItem("o_xylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, SubstanceTexture.LIQUID), new Item.Properties());
     public static final Item M_XYLENE = registerItem("m_xylene", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, SubstanceTexture.LIQUID), new Item.Properties());

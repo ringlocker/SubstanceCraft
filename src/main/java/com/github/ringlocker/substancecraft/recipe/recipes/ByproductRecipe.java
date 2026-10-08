@@ -67,7 +67,6 @@ public abstract class ByproductRecipe implements Recipe<MultipleItemInput> {
         return byproducts;
     }
 
-    @Nullable
     public Optional<ItemStackTemplate> getCatalyst() {
         return catalyst;
     }

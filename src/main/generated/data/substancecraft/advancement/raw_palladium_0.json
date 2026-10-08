@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:palladium_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
+    "description": "",
+    "icon": {
+      "id": "substancecraft:raw_palladium"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.raw_palladium"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

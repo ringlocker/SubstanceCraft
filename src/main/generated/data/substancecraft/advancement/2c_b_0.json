@@ -1,5 +1,4 @@
 {
-  "parent": "substancecraft:syntheses",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,6 +6,7 @@
   },
   "display": {
     "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
     "description": "Mixer",
     "icon": {
       "id": "substancecraft:2c_b"

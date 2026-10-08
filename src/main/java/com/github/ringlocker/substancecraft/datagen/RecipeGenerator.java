@@ -1368,6 +1368,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.VANADINITE), Ingredient.of(SubstanceCraftItems.AMMONIUM_CHLORIDE), Ingredient.of(SubstanceCraftItems.SALT), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
                                 SubstanceCraftItems.VANADIUM_PENTOXIDE,
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.LEAD, 33 >> 2)),
                                 800
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.VANADINITE))

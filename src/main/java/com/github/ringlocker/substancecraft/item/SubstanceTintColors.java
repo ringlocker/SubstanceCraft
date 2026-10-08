@@ -38,6 +38,7 @@ public class SubstanceTintColors {
     public static final int METALLIC_SOLID = ARGB.color(165, 174, 173);
     public static final int METALLIC_SILVER = ARGB.color(218, 222, 227);
     public static final int METALLIC_PALLADIUM = ARGB.color(203, 207, 212);
+    public static final int METALLIC_LEAD = ARGB.color(178, 187, 195);
 
     public static final int WHITE_SOLID = ARGB.color(195, 204, 203);
     public static final int OPAQUE_WHITE_SOLID = ARGB.color(195, 204, 203);

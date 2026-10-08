@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:ethylbenzene_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
+    "description": "Mixer",
+    "icon": {
+      "id": "substancecraft:ammonium_chloride"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.ammonium_chloride (Catalyst)"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

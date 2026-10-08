@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:xylene_1",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
+    "description": "Refine",
+    "icon": {
+      "id": "substancecraft:toluene"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.toluene"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

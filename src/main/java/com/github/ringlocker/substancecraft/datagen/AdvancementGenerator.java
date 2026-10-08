@@ -373,6 +373,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     private static void addSyntheses(Consumer<AdvancementHolder> writer) {
+        /*
         AdvancementHolder syntheses = Advancement.Builder.advancement()
                 .display(
                         SubstanceCraftItems.SALT,
@@ -387,29 +388,45 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
                 .save(writer, SubstanceCraft.MOD_ID + ":syntheses");
 
+         */
+
         HashMap<String, Integer> counts = new HashMap<>();
-        generateSynthesisTree(SubstanceCraftItems.COCAINE, writer, syntheses, counts);
-        generateSynthesisTree(SubstanceCraftItems.AMPHETAMINE, writer, syntheses, counts);
-        generateSynthesisTree(SubstanceCraftItems.TWO_C_B, writer, syntheses, counts);
-        generateSynthesisTree(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE_TAB, writer, syntheses, counts);
+
+        generateSynthesisTree(SubstanceCraftItems.COCAINE, writer, null, counts);
+        generateSynthesisTree(SubstanceCraftItems.AMPHETAMINE, writer, null, counts);
+        generateSynthesisTree(SubstanceCraftItems.TWO_C_B, writer, null, counts);
+        generateSynthesisTree(SubstanceCraftItems.LYSERGIC_ACID_DIETHYLAMINE_TAB, writer, null, counts);
+        generateSynthesisTree(SubstanceCraftItems.N_N_DIMETHYLTRYPTAMINE, writer, null, counts);
+        generateSynthesisTree(SubstanceCraftItems.MESCALINE, writer, null, counts);
 
         RecipeCache.clear();
 
     }
 
     private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts) {
+        generateSynthesisTree(toSynthesize, writer, parent, counts, false);
+    }
+
+    private static void generateSynthesisTree(Item toSynthesize, Consumer<AdvancementHolder> writer, AdvancementHolder parent, HashMap<String, Integer> counts, boolean isCatalyst) {
         ByproductRecipe recipe = getRecipeForItem(toSynthesize);
         Component recipeType = recipe == null ? Component.literal("") : recipe.getLabel();
 
-        AdvancementHolder itemAdvancement = Advancement.Builder.advancement()
-                .parent(parent)
-                .display(toSynthesize, getNameFromItem(toSynthesize), recipeType, null, AdvancementType.TASK, false, false, false)
-                .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
-                .save(writer, SubstanceCraft.MOD_ID + ":" + createKey(toSynthesize, counts));
+        Advancement.Builder itemAdvancement = Advancement.Builder.advancement()
+                .display(toSynthesize, getNameFromItem(toSynthesize, isCatalyst), recipeType, Identifier.withDefaultNamespace("block/iron_block"), AdvancementType.TASK, false, false, false)
+                .addCriterion("free", PlayerTrigger.TriggerInstance.tick());
+
+        if (parent != null) itemAdvancement.parent(parent);
+        AdvancementHolder advancement = itemAdvancement.save(writer, SubstanceCraft.MOD_ID + ":" + createKey(toSynthesize, counts));
 
         if (recipe == null) return;
 
         List<Ingredient> ingredients = getIngredients(recipe);
+
+        if (recipe.getCatalyst().isPresent()) {
+            Item catalyst = recipe.getCatalyst().get().item().value();
+            generateSynthesisTree(catalyst, writer, advancement, counts, true);
+        }
+
         Ingredient result = Ingredient.of(recipe.getResult().item().value());
         if (ingredients.contains(result)) return;
         for (Ingredient ingredient : ingredients) {
@@ -418,7 +435,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                 SubstanceCraft.LOGGER.warn("Could not find item for ingredient");
                 continue;
             }
-            generateSynthesisTree(item, writer, itemAdvancement, counts);
+            generateSynthesisTree(item, writer, advancement, counts);
         }
     }
 
@@ -475,7 +492,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     }
 
     private static String createKey(Item item, HashMap<String, Integer> counts) {
-        String id = getNameFromItem(item).getString();
+        String id = getNameFromItem(item, false).getString();
         String name;
         if (id.contains("substancecraft")) {
             name = id.split("\\.")[2];
@@ -490,10 +507,10 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         return name + "_" + counts.get(name);
     }
 
-    private static Component getNameFromItem(Item item) {
-        return item == Items.POTION
-                ? Component.literal("Water Bottle")
-                : Component.translatable(item.getDescriptionId());
+    private static Component getNameFromItem(Item item, boolean catalyst) {
+        String name = item == Items.POTION  ? "Water Bottle" : item.getDescriptionId();
+        if (catalyst) name = name + " (Catalyst)";
+        return Component.translatable(name);
     }
 
     public static class RecipeCache {

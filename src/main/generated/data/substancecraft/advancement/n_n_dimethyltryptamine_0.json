@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
+    "description": "Heated Mixer",
+    "icon": {
+      "id": "substancecraft:n_n_dimethyltryptamine"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.n_n_dimethyltryptamine"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

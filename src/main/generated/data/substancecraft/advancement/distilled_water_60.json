@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:sulfuric_acid_13",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
+    "description": "Extract",
+    "icon": {
+      "id": "substancecraft:distilled_water"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.distilled_water"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

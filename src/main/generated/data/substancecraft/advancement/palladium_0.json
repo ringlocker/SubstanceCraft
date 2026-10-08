@@ -1,0 +1,26 @@
+{
+  "parent": "substancecraft:hydrogen_peroxide_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:block/iron_block",
+    "description": "Extract",
+    "icon": {
+      "id": "substancecraft:palladium"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.palladium (Catalyst)"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,4 +1,5 @@
 {
+  "parent": "substancecraft:petroleum_naphtha_8",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,12 +8,14 @@
   "display": {
     "announce_to_chat": false,
     "background": "minecraft:block/iron_block",
-    "description": "",
+    "description": "Refine",
     "icon": {
-      "id": "substancecraft:salt"
+      "id": "substancecraft:oil"
     },
     "show_toast": false,
-    "title": "Syntheses"
+    "title": {
+      "translate": "item.substancecraft.oil"
+    }
   },
   "requirements": [
     [
