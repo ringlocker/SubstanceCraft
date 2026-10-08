@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:two_ethylanthraquinone_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Oxidize",
+    "icon": {
+      "id": "substancecraft:phthalic_anhydride"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.phthalic_anhydride"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

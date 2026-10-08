@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:diethylene_0",
+  "parent": "substancecraft:2_5_dimethoxybenzaldehyde_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

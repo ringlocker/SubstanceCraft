@@ -1,0 +1,15 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:chromite",
+    "substancecraft:distilled_water",
+    "substancecraft:sulfuric_acid",
+    "substancecraft:sodium_carbonate"
+  ],
+  "result": {
+    "count": 2,
+    "id": "substancecraft:chromium_iii_oxide"
+  },
+  "time": 800
+}

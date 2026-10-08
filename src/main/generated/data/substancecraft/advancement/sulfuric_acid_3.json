@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ergotamine_sulfate_0",
+  "parent": "substancecraft:sodium_dichromate_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

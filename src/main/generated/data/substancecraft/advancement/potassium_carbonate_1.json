@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:2_5_dimethoxybenzaldehyde_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Heated Mixer",
+    "icon": {
+      "id": "substancecraft:potassium_carbonate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.potassium_carbonate"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

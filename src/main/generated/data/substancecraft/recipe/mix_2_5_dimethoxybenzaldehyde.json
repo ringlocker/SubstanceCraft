@@ -1,0 +1,16 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:2_hydroxy_5_methylbenzaldehyde",
+    "substancecraft:acetone",
+    "substancecraft:potassium_carbonate",
+    "substancecraft:ethanol",
+    "substancecraft:dimethyl_sulfate"
+  ],
+  "result": {
+    "count": 3,
+    "id": "substancecraft:2_5_dimethoxybenzaldehyde"
+  },
+  "time": 800
+}

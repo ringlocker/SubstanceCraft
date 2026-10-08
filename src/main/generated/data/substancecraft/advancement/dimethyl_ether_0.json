@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:dimethyl_sulfate_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Extract",
+    "icon": {
+      "id": "substancecraft:dimethyl_ether"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.dimethyl_ether"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

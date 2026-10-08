@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:petroleum_naphtha_5",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Refine",
+    "icon": {
+      "id": "substancecraft:oil"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.oil"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:benzaldehyde_1",
+  "parent": "substancecraft:four_methoxybenzaldehyde_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

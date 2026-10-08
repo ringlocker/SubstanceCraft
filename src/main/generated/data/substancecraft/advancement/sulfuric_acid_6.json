@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ethanol_1",
+  "parent": "substancecraft:d_lysergic_acid_hydrate_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

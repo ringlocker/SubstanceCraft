@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:four_methoxybenzaldehyde_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Extract",
+    "icon": {
+      "id": "substancecraft:anise_oil"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.anise_oil"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

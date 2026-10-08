@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:beta_nitrostyrene_0",
+  "parent": "substancecraft:ethylene_3",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -7,13 +7,13 @@
   },
   "display": {
     "announce_to_chat": false,
-    "description": "Oxidize",
+    "description": "Refine",
     "icon": {
-      "id": "substancecraft:benzaldehyde"
+      "id": "substancecraft:ethane"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.benzaldehyde"
+      "translate": "item.substancecraft.ethane"
     }
   },
   "requirements": [

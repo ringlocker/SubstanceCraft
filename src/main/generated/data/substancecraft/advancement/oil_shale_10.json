@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:natural_gas_6",
+  "parent": "substancecraft:natural_gas_5",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

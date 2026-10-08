@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:ethanol_3",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Refine",
+    "icon": {
+      "id": "substancecraft:ethylene"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.ethylene"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

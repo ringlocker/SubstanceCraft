@@ -1,0 +1,12 @@
+{
+  "type": "substancecraft:heated_mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:sulfur",
+    "substancecraft:dimethyl_ether"
+  ],
+  "result": {
+    "id": "substancecraft:dimethyl_sulfate"
+  },
+  "time": 800
+}

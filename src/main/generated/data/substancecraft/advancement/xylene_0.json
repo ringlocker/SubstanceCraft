@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:o_xylene_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Refine",
+    "icon": {
+      "id": "substancecraft:xylene"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.xylene"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

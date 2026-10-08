@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:tartaric_acid_0",
+  "parent": "substancecraft:ethanol_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

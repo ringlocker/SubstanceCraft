@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:ethane_4",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Refine",
+    "icon": {
+      "id": "substancecraft:natural_gas"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.natural_gas"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

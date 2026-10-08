@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:hydrogen_peroxide_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Mixer",
+    "icon": {
+      "id": "substancecraft:two_ethylanthraquinone"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.two_ethylanthraquinone"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

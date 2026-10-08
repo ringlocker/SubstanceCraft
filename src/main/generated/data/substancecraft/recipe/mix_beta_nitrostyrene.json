@@ -2,7 +2,7 @@
   "type": "substancecraft:heated_mixer",
   "byproducts": [],
   "ingredients": [
-    "substancecraft:benzaldehyde",
+    "substancecraft:2_5_dimethoxybenzaldehyde",
     "substancecraft:nitromethane",
     "substancecraft:ammonium_acetate"
   ],

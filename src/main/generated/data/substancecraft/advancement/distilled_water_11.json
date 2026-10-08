@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrogen_4",
+  "parent": "substancecraft:four_methoxybenzaldehyde_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

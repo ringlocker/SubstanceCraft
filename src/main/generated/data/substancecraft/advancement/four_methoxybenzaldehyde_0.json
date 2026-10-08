@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:o_formyl_4_methoxyphenol_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Mixer",
+    "icon": {
+      "id": "substancecraft:four_methoxybenzaldehyde"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.four_methoxybenzaldehyde"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -735,6 +735,23 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.RAW_PALLADIUM))
                         .save(recipeOutput, key("extract_palladium"));
 
+                ExtractorRecipeBuilder.extract(
+                                List.of(Ingredient.of(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ANISE_PLANT))),
+                                SubstanceCraftItems.ANISE_OIL,
+                                LONG_EXTRACT_TIME
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ANISE_PLANT)))
+                        .save(recipeOutput, key("extract_anise"));
+
+                ExtractorRecipeBuilder.extract(
+                                List.of(Ingredient.of(SubstanceCraftItems.METHANOL)),
+                                SubstanceCraftItems.DIMETHYL_ETHER,
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.DISTILLED_WATER, 100 >> 2)),
+                                EXTRACT_TIME
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.METHANOL))
+                        .save(recipeOutput, key("extract_dimethyl_ether"));
+
                 MixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SALT), Ingredient.of(Items.POTION)),
                                 SubstanceCraftItems.BRINE,
@@ -1029,6 +1046,78 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.TWO_ETHYLANTHRAQUINONE))
                         .save(recipeOutput, key("mix_two_hydrogen_peroxide"));
 
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.HYDROCHLORIC_ACID), Ingredient.of(SubstanceCraftItems.METHANOL), Ingredient.of(SubstanceCraftItems.CHLORINE)),
+                                SubstanceCraftItems.DICHLOROMETHANE,
+                                List.of(new ItemStackTemplate(SubstanceCraftItems.METHYL_CHLORIDE, 20 >> 2), new ItemStackTemplate(SubstanceCraftItems.CARBON_TETRACHLORIDE, 50 >> 2), new ItemStackTemplate(SubstanceCraftItems.CHLOROFORM, 50 >> 2)),
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.HYDROCHLORIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.METHANOL))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CHLORINE))
+                        .setOutputCount(2)
+                        .save(recipeOutput, key("mix_dichloromethane"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.CHROMIUM_III_OXIDE), Ingredient.of(SubstanceCraftItems.SODIUM_CARBONATE), Ingredient.of(SubstanceCraftItems.SULFURIC_ACID)),
+                                SubstanceCraftItems.SODIUM_DICHROMATE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CHROMIUM_III_OXIDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_CARBONATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .setOutputCount(2)
+                        .save(recipeOutput, key("mix_sdoium_dichromate"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.ANISE_OIL), Ingredient.of(SubstanceCraftItems.TOLUENE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER), Ingredient.of(SubstanceCraftItems.SULFURIC_ACID), Ingredient.of(SubstanceCraftItems.SODIUM_DICHROMATE)),
+                                SubstanceCraftItems.FOUR_METHOXYBENZALDEHYDE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ANISE_OIL))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.TOLUENE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_DICHROMATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .setOutputCount(3)
+                        .save(recipeOutput, key("mix_anisealdehyde"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.FOUR_METHOXYBENZALDEHYDE), Ingredient.of(SubstanceCraftItems.FORMIC_ACID), Ingredient.of(SubstanceCraftItems.DICHLOROMETHANE), Ingredient.of(SubstanceCraftItems.HYDROGEN_PEROXIDE)),
+                                SubstanceCraftItems.O_FORMYL_4_METHOXYPHENOL,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.FOUR_METHOXYBENZALDEHYDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.FORMIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DICHLOROMETHANE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.HYDROGEN_PEROXIDE))
+                        .setOutputCount(2)
+                        .save(recipeOutput, key("mix_o_formyl_4_methoxyphenol"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.O_FORMYL_4_METHOXYPHENOL), Ingredient.of(SubstanceCraftItems.CHLOROFORM), Ingredient.of(SubstanceCraftItems.SODIUM_HYDROXIDE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER)),
+                                SubstanceCraftItems.TWO_HYDROXY_5_METHYLBENZALDEHYDE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.O_FORMYL_4_METHOXYPHENOL))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CHLOROFORM))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_HYDROXIDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .setOutputCount(2)
+                        .save(recipeOutput, key("mix_2_hydroxy_5_methylbenzaldehyde"));
+
+                MixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.TWO_HYDROXY_5_METHYLBENZALDEHYDE), Ingredient.of(SubstanceCraftItems.ACETONE), Ingredient.of(SubstanceCraftItems.POTASSIUM_CARBONATE), Ingredient.of(SubstanceCraftItems.ETHANOL), Ingredient.of(SubstanceCraftItems.DIMETHYL_SULFATE)),
+                                SubstanceCraftItems.TWO_5_DIMETHOXYBENZALDEHYDE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.TWO_HYDROXY_5_METHYLBENZALDEHYDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ACETONE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.POTASSIUM_CARBONATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.ETHANOL))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DIMETHYL_SULFATE))
+                        .setOutputCount(3)
+                        .save(recipeOutput, key("mix_2_5_dimethoxybenzaldehyde"));
 
                 HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.DISTILLED_WATER), Ingredient.of(SubstanceCraftItems.METHANE)),
@@ -1097,12 +1186,13 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .save(recipeOutput, key("mix_acetic_acid"));
 
                 HeatedMixerRecipeBuilder.mix(
-                                List.of(Ingredient.of(SubstanceCraftItems.BENZALDEHYDE), Ingredient.of(SubstanceCraftItems.NITROMETHANE), Ingredient.of(SubstanceCraftItems.AMMONIUM_ACETATE)),
+                                List.of(Ingredient.of(SubstanceCraftItems.TWO_5_DIMETHOXYBENZALDEHYDE), Ingredient.of(SubstanceCraftItems.NITROMETHANE), Ingredient.of(SubstanceCraftItems.AMMONIUM_ACETATE)),
                                 SubstanceCraftItems.BETA_NITROSTYRENE,
                                 800
                         )
-                        .unlockedBy("has_item", has(SubstanceCraftItems.PROPANE))
-                        .unlockedBy("has_item", has(SubstanceCraftItems.NITRIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.TWO_5_DIMETHOXYBENZALDEHYDE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.NITROMETHANE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.AMMONIUM_ACETATE))
                         .setOutputCount(2)
                         .save(recipeOutput, key("mix_beta_nitrostyrene"));
 
@@ -1273,6 +1363,27 @@ public class RecipeGenerator extends FabricRecipeProvider {
                         .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
                         .setOutputCount(2)
                         .save(recipeOutput, key("mix_vanadium_pentoxide"));
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.CHROMITE), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER), Ingredient.of(SubstanceCraftItems.SULFURIC_ACID), Ingredient.of(SubstanceCraftItems.SODIUM_CARBONATE)),
+                                SubstanceCraftItems.CHROMIUM_III_OXIDE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.CHROMITE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFURIC_ACID))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SODIUM_CARBONATE))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DISTILLED_WATER))
+                        .setOutputCount(2)
+                        .save(recipeOutput, key("mix_chromia"));
+
+                HeatedMixerRecipeBuilder.mix(
+                                List.of(Ingredient.of(SubstanceCraftItems.SULFUR), Ingredient.of(SubstanceCraftItems.DIMETHYL_ETHER)),
+                                SubstanceCraftItems.DIMETHYL_SULFATE,
+                                800
+                        )
+                        .unlockedBy("has_item", has(SubstanceCraftItems.SULFUR))
+                        .unlockedBy("has_item", has(SubstanceCraftItems.DIMETHYL_ETHER))
+                        .save(recipeOutput, key("mix_dimethyl_sulfate"));
 
                 FermentationTankRecipeBuilder.ferment(
                                 List.of(Ingredient.of(SubstanceCraftItems.YEAST), Ingredient.of(SubstanceCraftItems.CORN)),

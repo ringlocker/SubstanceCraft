@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:sulfur_11",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "id": "substancecraft:raw_sulfur"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.raw_sulfur"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

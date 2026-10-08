@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:sodium_dichromate_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Extract",
+    "icon": {
+      "id": "substancecraft:sodium_carbonate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.sodium_carbonate"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

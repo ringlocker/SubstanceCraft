@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:four_methoxybenzaldehyde_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Mixer",
+    "icon": {
+      "id": "substancecraft:sodium_dichromate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.sodium_dichromate"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

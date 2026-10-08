@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:coke_0",
+  "parent": "substancecraft:carbon_monoxide_2",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

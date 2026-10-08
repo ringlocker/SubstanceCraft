@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:magnesium_0",
+  "parent": "substancecraft:chlorine_4",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

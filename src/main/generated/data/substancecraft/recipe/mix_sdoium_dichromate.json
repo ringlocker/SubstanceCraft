@@ -1,0 +1,14 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:chromium_iii_oxide",
+    "substancecraft:sodium_carbonate",
+    "substancecraft:sulfuric_acid"
+  ],
+  "result": {
+    "count": 2,
+    "id": "substancecraft:sodium_dichromate"
+  },
+  "time": 800
+}

@@ -1,0 +1,16 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [
+    {
+      "count": 25,
+      "id": "substancecraft:distilled_water"
+    }
+  ],
+  "ingredients": [
+    "substancecraft:methanol"
+  ],
+  "result": {
+    "id": "substancecraft:dimethyl_ether"
+  },
+  "time": 750
+}

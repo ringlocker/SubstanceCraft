@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:beta_nitrostyrene_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Mixer",
+    "icon": {
+      "id": "substancecraft:2_5_dimethoxybenzaldehyde"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.2_5_dimethoxybenzaldehyde"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

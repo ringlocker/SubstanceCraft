@@ -1,0 +1,11 @@
+{
+  "type": "substancecraft:extractor",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:anise"
+  ],
+  "result": {
+    "id": "substancecraft:anise_oil"
+  },
+  "time": 1200
+}

@@ -174,6 +174,20 @@ public class SubstanceCraftItems {
     public static final Item PHTHALIC_ANHYDRIDE = registerItem("phthalic_anhydride", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID), new Item.Properties());
     public static final Item TWO_ETHYLANTHRAQUINONE = registerItem("two_ethylanthraquinone", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID), new Item.Properties());
     public static final Item HYDROGEN_PEROXIDE = registerItem("hydrogen_peroxide", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, SubstanceTexture.LIQUID), new Item.Properties());
+    public static final Item CHROMITE = registerItem("chromite", Item::new, new Item.Properties());
+    public static final Item CHROMIUM_III_OXIDE = registerItem("chromium_iii_oxide", properties -> new SubstanceItem(properties, SubstanceTintColors.GREEN_SOLID, SubstanceTexture.SOLID), new Item.Properties());
+    public static final Item SODIUM_DICHROMATE = registerItem("sodium_dichromate", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID), new Item.Properties());
+    public static final Item ANISE_OIL = registerItem("anise_oil", properties -> new SubstanceItem(properties, SubstanceTintColors.DEHYDRATED_PISS_YELLOW_LIQUID, SubstanceTexture.LIQUID, SubstanceTransparency.TRANSLUCENT), new Item.Properties());
+    public static final Item FOUR_METHOXYBENZALDEHYDE = registerItem("four_methoxybenzaldehyde", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID), new Item.Properties());
+    public static final Item DICHLOROMETHANE = registerItem("dichloromethane", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, SubstanceTexture.LIQUID), new Item.Properties());
+    public static final Item METHYL_CHLORIDE = registerItem("methyl_chloride", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, SubstanceTexture.LIQUID), new Item.Properties());
+    public static final Item CARBON_TETRACHLORIDE = registerItem("carbon_tetrachloride", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, SubstanceTexture.LIQUID), new Item.Properties());
+    public static final Item O_FORMYL_4_METHOXYPHENOL = registerItem("o_formyl_4_methoxyphenol", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID), new Item.Properties());
+    public static final Item FOUR_METHOXYPHENOL = registerItem("4_methoxyphenol", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID), new Item.Properties());
+    public static final Item TWO_HYDROXY_5_METHYLBENZALDEHYDE = registerItem("2_hydroxy_5_methylbenzaldehyde", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID), new Item.Properties());
+    public static final Item DIMETHYL_ETHER = registerItem("dimethyl_ether", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_GAS, SubstanceTexture.GAS), new Item.Properties());
+    public static final Item DIMETHYL_SULFATE = registerItem("dimethyl_sulfate", properties -> new SubstanceItem(properties, SubstanceTintColors.CLEAR_LIQUID, SubstanceTexture.LIQUID), new Item.Properties());
+    public static final Item TWO_5_DIMETHOXYBENZALDEHYDE = registerItem("2_5_dimethoxybenzaldehyde", properties -> new SubstanceItem(properties, SubstanceTintColors.WHITE_SOLID, SubstanceTexture.SOLID), new Item.Properties());
 
     public static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, name));

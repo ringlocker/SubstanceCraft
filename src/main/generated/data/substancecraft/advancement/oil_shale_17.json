@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:natural_gas_11",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "id": "substancecraft:oil_shale"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.oil_shale"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

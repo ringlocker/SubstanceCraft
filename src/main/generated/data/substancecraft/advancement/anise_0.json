@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:anise_oil_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "",
+    "icon": {
+      "id": "substancecraft:anise"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "block.substancecraft.anise"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:acetic_acid_0",
+  "parent": "substancecraft:methyl_formate_1",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

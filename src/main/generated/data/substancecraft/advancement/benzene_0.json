@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:maleic_anhydride_0",
+  "parent": "substancecraft:xylene_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

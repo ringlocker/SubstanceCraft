@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ammonia_4",
+  "parent": "substancecraft:hydrogen_peroxide_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

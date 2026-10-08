@@ -1,0 +1,25 @@
+{
+  "parent": "substancecraft:2_hydroxy_5_methylbenzaldehyde_0",
+  "criteria": {
+    "free": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Heated Mixer",
+    "icon": {
+      "id": "substancecraft:chloroform"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "item.substancecraft.chloroform"
+    }
+  },
+  "requirements": [
+    [
+      "free"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -19,6 +19,8 @@ public class SubstanceTintColors {
     public static final int LIGHT_BLUE_LIQUID = ARGB.color(9, 164, 242);
     public static final int LIGHT_TEAL_LIQUID = ARGB.color(18, 135, 108);
 
+    public static final int GREEN_SOLID = ARGB.color(76, 143, 28);
+
     public static final int LIGHT_YELLOW_GAS = ARGB.color(247, 222, 95);
     public static final int VERY_LIGHT_YELLOW_LIQUID = ARGB.color(223, 224, 161);
     public static final int VERY_LIGHT_YELLOW_SOLID = ARGB.color(223, 224, 161);

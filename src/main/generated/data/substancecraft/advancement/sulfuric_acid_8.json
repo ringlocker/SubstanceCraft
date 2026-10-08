@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:magnesium_sulfate_0",
+  "parent": "substancecraft:tartaric_acid_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

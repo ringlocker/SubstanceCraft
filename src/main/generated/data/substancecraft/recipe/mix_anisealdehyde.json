@@ -1,0 +1,16 @@
+{
+  "type": "substancecraft:mixer",
+  "byproducts": [],
+  "ingredients": [
+    "substancecraft:anise_oil",
+    "substancecraft:toluene",
+    "substancecraft:distilled_water",
+    "substancecraft:sulfuric_acid",
+    "substancecraft:sodium_dichromate"
+  ],
+  "result": {
+    "count": 3,
+    "id": "substancecraft:four_methoxybenzaldehyde"
+  },
+  "time": 800
+}
