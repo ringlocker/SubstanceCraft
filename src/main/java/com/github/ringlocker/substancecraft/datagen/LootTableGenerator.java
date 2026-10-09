@@ -98,7 +98,6 @@ public class LootTableGenerator extends FabricBlockLootSubProvider {
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
 
-
         add(SubstanceCraftBlocks.SULFUR_ORE, block -> createSilkTouchDispatchTable(
                 block,
                 applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.RAW_SULFUR)
@@ -151,6 +150,76 @@ public class LootTableGenerator extends FabricBlockLootSubProvider {
         add(SubstanceCraftBlocks.PHOSPHORITE, block -> createSilkTouchDispatchTable(
                 block,
                 applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.PHOSPHORITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.PHOSPHORITE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.PHOSPHORITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.CRYOLITE_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.CRYOLITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.DEEPSLATE_CRYOLITE_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.CRYOLITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.VANADINITE_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.VANADINITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.DEEPSLATE_VANADINITE_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.VANADINITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.BAUXITE_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.BAUXITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.DEEPSLATE_BAUXITE_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.BAUXITE)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.PALLADIUM_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.RAW_PALLADIUM)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.DEEPSLATE_PALLADIUM_ORE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.RAW_PALLADIUM)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
+                        .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
+
+        add(SubstanceCraftBlocks.CHROMITITE, block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block, LootItem.lootTableItem(SubstanceCraftItems.CHROMITE)
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))
                         .apply(LimitCount.limitCount(IntRange.range(1, 4))))));
