@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:sulfuric_acid_12",
+  "parent": "substancecraft:red_phosphorus_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

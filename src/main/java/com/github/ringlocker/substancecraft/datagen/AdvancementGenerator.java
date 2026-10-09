@@ -509,7 +509,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
     private static Component getNameFromItem(Item item, boolean catalyst) {
         String name = item == Items.POTION  ? "Water Bottle" : item.getDescriptionId();
-        if (catalyst) name = name + " (Catalyst)";
+        if (catalyst) name = name + ".catalyst";
         return Component.translatable(name);
     }
 

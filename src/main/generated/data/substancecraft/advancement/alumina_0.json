@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ammonia_8",
+  "parent": "substancecraft:aluminum_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -10,11 +10,11 @@
     "background": "minecraft:block/iron_block",
     "description": "Extract",
     "icon": {
-      "id": "substancecraft:nitrogen"
+      "id": "substancecraft:alumina"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.nitrogen"
+      "translate": "item.substancecraft.alumina"
     }
   },
   "requirements": [

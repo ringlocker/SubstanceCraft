@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:sulfuric_acid_13",
+  "parent": "substancecraft:distilled_water_59",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -8,13 +8,13 @@
   "display": {
     "announce_to_chat": false,
     "background": "minecraft:block/iron_block",
-    "description": "Extract",
+    "description": "",
     "icon": {
-      "id": "substancecraft:distilled_water"
+      "id": "minecraft:potion"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.distilled_water"
+      "translate": "Water Bottle"
     }
   },
   "requirements": [

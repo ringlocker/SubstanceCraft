@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:oxygen_14",
+  "parent": "substancecraft:sodium_hydroxide_5",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -8,13 +8,13 @@
   "display": {
     "announce_to_chat": false,
     "background": "minecraft:block/iron_block",
-    "description": "",
+    "description": "Mixer",
     "icon": {
-      "id": "minecraft:glass_bottle"
+      "id": "substancecraft:brine"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.minecraft.glass_bottle"
+      "translate": "item.substancecraft.brine"
     }
   },
   "requirements": [

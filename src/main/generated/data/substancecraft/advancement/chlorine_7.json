@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrochloric_acid_2",
+  "parent": "substancecraft:phosphorus_trichloride_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -10,11 +10,11 @@
     "background": "minecraft:block/iron_block",
     "description": "Electrolysis",
     "icon": {
-      "id": "substancecraft:hydrogen"
+      "id": "substancecraft:chlorine"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.hydrogen"
+      "translate": "item.substancecraft.chlorine"
     }
   },
   "requirements": [

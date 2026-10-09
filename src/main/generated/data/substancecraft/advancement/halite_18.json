@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrochloric_acid_2",
+  "parent": "substancecraft:salt_18",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -8,13 +8,13 @@
   "display": {
     "announce_to_chat": false,
     "background": "minecraft:block/iron_block",
-    "description": "Electrolysis",
+    "description": "",
     "icon": {
-      "id": "substancecraft:hydrogen"
+      "id": "substancecraft:halite"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.hydrogen"
+      "translate": "item.substancecraft.halite"
     }
   },
   "requirements": [

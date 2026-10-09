@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:carbon_dioxide_3",
+  "parent": "substancecraft:aluminum_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -10,11 +10,11 @@
     "background": "minecraft:block/iron_block",
     "description": "",
     "icon": {
-      "id": "minecraft:charcoal"
+      "id": "substancecraft:cryolite"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.minecraft.charcoal"
+      "translate": "item.substancecraft.cryolite"
     }
   },
   "requirements": [

@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:methanol_3",
+  "parent": "substancecraft:4_methoxyphenol_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

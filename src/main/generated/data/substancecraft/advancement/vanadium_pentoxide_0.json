@@ -14,7 +14,7 @@
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.vanadium_pentoxide (Catalyst)"
+      "translate": "item.substancecraft.vanadium_pentoxide.catalyst"
     }
   },
   "requirements": [

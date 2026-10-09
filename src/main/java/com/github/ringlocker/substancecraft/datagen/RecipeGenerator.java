@@ -1358,7 +1358,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.ETHYLENE), Ingredient.of(SubstanceCraftItems.BENZENE)),
                                 SubstanceCraftItems.ETHYLBENZENE,
-                                new ItemStackTemplate(SubstanceCraftItems.AMMONIUM_CHLORIDE),
+                                new ItemStackTemplate(SubstanceCraftItems.ALUMINUM_CHLORIDE),
                                 800
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.ALUMINUM))

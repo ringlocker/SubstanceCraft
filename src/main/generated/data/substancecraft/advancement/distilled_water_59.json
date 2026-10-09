@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:vinegar_0",
+  "parent": "substancecraft:sulfuric_acid_13",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

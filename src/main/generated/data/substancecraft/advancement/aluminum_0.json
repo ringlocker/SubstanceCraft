@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:ethylbenzene_0",
+  "parent": "substancecraft:aluminum_chloride_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -8,13 +8,13 @@
   "display": {
     "announce_to_chat": false,
     "background": "minecraft:block/iron_block",
-    "description": "Mixer",
+    "description": "Electrolysis",
     "icon": {
-      "id": "substancecraft:ammonium_chloride"
+      "id": "substancecraft:aluminum"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.ammonium_chloride (Catalyst)"
+      "translate": "item.substancecraft.aluminum"
     }
   },
   "requirements": [

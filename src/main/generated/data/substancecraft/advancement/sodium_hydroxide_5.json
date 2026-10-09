@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:mescaline_0",
+  "parent": "substancecraft:n_n_dimethyltryptamine_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"

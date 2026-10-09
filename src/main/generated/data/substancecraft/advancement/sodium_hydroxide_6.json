@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:d_lysergic_acid_hydrate_0",
+  "parent": "substancecraft:mescaline_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -8,13 +8,13 @@
   "display": {
     "announce_to_chat": false,
     "background": "minecraft:block/iron_block",
-    "description": "Heated Mixer",
+    "description": "Electrolysis",
     "icon": {
-      "id": "substancecraft:ammonia"
+      "id": "substancecraft:sodium_hydroxide"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.ammonia"
+      "translate": "item.substancecraft.sodium_hydroxide"
     }
   },
   "requirements": [

@@ -2,7 +2,7 @@
   "type": "substancecraft:heated_mixer",
   "byproducts": [],
   "catalyst": {
-    "id": "substancecraft:ammonium_chloride"
+    "id": "substancecraft:aluminum_chloride"
   },
   "ingredients": [
     "substancecraft:ethylene",

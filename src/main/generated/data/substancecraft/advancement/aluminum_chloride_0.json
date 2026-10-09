@@ -1,5 +1,5 @@
 {
-  "parent": "substancecraft:hydrochloric_acid_2",
+  "parent": "substancecraft:ethylbenzene_0",
   "criteria": {
     "free": {
       "trigger": "minecraft:tick"
@@ -8,13 +8,13 @@
   "display": {
     "announce_to_chat": false,
     "background": "minecraft:block/iron_block",
-    "description": "Electrolysis",
+    "description": "Heated Mixer",
     "icon": {
-      "id": "substancecraft:hydrogen"
+      "id": "substancecraft:aluminum_chloride"
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.hydrogen"
+      "translate": "item.substancecraft.aluminum_chloride.catalyst"
     }
   },
   "requirements": [

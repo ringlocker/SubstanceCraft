@@ -14,7 +14,7 @@
     },
     "show_toast": false,
     "title": {
-      "translate": "item.substancecraft.palladium (Catalyst)"
+      "translate": "item.substancecraft.palladium.catalyst"
     }
   },
   "requirements": [
