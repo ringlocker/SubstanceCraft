@@ -12,11 +12,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.trading.TradeCost;
 import net.minecraft.world.item.trading.VillagerTrade;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-
-import java.util.List;
-import java.util.Optional;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ContextFloatProviders;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 public class SubstanceCraftTrades {
 
@@ -167,12 +164,13 @@ public class SubstanceCraftTrades {
                 SubstanceCraftItems.CASH, HARVEST_SELL_QUANTITY, 32, RARE_PLANT_TRADE_XP_MULTIPLIER);
 
 
-        register(context, SELL_MARIJUANA_TRIM, new VillagerTrade(
-                new TradeCost(SubstanceCraftItems.MARIJUANA_TRIM, ConstantValue.exactly(SPECIALITY_HARVEST_SELL_QUANTITY)),
+        register(context, SELL_MARIJUANA_TRIM, new VillagerTrade.Builder(
+                new TradeCost(SubstanceCraftItems.MARIJUANA_TRIM, ContextIntProviders.exactly(SPECIALITY_HARVEST_SELL_QUANTITY)),
                 new ItemStackTemplate(SubstanceCraftItems.CASH, 16),
-                MAX_PLANT_SELL_QUANTITY,
-                BASE_DRUG_TRADE_XP, 0.05F, Optional.empty(), List.of()
-        ));
+                ContextIntProviders.exactly(MAX_PLANT_SELL_QUANTITY),
+                ContextIntProviders.exactly(BASE_DRUG_TRADE_XP),
+                ContextFloatProviders.exactly(0.05F)
+        ).build());
 
         registerBuyAndSellPlant(context, BUY_COCA_PLANT, SELL_COCA_PLANT,
                 SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.COCA_CROP), SubstanceCraftItems.COCA_LEAVES,
@@ -185,7 +183,7 @@ public class SubstanceCraftTrades {
             ResourceKey<VillagerTrade> buyKey,
             ResourceKey<VillagerTrade> sellKey,
             Item drug, Item cashItem,
-            float minCost, float maxCost) {
+            int minCost, int maxCost) {
 
         registerBuyAndSellDrug(context, buyKey, sellKey, drug, cashItem, minCost, maxCost, 1);
 
@@ -196,20 +194,22 @@ public class SubstanceCraftTrades {
             ResourceKey<VillagerTrade> buyKey,
             ResourceKey<VillagerTrade> sellKey,
             Item drug, Item cashItem,
-            float minCost, float maxCost, int xpMultiplier) {
+            int minCost, int maxCost, int xpMultiplier) {
 
-        register(context, buyKey, new VillagerTrade(
-                new TradeCost(cashItem, UniformGenerator.between(minCost, maxCost)),
+        register(context, buyKey, new VillagerTrade.Builder(
+                new TradeCost(cashItem, ContextIntProviders.between(minCost, maxCost)),
                 new ItemStackTemplate(drug),
-                MAX_DRUG_BUY_QUANTITY,
-                BASE_DRUG_TRADE_XP * xpMultiplier, 0.05F, Optional.empty(), List.of()
-        ));
-        register(context, sellKey, new VillagerTrade(
-                new TradeCost(drug, ConstantValue.exactly(1.0f)),
+                        ContextIntProviders.exactly(MAX_DRUG_BUY_QUANTITY),
+                        ContextIntProviders.exactly(BASE_DRUG_TRADE_XP * xpMultiplier),
+                        ContextFloatProviders.exactly(0.05F)).build()
+        );
+        register(context, sellKey, new VillagerTrade.Builder(
+                new TradeCost(drug, ContextIntProviders.exactly(1)),
                 new ItemStackTemplate(cashItem, (int) minCost),
-                MAX_DRUG_SELL_QUANTITY,
-                BASE_DRUG_TRADE_XP * xpMultiplier, 0.05F, Optional.empty(), List.of()
-        ));
+                        ContextIntProviders.exactly(MAX_DRUG_SELL_QUANTITY),
+                        ContextIntProviders.exactly(BASE_DRUG_TRADE_XP * xpMultiplier),
+                        ContextFloatProviders.exactly(0.05F)).build()
+        );
 
     }
 
@@ -218,20 +218,22 @@ public class SubstanceCraftTrades {
             ResourceKey<VillagerTrade> buyKey,
             ResourceKey<VillagerTrade> sellKey,
             Item drug, Item sellCashItem, Item buyCashItem,
-            float minBuyCost, float maxBuyCost, float sellPrice) {
+            int minBuyCost, int maxBuyCost, float sellPrice) {
 
-        register(context, sellKey, new VillagerTrade(
-                new TradeCost(buyCashItem, UniformGenerator.between(minBuyCost, maxBuyCost)),
+        register(context, sellKey, new VillagerTrade.Builder(
+                new TradeCost(buyCashItem, ContextIntProviders.between(minBuyCost, maxBuyCost)),
                 new ItemStackTemplate(drug),
-                MAX_DRUG_BUY_QUANTITY,
-                BASE_DRUG_TRADE_XP * RARE_DRUG_TRADE_XP_MULTIPLIER, 0.05F, Optional.empty(), List.of()
-        ));
-        register(context, buyKey, new VillagerTrade(
-                new TradeCost(drug, ConstantValue.exactly(1.0f)),
+                        ContextIntProviders.exactly(MAX_DRUG_BUY_QUANTITY),
+                        ContextIntProviders.exactly(BASE_DRUG_TRADE_XP * RARE_DRUG_TRADE_XP_MULTIPLIER),
+                        ContextFloatProviders.exactly(0.05F)).build()
+        );
+        register(context, buyKey, new VillagerTrade.Builder(
+                new TradeCost(drug, 1),
                 new ItemStackTemplate(sellCashItem, (int) sellPrice),
-                MAX_DRUG_SELL_QUANTITY,
-                BASE_DRUG_TRADE_XP * RARE_DRUG_TRADE_XP_MULTIPLIER, 0.05F, Optional.empty(), List.of()
-        ));
+                        ContextIntProviders.exactly(MAX_DRUG_SELL_QUANTITY),
+                        ContextIntProviders.exactly(BASE_DRUG_TRADE_XP * RARE_DRUG_TRADE_XP_MULTIPLIER),
+                        ContextFloatProviders.exactly(0.05F)).build()
+        );
 
     }
 
@@ -260,19 +262,21 @@ public class SubstanceCraftTrades {
             buyPrice = buyPrice / 9;
         }
 
-        register(context, buyKey, new VillagerTrade(
+        register(context, buyKey, new VillagerTrade.Builder(
                 new TradeCost(harvestItem, amountOfHarvestToSell),
                 new ItemStackTemplate(cashItem, (int) sellCost),
-                MAX_PLANT_SELL_QUANTITY,
-                BASE_PLANT_TRADE_XP * xpMultiplier, 0.05F, Optional.empty(), List.of()
-        ));
+                ContextIntProviders.exactly(MAX_PLANT_SELL_QUANTITY),
+                ContextIntProviders.exactly(BASE_PLANT_TRADE_XP * xpMultiplier),
+                ContextFloatProviders.exactly(0.05F)).build()
+        );
 
-        register(context, sellKey, new VillagerTrade(
-                new TradeCost(buyCashItem, ConstantValue.exactly(Math.clamp(buyPrice, -1, 64))),
+        register(context, sellKey, new VillagerTrade.Builder(
+                new TradeCost(buyCashItem, ContextIntProviders.exactly(Math.clamp(buyPrice, -1, 64))),
                 new ItemStackTemplate(plant),
-                MAX_PLANT_BUY_QUANTITY,
-                BASE_PLANT_TRADE_XP * xpMultiplier, 0.05F, Optional.empty(), List.of()
-        ));
+                ContextIntProviders.exactly(MAX_PLANT_BUY_QUANTITY),
+                ContextIntProviders.exactly(BASE_PLANT_TRADE_XP * xpMultiplier),
+                ContextFloatProviders.exactly(0.05F)).build()
+        );
 
     }
 

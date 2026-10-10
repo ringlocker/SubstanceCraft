@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:dab_rig"
+        "recipes": "substancecraft:dab_rig"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

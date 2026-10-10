@@ -2,15 +2,15 @@
   "gives": {
     "id": "substancecraft:live_resin"
   },
-  "max_uses": 12.0,
+  "max_uses": 12,
   "reputation_discount": 0.05,
   "wants": {
     "count": {
       "type": "minecraft:uniform",
-      "max": 15.0,
-      "min": 11.0
+      "max": 15,
+      "min": 11
     },
     "id": "substancecraft:cash"
   },
-  "xp": 3.0
+  "xp": 3
 }

@@ -3,11 +3,11 @@
     "count": 24,
     "id": "substancecraft:cash"
   },
-  "max_uses": 16.0,
+  "max_uses": 16,
   "reputation_discount": 0.05,
   "wants": {
-    "count": 16.0,
+    "count": 16,
     "id": "substancecraft:coca_leaves"
   },
-  "xp": 6.0
+  "xp": 6
 }

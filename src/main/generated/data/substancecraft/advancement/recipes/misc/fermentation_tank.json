@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:fermentation_tank"
+        "recipes": "substancecraft:fermentation_tank"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

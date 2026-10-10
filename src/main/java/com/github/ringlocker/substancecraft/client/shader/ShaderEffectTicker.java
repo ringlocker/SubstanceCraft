@@ -2,9 +2,9 @@ package com.github.ringlocker.substancecraft.client.shader;
 
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.effect.SubstanceCraftEffects;
-import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.buffers.Std140Builder;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.renderpearl.api.buffers.GpuBuffer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.LevelTargetBundle;
@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.PostPass;
 import net.minecraft.resources.Identifier;
 import org.lwjgl.system.MemoryStack;
 
+import java.util.List;
 
 public class ShaderEffectTicker {
 
@@ -32,7 +33,9 @@ public class ShaderEffectTicker {
         PlayerEffectState.tick(localPlayer);
         PostPass postPass = postChain.passes.getFirst();
         if (PlayerEffectState.updateUniforms()) updateBuffer(postPass);
-        RenderSystem.queueFencedTask(() -> client.gameRenderer.setPostEffect(postEffectID));
+
+        List<Identifier> postEffects = client.player.getActivePostEffects();
+        if (!postEffects.contains(postEffectID)) client.player.getActivePostEffects().add(postEffectID);
     }
 
     private static void updateBuffer(PostPass postPass) {

@@ -20,8 +20,8 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "substancecraft:mimosa_hostilis_sapling",
-          "Properties": {
+          "id": "substancecraft:mimosa_hostilis_sapling",
+          "properties": {
             "stage": "0"
           }
         }

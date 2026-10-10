@@ -1,5 +1,5 @@
 {
-  "amount": 2.0,
+  "amount": 2,
   "random_sequence": "substancecraft:trade_set/dealer_3",
   "trades": "#substancecraft:dealer_3"
 }

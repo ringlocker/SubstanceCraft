@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -149,16 +150,16 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, BonemealSource source) {
         return switch (state.getValue(HALF)) {
             case DoubleBlockHalf.LOWER -> {
                 BlockState upper = level.getBlockState(pos.above());
                 if (upper.is(this)) {
-                    yield super.isValidBonemealTarget(level, pos, upper);
+                    yield super.isValidBonemealTarget(level, pos, upper, source);
                 }
-                else yield super.isValidBonemealTarget(level, pos, state);
+                else yield super.isValidBonemealTarget(level, pos, state, source);
             }
-            case DoubleBlockHalf.UPPER -> super.isValidBonemealTarget(level, pos, state);
+            case DoubleBlockHalf.UPPER -> super.isValidBonemealTarget(level, pos, state, source);
         };
     }
 
@@ -218,7 +219,7 @@ public abstract class TwoBlockTallPlant extends HarvestablePlant {
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state, BonemealSource source) {
         if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
             growCrop(level, pos.below(), level.getBlockState(pos.below()), getRandomGrowAmount(random));
         }

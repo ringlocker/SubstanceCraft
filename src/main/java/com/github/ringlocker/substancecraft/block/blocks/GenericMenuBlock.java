@@ -1,6 +1,5 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
@@ -31,14 +30,12 @@ import java.util.Objects;
 
 public class GenericMenuBlock<T extends MenuProvider> extends BaseEntityBlock implements EntityBlock {
 
-    private final MapCodec<? extends BaseEntityBlock> codec;
     private final VoxelShape SHAPE;
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
-    protected GenericMenuBlock(Properties properties, MapCodec<? extends BaseEntityBlock> codec, VoxelShape shape) {
+    protected GenericMenuBlock(Properties properties, VoxelShape shape) {
         super(properties.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 13 : 0));
-        this.codec = codec;
         this.SHAPE = shape;
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(LIT, false));
     }
@@ -67,11 +64,6 @@ public class GenericMenuBlock<T extends MenuProvider> extends BaseEntityBlock im
     @Override
     protected @NotNull RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
-    }
-
-    @Override
-    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
-        return codec;
     }
 
     @Override

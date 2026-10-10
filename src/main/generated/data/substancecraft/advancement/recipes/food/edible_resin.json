@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:edible_resin"
+        "recipes": "substancecraft:edible_resin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

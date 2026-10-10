@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:plant_research_station"
+        "recipes": "substancecraft:plant_research_station"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

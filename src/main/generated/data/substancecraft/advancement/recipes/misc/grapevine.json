@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:grapevine"
+        "recipes": "substancecraft:grapevine"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

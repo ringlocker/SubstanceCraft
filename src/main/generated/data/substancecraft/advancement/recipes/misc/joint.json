@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:joint"
+        "recipes": "substancecraft:joint"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

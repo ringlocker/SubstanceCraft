@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class Oxidizer extends GenericMenuBlock<OxidizerBlockEntity> {
 
     public Oxidizer(Properties properties) {
-        super(properties, simpleCodec(Oxidizer::new), Shapes.block());
+        super(properties, Shapes.block());
     }
 
     @Override

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:empty_cart"
+        "recipes": "substancecraft:empty_cart"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

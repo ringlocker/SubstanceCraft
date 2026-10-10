@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:mimosa_hostilis_stairs"
+        "recipes": "substancecraft:mimosa_hostilis_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

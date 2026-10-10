@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:mimosa_hostilis_planks"
+        "recipes": "substancecraft:mimosa_hostilis_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:mimosa_hostilis_wall"
+        "recipes": "substancecraft:mimosa_hostilis_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 public class HashPress extends GenericMenuBlock<HashPressBlockEntity> implements EntityBlock {
 
     public HashPress(Properties settings) {
-        super(settings, simpleCodec(HashPress::new), Block.box(1, 0, 1, 15, 15, 15));
+        super(settings, Block.box(1, 0, 1, 15, 15, 15));
     }
 
     @Override

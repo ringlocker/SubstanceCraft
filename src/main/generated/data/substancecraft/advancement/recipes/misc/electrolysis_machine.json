@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:electrolysis_machine"
+        "recipes": "substancecraft:electrolysis_machine"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

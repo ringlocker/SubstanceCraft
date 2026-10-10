@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:live_resin_cart"
+        "recipes": "substancecraft:live_resin_cart"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

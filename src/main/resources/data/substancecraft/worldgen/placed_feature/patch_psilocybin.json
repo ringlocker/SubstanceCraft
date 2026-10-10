@@ -9,14 +9,20 @@
       "type": "minecraft:in_square"
     },
     {
-      "type": "minecraft:random_offset",
-      "xz_spread": {
+      "type": "minecraft:offset",
+      "x": {
         "type": "minecraft:trapezoid",
         "max": 6,
         "min": -6,
         "plateau": 0
       },
-      "y_spread": {
+      "z": {
+        "type": "minecraft:trapezoid",
+        "max": 6,
+        "min": -6,
+        "plateau": 0
+      },
+      "y": {
         "type": "minecraft:trapezoid",
         "max": 2,
         "min": -2,
@@ -51,8 +57,8 @@
           {
             "type": "minecraft:would_survive",
             "state": {
-              "Name": "substancecraft:psilocybin",
-              "Properties": {
+              "id": "substancecraft:psilocybin",
+              "properties": {
                 "age": "0"
               }
             }

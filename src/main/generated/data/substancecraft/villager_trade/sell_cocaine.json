@@ -3,10 +3,10 @@
     "count": 7,
     "id": "substancecraft:band"
   },
-  "max_uses": 16.0,
+  "max_uses": 16,
   "reputation_discount": 0.05,
   "wants": {
     "id": "substancecraft:cocaine"
   },
-  "xp": 3.0
+  "xp": 3
 }

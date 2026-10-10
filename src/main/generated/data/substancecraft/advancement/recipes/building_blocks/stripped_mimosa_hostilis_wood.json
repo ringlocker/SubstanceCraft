@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:stripped_mimosa_hostilis_wood"
+        "recipes": "substancecraft:stripped_mimosa_hostilis_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

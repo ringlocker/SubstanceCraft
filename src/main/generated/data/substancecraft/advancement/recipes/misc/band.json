@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:band"
+        "recipes": "substancecraft:band"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

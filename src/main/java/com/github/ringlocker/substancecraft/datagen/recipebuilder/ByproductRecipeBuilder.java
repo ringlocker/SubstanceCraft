@@ -3,13 +3,11 @@ package com.github.ringlocker.substancecraft.datagen.recipebuilder;
 import com.github.ringlocker.substancecraft.SubstanceCraft;
 import com.github.ringlocker.substancecraft.datagen.AdvancementGenerator;
 import com.github.ringlocker.substancecraft.recipe.recipes.ByproductRecipe;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementRequirements;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.triggers.Criterion;
-import net.minecraft.advancements.triggers.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeUnlockAdvancementBuilder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,9 +18,7 @@ import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -36,7 +32,7 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
 
     private int outputCount = 1;
 
-    protected final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+    private final RecipeUnlockAdvancementBuilder advancementBuilder = new RecipeUnlockAdvancementBuilder();
     private final ByproductRecipe.Factory<? extends ByproductRecipe> factory;
 
     protected ByproductRecipeBuilder(List<Ingredient> ingredients, ItemLike result, List<ItemStackTemplate> byproducts, Optional<ItemStackTemplate> catalyst, int time, ByproductRecipe.Factory<? extends ByproductRecipe> factory) {
@@ -59,7 +55,7 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
 
     @Override
     public ByproductRecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
-        this.criteria.put(name, criterion);
+        advancementBuilder.unlockedBy(name, criterion);
         return this;
     }
 
@@ -76,18 +72,14 @@ public class ByproductRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(RecipeOutput exporter, @NotNull ResourceKey<Recipe<?>> resourceKey) {
         this.validate(resourceKey);
-        Advancement.Builder advancementBuilder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(advancementBuilder);
-        this.criteria.forEach(advancementBuilder::addCriterion);
         ByproductRecipe recipe = this.factory.create(this.ingredients, new ItemStackTemplate(this.result, outputCount), this.byproducts, this.catalyst, this.time);
         AdvancementGenerator.RecipeCache.cacheRecipe(recipe);
-        exporter.accept(resourceKey, recipe, advancementBuilder.build(resourceKey.identifier().withPrefix("recipes/")));
+        exporter.accept(resourceKey, recipe, advancementBuilder.build(exporter, resourceKey, RecipeCategory.MISC));
     }
 
     protected void validate(ResourceKey<Recipe<?>> resourceKey) {
-        if (this.criteria.isEmpty()) {
-            throw new IllegalStateException("No way of obtaining recipe " + resourceKey);
-        }
+        return;
     }
 
 

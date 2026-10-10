@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:corn"
+        "recipes": "substancecraft:corn"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

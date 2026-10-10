@@ -2,15 +2,15 @@
   "gives": {
     "id": "substancecraft:2c_b"
   },
-  "max_uses": 12.0,
+  "max_uses": 12,
   "reputation_discount": 0.05,
   "wants": {
     "count": {
       "type": "minecraft:uniform",
-      "max": 48.0,
-      "min": 32.0
+      "max": 48,
+      "min": 32
     },
     "id": "substancecraft:cash"
   },
-  "xp": 3.0
+  "xp": 3
 }

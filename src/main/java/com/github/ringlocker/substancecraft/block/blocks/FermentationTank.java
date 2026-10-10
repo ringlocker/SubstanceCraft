@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class FermentationTank extends GenericMenuBlock<FermentationTankBlockEntity> {
 
     public FermentationTank(Properties properties) {
-        super(properties, simpleCodec(FermentationTank::new), Shapes.block());
+        super(properties, Shapes.block());
     }
 
     @Override

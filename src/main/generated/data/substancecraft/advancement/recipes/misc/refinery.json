@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:refinery"
+        "recipes": "substancecraft:refinery"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -12,6 +12,7 @@ import net.minecraft.data.BlockFamily;
 import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -40,14 +41,17 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 import java.util.HashMap;
-import java.util.Optional;
 import java.util.function.Function;
 
 public class SubstanceCraftBlocks {
 
     private static final HashMap<Block, Item> BLOCK_ITEMS = new HashMap<>();
 
-    private static final TreeGrower MIMOSA_HOSTILIS = new TreeGrower("mimosa_hostilis_tree_grower", Optional.empty(), Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis"))), Optional.empty());
+    private static final TreeGrower MIMOSA_HOSTILIS = new TreeGrower("mimosa_hostilis_tree_grower",
+            WeightedList.of(ResourceKey.create(Registries.FEATURE, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mimosa_hostilis"))),
+            WeightedList.of(),
+            WeightedList.of(),
+            null);
     public static final BlockSetType MIMOSA = new BlockSetType("mimosa");
 
     public static final Block MARIJUANA_PLANT = register(SubstanceCraftBlockItemIds.MARIJUANA_PLANT, MarijuanaPlant::new, genericBush());
@@ -73,9 +77,9 @@ public class SubstanceCraftBlocks {
     public static final Block LIMESTONE = register(SubstanceCraftBlockItemIds.LIMESTONE, Block::new, genericRock(MapColor.SAND));
     public static final Block PHOSPHORITE = register(SubstanceCraftBlockItemIds.PHOSPHORITE, Block::new, genericRock());
     public static final Block GRAPEVINE = register(SubstanceCraftBlockItemIds.GRAPEVINE, Grapevine::new, genericBush());
-    public static final Block PSILOCYBIN = registerPlaceableDrug(SubstanceCraftBlockItemIds.PSILOCYBIN, PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_1);
-    public static final Block PEYOTE_CACTUS = register(SubstanceCraftBlockItemIds.PEYOTE_CACTUS, PeyoteCactus::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.4F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY));
-    public static final Block PALE_PSILOCYBIN = registerPlaceableDrug(SubstanceCraftBlockItemIds.PALE_PSILOCYBIN, PotentPsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.DESTROY), Drug.PSILOCYBIN_2);
+    public static final Block PSILOCYBIN = registerPlaceableDrug(SubstanceCraftBlockItemIds.PSILOCYBIN, PsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.POPPED), Drug.PSILOCYBIN_1);
+    public static final Block PEYOTE_CACTUS = register(SubstanceCraftBlockItemIds.PEYOTE_CACTUS, PeyoteCactus::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.4F).sound(SoundType.WOOL).pushReaction(PushReaction.POPPED));
+    public static final Block PALE_PSILOCYBIN = registerPlaceableDrug(SubstanceCraftBlockItemIds.PALE_PSILOCYBIN, PotentPsilocybinMushroom::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).postProcess(SubstanceCraftBlocks::postProcessSelf).pushReaction(PushReaction.POPPED), Drug.PSILOCYBIN_2);
     public static final Block CHEMIST_WORKSTATION = register(SubstanceCraftBlockItemIds.CHEMIST_WORKSTATION, Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SMITHING_TABLE));
     public static final Block PLANT_RESEARCH_STATION = register(SubstanceCraftBlockItemIds.PLANT_RESEARCH_STATION, Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.FLETCHING_TABLE));
     public static final Block MIMOSA_HOSTILIS_LOG = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_LOG, RotatedPillarBlock::new, logProperties(MapColor.PODZOL, MapColor.COLOR_BROWN, SoundType.WOOD));
@@ -83,16 +87,16 @@ public class SubstanceCraftBlocks {
     public static final Block MIMOSA_HOSTILIS_PLANKS = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_PLANKS, Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS));
     public static final Block MIMOSA_HOSTILIS_STAIRS = registerStair(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_STAIRS, MIMOSA_HOSTILIS_PLANKS);
     public static final Block MIMOSA_HOSTILIS_SLAB = registerSlab(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_SLAB, MIMOSA_HOSTILIS_PLANKS);
-    public static final Block MIMOSA_HOSTILIS_BUTTON = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_BUTTON, p -> new ButtonBlock(MIMOSA, 30, p), BlockBehaviour.Properties.of().noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY));
+    public static final Block MIMOSA_HOSTILIS_BUTTON = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_BUTTON, p -> new ButtonBlock(MIMOSA, 30, p), BlockBehaviour.Properties.of().noCollision().strength(0.5F).pushReaction(PushReaction.POPPED));
     public static final Block MIMOSA_HOSTILIS_FENCE = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_FENCE, FenceBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE).mapColor(MIMOSA_HOSTILIS_PLANKS.defaultMapColor()));
     public static final Block MIMOSA_HOSTILIS_FENCE_GATE = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_FENCE_GATE,  p -> new FenceGateBlock(WoodType.OAK, p), BlockBehaviour.Properties.of().mapColor(MIMOSA_HOSTILIS_PLANKS.defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava());
     public static final Block MIMOSA_HOSTILIS_WALL = registerWall(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_WALL, MIMOSA_HOSTILIS_PLANKS);
-    public static final Block MIMOSA_HOSTILIS_PRESSURE_PLATE = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_PRESSURE_PLATE,  p -> new PressurePlateBlock(BlockSetType.CRIMSON, p), BlockBehaviour.Properties.of().mapColor(MIMOSA_HOSTILIS_PLANKS.defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollision().strength(0.5F).pushReaction(PushReaction.DESTROY));
+    public static final Block MIMOSA_HOSTILIS_PRESSURE_PLATE = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_PRESSURE_PLATE,  p -> new PressurePlateBlock(BlockSetType.CRIMSON, p), BlockBehaviour.Properties.of().mapColor(MIMOSA_HOSTILIS_PLANKS.defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollision().strength(0.5F).pushReaction(PushReaction.POPPED));
     public static final Block STRIPPED_MIMOSA_HOSTILIS_WOOD = register(SubstanceCraftBlockItemIds.STRIPPED_MIMOSA_HOSTILIS_WOOD, RotatedPillarBlock::new, logProperties(MapColor.PODZOL, MapColor.COLOR_BROWN, SoundType.WOOD));
-    public static final Block MIMOSA_HOSTILIS_LEAVES = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_LEAVES, properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
+    public static final Block MIMOSA_HOSTILIS_LEAVES = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_LEAVES, properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).ignitedByLava().pushReaction(PushReaction.POPPED).isRedstoneConductor(Blocks::never));
     public static final Block STRIPPED_MIMOSA_HOSTILIS_LOG = register(SubstanceCraftBlockItemIds.STRIPPED_MIMOSA_HOSTILIS_LOG, RotatedPillarBlock::new, logProperties(MapColor.PODZOL, MapColor.COLOR_BROWN, SoundType.WOOD));
-    public static final Block MIMOSA_HOSTILIS_SAPLING = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_SAPLING, properties -> new SaplingBlock(MIMOSA_HOSTILIS, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
-    public static final Block POTTED_MIMOSA_HOSTILIS_SAPLING = register(SubstanceCraftBlockItemIds.POTTED_MIMOSA_HOSTILIS_SAPLING, properties -> new FlowerPotBlock(MIMOSA_HOSTILIS_SAPLING, properties), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
+    public static final Block MIMOSA_HOSTILIS_SAPLING = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_SAPLING, properties -> new SaplingBlock(MIMOSA_HOSTILIS, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.POPPED));
+    public static final Block POTTED_MIMOSA_HOSTILIS_SAPLING = register(SubstanceCraftBlockItemIds.POTTED_MIMOSA_HOSTILIS_SAPLING, properties -> new FlowerPotBlock(MIMOSA_HOSTILIS_SAPLING, properties), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.POPPED));
     public static final Block MIMOSA_HOSTILIS_ROOT = register(SubstanceCraftBlockItemIds.MIMOSA_HOSTILIS_ROOT, MimosaHostilisRoot::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_ROOTS));
     public static final Block STRIPPED_MIMOSA_HOSTILIS_ROOT = register(SubstanceCraftBlockItemIds.STRIPPED_MIMOSA_HOSTILIS_ROOT, RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_ROOTS));
     public static final Block BAUXITE_ORE = register(SubstanceCraftBlockItemIds.BAUXITE_ORE, Block::new, genericOre());
@@ -185,15 +189,15 @@ public class SubstanceCraftBlocks {
     }
 
     private static BlockBehaviour.Properties genericCrop() {
-        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.POPPED);
     }
 
     private static BlockBehaviour.Properties genericBush() {
-        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY);
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.POPPED);
     }
 
     private static BlockBehaviour.Properties genericFlower() {
-        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().pushReaction(PushReaction.DESTROY);
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().pushReaction(PushReaction.POPPED);
     }
 
     public static void registerBlocks() {

@@ -1,5 +1,5 @@
 {
-  "amount": 1.0,
+  "amount": 1,
   "random_sequence": "substancecraft:trade_set/sell_rare_crop",
   "trades": "#substancecraft:sell_rare_crop"
 }

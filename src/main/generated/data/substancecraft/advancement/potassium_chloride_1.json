@@ -7,7 +7,6 @@
   },
   "display": {
     "announce_to_chat": false,
-    "background": "minecraft:block/iron_block",
     "description": "Extract",
     "icon": {
       "id": "substancecraft:potassium_chloride"

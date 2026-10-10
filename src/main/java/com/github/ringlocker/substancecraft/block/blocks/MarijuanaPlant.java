@@ -1,17 +1,14 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 
 public class MarijuanaPlant extends TwoBlockTallPlant {
 
-    public static final MapCodec<MarijuanaPlant> CODEC = simpleCodec(MarijuanaPlant::new);
     public static final IntegerProperty AGE_PROPERTY = BlockStateProperties.AGE_7;
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[] {
@@ -32,11 +29,6 @@ public class MarijuanaPlant extends TwoBlockTallPlant {
         setAgeAfterHarvest(2);
         setBreakToHarvest(false);
         setRequiresFarmland(false);
-    }
-
-    @Override
-    public @NotNull MapCodec<MarijuanaPlant> codec() {
-        return CODEC;
     }
 
     @Override

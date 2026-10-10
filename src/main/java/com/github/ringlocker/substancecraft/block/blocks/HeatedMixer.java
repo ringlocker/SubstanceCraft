@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class HeatedMixer extends GenericMenuBlock<HeatedMixerBlockEntity> {
 
     public HeatedMixer(Properties properties) {
-        super(properties, simpleCodec(HeatedMixer::new), Shapes.block());
+        super(properties, Shapes.block());
     }
 
     @Override

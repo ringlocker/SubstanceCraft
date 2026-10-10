@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:n_n_dimethyltryptamine_pen"
+        "recipes": "substancecraft:n_n_dimethyltryptamine_pen"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

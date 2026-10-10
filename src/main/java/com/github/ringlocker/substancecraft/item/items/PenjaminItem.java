@@ -7,6 +7,7 @@ import com.github.ringlocker.substancecraft.util.particle.Smoke;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -57,8 +58,8 @@ public class PenjaminItem extends Item {
             );
 
             if (itemStack.getDamageValue() >= itemStack.getMaxDamage()) {
-                livingEntity.drop(new ItemStack(SubstanceCraftItems.EMPTY_CART), true, false);
-                livingEntity.drop(new ItemStack(SubstanceCraftItems.PEN_BATTERY), true, false);
+                livingEntity.drop(new ItemStack(SubstanceCraftItems.EMPTY_CART), true, Prediction.PREDICTED);
+                livingEntity.drop(new ItemStack(SubstanceCraftItems.PEN_BATTERY), true, Prediction.PREDICTED);
                 return new ItemStack(Items.AIR);
             }
 
@@ -67,8 +68,8 @@ public class PenjaminItem extends Item {
         }
 
         if (itemStack.getDamageValue() >= itemStack.getMaxDamage()) {
-            livingEntity.drop(new ItemStack(SubstanceCraftItems.EMPTY_CART), true, false);
-            livingEntity.drop(new ItemStack(SubstanceCraftItems.PEN_BATTERY), true, false);
+            livingEntity.drop(new ItemStack(SubstanceCraftItems.EMPTY_CART), true, Prediction.PREDICTED);
+            livingEntity.drop(new ItemStack(SubstanceCraftItems.PEN_BATTERY), true, Prediction.PREDICTED);
             return new ItemStack(Items.AIR);
         }
 

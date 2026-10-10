@@ -1,8 +1,6 @@
 package com.github.ringlocker.substancecraft.block.blocks;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -11,7 +9,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class Grapevine extends TwoBlockTallPlant {
 
-    public static final MapCodec<Grapevine> CODEC = simpleCodec(Grapevine::new);
     public static final IntegerProperty AGE_PROPERTY = BlockStateProperties.AGE_7;
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[] {
@@ -31,11 +28,6 @@ public class Grapevine extends TwoBlockTallPlant {
         setOneBlockMaxAge(4);
         setMaxBonemealGrowAmount(2);
         setRequiresFarmland(false);
-    }
-
-    @Override
-    protected MapCodec<? extends VegetationBlock> codec() {
-        return CODEC;
     }
 
     @Override

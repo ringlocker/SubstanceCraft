@@ -1,5 +1,4 @@
 accessWidener v2 official
 
-accessible method net/minecraft/client/renderer/GameRenderer setPostEffect (Lnet/minecraft/resources/Identifier;)V
 accessible field net/minecraft/client/renderer/PostChain passes Ljava/util/List;
 accessible field net/minecraft/client/renderer/PostPass customUniforms Ljava/util/Map;

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:live_resin_pen"
+        "recipes": "substancecraft:live_resin_pen"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

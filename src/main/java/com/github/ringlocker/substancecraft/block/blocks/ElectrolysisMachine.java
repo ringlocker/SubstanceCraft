@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 public class ElectrolysisMachine extends GenericMenuBlock<ElectrolysisMachineBlockEntity> {
 
     public ElectrolysisMachine(Properties settings) {
-        super(settings, simpleCodec(ElectrolysisMachine::new), Shapes.block());
+        super(settings, Shapes.block());
         this.registerDefaultState(this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
     }
 

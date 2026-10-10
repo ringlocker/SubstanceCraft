@@ -42,7 +42,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
     @Override
     public void generateAdvancement(HolderLookup.@NotNull Provider provider, @NotNull Consumer<AdvancementHolder> writer) {
         AdvancementHolder welcome = Advancement.Builder.advancement()
-                .display(
+                .rootDisplay(
                         SubstanceCraftItems.MARIJUANA_TRIM,
                         Component.literal("SubstanceCraft"),
                         Component.literal("You may find useful information in advancement descriptions"),
@@ -53,7 +53,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         false
                 )
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
-                .save(writer, SubstanceCraft.MOD_ID + ":welcome");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "welcome"));
 
         addNaturalResources(writer, welcome);
         addAgriculture(writer, welcome);
@@ -69,15 +69,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         Blocks.IRON_ORE.asItem(),
                         Component.literal("Natural Resources"),
                         Component.literal("Look at advancement descriptions for where to find each resource"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
-                .save(writer, SubstanceCraft.MOD_ID + ":natural_resources");
-
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "natural_resources"));
 
         Advancement.Builder.advancement()
                 .parent(naturalResources)
@@ -85,14 +83,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OIL_SHALE),
                         Component.literal("Freedom"),
                         Component.literal("Oil Shale is found under deep oceans between y=-48 and y=16"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_oil", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.OIL_SHALE))
-                .save(writer, SubstanceCraft.MOD_ID + ":oil");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "oil"));
 
         Advancement.Builder.advancement()
                 .parent(naturalResources)
@@ -100,14 +97,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HALITE),
                         Component.literal("Halite"),
                         Component.literal("Halite is found under oceans between y=0 and y=48 and any anywhere in dripstone caves"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_halite", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.HALITE))
-                .save(writer, SubstanceCraft.MOD_ID + ":halite");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "halite"));
 
         Advancement.Builder.advancement()
                 .parent(naturalResources)
@@ -115,14 +111,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SYLVITE),
                         Component.literal("Sylvite"),
                         Component.literal("Sylvite is found in deserts and badlands between y=8 and y=96"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_sylvite", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.SYLVITE))
-                .save(writer, SubstanceCraft.MOD_ID + ":sylvite");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "sylvite"));
 
         Advancement.Builder.advancement()
                 .parent(naturalResources)
@@ -130,14 +125,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.SULFUR_ORE),
                         Component.literal("Sulfur"),
                         Component.literal("Sulfur is found underground between y=-64 and y=16"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_sulfur", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.SULFUR))
-                .save(writer, SubstanceCraft.MOD_ID + ":sulfur");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "sulfur"));
 
         Advancement.Builder.advancement()
                 .parent(naturalResources)
@@ -145,14 +139,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.TRONA_ORE),
                         Component.literal("Trona"),
                         Component.literal("Trona is found underground between y=0 and y=72"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_trona", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.TRONA))
-                .save(writer, SubstanceCraft.MOD_ID + ":trona");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "trona"));
 
         Advancement.Builder.advancement()
                 .parent(naturalResources)
@@ -160,14 +153,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.PYROLUSITE_ORE),
                         Component.literal("Pyrolusite"),
                         Component.literal("Pyrolusite is found underground between y=0 and y=72"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_pyrolusite", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.PYROLUSITE))
-                .save(writer, SubstanceCraft.MOD_ID + ":pyrolusite");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "pyrolusite"));
 
     }
 
@@ -178,14 +170,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         Items.WHEAT_SEEDS,
                         Component.literal("Agriculture"),
                         Component.literal("Look at advancement descriptions for useful information"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
-                .save(writer, SubstanceCraft.MOD_ID + ":agriculture");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "agriculture"));
 
         Advancement.Builder.advancement()
                 .parent(agriculture)
@@ -193,14 +184,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftItems.MARIJUANA_TRIM,
                         Component.literal("Marijuana"),
                         Component.literal("Marijuana can naturally occur in jungle biomes and marijuana seeds can be found in jungle pyramid chests. Harvested by right clicking, grows faster on farmland"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_weed", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.MARIJUANA))
-                .save(writer, SubstanceCraft.MOD_ID + ":weed");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "weed"));
 
         Advancement.Builder.advancement()
                 .parent(agriculture)
@@ -208,14 +198,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftItems.COCA_LEAVES,
                         Component.literal("Coca Plant"),
                         Component.literal("Coca Plants can naturally occur in jungle biomes. Harvested by right clicking, grows twice as fast on farmland"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_coca", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.COCA_LEAVES))
-                .save(writer, SubstanceCraft.MOD_ID + ":coca");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "coca"));
 
         Advancement.Builder.advancement()
                 .parent(agriculture)
@@ -223,14 +212,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftItems.CORN,
                         Component.literal("Corn"),
                         Component.literal("Corn seeds can be found in some village chests"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_corn", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftItems.CORN))
-                .save(writer, SubstanceCraft.MOD_ID + ":corn");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "corn"));
     }
 
     private static void addWorkstations(Consumer<AdvancementHolder> writer, AdvancementHolder parent) {
@@ -240,14 +228,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         Blocks.CRAFTING_TABLE.asItem(),
                         Component.literal("Workstations"),
                         Component.literal("Look at advancement descriptions for useful information"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("free", PlayerTrigger.TriggerInstance.tick())
-                .save(writer, SubstanceCraft.MOD_ID + ":workstations");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "workstations"));
 
         Advancement.Builder.advancement()
                 .parent(workstations)
@@ -255,14 +242,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HASH_PRESS),
                         Component.literal("Hash Press"),
                         Component.literal("Used for pressing hash. Crafted with 1 redstone block, 1 piston, and 5 smooth stone slabs"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_hash_press", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HASH_PRESS)))
-                .save(writer, SubstanceCraft.MOD_ID + ":hash_press");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "hash_press"));
 
         Advancement.Builder.advancement()
                 .parent(workstations)
@@ -270,14 +256,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY),
                         Component.literal("Refinery"),
                         Component.literal("Used for refining substances. Crafted with 5 copper blocks, 1 cauldron, and 3 iron ingots"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_refinery", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.REFINERY)))
-                .save(writer, SubstanceCraft.MOD_ID + ":refinery");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "refinery"));
 
         Advancement.Builder.advancement()
                 .parent(workstations)
@@ -285,14 +270,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIXER),
                         Component.literal("Mixer"),
                         Component.literal("Used for mixing substances. Crafted with 4 copper blocks, 1 cauldron, 3 iron ingots, and 1 iron shovel"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_mixer", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.MIXER)))
-                .save(writer, SubstanceCraft.MOD_ID + ":mixer");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "mixer"));
 
         Advancement.Builder.advancement()
                 .parent(workstations)
@@ -300,14 +284,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HEATED_MIXER),
                         Component.literal("Heated Mixer"),
                         Component.literal("Used for mixing substances with heat. Crafted with 4 copper blocks, 1 cauldron, 2 iron ingots, 1 iron shovel, and 1 lava bucket"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_heated_mixer", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.HEATED_MIXER)))
-                .save(writer, SubstanceCraft.MOD_ID + ":heated_mixer");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "heated_mixer"));
 
 
         Advancement.Builder.advancement()
@@ -316,14 +299,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE),
                         Component.literal("Oxidizer"),
                         Component.literal("Used for oxidizing substances. Crafted with 4 copper blocks, 1 cauldron, and 4 iron ingots"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_oxidizer", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.OXIDATION_MACHINE)))
-                .save(writer, SubstanceCraft.MOD_ID + ":oxidizer");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "oxidizer"));
 
         Advancement.Builder.advancement()
                 .parent(workstations)
@@ -331,14 +313,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR),
                         Component.literal("Extractor"),
                         Component.literal("Used for extracting substances. Crafted with 4 copper blocks, 1 cauldron, 1 hopper, and 3 iron ingots"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_extractor", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.EXTRACTOR)))
-                .save(writer, SubstanceCraft.MOD_ID + ":extractor");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "extractor"));
 
         Advancement.Builder.advancement()
                 .parent(workstations)
@@ -346,14 +327,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE),
                         Component.literal("Electrolysis Machine"),
                         Component.literal("Used for electrolysis reactions with substances. Crafted with 4 copper blocks, 1 cauldron, 2 redstone, 1 lever, and 1 iron ingot"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_electrolysis_machine", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.ELECTROLYSIS_MACHINE)))
-                .save(writer, SubstanceCraft.MOD_ID + ":electrolysis_machine");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "electrolysis_machine"));
 
         Advancement.Builder.advancement()
                 .parent(workstations)
@@ -361,14 +341,13 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK),
                         Component.literal("Fermentation Tank"),
                         Component.literal("Used for fermenting substances. Crafted with 4 copper blocks, 1 cauldron, and 4 iron ingots"),
-                        null,
                         AdvancementType.TASK,
                         false,
                         false,
                         false
                 )
                 .addCriterion("got_fermentation_tank", InventoryChangeTrigger.TriggerInstance.hasItems(SubstanceCraftBlocks.getBlockItem(SubstanceCraftBlocks.FERMENTATION_TANK)))
-                .save(writer, SubstanceCraft.MOD_ID + ":fermentation_tank");
+                .save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "fermentation_tank"));
 
     }
 
@@ -411,12 +390,16 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         ByproductRecipe recipe = getRecipeForItem(toSynthesize);
         Component recipeType = recipe == null ? Component.literal("") : recipe.getLabel();
 
-        Advancement.Builder itemAdvancement = Advancement.Builder.advancement()
-                .display(toSynthesize, getNameFromItem(toSynthesize, isCatalyst), recipeType, Identifier.withDefaultNamespace("block/iron_block"), AdvancementType.TASK, false, false, false)
-                .addCriterion("free", PlayerTrigger.TriggerInstance.tick());
+        Advancement.Builder itemAdvancement = Advancement.Builder.advancement();
+        if (parent == null) {
+            itemAdvancement.rootDisplay(toSynthesize, getNameFromItem(toSynthesize, isCatalyst), recipeType, Identifier.withDefaultNamespace("block/iron_block"), AdvancementType.TASK, false, false, false);
+        } else {
+            itemAdvancement.display(toSynthesize, getNameFromItem(toSynthesize, isCatalyst), recipeType, AdvancementType.TASK, false, false, false);
+        }
+        itemAdvancement.addCriterion("free", PlayerTrigger.TriggerInstance.tick());
 
         if (parent != null) itemAdvancement.parent(parent);
-        AdvancementHolder advancement = itemAdvancement.save(writer, SubstanceCraft.MOD_ID + ":" + createKey(toSynthesize, counts));
+        AdvancementHolder advancement = itemAdvancement.save(writer, Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, createKey(toSynthesize, counts)));
 
         if (recipe == null) return;
 

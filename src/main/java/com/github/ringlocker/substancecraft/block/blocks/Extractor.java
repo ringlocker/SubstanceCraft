@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class Extractor extends GenericMenuBlock<ExtractorBlockEntity> {
 
     public Extractor(Properties properties) {
-        super(properties, simpleCodec(Extractor::new), Shapes.block());
+        super(properties, Shapes.block());
     }
 
     @Override

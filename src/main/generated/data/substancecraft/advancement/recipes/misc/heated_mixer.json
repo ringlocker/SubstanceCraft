@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:heated_mixer"
+        "recipes": "substancecraft:heated_mixer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,8 +1,5 @@
 #version 330
-
-uniform sampler2D InSampler;
-
-in vec2 texCoord;
+#extension GL_ARB_separate_shader_objects : require
 
 layout(std140) uniform SamplerInfo {
     vec2 OutSize;
@@ -27,7 +24,11 @@ layout(std140) uniform Config {
     float doubleVisionStretch;
 };
 
-out vec4 fragColor;
+uniform sampler2D InSampler;
+
+layout(location = 0) in vec2 texCoord;
+
+layout(location = 0) out vec4 fragColor;
 
 const vec3 gray = vec3(0.3, 0.59, 0.11);
 const float saturationConst = 0.95;

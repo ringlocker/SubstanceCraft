@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:mimosa_hostilis_fence_gate"
+        "recipes": "substancecraft:mimosa_hostilis_fence_gate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

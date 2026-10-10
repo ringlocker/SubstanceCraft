@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 public class Refinery extends GenericMenuBlock<RefineryBlockEntity> {
 
     public Refinery(Properties properties) {
-        super(properties, simpleCodec(Refinery::new), null);
+        super(properties, null);
     }
 
     @Nullable

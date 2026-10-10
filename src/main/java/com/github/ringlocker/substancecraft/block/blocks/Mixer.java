@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class Mixer extends GenericMenuBlock<MixerBlockEntity> {
 
     public Mixer(Properties properties) {
-        super(properties, simpleCodec(Mixer::new), Shapes.block());
+        super(properties, Shapes.block());
     }
 
     @Override

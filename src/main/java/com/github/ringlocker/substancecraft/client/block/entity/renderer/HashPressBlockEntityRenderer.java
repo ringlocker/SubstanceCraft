@@ -4,6 +4,7 @@ import com.github.ringlocker.substancecraft.block.entity.entities.HashPressBlock
 import com.github.ringlocker.substancecraft.client.block.entity.renderer.renderstates.InputOutputBlockEntityRenderState;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import com.mojang.math.Transformation;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.SubmitNodeCollector;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Matrix4f;
 
 @Environment(EnvType.CLIENT)
 public class HashPressBlockEntityRenderer implements BlockEntityRenderer<HashPressBlockEntity, InputOutputBlockEntityRenderState> {
@@ -49,7 +51,7 @@ public class HashPressBlockEntityRenderer implements BlockEntityRenderer<HashPre
             matrices.pushPose();
             matrices.translate(0.5f, 0.95f, 0.5f);
             matrices.scale(0.35f, 0.35f, 0.35f);
-            matrices.mulPose(Axis.XP.rotationDegrees(90));
+            matrices.mulPose(new Transformation(new Matrix4f().translation(0.5F, 0.0F, 0.5F).rotate(Axis.XP.rotationDegrees(90))));
             itemStackRenderState.submit(matrices, submitNodeCollector, renderState.lightCoords, OverlayTexture.NO_OVERLAY, 0);
             matrices.popPose();
         }

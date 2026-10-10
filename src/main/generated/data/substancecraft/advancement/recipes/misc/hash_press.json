@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:hash_press"
+        "recipes": "substancecraft:hash_press"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "substancecraft:oxidizer"
+        "recipes": "substancecraft:oxidizer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
