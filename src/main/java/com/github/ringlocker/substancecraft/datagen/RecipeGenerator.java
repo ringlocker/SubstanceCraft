@@ -1254,6 +1254,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 HeatedMixerRecipeBuilder.mix(
                                 List.of(Ingredient.of(SubstanceCraftItems.SULFUR), Ingredient.of(SubstanceCraftItems.DISTILLED_WATER), Ingredient.of(SubstanceCraftItems.OXYGEN)),
                                 SubstanceCraftItems.SULFURIC_ACID,
+                                new ItemStackTemplate(SubstanceCraftItems.VANADIUM_PENTOXIDE),
                                 800
                         )
                         .unlockedBy("has_item", has(SubstanceCraftItems.SULFUR))

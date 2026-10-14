@@ -99,13 +99,7 @@ public class ModelGenerator extends FabricModelProvider {
         for (int i = 0; i <= ages.getPossibleValues().getLast(); i++) {
             variants.select(i, BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(Identifier.fromNamespaceAndPath(SubstanceCraft.MOD_ID, "block/" + modelName + i))));
         }
-        blockStateModelGenerator.blockStateOutput
-                .accept(
-                        MultiVariantGenerator.dispatch(block)
-                                .with(
-                                        variants
-                                )
-                );
+        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(variants));
     }
 
     private void generateSubstanceItem(SubstanceItem substance, ItemModelGenerators itemModelGenerator) {

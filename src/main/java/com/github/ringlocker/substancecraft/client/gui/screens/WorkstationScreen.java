@@ -67,6 +67,7 @@ public abstract class WorkstationScreen<
     protected static final int PROGRESS_ARROW_Y = 30;
     protected static final int PROGRESS_ARROW_SHORT_Y = 48;
     protected static final int PROGRESS_ARROW_BACKGROUND_WIDTH = 7;
+    protected static final int PROGRESS_ARROW_WIDTH = 8;
     protected static final int PROGRESS_ARROW_HEIGHT = 26;
     protected static final int SHORT_PROGRESS_ARROW_HEIGHT = 8;
 
@@ -152,6 +153,9 @@ public abstract class WorkstationScreen<
         }
         if (recipe.hasCatalyst()) {
             guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, CATALYST_SLOT_SPRITE, leftPos + CATALYST_X, topPos + CATALYST_Y, SLOT_WIDTH, SLOT_HEIGHT);
+        }
+        for (int i = 0; i < recipe.getByproducts().size(); i++) {
+            guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, SLOT_SPRITE, leftPos + OUTPUT_X + (SLOT_WIDTH * (i + 1)), topPos + OUTPUT_Y, SLOT_WIDTH, SLOT_HEIGHT);
         }
     }
 
@@ -268,12 +272,12 @@ public abstract class WorkstationScreen<
         if (recipe.getInputs().size() < 5) {
             context.blitSprite(RenderPipelines.GUI_TEXTURED, ARROW_BACKGROUND, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, PROGRESS_ARROW_BACKGROUND_WIDTH, PROGRESS_ARROW_HEIGHT);
             if (menu.isCrafting()) {
-                context.blitSprite(RenderPipelines.GUI_TEXTURED, ARROW, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, 8, menu.getScaledProgress());
+                context.blitSprite(RenderPipelines.GUI_TEXTURED, ARROW, PROGRESS_ARROW_WIDTH, PROGRESS_ARROW_HEIGHT, 0, 0, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, PROGRESS_ARROW_BACKGROUND_WIDTH, menu.getScaledProgress());
             }
         } else {
             context.blitSprite(RenderPipelines.GUI_TEXTURED, SHORT_ARROW_BACKGROUND, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_SHORT_Y, PROGRESS_ARROW_BACKGROUND_WIDTH, SHORT_PROGRESS_ARROW_HEIGHT);
             if (menu.isCrafting()) {
-                context.blitSprite(RenderPipelines.GUI_TEXTURED, SHORT_ARROW, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, 8, menu.getScaledProgress());
+                context.blitSprite(RenderPipelines.GUI_TEXTURED, SHORT_ARROW, PROGRESS_ARROW_WIDTH, PROGRESS_ARROW_HEIGHT, 0, 0, x + PROGRESS_ARROW_X, y + PROGRESS_ARROW_Y, PROGRESS_ARROW_BACKGROUND_WIDTH, menu.getScaledProgress());
             }
         }
     }
